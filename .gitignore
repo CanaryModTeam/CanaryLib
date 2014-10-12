@@ -1,15 +1,9 @@
-*.class
-*.svn
-.svn
-.project
-.classpath
-*.jardesc
-*.jar
-/target/
-*.prefs
-*.sw?
-/bin
-/docs
-/.idea/
-*.iml
-*.sh
+# Ignore everything
+/*
+/*/
+
+# Except These
+!/README
+!/.gitignore
+!/pom.xml
+!/src/
