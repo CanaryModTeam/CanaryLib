@@ -140,6 +140,16 @@
             <groupId>org.luaj</groupId>
             <artifactId>luaj-jse</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>clojure</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>tools.nrepl</artifactId>
+            <version>0.2.5</version>
+        </dependency>
         <!-- Runtime Dependencies -->
         <dependency>
             <groupId>org.xerial</groupId>

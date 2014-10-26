@@ -26,6 +26,9 @@ public class PluginLifecycleFactory {
         }
         else if (language.equals("lua")) {
             return new LuaPluginLifecycle(pluginDescriptor);
+        } else if (language.equals("clojure")) {
+            // TODO: replace with generic implementation
+            return new ClojurePluginLifecycle(pluginDescriptor);
         }
         throw new InvalidPluginException("Unknown plugin language: " + language);
     }
