@@ -6,11 +6,8 @@ import java.lang.annotation.Annotation;
 
 /**
 * *******************************
-*
-* @author: dan@119labs.com
-* @created: 10/26/14
-* <p/>
-* see www.119labs.com
+* Value object to hold clojure command meta information (avoiding annotations)
+* @author DanThiffault
 * ********************************
 */
 public class ClojureCommandMeta implements Command {
