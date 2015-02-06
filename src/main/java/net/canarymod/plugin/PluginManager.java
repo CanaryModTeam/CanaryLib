@@ -113,4 +113,18 @@ public interface PluginManager {
      * @return List of known plugin names
      */
     Collection<String> getPluginNames();
+    
+    /**
+     * Sets the directory where the plugins are read
+     * 
+     * @param path The Plugin folder path
+     */
+    void setPluginPath(String path);
+    
+    /**
+     * Gets the directory where the plugins are read
+     * 
+     * @return the Plugin folder path
+     */
+    String getPluginPath();
 }
