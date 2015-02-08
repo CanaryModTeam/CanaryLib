@@ -26,6 +26,7 @@ public class Kick implements NativeCommand {
                 if (caller.getReceiverType().equals(ReceiverType.PLAYER)) {
                     Player c = (Player) caller;
                     if (!c.getGroup().hasControlOver(player.getGroup())) {
+                        sendTranslatedNotice(caller, "kick nocontrol");
                         continue;
                     }
                 }
