@@ -36,6 +36,7 @@ import java.util.Map;
 
 import static net.canarymod.commandsys.CanaryCommandPermissions.*;
 import static net.canarymod.commandsys.TabCompleteHelper.*;
+import net.canarymod.commandsys.commands.player.GameModeCommand;
 
 /**
  * Canary "native" commands
