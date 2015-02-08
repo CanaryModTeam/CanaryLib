@@ -17,6 +17,7 @@ import net.canarymod.commandsys.commands.groupmod.GroupRename;
 import net.canarymod.commandsys.commands.player.Compass;
 import net.canarymod.commandsys.commands.player.GetPosition;
 import net.canarymod.commandsys.commands.player.GodCommand;
+import net.canarymod.commandsys.commands.player.GameModeCommand;
 import net.canarymod.commandsys.commands.playermod.PlayerCreate;
 import net.canarymod.commandsys.commands.playermod.PlayerGroupAdd;
 import net.canarymod.commandsys.commands.playermod.PlayerGroupCheck;
@@ -78,7 +79,6 @@ import net.canarymod.commandsys.commands.vanilla.Enchant;
 import net.canarymod.commandsys.commands.vanilla.EntityData;
 import net.canarymod.commandsys.commands.vanilla.Execute;
 import net.canarymod.commandsys.commands.vanilla.Fill;
-import net.canarymod.commandsys.commands.vanilla.GameMode;
 import net.canarymod.commandsys.commands.vanilla.GameRule;
 import net.canarymod.commandsys.commands.vanilla.Give;
 import net.canarymod.commandsys.commands.vanilla.Kill;
@@ -297,6 +297,7 @@ public class CommandList implements CommandListener {
         temp.put("compass", new Compass());
         temp.put("pos", new GetPosition());
         temp.put("god", new GodCommand());
+        temp.put("gamemode", new GameModeCommand());
 
         /* playermod */
         temp.put("playermod", new PlayermodBase());
@@ -381,7 +382,6 @@ public class CommandList implements CommandListener {
         temp.put("entitydata", new EntityData());
         temp.put("execute", new Execute());
         temp.put("fill", new Fill());
-        temp.put("gamemode", new GameMode());
         temp.put("gamerule", new GameRule());
         temp.put("give", new Give());
         temp.put("kill", new Kill());
@@ -716,6 +716,18 @@ public class CommandList implements CommandListener {
     )
     public void killCommand(MessageReceiver caller, String[] parameters) {
         natives.get("kill").execute(caller, parameters);
+    }
+    
+    @Command(
+            aliases = { "gamemode", "mode" },
+            description = "Sets a player's game mode.",
+            permissions = { GAMEMODE },
+            toolTip = "/gamemode <mode> [player]",
+            min = 1,
+            version = 2
+    )
+    public void gamemode(MessageReceiver caller, String[] args) {
+        natives.get("gamemode").execute(caller, args);
     }
 
     /* playermod start */
@@ -1634,18 +1646,6 @@ public class CommandList implements CommandListener {
     )
     public void fill(MessageReceiver caller, String[] args) {
         natives.get("fill").execute(caller, args);
-    }
-
-    @Command(
-            aliases = { "gamemode", "mode" },
-            description = "Sets a player's game mode.",
-            permissions = { GAMEMODE },
-            toolTip = "/gamemode <mode> [player]",
-            min = 1,
-            version = 2
-    )
-    public void gamemode(MessageReceiver caller, String[] args) {
-        natives.get("gamemode").execute(caller, args);
     }
 
     @Command(
