@@ -6,6 +6,7 @@ import net.canarymod.commandsys.commands.groupmod.*;
 import net.canarymod.commandsys.commands.player.Compass;
 import net.canarymod.commandsys.commands.player.GetPosition;
 import net.canarymod.commandsys.commands.player.GodCommand;
+import net.canarymod.commandsys.commands.player.GameModeCommand;
 import net.canarymod.commandsys.commands.playermod.*;
 import net.canarymod.commandsys.commands.system.*;
 import net.canarymod.commandsys.commands.system.bans.BanCommand;
@@ -36,7 +37,6 @@ import java.util.Map;
 
 import static net.canarymod.commandsys.CanaryCommandPermissions.*;
 import static net.canarymod.commandsys.TabCompleteHelper.*;
-import net.canarymod.commandsys.commands.player.GameModeCommand;
 
 /**
  * Canary "native" commands
