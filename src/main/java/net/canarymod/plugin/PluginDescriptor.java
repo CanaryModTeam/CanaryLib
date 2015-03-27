@@ -33,6 +33,23 @@ public class PluginDescriptor {
             reloadInf();
         }
         catch (UtilityException e) {
+            // Just a sanity check to make sure not a Bukkit plugin
+            try {
+                PropertiesFile bukkitYml = null;
+                File pluginFile = new File(path);
+                if (pluginFile.isFile() && pluginFile.getName().matches(".+\\.(jar|zip)$")) {
+                    bukkitYml = new PropertiesFile(pluginFile.getAbsolutePath(), "plugin.yml");
+                }
+                else if (pluginFile.isDirectory()) {
+                    File confFile = new File(pluginFile, "plugin.yml");
+                    bukkitYml = new PropertiesFile(confFile.getAbsolutePath());
+                }
+                if (bukkitYml != null) {
+                    throw new InvalidPluginException("Bukkit plugins are not support on CanaryMod", e);
+                }
+            } catch (UtilityException ignore) {
+                // Ignore any exception here, nothing to worry about
+            }
             throw new InvalidPluginException("Unable to load INF file", e);
         }
         currentState = PluginState.KNOWN;
