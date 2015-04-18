@@ -2,7 +2,7 @@ package net.canarymod.plugin;
 
 import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
-import org.apache.logging.log4j.Logger;
+import net.canarymod.logger.Logman;
 
 import java.util.Collection;
 
@@ -61,7 +61,7 @@ public interface PluginManager {
      *         libraries there (see the javadoc at
      *         {@link Runtime#addShutdownHook(Thread)})
      */
-    void disableAllPlugins(Logger log);
+    void disableAllPlugins(Logman log);
 
     /**
      * Reload the specified plugin

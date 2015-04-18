@@ -28,7 +28,7 @@
         <viutils>1.4.2</viutils>
         <jdom>2.0.5</jdom>
         <c3p0>0.9.5</c3p0>
-        <log4j>2.0-beta9</log4j>
+        <slf4j>1.7.12</slf4j>
         <guava>15.0</guava>
         <authlib>1.5.17</authlib>
         <jsonSimple>1.1.1</jsonSimple>
@@ -154,9 +154,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j}</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
