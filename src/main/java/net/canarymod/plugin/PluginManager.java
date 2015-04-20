@@ -16,11 +16,11 @@ public interface PluginManager {
      * Enables the given plugin. Loads the plugin if not loaded (and available)
      *
      * @param name
-     *         the name of the {@link net.canarymod.plugin.Plugin}
+     *         the name of the {@link Plugin}
      *
      * @return {@code true} on success, {@code false} on failure
      *
-     * @throws net.canarymod.exceptions.PluginLoadFailedException
+     * @throws PluginLoadFailedException
      *         If an error occurred when attempting to load the plugin.
      */
     boolean enablePlugin(String name) throws PluginLoadFailedException;
@@ -41,7 +41,7 @@ public interface PluginManager {
      * Disables the given plugin
      *
      * @param name
-     *         the name of the {@link net.canarymod.plugin.Plugin}
+     *         the name of the {@link Plugin}
      *
      * @return {@code true} on success, {@code false} on failure
      */
@@ -56,7 +56,7 @@ public interface PluginManager {
      * Disables all plugins, used when shutting down the server.
      *
      * @param log
-     *         The {@link org.apache.logging.log4j.Logger} to use when shutting down. This is
+     *         The {@link Logger} to use when shutting down. This is
      *         necessary when in the shutdown hook, since we can't rely on external
      *         libraries there (see the javadoc at
      *         {@link Runtime#addShutdownHook(Thread)})
@@ -67,6 +67,7 @@ public interface PluginManager {
      * Reload the specified plugin
      *
      * @param name
+     *         the name of the {@link Plugin}
      *
      * @return true on success, false on failure which probably means the plugin is now not enabled nor loaded
      */
@@ -76,6 +77,7 @@ public interface PluginManager {
      * Get the Plugin with specified name.
      *
      * @param name
+     *         the name of the {@link Plugin}
      *
      * @return The plugin for the given name, or null on failure.
      */

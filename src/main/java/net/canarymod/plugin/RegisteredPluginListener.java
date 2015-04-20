@@ -39,7 +39,7 @@ public class RegisteredPluginListener {
     /**
      * Execute the event on the listener registered
      *
-     * @param hook
+     * @param hook the hook to execute
      */
     public void execute(Hook hook) {
         if (hook instanceof CancelableHook) {

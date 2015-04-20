@@ -25,7 +25,7 @@ public final class PluginLangLoader {
     private static boolean loaded;
 
     /**
-     * Scans pluginlangs folder, loads all valid Plugin Language Libraries and registers with {@link net.canarymod.plugin.lifecycle.PluginLifecycleFactory}
+     * Scans pluginlangs folder, loads all valid Plugin Language Libraries and registers with {@link PluginLifecycleFactory}
      */
     public static void load() {
         if (loaded) {
