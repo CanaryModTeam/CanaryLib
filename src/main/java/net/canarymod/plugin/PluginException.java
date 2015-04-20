@@ -1,7 +1,7 @@
 package net.canarymod.plugin;
 
 /*
- * Thrown when an exception occours in a plugin. The exception is wrapped
+ * Thrown when an exception occurs in a plugin. The exception is wrapped
  * in this exception. // TODO Correct?
  *
  * @author Chris (damagefilter)

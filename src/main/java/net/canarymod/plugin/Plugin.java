@@ -11,6 +11,8 @@ import net.canarymod.motd.MOTDOwner;
 import net.canarymod.tasks.TaskOwner;
 import net.visualillusionsent.utils.LocaleHelper;
 import net.visualillusionsent.utils.PropertiesFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -154,9 +156,21 @@ public abstract class Plugin implements CommandOwner, TaskOwner, MOTDOwner {
      * Gets the {@link Logman} for the Plugin
      *
      * @return the Plugin's {@link Logman}
+     *
+     * @deprecated use {@link Plugin#getLogger()} instead
      */
+    @Deprecated
     public Logman getLogman() {
         return Logman.getLogman(getName());
+    }
+
+    /**
+     * Gets the {@link Logger} for the Plugin
+     *
+     * @return the Plugin's {@link Logger}
+     */
+    public Logger getLogger() {
+        return LoggerFactory.getLogger(getName());
     }
 
     /**

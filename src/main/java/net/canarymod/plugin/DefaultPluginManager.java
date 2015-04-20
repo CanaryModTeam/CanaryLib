@@ -197,6 +197,25 @@ public final class DefaultPluginManager implements PluginManager {
      * {@inheritDoc}
      */
     @Override
+    public void disableAllPlugins(org.slf4j.Logger log) {
+        synchronized (lock) {
+            for (String plugin : plugins.keySet()) {
+                try {
+                    if (!disablePlugin(plugin)) {
+                        log.error("Failed to disable plugin: " + plugin);
+                    }
+                }
+                catch (Exception e) {
+                    log.error("Exception while disabling plugin: " + plugin, e);
+                }
+            }
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public boolean reloadPlugin(String name) throws PluginLoadFailedException, InvalidPluginException {
         PluginDescriptor descriptor = getPluginDescriptor(name);
         if (descriptor != null) {

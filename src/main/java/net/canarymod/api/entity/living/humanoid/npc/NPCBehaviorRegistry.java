@@ -19,14 +19,14 @@ public final class NPCBehaviorRegistry {
     private final static ArrayListMultimap<Class<? extends NPCAI>, NPCBehaviorRegisteredListener> registered = ArrayListMultimap.create();
 
     /**
-     * Registers a new {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}
+     * Registers a new {@link NPCBehaviorListener}
      *
-     * @param listner
-     *         the {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener} to be added
+     * @param listener
+     *         the {@link NPCBehaviorListener} to be added
      * @param npc
-     *         the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} associated with the listener
+     *         the {@link NonPlayableCharacter} associated with the listener
      * @param force
-     *         {@code true} to override existing keys if existant; {@code false} to error out on duplicate keys (recommended)
+     *         {@code true} to override existing keys if existent; {@code false} to error out on duplicate keys (recommended)
      */
     public static void registerNPCListener(final NPCBehaviorListener listener, final NonPlayableCharacter npc, final boolean force) {
         synchronized (registered) {
@@ -58,7 +58,7 @@ public final class NPCBehaviorRegistry {
     }
 
     /**
-     * Unregisters a {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}
+     * Unregisters a {@link NPCBehaviorListener}
      *
      * @param listener
      *         the listener to unregister
@@ -77,7 +77,7 @@ public final class NPCBehaviorRegistry {
     }
 
     /**
-     * Unregisters a {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener} using the associated {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter}
+     * Unregisters a {@link NPCBehaviorListener} using the associated {@link NonPlayableCharacter}
      *
      * @param npc
      *         the npc associated with the listener to be unregistered
@@ -146,10 +146,10 @@ public final class NPCBehaviorRegistry {
     }
 
     /**
-     * Parses a NPC AI Event to the {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}s
+     * Parses a NPC AI Event to the {@link NPCBehaviorListener}s
      *
      * @param npc
-     *         the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} the event is called for
+     *         the {@link NonPlayableCharacter} the event is called for
      * @param npcai
      *         the AI event called
      */
@@ -167,7 +167,7 @@ public final class NPCBehaviorRegistry {
                         listener.execute(npcai);
                     }
                     catch (NPCAIExcutionException npcaieex) {
-                        log.error(npcaieex.getCause());
+                        log.error("", npcaieex.getCause());
                     }
                 }
             }

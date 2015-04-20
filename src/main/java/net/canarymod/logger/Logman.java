@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 import org.apache.logging.log4j.message.Message;
 import org.apache.logging.log4j.message.MessageFactory;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -20,7 +21,10 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Jason (darkdiplomat)
  * @author Larry1123
  *         Updated to make use of log4j
+ *
+ * @deprecated use {@link LoggerFactory} instead
  */
+@Deprecated
 public class Logman implements Logger {
     private final static ConcurrentHashMap<String, Logman> loggers = new ConcurrentHashMap<String, Logman>();
     private final Logger logger;

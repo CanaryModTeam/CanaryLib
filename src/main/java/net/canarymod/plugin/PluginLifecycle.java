@@ -9,25 +9,25 @@ import net.canarymod.exceptions.PluginLoadFailedException;
  */
 public interface PluginLifecycle {
     /**
-     * Enables the plugin.
+     * Enables the {@link Plugin}.
      *
-     * @return True if sucessfully enabled, false otherwise.
+     * @return {@code true} if successfully enabled, {@code false} otherwise.
      */
     boolean enable();
 
     /**
-     * Disables the plugin.
+     * Disables the {@link Plugin}.
      *
-     * @return True if successfully disabled, false otherwise.
+     * @return {@code true} if successfully disabled, {@code false} otherwise.
      */
     boolean disable();
 
     /**
-     * Loads the plugin.
+     * Loads the {@link Plugin}.
      *
      * @return Newly loaded plugin.
      *
-     * @throws net.canarymod.exceptions.PluginLoadFailedException
+     * @throws PluginLoadFailedException
      *         If an error occurred loading the plugin.
      */
     Plugin load() throws PluginLoadFailedException;
