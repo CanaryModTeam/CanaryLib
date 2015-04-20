@@ -5,7 +5,7 @@ import net.canarymod.chat.MessageReceiver;
 import net.canarymod.commandsys.NativeCommand;
 import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
-import net.canarymod.logger.Logman;
+import org.slf4j.LoggerFactory;
 
 import static net.canarymod.Translator.sendTranslatedNotice;
 
@@ -51,11 +51,11 @@ public class PluginCommand implements NativeCommand {
         }
         catch (PluginLoadFailedException e) {
             sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
+            LoggerFactory.getLogger("pluginCommand").error("Failed to load plugin", e);
         }
         catch (InvalidPluginException e) {
             sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
+            LoggerFactory.getLogger("pluginCommand").error("Failed to load plugin", e);
         }
     }
 
@@ -70,7 +70,7 @@ public class PluginCommand implements NativeCommand {
         }
         catch (PluginLoadFailedException e) {
             sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
+            LoggerFactory.getLogger("pluginCommand").error("Failed to load plugin", e);
         }
     }
 
