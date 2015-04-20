@@ -46,7 +46,10 @@ public class Logman implements Logger {
      *         the name of the Logger to use
      *
      * @return the Logman instance
+     *
+     * @deprecated use {@link LoggerFactory#getLogger(String)} instead
      */
+    @Deprecated
     public static Logman getLogman(String name) {
         return loggers.containsKey(name) ? loggers.get(name) : new Logman(name);
     }
