@@ -5,7 +5,7 @@ package net.canarymod;
  *
  * @author Jason (darkdiplomat)
  */
-abstract class NativeTranslateBridge {
+public abstract class NativeTranslateBridge {
     protected static NativeTranslateBridge $;
 
     abstract String nativeTranslate(String key);
