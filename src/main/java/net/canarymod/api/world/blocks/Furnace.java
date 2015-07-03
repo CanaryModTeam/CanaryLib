@@ -11,7 +11,7 @@ public interface Furnace extends LockableTileEntity {
      *
      * @return burn time ticks
      */
-    public short getBurnTime();
+    short getBurnTime();
 
     /**
      * Sets the number of ticks the current fuel item has to go.
@@ -19,7 +19,7 @@ public interface Furnace extends LockableTileEntity {
      * @param time
      *         ticks of burning left
      */
-    public void setBurnTime(short time);
+    void setBurnTime(short time);
 
     /**
      * Returns the number of ticks the item to smelt has smolten.
@@ -27,7 +27,7 @@ public interface Furnace extends LockableTileEntity {
      *
      * @return cook time ticks
      */
-    public short getCookTime();
+    short getCookTime();
 
     /**
      * Sets the number of ticks the item to smelt has smolten.<br/>
@@ -38,5 +38,5 @@ public interface Furnace extends LockableTileEntity {
      * @param time
      *         ticks of cooking
      */
-    public void setCookTime(short time);
+    void setCookTime(short time);
 }

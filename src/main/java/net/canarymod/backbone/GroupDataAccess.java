@@ -16,23 +16,33 @@ public class GroupDataAccess extends DataAccess {
         super(Configuration.getDbConfig().getGroupsTableName());
     }
 
-    /** Name of this group. */
+    /**
+     * Name of this group.
+     */
     @Column(columnName = "name", dataType = DataType.STRING)
     public String name;
 
-    /** Chat prefix for this group. */
+    /**
+     * Chat prefix for this group.
+     */
     @Column(columnName = "prefix", dataType = DataType.STRING)
     public String prefix;
 
-    /** Parent group for this group. */
+    /**
+     * Parent group for this group.
+     */
     @Column(columnName = "parent", dataType = DataType.STRING)
     public String parent;
 
-    /** Is this the default group? */
+    /**
+     * Is this the default group?
+     */
     @Column(columnName = "isDefault", dataType = DataType.BOOLEAN)
     public boolean isDefault;
 
-    /** Then world name for this group. May be null if group is global */
+    /**
+     * Then world name for this group. May be null if group is global
+     */
     @Column(columnName = "world", dataType = DataType.STRING)
     public String worldName;
 

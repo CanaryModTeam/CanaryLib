@@ -26,7 +26,7 @@ public interface PathFinder {
      *
      * @return {@code true} if the path was set, {@code false} if failed
      */
-    public boolean setPathToXYZ(double x, double y, double z, World world);
+    boolean setPathToXYZ(double x, double y, double z, World world);
 
     /**
      * Sets the entity on a path to the given location.
@@ -36,7 +36,7 @@ public interface PathFinder {
      *
      * @return {@code true} if the path was set, {@code false} if failed
      */
-    public boolean setPathToLocation(Location location);
+    boolean setPathToLocation(Location location);
 
     /**
      * Sets the entity on a path to the given entity.
@@ -46,7 +46,7 @@ public interface PathFinder {
      *
      * @return {@code true} if the path was set, {@code false} if failed
      */
-    public boolean setPathToEntity(Entity entity);
+    boolean setPathToEntity(Entity entity);
 
     /**
      * Sets the entity on a path to the given block.
@@ -56,7 +56,7 @@ public interface PathFinder {
      *
      * @return {@code true} if the path was set, {@code false} if failed
      */
-    public boolean setPathToBlock(Block block);
+    boolean setPathToBlock(Block block);
 
     /**
      * Set the speed of this mob, it should be between 0.0F and 1.0F <br>
@@ -65,7 +65,7 @@ public interface PathFinder {
      * @param speed
      *         speed for this mob to walk.
      */
-    public void setSpeed(float speed);
+    void setSpeed(float speed);
 
     /**
      * Set the max range this pathfinder will find a path to. default is 25.
@@ -73,6 +73,5 @@ public interface PathFinder {
      * @param range
      *         the {@code float} range
      */
-    public void setPathSearchRange(float range);
-
+    void setPathSearchRange(float range);
 }

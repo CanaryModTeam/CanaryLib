@@ -17,7 +17,7 @@ public interface DataWatcher {
      * @param object
      *         the {@link Object} to be added
      */
-    public void addObject(int index, Object object);
+    void addObject(int index, Object object);
 
     /**
      * Update the value of an already existing {@link Object}
@@ -27,7 +27,7 @@ public interface DataWatcher {
      * @param object
      *         the {@link Object} to update
      */
-    public void updateObject(int index, Object object);
+    void updateObject(int index, Object object);
 
     /**
      * Gets a {@code byte} value of a watchable {@link Object} at the specified index
@@ -37,7 +37,7 @@ public interface DataWatcher {
      *
      * @return the {@code byte} value
      */
-    public byte getByte(int index);
+    byte getByte(int index);
 
     /**
      * Gets a {@code short} value of a watchable {@link Object} at the specified index
@@ -47,7 +47,7 @@ public interface DataWatcher {
      *
      * @return the {@code short} value
      */
-    public short getShort(int index);
+    short getShort(int index);
 
     /**
      * Gets a {@code int} value of a watchable {@link Object} at the specified index
@@ -57,7 +57,7 @@ public interface DataWatcher {
      *
      * @return the {@code int} value
      */
-    public int getInt(int index);
+    int getInt(int index);
 
     /**
      * Gets a {@link String} value of a watchable {@link Object} at the specified index
@@ -67,6 +67,5 @@ public interface DataWatcher {
      *
      * @return the {@link String} value
      */
-    public String getString(int index);
-
+    String getString(int index);
 }

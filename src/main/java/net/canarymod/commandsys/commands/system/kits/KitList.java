@@ -31,7 +31,7 @@ public class KitList implements NativeCommand {
             if (k.getGroups() != null) {
                 Collections.addAll(groups, k.getGroups());
             }
-            if (notPlayer || groups.contains(((Player) caller).getGroup().getName()) || ((Player) caller).isAdmin()) {
+            if (notPlayer || groups.contains(((Player)caller).getGroup().getName()) || ((Player)caller).isAdmin()) {
                 kitList.append(k.getName()).append(",");
             }
         }

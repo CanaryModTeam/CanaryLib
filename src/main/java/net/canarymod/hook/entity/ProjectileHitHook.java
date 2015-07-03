@@ -15,8 +15,10 @@ public final class ProjectileHitHook extends CancelableHook {
     /**
      * Constructs a new ProjectileHitHook
      *
-     * @param projectile the {@link Entity} projectile
-     * @param hit        the {@link Entity} hit if present
+     * @param projectile
+     *         the {@link Entity} projectile
+     * @param hit
+     *         the {@link Entity} hit if present
      */
     public ProjectileHitHook(Entity projectile, Entity hit) {
         this.projectile = projectile;
@@ -45,5 +47,4 @@ public final class ProjectileHitHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[Projectile=%s, EntityHit=%s]", getHookName(), projectile, hit);
     }
-
 }

@@ -12,7 +12,7 @@ public interface IntTag extends PrimitiveTag<IntTag> {
      *
      * @return the integer value
      */
-    public int getValue();
+    int getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface IntTag extends PrimitiveTag<IntTag> {
      * @param value
      *         the integer value
      */
-    public void setValue(int value);
-
+    void setValue(int value);
 }

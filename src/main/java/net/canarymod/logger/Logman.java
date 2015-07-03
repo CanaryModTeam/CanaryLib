@@ -805,7 +805,6 @@ public class Logman implements Logger {
         logger.log(level, message, t);
     }
 
-
     /**
      * {@inheritDoc}
      */
@@ -1061,5 +1060,4 @@ public class Logman implements Logger {
     public void warn(String message, Throwable t) {
         logger.warn(message, t);
     }
-
 }

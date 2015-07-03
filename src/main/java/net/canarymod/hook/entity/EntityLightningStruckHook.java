@@ -18,8 +18,10 @@ public final class EntityLightningStruckHook extends CancelableHook {
     /**
      * Constructs a new EntityLightningStruckHook
      *
-     * @param bolt   the {@link LightningBolt} striking
-     * @param entity the {@link Entity} being stuck
+     * @param bolt
+     *         the {@link LightningBolt} striking
+     * @param entity
+     *         the {@link Entity} being stuck
      */
     public EntityLightningStruckHook(LightningBolt bolt, Entity entity) {
         this.bolt = bolt;
@@ -51,5 +53,4 @@ public final class EntityLightningStruckHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[LightningBolt=%s Entity=%s]", getHookName(), bolt, entity);
     }
-
 }

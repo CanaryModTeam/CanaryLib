@@ -14,10 +14,13 @@ public interface Ocelot extends EntityAnimal, Tameable, Ageable {
      *
      * @author Jason (darkdiplomat)
      */
-    public enum SkinType {
-        UNTAME, //
-        TUXEDO, //
-        GINGER, //
+    enum SkinType {
+        UNTAME,
+        //
+        TUXEDO,
+        //
+        GINGER,
+        //
         SIAMESE; //
     }
 
@@ -26,7 +29,7 @@ public interface Ocelot extends EntityAnimal, Tameable, Ageable {
      *
      * @return skintype
      */
-    public SkinType getSkinType();
+    SkinType getSkinType();
 
     /**
      * Sets the SkinType of the Ocelot
@@ -34,5 +37,5 @@ public interface Ocelot extends EntityAnimal, Tameable, Ageable {
      * @param type
      *         the SkinType to set
      */
-    public void setSkinType(SkinType type);
+    void setSkinType(SkinType type);
 }

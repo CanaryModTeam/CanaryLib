@@ -1,11 +1,11 @@
 package net.canarymod.api.world;
 
-import java.util.List;
-import java.util.Map;
-
 import net.canarymod.api.entity.Entity;
 import net.canarymod.api.world.blocks.TileEntity;
 import net.canarymod.api.world.position.Position;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Handles Chunks
@@ -21,14 +21,14 @@ public interface Chunk {
      *
      * @return x coordinate
      */
-    public int getX();
+    int getX();
 
     /**
      * Get the Chunks Z coordinate
      *
      * @return z coordinate
      */
-    public int getZ();
+    int getZ();
 
     /**
      * Get type of block at this position in this chunk
@@ -42,7 +42,7 @@ public interface Chunk {
      *
      * @return the block type id
      */
-    public int getBlockTypeAt(int x, int y, int z);
+    int getBlockTypeAt(int x, int y, int z);
 
     /**
      * Get type of block at this position in this chunk
@@ -56,7 +56,7 @@ public interface Chunk {
      * @param type
      *         the block type id
      */
-    public void setBlockTypeAt(int x, int y, int z, int type);
+    void setBlockTypeAt(int x, int y, int z, int type);
 
     /**
      * Get data of block at this position in this chunk
@@ -70,7 +70,7 @@ public interface Chunk {
      *
      * @return the block data
      */
-    public int getBlockDataAt(int x, int y, int z);
+    int getBlockDataAt(int x, int y, int z);
 
     /**
      * Get data of block at this position in this chunk
@@ -84,51 +84,52 @@ public interface Chunk {
      * @param data
      *         the block data
      */
-    public void setBlockDataAt(int x, int y, int z, int data);
+    void setBlockDataAt(int x, int y, int z, int data);
 
     /**
      * Get the max height of any chunk
      *
      * @return max height
+     *
      * @deprecated replaced by getMaxHeight()
      */
-    @Deprecated public int getMaxHeigth();
-    
+    @Deprecated
+    int getMaxHeigth();
+
     /**
      * Get the max height of any chunk
      *
      * @return max height
-     * 
      */
-    public int getMaxHeight();
+    int getMaxHeight();
 
     /**
      * Is that chunk loaded?
      *
      * @return {@code true} if loaded; {@code false} if not
      */
-    public boolean isLoaded();
+    boolean isLoaded();
 
     /**
      * Get this chunks world (dimension)
      *
      * @return world
      */
-    public World getDimension();
+    World getDimension();
 
     /**
      * Gets this chunk's biome data as a BiomeType array
      *
      * @return biomedata
      */
-    public BiomeType[] getBiomeData();
+    BiomeType[] getBiomeData();
 
     /**
      * Gets this chunk's biome data as a byte array
      *
      * @return biomedata
      */
-    public byte[] getBiomeByteData();
+    byte[] getBiomeByteData();
 
     /**
      * Sets this chunks biome data from a BiomeType array
@@ -136,7 +137,7 @@ public interface Chunk {
      * @param data
      *         the biome data to set
      */
-    public void setBiomeData(BiomeType[] data);
+    void setBiomeData(BiomeType[] data);
 
     /**
      * Sets this chunk's biome data from a byte array
@@ -144,7 +145,7 @@ public interface Chunk {
      * @param data
      *         the biome data to set
      */
-    public void setBiomeData(byte[] data);
+    void setBiomeData(byte[] data);
 
     /**
      * The block coordinates for the column to get the biome for.<br>
@@ -157,66 +158,68 @@ public interface Chunk {
      *
      * @return the { @link Biome }.
      */
-    public Biome getBiome(int x, int z);
+    Biome getBiome(int x, int z);
 
     /**
      * Gets a map of ChunkPosition(Position),TileEntity(TileEntity) within the chunk
      *
      * @return TileEntityMap
      */
-    public Map<Position, TileEntity> getTileEntityMap();
+    Map<Position, TileEntity> getTileEntityMap();
 
     /**
      * Gets whether the Chunk contains Entities
      *
      * @return {@code true} if contains entities, {@code false} otherwise
      */
-    public boolean hasEntities();
+    boolean hasEntities();
 
     /**
      * Array of Lists containing the entities in the Chunk. Each List represents a 16 block subchunk.
      *
      * @return List array of Entities
      */
-    public List<Entity>[] getEntityLists();
+    List<Entity>[] getEntityLists();
 
     /**
      * Height Map for the chunk
      *
      * @return height map
      */
-    public int[] getHeightMap();
+    int[] getHeightMap();
 
     /**
      * Similar to heightMap, that tracks how far down precipitation can fall.
      *
      * @return precipitation height map
      */
-    public int[] getPrecipitationHeightMap();
+    int[] getPrecipitationHeightMap();
 
     /**
      * The time according to WorldTime when this chunk was last saved
      *
      * @return last save time
      */
-    public long getLastSaveTime();
+    long getLastSaveTime();
 
     /**
      * Boolean value indicating if the terrain is populated
      *
      * @return {@code true} if populated; {@code false} otherwise
      */
-    public boolean isTerrainPopulated();
+    boolean isTerrainPopulated();
 
     /**
      * Gets if the chunk has been modified and needs to be updated internally
      *
      * @return {@code true} if modified; {@code false} otherwise
      */
-    public boolean isModified();
+    boolean isModified();
 
-    /** Generates the skylight map for this Chunk. */
-    public void generateSkyLightMap();
+    /**
+     * Generates the skylight map for this Chunk.
+     */
+    void generateSkyLightMap();
 
     /**
      * Updates the skylight map for this chunk
@@ -224,7 +227,7 @@ public interface Chunk {
      * @param force
      *         Force light update
      */
-    public void updateSkyLightMap(boolean force);
+    void updateSkyLightMap(boolean force);
 
     /**
      * Re-calculates the light at the given coordinates within this chunk.
@@ -237,5 +240,5 @@ public interface Chunk {
      * @param z
      *         the Z coordinate
      */
-    public void relightBlock(int x, int y, int z);
+    void relightBlock(int x, int y, int z);
 }

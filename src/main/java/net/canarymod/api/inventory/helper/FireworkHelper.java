@@ -25,26 +25,47 @@ public final class FireworkHelper extends ItemHelper {
      * @author Jason (darkdiplomat)
      */
     public enum ExplosionType {
-        /** No explosion data set */
-        NONE(-1), //
-        /** Unknown Explosion (possible a new explosion) */
-        UNKNOWN(-1), //
-        /** Small Explosion */
-        SMALL(0), //
-        /** Large Explosion */
-        LARGE(1), //
-        /** Star-Shaped Explosion */
-        STAR(2), //
-        /** Creeper-Face Explosion */
-        CREEPER(3), //
-        /** Burst Explosion */
-        BURST(4), //
+        /**
+         * No explosion data set
+         */
+        NONE(-1),
+        //
+        /**
+         * Unknown Explosion (possible a new explosion)
+         */
+        UNKNOWN(-1),
+        //
+        /**
+         * Small Explosion
+         */
+        SMALL(0),
+        //
+        /**
+         * Large Explosion
+         */
+        LARGE(1),
+        //
+        /**
+         * Star-Shaped Explosion
+         */
+        STAR(2),
+        //
+        /**
+         * Creeper-Face Explosion
+         */
+        CREEPER(3),
+        //
+        /**
+         * Burst Explosion
+         */
+        BURST(4),
+        //
         ;
 
         private final byte id;
 
         private ExplosionType(int id) {
-            this.id = (byte) id;
+            this.id = (byte)id;
         }
 
         /**
@@ -120,7 +141,6 @@ public final class FireworkHelper extends ItemHelper {
         }
         if (getExplosionTag(fireworkStar).containsKey("Type")) {
             return ExplosionType.fromId(getExplosionTag(fireworkStar).getByte("Type"));
-
         }
         return ExplosionType.NONE;
     }
@@ -752,7 +772,7 @@ public final class FireworkHelper extends ItemHelper {
             return;
         }
         if (verifyTags(fireworkRocket, "Fireworks", COMPOUND, true)) {
-            fireworkRocket.getDataTag().getCompoundTag("Fireworks").put("Flight", (byte) MathHelp.setInRange(duration, 0, 3));
+            fireworkRocket.getDataTag().getCompoundTag("Fireworks").put("Flight", (byte)MathHelp.setInRange(duration, 0, 3));
         }
     }
 

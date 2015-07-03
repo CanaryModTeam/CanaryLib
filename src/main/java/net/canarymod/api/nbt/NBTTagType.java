@@ -7,19 +7,32 @@ package net.canarymod.api.nbt;
  */
 public enum NBTTagType {
     /* DO NOT REORDER */
-    UNKNOWN, //
-    BYTE, //
-    SHORT, //
-    INT, //
-    LONG, //
-    FLOAT, //
-    DOUBLE, //
-    BYTE_ARRAY, //
-    STRING, //
-    LIST, //
-    COMPOUND, //
-    INT_ARRAY, //
-    ANY_NUMERIC, //
+    UNKNOWN,
+    //
+    BYTE,
+    //
+    SHORT,
+    //
+    INT,
+    //
+    LONG,
+    //
+    FLOAT,
+    //
+    DOUBLE,
+    //
+    BYTE_ARRAY,
+    //
+    STRING,
+    //
+    LIST,
+    //
+    COMPOUND,
+    //
+    INT_ARRAY,
+    //
+    ANY_NUMERIC,
+    //
     ;
 
     public static NBTTagType getTypeFromId(byte id) {

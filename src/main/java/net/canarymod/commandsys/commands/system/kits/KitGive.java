@@ -25,7 +25,7 @@ public final class KitGive implements NativeCommand {
     @Override
     public void execute(MessageReceiver caller, String[] parameters) {
         if (caller.getReceiverType().equals(ReceiverType.PLAYER)) {
-            asPlayer((Player) caller, parameters);
+            asPlayer((Player)caller, parameters);
         }
         else {
             asServer(caller, parameters);
@@ -46,10 +46,13 @@ public final class KitGive implements NativeCommand {
             switch (result) {
                 case GIVEN:
                     sendTranslatedMessage(player, ChatFormat.YELLOW, "kit given");
+                    break;
                 case UNAVAILABLE:
                     sendTranslatedNotice(player, "kit unavailable");
+                    break;
                 case INVALID:
-                    sendTranslatedNotice(player, "kit invalid", args[1]);
+                    sendTranslatedNotice(player, "kit invalid", args[0]);
+                    break;
             }
         }
         // Give kit to a subject
@@ -64,12 +67,16 @@ public final class KitGive implements NativeCommand {
             switch (result) {
                 case GIVEN:
                     sendTranslatedMessage(recipient, ChatFormat.YELLOW, "kit given other", player.getName());
+                    break;
                 case UNAVAILABLE:
                     sendTranslatedNotice(player, "kit unavailable other", recipient.getName());
+                    break;
                 case INVALID:
                     sendTranslatedNotice(player, "kit invalid", args[0]);
+                    break;
                 case NORECEIVER:
                     sendTranslatedNotice(player, "unknown player", args[1]);
+                    break;
             }
         }
     }
@@ -86,10 +93,13 @@ public final class KitGive implements NativeCommand {
                     switch (result) {
                         case GIVEN:
                             sendTranslatedMessage(recipient, ChatFormat.YELLOW, "kit given other", caller.getName());
+                            break;
                         case UNAVAILABLE:
                             sendTranslatedNotice(caller, "kit unavailable other", recipient.getName());
+                            break;
                         case INVALID:
                             sendTranslatedNotice(caller, "kit invalid", args[0]);
+                            break;
                     }
                 }
             }
@@ -99,12 +109,16 @@ public final class KitGive implements NativeCommand {
                 switch (result) {
                     case GIVEN:
                         sendTranslatedMessage(recipient, ChatFormat.YELLOW, "kit given other", caller.getName());
+                        break;
                     case UNAVAILABLE:
                         sendTranslatedNotice(caller, "kit unavailable other", recipient.getName());
+                        break;
                     case INVALID:
                         sendTranslatedNotice(caller, "kit invalid", args[0]);
+                        break;
                     case NORECEIVER:
                         sendTranslatedNotice(caller, "unknown player", args[1]);
+                        break;
                 }
             }
         }

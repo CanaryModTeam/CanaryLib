@@ -55,7 +55,7 @@ public abstract class Database {
                 }
             }
             catch (Exception e) {
-                log.error("Exception occured while trying to prepare databases!", e);
+                log.error("Exception occurred while trying to prepare databases!", e);
             }
         }
     }
@@ -86,9 +86,10 @@ public abstract class Database {
      * Insert a range of DataAccess objects at once.
      *
      * @param data
-     *          the list of data to insert
+     *         the list of data to insert
+     *
      * @throws DatabaseWriteException
-     *          when something went wrong during the write operation
+     *         when something went wrong during the write operation
      */
     public abstract void insertAll(List<DataAccess> data) throws DatabaseWriteException;
 
@@ -111,13 +112,14 @@ public abstract class Database {
      * Those are NOT the values and fields to update. Those are values and fields to identify
      * the correct entry in the database to update. The updated data must be provided in the DataAccess
      *
-     * @param data
-     *          a map of data access objects to insert and the filters to apply them with
      * @param template
-     *          the template data access used for verification.
+     *         the template data access used for verification.
+     * @param data
+     *         a map of data access objects to insert and the filters to apply them with
+     *
      * @throws DatabaseWriteException
      */
-    public abstract void updateAll(DataAccess template, Map<DataAccess, Map<String, Object>> list) throws DatabaseWriteException;
+    public abstract void updateAll(DataAccess template, Map<DataAccess, Map<String, Object>> data) throws DatabaseWriteException;
 
     /**
      * Removes the data set from the given table that suits the given field names and values.

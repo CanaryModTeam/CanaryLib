@@ -5,6 +5,7 @@ import net.canarymod.ToolBox;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.inventory.Item;
 import net.canarymod.chat.ChatFormat;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,16 +20,24 @@ public class Kit {
 
     private int id;
 
-    /** Time between uses as unix timestamp applicable number */
+    /**
+     * Time between uses as unix timestamp applicable number
+     */
     private int delay;
 
-    /** Owner if applicable */
+    /**
+     * Owner if applicable
+     */
     private String[] owners = null;
 
-    /** Groups if applicable */
+    /**
+     * Groups if applicable
+     */
     private String[] groups = null;
 
-    /** List of last usages per player */
+    /**
+     * List of last usages per player
+     */
     private Map<String, Long> lastUsages = new HashMap<String, Long>();
 
     private String name;

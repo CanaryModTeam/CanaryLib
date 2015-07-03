@@ -15,9 +15,13 @@ public interface PluginManager {
     /**
      * Enables the given plugin. Loads the plugin if not loaded (and available)
      *
-     * @param name the name of the {@link net.canarymod.plugin.Plugin}
+     * @param name
+     *         the name of the {@link net.canarymod.plugin.Plugin}
+     *
      * @return {@code true} on success, {@code false} on failure
-     * @throws net.canarymod.exceptions.PluginLoadFailedException If an error occurred when attempting to load the plugin.
+     *
+     * @throws net.canarymod.exceptions.PluginLoadFailedException
+     *         If an error occurred when attempting to load the plugin.
      */
     boolean enablePlugin(String name) throws PluginLoadFailedException;
 
@@ -36,7 +40,9 @@ public interface PluginManager {
     /**
      * Disables the given plugin
      *
-     * @param name the name of the {@link net.canarymod.plugin.Plugin}
+     * @param name
+     *         the name of the {@link net.canarymod.plugin.Plugin}
+     *
      * @return {@code true} on success, {@code false} on failure
      */
     boolean disablePlugin(String name);
@@ -49,10 +55,11 @@ public interface PluginManager {
     /**
      * Disables all plugins, used when shutting down the server.
      *
-     * @param log The {@link org.apache.logging.log4j.Logger} to use when shutting down. This is
-     *            necessary when in the shutdown hook, since we can't rely on external
-     *            libraries there (see the javadoc at
-     *            {@link Runtime#addShutdownHook(Thread)})
+     * @param log
+     *         The {@link org.apache.logging.log4j.Logger} to use when shutting down. This is
+     *         necessary when in the shutdown hook, since we can't rely on external
+     *         libraries there (see the javadoc at
+     *         {@link Runtime#addShutdownHook(Thread)})
      */
     void disableAllPlugins(Logger log);
 
@@ -60,6 +67,7 @@ public interface PluginManager {
      * Reload the specified plugin
      *
      * @param name
+     *
      * @return true on success, false on failure which probably means the plugin is now not enabled nor loaded
      */
     boolean reloadPlugin(String name) throws PluginLoadFailedException, InvalidPluginException;
@@ -68,6 +76,7 @@ public interface PluginManager {
      * Get the Plugin with specified name.
      *
      * @param name
+     *
      * @return The plugin for the given name, or null on failure.
      */
     Plugin getPlugin(String name);
@@ -89,7 +98,9 @@ public interface PluginManager {
     /**
      * Gets the plugin descriptor for a plugin.
      *
-     * @param plugin Plugin to get descriptor for
+     * @param plugin
+     *         Plugin to get descriptor for
+     *
      * @return Descriptor for plugin
      */
     PluginDescriptor getPluginDescriptor(Plugin plugin);
@@ -97,7 +108,9 @@ public interface PluginManager {
     /**
      * Gets the plugin descriptor for a plugin by name, loading it if not loaded.
      *
-     * @param plugin Plugin to get descriptor for
+     * @param plugin
+     *         Plugin to get descriptor for
+     *
      * @return Descriptor for plugin
      */
     PluginDescriptor getPluginDescriptor(String plugin);

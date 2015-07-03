@@ -30,6 +30,7 @@ public interface FallingBlock extends Entity {
      * Gets the Block ID of the FallingBlock
      *
      * @return the Block ID
+     *
      * @deprecated use {@link #getBlock()} instead
      */
     @Deprecated
@@ -40,6 +41,7 @@ public interface FallingBlock extends Entity {
      *
      * @param id
      *         the Block ID
+     *
      * @deprecated use {@link #setBlock(net.canarymod.api.world.blocks.Block)} instead
      */
     @Deprecated
@@ -147,7 +149,7 @@ public interface FallingBlock extends Entity {
      * Gets the damage caused by the FallingBlock multiplied by the number of blocks fell
      *
      * @return damage
-     *         the amount of base damage
+     * the amount of base damage
      */
     float getDamageAmount();
 

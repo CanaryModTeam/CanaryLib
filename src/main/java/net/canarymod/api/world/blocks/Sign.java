@@ -19,14 +19,14 @@ public interface Sign extends TileEntity {
      * @deprecated Use {@link #getLines()} instead
      */
     @Deprecated
-    public String[] getText();
+    String[] getText();
 
     /**
      * Get this sign's {@link net.canarymod.api.chat.ChatComponent}(s)
      *
      * @return the array of text
      */
-    public ChatComponent[] getLines();
+    ChatComponent[] getLines();
 
     /**
      * Get text in specified line
@@ -39,7 +39,7 @@ public interface Sign extends TileEntity {
      * @deprecated Use {@link #getComponentOnLine(int)} instead
      */
     @Deprecated
-    public String getTextOnLine(int line);
+    String getTextOnLine(int line);
 
     /**
      * Get text in specified line
@@ -49,17 +49,18 @@ public interface Sign extends TileEntity {
      *
      * @return the line of text
      */
-    public ChatComponent getComponentOnLine(int line);
+    ChatComponent getComponentOnLine(int line);
 
     /**
      * Override the whole sign content
      *
      * @param text
      *         the text to set
+     *
      * @deprecated Use {@link #setComponents(net.canarymod.api.chat.ChatComponent[])} instead
      */
     @Deprecated
-    public void setText(String[] text);
+    void setText(String[] text);
 
     /**
      * Override the whole sign content
@@ -67,7 +68,7 @@ public interface Sign extends TileEntity {
      * @param components
      *         the {@link net.canarymod.api.chat.ChatComponent}(s) to set
      */
-    public void setComponents(ChatComponent[] components);
+    void setComponents(ChatComponent[] components);
 
     /**
      * Set text on this line
@@ -80,7 +81,7 @@ public interface Sign extends TileEntity {
      * @deprecated Use {@link #setComponentOnLine(net.canarymod.api.chat.ChatComponent, int)} instead
      */
     @Deprecated
-    public void setTextOnLine(String text, int line);
+    void setTextOnLine(String text, int line);
 
     /**
      * Sets a {@link net.canarymod.api.chat.ChatComponent} on this line
@@ -90,35 +91,35 @@ public interface Sign extends TileEntity {
      * @param line
      *         the line index
      */
-    public void setComponentOnLine(ChatComponent component, int line);
+    void setComponentOnLine(ChatComponent component, int line);
 
     /**
      * Gets whether the Sign is hanging on a wall or not
      *
      * @return {@code true} if Wall Sign; {@code false} if not
      */
-    public boolean isWallSign();
+    boolean isWallSign();
 
     /**
      * Gets whether the Sign is sitting on a {@link Block} or not
      *
      * @return {@code true} if Sign Post; {@code false} if not
      */
-    public boolean isSignPost();
+    boolean isSignPost();
 
     /**
      * Gets the {@link Block} that the Sign is attached to
      *
      * @return the attached to {@link Block}
      */
-    public Block getBlockAttached();
+    Block getBlockAttached();
 
     /**
      * Checks if the Sign is editable
      *
      * @return {@code true} if editable; {@code false} if not
      */
-    public boolean isEditable();
+    boolean isEditable();
 
     /**
      * Sets if the Sign is editable
@@ -126,21 +127,21 @@ public interface Sign extends TileEntity {
      * @param edit
      *         {@code true} for editable; {@code false} for not
      */
-    public void setEditable(boolean edit);
+    void setEditable(boolean edit);
 
     /**
      * Gets the Owners name, may return empty string if no owner is set
      *
      * @return Owner's name or empty string if no owner
      */
-    public String getOwnerName();
+    String getOwnerName();
 
     /**
      * Gets the owner of the Sign
      *
      * @return the owner or {@code null} if no owner set
      */
-    public Player getOwner();
+    Player getOwner();
 
     /**
      * Sets the owner of the Sign
@@ -148,5 +149,5 @@ public interface Sign extends TileEntity {
      * @param player
      *         the owner or {@code null} for no owner
      */
-    public void setOwner(Player player);
+    void setOwner(Player player);
 }

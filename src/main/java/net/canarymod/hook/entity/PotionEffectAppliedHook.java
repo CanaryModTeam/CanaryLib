@@ -17,8 +17,10 @@ public final class PotionEffectAppliedHook extends Hook {
     /**
      * Constructs a new PotionEffectAppliedHook
      *
-     * @param entity the {@link LivingBase} having the {@link PotionEffect} applied to
-     * @param effect the {@link PotionEffect} being applied
+     * @param entity
+     *         the {@link LivingBase} having the {@link PotionEffect} applied to
+     * @param effect
+     *         the {@link PotionEffect} being applied
      */
     public PotionEffectAppliedHook(LivingBase entity, PotionEffect effect) {
         this.entity = entity;
@@ -46,7 +48,8 @@ public final class PotionEffectAppliedHook extends Hook {
     /**
      * Sets the {@link PotionEffect} to apply
      *
-     * @param effect a new {@link PotionEffect} or null to cancel out any effects
+     * @param effect
+     *         a new {@link PotionEffect} or null to cancel out any effects
      */
     public void setPotionEffect(PotionEffect effect) {
         this.effect = effect;

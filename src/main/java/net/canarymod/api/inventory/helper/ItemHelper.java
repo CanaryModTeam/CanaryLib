@@ -13,10 +13,14 @@ import net.canarymod.api.nbt.NBTTagType;
  */
 abstract class ItemHelper {
 
-    /** Extra static reference to the NBTFactory so we don't have to type the whole thing each time */
+    /**
+     * Extra static reference to the NBTFactory so we don't have to type the whole thing each time
+     */
     protected final static NBTFactory NBT_FACTO = Canary.factory().getNBTFactory();
 
-    /** base element tag, call copy() when using */
+    /**
+     * base element tag, call copy() when using
+     */
     protected final static CompoundTag TAG = NBT_FACTO.newCompoundTag("tag");
 
     /**

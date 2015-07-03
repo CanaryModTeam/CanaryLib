@@ -12,20 +12,19 @@ public interface BaseTag<T> {
      *
      * @return the tag id
      */
-    public byte getTypeId();
+    byte getTypeId();
 
     /**
      * Gets the Enum version of the id
      *
      * @return The {@link NBTTagType} for the given id
      */
-    public NBTTagType getType();
+    NBTTagType getType();
 
     /**
      * Copies the Tag
      *
      * @return a new instance of the tag being copied
      */
-    public T copy();
-
+    T copy();
 }

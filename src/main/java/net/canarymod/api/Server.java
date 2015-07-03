@@ -3,7 +3,11 @@ package net.canarymod.api;
 import net.canarymod.api.chat.ChatComponent;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.gui.GUIControl;
-import net.canarymod.api.inventory.recipes.*;
+import net.canarymod.api.inventory.recipes.CraftingRecipe;
+import net.canarymod.api.inventory.recipes.Recipe;
+import net.canarymod.api.inventory.recipes.ShapedRecipe;
+import net.canarymod.api.inventory.recipes.ShapelessRecipe;
+import net.canarymod.api.inventory.recipes.SmeltRecipe;
 import net.canarymod.api.world.World;
 import net.canarymod.api.world.WorldManager;
 import net.canarymod.chat.MessageReceiver;
@@ -469,23 +473,11 @@ public interface Server extends MessageReceiver, CommandOwner, TaskOwner, MOTDOw
     boolean removeSynchronousTask(ServerTask task);
 
     /**
-     * Sends a {@link PlayerListEntry} to all {@link Player}s on the server.
-     * <p/>
-     * NOTE: The server needs to have PlayerList enabled in the configuration
-     *
-     * @param entry
-     *         the {@link PlayerListEntry} to be sent
-     * @deprecated Use {@link #sendPlayerListData} instead
-     */
-    @Deprecated
-    void sendPlayerListEntry(PlayerListEntry entry);
-
-    /**
      * Sends a {@link net.canarymod.api.PlayerListData} to all {@link Player}s on the server.
      * <p/>
      * NOTE: The server needs to have PlayerList enabled in the configuration
      *
-     * @param entry
+     * @param data
      *         the {@link net.canarymod.api.PlayerListData} to be sent
      */
     void sendPlayerListData(PlayerListData data);

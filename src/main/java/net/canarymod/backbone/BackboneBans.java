@@ -166,7 +166,6 @@ public class BackboneBans extends Backbone {
                 data.issuedDate = ban.getIssuedDate();
                 Database.get().update(data, filter);
             }
-
         }
         catch (DatabaseReadException e) {
             log.error(e.getMessage(), e);
@@ -174,7 +173,6 @@ public class BackboneBans extends Backbone {
         catch (DatabaseWriteException e) {
             log.error(e.getMessage(), e);
         }
-
     }
 
     /**
@@ -189,9 +187,9 @@ public class BackboneBans extends Backbone {
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                BanDataAccess data = (BanDataAccess) da;
+                BanDataAccess data = (BanDataAccess)da;
                 Ban ban = new Ban();
-                
+
                 ban.setUUID(data.uuid);
                 ban.setBanningPlayer(data.banningPlayer);
                 ban.setIp(data.ip);

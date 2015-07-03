@@ -1,5 +1,7 @@
 package net.canarymod.backbone;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import net.canarymod.Canary;
 import net.canarymod.ToolBox;
 import net.canarymod.chat.ChatFormat;
@@ -8,9 +10,11 @@ import net.canarymod.database.Database;
 import net.canarymod.database.exceptions.DatabaseReadException;
 import net.canarymod.database.exceptions.DatabaseWriteException;
 import net.canarymod.user.Group;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import static net.canarymod.Canary.log;
 
 /**
@@ -44,15 +48,7 @@ public class BackboneGroups extends Backbone {
             updateGroup(group);
             return;
         }
-        GroupDataAccess data = new GroupDataAccess();
-
-        data.isDefault = group.isDefaultGroup();
-        data.prefix = group.getPrefix();
-        data.name = group.getName();
-        if (group.hasParent()) {
-            data.parent = group.getParent().getName();
-        }
-        data.worldName = group.getWorldName();
+        GroupDataAccess data = group.toDataAccess();
         try {
             Database.get().insert(data);
         }
@@ -93,17 +89,10 @@ public class BackboneGroups extends Backbone {
         catch (DatabaseWriteException e) {
             log.error(e.getMessage(), e);
         }
-
     }
 
     public void renameGroup(Group subject, String newname) {
-        GroupDataAccess group = new GroupDataAccess();
-        group.id = subject.getId();
-        group.isDefault = subject.isDefaultGroup();
-        group.name = newname;
-        group.parent = subject.getParent() != null ? subject.getParent().getName() : null;
-        group.prefix = subject.getPrefix();
-        group.worldName = subject.getWorldName();
+        GroupDataAccess group = subject.toDataAccess();
         try {
             HashMap<String, Object> filter = new HashMap<String, Object>();
             filter.put("id", group.id);
@@ -129,16 +118,7 @@ public class BackboneGroups extends Backbone {
             log.warn("Group " + group.getName() + " was not updated, it does not exist!");
             return;
         }
-        GroupDataAccess updatedData = new GroupDataAccess();
-
-        updatedData.id = group.getId();
-        updatedData.isDefault = group.isDefaultGroup();
-        updatedData.prefix = group.getPrefix();
-        updatedData.name = group.getName();
-        updatedData.worldName = group.getWorldName();
-        if (group.hasParent()) {
-            updatedData.parent = group.getParent().getName();
-        }
+        GroupDataAccess updatedData = group.toDataAccess();
         try {
             HashMap<String, Object> filter = new HashMap<String, Object>();
             filter.put("id", updatedData.id);
@@ -151,17 +131,14 @@ public class BackboneGroups extends Backbone {
         catch (DatabaseWriteException e) {
             log.error(e.getMessage(), e);
         }
-
     }
 
-    private Group loadParents(String parent, List<Group> existingGroups) {
+    private Group loadParents(String parent, BiMap<String, Group> existingGroups) {
         if (ToolBox.stringToNull(parent) == null || parent.isEmpty()) {
             return null;
         }
-        for (Group g : existingGroups) {
-            if (g.getName().equals(parent)) {
-                return g;
-            }
+        if (existingGroups.containsKey(parent)) {
+            return existingGroups.get(parent);
         }
         GroupDataAccess data = new GroupDataAccess();
 
@@ -177,7 +154,7 @@ public class BackboneGroups extends Backbone {
                 g.setWorldName(ToolBox.stringToNull(data.worldName));
                 g.setPrefix(data.prefix);
                 g.setParent(loadParents(data.parent, existingGroups));
-                existingGroups.add(g);
+                existingGroups.put(g.getName(), g);
                 return g;
             }
             else {
@@ -216,15 +193,15 @@ public class BackboneGroups extends Backbone {
      *
      * @return An ArrayList containing all recorded groups.
      */
-    public List<Group> loadGroups() {
+    public BiMap<String, Group> loadGroups() {
         List<DataAccess> dataList = new ArrayList<DataAccess>();
-        List<Group> groups = new ArrayList<Group>();
+        BiMap<String, Group> groups = HashBiMap.create();
 
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                GroupDataAccess data = (GroupDataAccess) da;
-                if (alreadyInList(data.name, groups)) {
+                GroupDataAccess data = (GroupDataAccess)da;
+                if (groups.containsKey(data.name)) {
                     continue;
                 }
                 Group g = new Group();
@@ -237,7 +214,7 @@ public class BackboneGroups extends Backbone {
                 if (!data.isDefault || !data.name.equals(data.parent)) {
                     g.setParent(loadParents(data.parent, groups));
                 }
-                groups.add(g);
+                groups.put(g.getName(), g);
             }
         }
         catch (DatabaseReadException e) {
@@ -247,7 +224,9 @@ public class BackboneGroups extends Backbone {
         return groups;
     }
 
-    /** Creates a set of default groups and puts them into the database */
+    /**
+     * Creates a set of default groups and puts them into the database
+     */
     public static void createDefaults() {
         GroupDataAccess visitors = new GroupDataAccess();
         GroupDataAccess players = new GroupDataAccess();

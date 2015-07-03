@@ -222,7 +222,7 @@ public class DimensionType {
         if (!(ob instanceof DimensionType)) {
             return false;
         }
-        DimensionType o = (DimensionType) ob;
+        DimensionType o = (DimensionType)ob;
 
         return o.name.equals(name) && o.id == id;
     }

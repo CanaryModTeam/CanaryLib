@@ -18,7 +18,7 @@ public interface Item extends Cloneable {
      *
      * @return item id
      */
-    public int getId();
+    int getId();
 
     /**
      * Set this Items Id
@@ -26,14 +26,14 @@ public interface Item extends Cloneable {
      * @param id
      *         the id to set
      */
-    public void setId(int id);
+    void setId(int id);
 
     /**
      * Gets this item's damage value
      *
      * @return item damage
      */
-    public int getDamage();
+    int getDamage();
 
     /**
      * Sets this item's damage value
@@ -41,14 +41,14 @@ public interface Item extends Cloneable {
      * @param damage
      *         the damage to set
      */
-    public void setDamage(int damage);
+    void setDamage(int damage);
 
     /**
      * Gets this item's quantity
      *
      * @return amount
      */
-    public int getAmount();
+    int getAmount();
 
     /**
      * Sets this item's quantity
@@ -56,14 +56,14 @@ public interface Item extends Cloneable {
      * @param amount
      *         the amount to set
      */
-    public void setAmount(int amount);
+    void setAmount(int amount);
 
     /**
      * Gets this item's max amount in a stack
      *
      * @return max stack amount
      */
-    public int getMaxAmount();
+    int getMaxAmount();
 
     /**
      * Sets this item's max amount in a stack
@@ -71,21 +71,21 @@ public interface Item extends Cloneable {
      * @param amount
      *         the max stack amount
      */
-    public void setMaxAmount(int amount);
+    void setMaxAmount(int amount);
 
     /**
      * Get the inventory slot for this item
      *
      * @return the slot id
      */
-    public int getSlot();
+    int getSlot();
 
     /**
      * Return the Type of this item.
      *
      * @return the {@link ItemType}
      */
-    public ItemType getType();
+    ItemType getType();
 
     /**
      * Set the inventory slot of this item
@@ -93,7 +93,7 @@ public interface Item extends Cloneable {
      * @param slot
      *         the slot id to set
      */
-    public void setSlot(int slot);
+    void setSlot(int slot);
 
     /**
      * Return the BaseItem for this ItemStack, containing item statistics like
@@ -101,14 +101,14 @@ public interface Item extends Cloneable {
      *
      * @return the {@link BaseItem}
      */
-    public BaseItem getBaseItem();
+    BaseItem getBaseItem();
 
     /**
      * gets whether this item is enchanted
      *
      * @return {@code true} if enchanted; {@code false} if not
      */
-    public boolean isEnchanted();
+    boolean isEnchanted();
 
     /**
      * Returns whether this item is enchantable.
@@ -116,14 +116,14 @@ public interface Item extends Cloneable {
      *
      * @return {@code true} if this item is enchantable, {@code false} otherwise
      */
-    public boolean isEnchantable();
+    boolean isEnchantable();
 
     /**
      * gets the first enchantment of this item if exists
      *
      * @return the first {@link Enchantment}
      */
-    public Enchantment getEnchantment();
+    Enchantment getEnchantment();
 
     /**
      * gets the enchantment at the specified index if exists
@@ -133,14 +133,14 @@ public interface Item extends Cloneable {
      *
      * @return the {@link Enchantment} at the index or {@code null}
      */
-    public Enchantment getEnchantment(int index);
+    Enchantment getEnchantment(int index);
 
     /**
      * gets an array of enchantments for this item if they exist
      *
      * @return an {@link Enchantment} array
      */
-    public Enchantment[] getEnchantments();
+    Enchantment[] getEnchantments();
 
     /**
      * adds enchantments to this item
@@ -148,7 +148,7 @@ public interface Item extends Cloneable {
      * @param enchantments
      *         the {@link Enchantment}(s) to add
      */
-    public void addEnchantments(Enchantment... enchantments);
+    void addEnchantments(Enchantment... enchantments);
 
     /**
      * sets this item's enchantments (removes all others)
@@ -156,7 +156,7 @@ public interface Item extends Cloneable {
      * @param enchantments
      *         the {@link Enchantment}(s) to set
      */
-    public void setEnchantments(Enchantment... enchantments);
+    void setEnchantments(Enchantment... enchantments);
 
     /**
      * removes specified enchantment from this item
@@ -164,17 +164,19 @@ public interface Item extends Cloneable {
      * @param enchantment
      *         the {@link Enchantment} to remove
      */
-    public void removeEnchantment(Enchantment enchantment);
+    void removeEnchantment(Enchantment enchantment);
 
-    /** removes all enchantments from this item */
-    public void removeAllEnchantments();
+    /**
+     * removes all enchantments from this item
+     */
+    void removeAllEnchantments();
 
     /**
      * Checks if this item has a display name.
      *
      * @return {@code true} if has name; {@code false} if not
      */
-    public boolean hasDisplayName();
+    boolean hasDisplayName();
 
     /**
      * Gets the visible name of this item.
@@ -182,7 +184,7 @@ public interface Item extends Cloneable {
      *
      * @return The item name
      */
-    public String getDisplayName();
+    String getDisplayName();
 
     /**
      * Sets the visible name of this item.
@@ -191,17 +193,19 @@ public interface Item extends Cloneable {
      * @param name
      *         The item's new name
      */
-    public void setDisplayName(String name);
+    void setDisplayName(String name);
 
-    /** Removes the display name if present */
-    public void removeDisplayName();
+    /**
+     * Removes the display name if present
+     */
+    void removeDisplayName();
 
     /**
      * Gets the cost to repair the Item
      *
      * @return repair cost
      */
-    public int getRepairCost();
+    int getRepairCost();
 
     /**
      * Sets the cost to repair the Item
@@ -209,14 +213,14 @@ public interface Item extends Cloneable {
      * @param cost
      *         the repair cost
      */
-    public void setRepairCost(int cost);
+    void setRepairCost(int cost);
 
     /**
      * Returns the text that shows up under this item's name in the player's inventory.
      *
      * @return the lore or {@code null} if no lore
      */
-    public String[] getLore();
+    String[] getLore();
 
     /**
      * Sets the text that shows up under the item's name in the player's inventory
@@ -224,14 +228,14 @@ public interface Item extends Cloneable {
      * @param lore
      *         The lore to set, each line should be in a separate string in the array
      */
-    public void setLore(String... lore);
+    void setLore(String... lore);
 
     /**
      * Checks if the Item has lore
      *
      * @return {@code true} if has lore; {@code false} if not
      */
-    public boolean hasLore();
+    boolean hasLore();
 
     /**
      * Checks if the Item has a MetaTag or not
@@ -240,7 +244,7 @@ public interface Item extends Cloneable {
      *
      * @see #getMetaTag()
      */
-    public boolean hasMetaTag();
+    boolean hasMetaTag();
 
     /**
      * Returns an CompoundTag that is saved with this object.<br>
@@ -249,14 +253,14 @@ public interface Item extends Cloneable {
      *
      * @return the CompoundTag of special metadata
      */
-    public CompoundTag getMetaTag();
+    CompoundTag getMetaTag();
 
     /**
      * Checks if the Item has a DataTag
      *
      * @return {@code true} if has DataTag; {@code false} if not
      */
-    public boolean hasDataTag();
+    boolean hasDataTag();
 
     /**
      * Gets the tag containing data for this item.
@@ -265,7 +269,7 @@ public interface Item extends Cloneable {
      *
      * @return the data tag
      */
-    public CompoundTag getDataTag();
+    CompoundTag getDataTag();
 
     /**
      * Sets the tag containing data for this item.
@@ -275,7 +279,7 @@ public interface Item extends Cloneable {
      * @param tag
      *         the data tag
      */
-    public void setDataTag(CompoundTag tag);
+    void setDataTag(CompoundTag tag);
 
     /**
      * Writes this item's data to an NBTTagCompound.
@@ -285,7 +289,7 @@ public interface Item extends Cloneable {
      *
      * @return CompoundTag
      */
-    public CompoundTag writeToTag(CompoundTag tag);
+    CompoundTag writeToTag(CompoundTag tag);
 
     /**
      * Sets this item's data to that in an CompoundTag.
@@ -293,21 +297,21 @@ public interface Item extends Cloneable {
      * @param tag
      *         The tag to read from
      */
-    public void readFromTag(CompoundTag tag);
+    void readFromTag(CompoundTag tag);
 
     /**
      * Clones the Item
      *
      * @return clone of the Item
      */
-    public Item clone();
+    Item clone();
 
     /**
      * Gets the Multimap of Attributes
      *
      * @return attributes multimap
      */
-    public Multimap<String, AttributeModifier> getAttributes();
+    Multimap<String, AttributeModifier> getAttributes();
 
     /**
      * Updates the native Multimap of Attributes
@@ -315,16 +319,15 @@ public interface Item extends Cloneable {
      * @param attributeMap
      *         the attribute map to be set
      */
-    public void updateAttributes(Multimap<String, AttributeModifier> attributeMap);
-    
+    void updateAttributes(Multimap<String, AttributeModifier> attributeMap);
+
     /**
      * Checks if this item is equal to another item, ignoring stack size
      *
      * @param item
      *         the {@link Item} to compare to.
-     * 
+     *
      * @return {@code true} if both items have the same type, damage and data. {@code false} otherwise
      */
-    public boolean equalsIgnoreSize(Item item);
-
+    boolean equalsIgnoreSize(Item item);
 }

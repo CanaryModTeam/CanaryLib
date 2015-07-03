@@ -18,23 +18,33 @@ public class KitDataAccess extends DataAccess {
         super(Configuration.getDbConfig().getKitsTableName());
     }
 
-    /** Delay in seconds to receive this kit. */
+    /**
+     * Delay in seconds to receive this kit.
+     */
     @Column(columnName = "useDelay", dataType = DataType.INTEGER)
     public int useDelay;
 
-    /** List of Users names who can use this kit. */
+    /**
+     * List of Users names who can use this kit.
+     */
     @Column(columnName = "owners", dataType = DataType.STRING, isList = true)
     public List<String> owners;
 
-    /** List of groups who can use this kit. */
+    /**
+     * List of groups who can use this kit.
+     */
     @Column(columnName = "groups", dataType = DataType.STRING, isList = true)
     public List<String> groups;
 
-    /** Name of this kit. */
+    /**
+     * Name of this kit.
+     */
     @Column(columnName = "name", dataType = DataType.STRING)
     public String name;
 
-    /** Items to give from this kit. */
+    /**
+     * Items to give from this kit.
+     */
     @Column(columnName = "items", dataType = DataType.STRING, isList = true)
     public List<String> items;
 

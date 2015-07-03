@@ -34,5 +34,4 @@ public final class Clicked extends NPCAI {
     public final String toString() {
         return String.format("NPCAI.Clicked[Clicker=%s]", clicker);
     }
-
 }

@@ -223,7 +223,7 @@ public class BlockIterator implements Iterator<Block> {
      *         the new block id
      */
     public void replace(int type) {
-        tracer.getCurBlock().setTypeId((short) type);
+        tracer.getCurBlock().setTypeId((short)type);
         tracer.getCurBlock().update();
     }
 
@@ -236,7 +236,7 @@ public class BlockIterator implements Iterator<Block> {
      *         the new block data
      */
     public void replace(int type, int data) {
-        tracer.getCurBlock().setTypeId((short) type);
-        tracer.getCurBlock().setData((short) data);
+        tracer.getCurBlock().setTypeId((short)type);
+        tracer.getCurBlock().setData((short)data);
     }
 }

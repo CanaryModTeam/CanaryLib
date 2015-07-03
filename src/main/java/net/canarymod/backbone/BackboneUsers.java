@@ -46,7 +46,7 @@ public class BackboneUsers extends Backbone {
      */
     public void addUser(Player player) {
         if (userExists(player.getUUIDString())) {
-            log.warn("Player " + player.getName() + " already exists. Updating it instead!");
+            log.debug("Player " + player.getName() + " already exists. Updating it instead!");
             updatePlayer(player);
             return;
         }
@@ -89,11 +89,11 @@ public class BackboneUsers extends Backbone {
     public void addUser(String nameOrUUID, String group) {
         String uuid = ToolBox.isUUID(nameOrUUID) ? nameOrUUID : ToolBox.usernameToUUID(nameOrUUID);
         if (uuid == null) {
-            log.warn("Player name or uuid is 'null'. Skipping!");
+            log.debug("Player name or uuid is 'null'. Skipping!");
             return;
         }
         if (userExists(uuid)) {
-            log.warn("Player " + uuid + " already exists. Attempting update...");
+            log.debug("Player " + uuid + " already exists. Attempting update...");
             updatePlayer(Canary.getServer().matchKnownPlayer(nameOrUUID));
             return;
         }
@@ -161,7 +161,7 @@ public class BackboneUsers extends Backbone {
      */
     public void updatePlayer(PlayerReference player) {
         if (player == null) {
-            log.warn("No PlayerReference to update...");
+            log.debug("No PlayerReference to update...");
             return;
         }
 
@@ -187,7 +187,7 @@ public class BackboneUsers extends Backbone {
         try {
             HashMap<String, Object> filter = new HashMap<String, Object>();
             filter.put("uuid", player.getUUIDString());
-            filter.put("name", player.getName());
+            // filter.put("name", player.getName()); // Can't update a name if its filtered in...
             Database.get().update(data, filter);
         }
         catch (DatabaseWriteException e) {

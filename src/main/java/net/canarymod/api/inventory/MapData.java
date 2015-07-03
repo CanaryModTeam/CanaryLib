@@ -14,21 +14,21 @@ public interface MapData {
      *
      * @return the name of the Map
      */
-    public String getMapName();
+    String getMapName();
 
     /**
      * Gets the X-wise (Block Coordinates) center for the Map
      *
      * @return center x
      */
-    public int getXCenter();
+    int getXCenter();
 
     /**
      * Gets the Z-wise (Block Coordinates) center for the Map
      *
      * @return center z
      */
-    public int getZCenter();
+    int getZCenter();
 
     /**
      * Sets the X-wise (Block Coordinates) center for the Map
@@ -36,7 +36,7 @@ public interface MapData {
      * @param xCenter
      *         the new x-wise center
      */
-    public void setXCenter(int xCenter);
+    void setXCenter(int xCenter);
 
     /**
      * Sets the Z-wise (Block Coordinates) center for the Map
@@ -44,14 +44,14 @@ public interface MapData {
      * @param zCenter
      *         the new z-wise center
      */
-    public void setZCenter(int zCenter);
+    void setZCenter(int zCenter);
 
     /**
      * Gets the scale of the map (1 to 4)
      *
      * @return map scale
      */
-    public byte getScale();
+    byte getScale();
 
     /**
      * Sets the scale of the map (1 to 4)
@@ -59,14 +59,14 @@ public interface MapData {
      * @param scale
      *         the new map scale
      */
-    public void setScale(byte scale);
+    void setScale(byte scale);
 
     /**
      * Gets the colors on the map
      *
      * @return the map colors
      */
-    public byte[] getColors();
+    byte[] getColors();
 
     /**
      * Sets the colors on the map
@@ -74,7 +74,7 @@ public interface MapData {
      * @param colors
      *         the map colors
      */
-    public void setColors(byte[] colors);
+    void setColors(byte[] colors);
 
     /**
      * Sets whether the map should auto update
@@ -85,19 +85,19 @@ public interface MapData {
      * @param updating
      *         {@code true} to auto update; {@code false} to stop auto update
      */
-    public void setMapUpdating(boolean updating);
+    void setMapUpdating(boolean updating);
 
     /**
      * Gets whether the map is auto updating
      *
      * @return {@code true} if auto updating; {@code false} if not
      */
-    public boolean isMapUpdating();
+    boolean isMapUpdating();
 
     /**
      * Sends an update to holders of the Map
      */
-    public void update();
+    void update();
 
     /**
      * Marks a vertical range of pixels as being modified so they will be resent to clients.
@@ -105,13 +105,13 @@ public interface MapData {
      * NOTE: Coordinates are specific to the Map itself, not the world.
      *
      * @param x
-     * the X-wise point (column) on the map (0 to 127)
+     *         the X-wise point (column) on the map (0 to 127)
      * @param yLowest
-     * the lowest Y-wise point (row) on the map
+     *         the lowest Y-wise point (row) on the map
      * @param yHighest
-     * the highest Y-wise point (row) on the map
+     *         the highest Y-wise point (row) on the map
      */
-    public void setColumnDirty(int x, int yLowest, int yHighest);
+    void setColumnDirty(int x, int yLowest, int yHighest);
 
     /**
      * Sets the data values of this map from the NBTData
@@ -119,7 +119,7 @@ public interface MapData {
      * @param compoundTag
      *         the NBT Data to set to the Map
      */
-    public void setNBTData(CompoundTag compoundTag);
+    void setNBTData(CompoundTag compoundTag);
 
     /**
      * Gets the data values of this map and stores them in the given NBTData
@@ -127,5 +127,5 @@ public interface MapData {
      * @param compoundTag
      *         the CompoundTag to store the Map data into
      */
-    public void getNBTData(CompoundTag compoundTag);
+    void getNBTData(CompoundTag compoundTag);
 }

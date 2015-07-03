@@ -40,22 +40,22 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
 
     @MOTDKey(key = "{group}")
     public final String group(MessageReceiver msgrec) {
-        return msgrec instanceof Player ? ((Player) msgrec).getGroup().getName() : "N/A";
+        return msgrec instanceof Player ? ((Player)msgrec).getGroup().getName() : "N/A";
     }
 
     @MOTDKey(key = "{world}")
     public final String world(MessageReceiver msgrec) {
-        return msgrec instanceof Player ? ((Player) msgrec).getWorld().getName() : Canary.getServer().getDefaultWorldName();
+        return msgrec instanceof Player ? ((Player)msgrec).getWorld().getName() : Canary.getServer().getDefaultWorldName();
     }
 
     @MOTDKey(key = "{world.weather}")
     public final String worldWeather(MessageReceiver msgrec) {
         World world;
         if (msgrec instanceof Player) {
-            world = ((Player) msgrec).getWorld();
+            world = ((Player)msgrec).getWorld();
         }
         else if (msgrec instanceof CommandBlockLogic) {
-            world = ((CommandBlockLogic) msgrec).getWorld();
+            world = ((CommandBlockLogic)msgrec).getWorld();
         }
         else {
             world = Canary.getServer().getDefaultWorld();
@@ -75,10 +75,10 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{world.time.24h}")
     public final String worldTime24h(MessageReceiver msgrec) {
         if (msgrec instanceof CommandBlock) {
-            return ToolBox.worldTimeTo24hClock(((CommandBlock) msgrec).getWorld().getRelativeTime());
+            return ToolBox.worldTimeTo24hClock(((CommandBlock)msgrec).getWorld().getRelativeTime());
         }
         else if (msgrec instanceof Player) {
-            return ToolBox.worldTimeTo24hClock(((Player) msgrec).getWorld().getRelativeTime());
+            return ToolBox.worldTimeTo24hClock(((Player)msgrec).getWorld().getRelativeTime());
         }
         else {
             return ToolBox.worldTimeTo24hClock(Canary.getServer().getDefaultWorld().getRelativeTime());
@@ -88,10 +88,10 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{world.time.12h}")
     public final String worldTime12h(MessageReceiver msgrec) {
         if (msgrec instanceof CommandBlock) {
-            return ToolBox.worldTimeTo12hClock(((CommandBlock) msgrec).getWorld().getRelativeTime());
+            return ToolBox.worldTimeTo12hClock(((CommandBlock)msgrec).getWorld().getRelativeTime());
         }
         else if (msgrec instanceof Player) {
-            return ToolBox.worldTimeTo12hClock(((Player) msgrec).getWorld().getRelativeTime());
+            return ToolBox.worldTimeTo12hClock(((Player)msgrec).getWorld().getRelativeTime());
         }
         else {
             return ToolBox.worldTimeTo12hClock(Canary.getServer().getDefaultWorld().getRelativeTime());
@@ -101,10 +101,10 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{world.time.total}")
     public final String worldTimeTotal(MessageReceiver msgrec) {
         if (msgrec instanceof CommandBlock) {
-            return String.valueOf(((CommandBlock) msgrec).getWorld().getTotalTime());
+            return String.valueOf(((CommandBlock)msgrec).getWorld().getTotalTime());
         }
         else if (msgrec instanceof Player) {
-            return String.valueOf(((Player) msgrec).getWorld().getTotalTime());
+            return String.valueOf(((Player)msgrec).getWorld().getTotalTime());
         }
         else {
             return String.valueOf(Canary.getServer().getDefaultWorld().getTotalTime());
@@ -114,10 +114,10 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{world.time.raw}")
     public final String worldTimeRaw(MessageReceiver msgrec) {
         if (msgrec instanceof CommandBlock) {
-            return String.valueOf(((CommandBlock) msgrec).getWorld().getRelativeTime());
+            return String.valueOf(((CommandBlock)msgrec).getWorld().getRelativeTime());
         }
         else if (msgrec instanceof Player) {
-            return String.valueOf(((Player) msgrec).getWorld().getRelativeTime());
+            return String.valueOf(((Player)msgrec).getWorld().getRelativeTime());
         }
         else {
             return String.valueOf(Canary.getServer().getDefaultWorld().getRelativeTime());
@@ -137,7 +137,7 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{player.first.join}")
     public final String playerFirstJoin(MessageReceiver msgrec) {
         if (msgrec instanceof Player) {
-            return ((Player) msgrec).getFirstJoined();
+            return ((Player)msgrec).getFirstJoined();
         }
         return "N/A";
     }
@@ -145,7 +145,7 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{player.time.played}")
     public final String playerTimePlayed(MessageReceiver msgrec) {
         if (msgrec instanceof Player) {
-            return ToolBox.getTimeUntil(((Player) msgrec).getTimePlayed());
+            return ToolBox.getTimeUntil(((Player)msgrec).getTimePlayed());
         }
         return "N/A";
     }
@@ -153,7 +153,7 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{player.last.join}")
     public final String lastLogin(MessageReceiver msgrec) {
         if (msgrec instanceof Player) {
-            return ((Player) msgrec).getLastJoined();
+            return ((Player)msgrec).getLastJoined();
         }
         return "N/A";
     }
@@ -161,7 +161,7 @@ public final class CanaryMessageOfTheDayListener implements MessageOfTheDayListe
     @MOTDKey(key = "{player.last.ip}")
     public final String lastIP(MessageReceiver msgrec) {
         if (msgrec instanceof Player) {
-            return ((Player) msgrec).getPreviousIP();
+            return ((Player)msgrec).getPreviousIP();
         }
         return "N/A";
     }

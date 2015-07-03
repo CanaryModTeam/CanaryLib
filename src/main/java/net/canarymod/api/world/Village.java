@@ -18,7 +18,7 @@ public interface Village {
      * @param rep
      *         the amount of reputation to set
      */
-    public void setReputationForPlayer(Player player, int rep);
+    void setReputationForPlayer(Player player, int rep);
 
     /**
      * Gets the reputation for a Player
@@ -28,7 +28,7 @@ public interface Village {
      *
      * @return the reputation value
      */
-    public int getReputationForPlayer(Player player);
+    int getReputationForPlayer(Player player);
 
     /**
      * Gets whether a Player's rep is too low (less than -15)
@@ -38,54 +38,57 @@ public interface Village {
      *
      * @return {@code true} if the Player's rep is below -15; {@code false} if not
      */
-    public boolean isPlayerReputationTooLow(Player player);
+    boolean isPlayerReputationTooLow(Player player);
 
     /**
      * Checks if the Village is in mating season
      *
      * @return {@code true} if it is mating season; {@code false} if not
      */
-    public boolean isMatingSeason();
+    boolean isMatingSeason();
 
-    /** Starts the Village's mating season */
-    public void startMatingSeason();
+    /**
+     * Starts the Village's mating season
+     */
+    void startMatingSeason();
 
-    /** Ends the village's mating season */
-    public void endMatingSeason();
+    /**
+     * Ends the village's mating season
+     */
+    void endMatingSeason();
 
     /**
      * Gets the center location of the Village
      *
      * @return center of the village
      */
-    public Location getCenter();
+    Location getCenter();
 
     /**
      * Gets the radius the Village encompasses
      *
      * @return radius of the Village
      */
-    public int getRadius();
+    int getRadius();
 
     /**
      * Gets the number of Villagers in the Village
      *
      * @return villager count
      */
-    public int getVillagerCount();
+    int getVillagerCount();
 
     /**
      * Gets the number of IronGolems in the Village
      *
      * @return IronGolem count
      */
-    public int getIronGolemCount();
+    int getIronGolemCount();
 
     /**
      * Gets if the Village has been raped and pillaged (ie: all doors destroyed)
      *
      * @return {@code true} if annihilated; {@code false} if not
      */
-    public boolean isAnnihilated();
-
+    boolean isAnnihilated();
 }

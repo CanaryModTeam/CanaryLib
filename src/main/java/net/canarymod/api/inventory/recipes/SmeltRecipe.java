@@ -119,5 +119,4 @@ public final class SmeltRecipe {
     public float getXP() {
         return xp;
     }
-
 }

@@ -1,9 +1,10 @@
 package net.canarymod.api.entity.living.humanoid;
 
-import java.util.List;
 import net.canarymod.api.PathFinder;
 import net.canarymod.api.entity.Entity;
 import net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener;
+
+import java.util.List;
 
 /**
  * Non-Playable Character interface
@@ -12,8 +13,10 @@ import net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener;
  */
 public interface NonPlayableCharacter extends Human {
 
-    /** Tell the NPC to look at nearest player */
-    public void lookAtNearest();
+    /**
+     * Tell the NPC to look at nearest player
+     */
+    void lookAtNearest();
 
     /**
      * Shows the NPC to the specified Player
@@ -21,7 +24,7 @@ public interface NonPlayableCharacter extends Human {
      * @param player
      *         the {@link Player} to be shown the NPC
      */
-    public void haunt(Player player);
+    void haunt(Player player);
 
     /**
      * Hides the NPC from specified Player
@@ -29,7 +32,7 @@ public interface NonPlayableCharacter extends Human {
      * @param player
      *         the Player to hide from
      */
-    public void ghost(Player player);
+    void ghost(Player player);
 
     /**
      * De-spawn the NPC and return its reference for further processing.
@@ -37,7 +40,7 @@ public interface NonPlayableCharacter extends Human {
      *
      * @return the NonPlayableCharacter instance
      */
-    public NonPlayableCharacter despawn();
+    NonPlayableCharacter despawn();
 
     /**
      * Sends a message as the NonPlayableCharacter
@@ -45,7 +48,7 @@ public interface NonPlayableCharacter extends Human {
      * @param msg
      *         the Message to send
      */
-    public void chat(String msg);
+    void chat(String msg);
 
     /**
      * Sends a private message as the NonPlayerCharacter to the specified Player
@@ -55,7 +58,7 @@ public interface NonPlayableCharacter extends Human {
      * @param msg
      *         the message to send
      */
-    public void privateMessage(Player player, String msg);
+    void privateMessage(Player player, String msg);
 
     /**
      * Attacks for the NonPlayableCharacter the targeted entity with the
@@ -64,40 +67,38 @@ public interface NonPlayableCharacter extends Human {
      * @param entity
      *         Entity to attack.
      */
-    public void attackEntity(Entity entity);
+    void attackEntity(Entity entity);
 
-   
     /**
      * Get the {@link PathFinder} class for this Entity.
      *
      * @return the pathfinder
      */
-    public PathFinder getPathFinder();
+    PathFinder getPathFinder();
 
     /**
      * Gets the {@link NPCBehaviorListener} for this NonPlayableCharacter of the
      * given class type.
      *
      * @return the {@link NPCBehaviorListener} or null if one of this type is not
-     *          Registered to this NPC.
+     * Registered to this NPC.
      */
-    public NPCBehaviorListener getRegisteredListener(Class<? extends NPCBehaviorListener> clazz);
+    NPCBehaviorListener getRegisteredListener(Class<? extends NPCBehaviorListener> clazz);
 
     /**
      * Gets the list of {@link NPCBehaviorListener} for this NonPlayableCharacter
      *
      * @return the list of {@link NPCBehaviorListener}s
-     * 
+     *
      * @deprecated in favour of getRegisteredListeners();
      */
-    @Deprecated public List<NPCBehaviorListener> geRegisteredListeners();
-    
+    @Deprecated
+    List<NPCBehaviorListener> geRegisteredListeners();
+
     /**
      * Gets the list of {@link NPCBehaviorListener} for this NonPlayableCharacter
      *
      * @return the list of {@link NPCBehaviorListener}s
-     *
      */
-    public List<NPCBehaviorListener> getRegisteredListeners();
-
+    List<NPCBehaviorListener> getRegisteredListeners();
 }

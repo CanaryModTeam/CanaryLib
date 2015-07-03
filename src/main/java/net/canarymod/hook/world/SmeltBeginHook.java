@@ -18,8 +18,10 @@ public final class SmeltBeginHook extends CancelableHook {
     /**
      * Constructs a new SmeltHook
      *
-     * @param furnace  the {@link net.canarymod.api.world.blocks.Furnace} doing the smelting
-     * @param smelting the {@link net.canarymod.api.inventory.Item} being smelted
+     * @param furnace
+     *         the {@link net.canarymod.api.world.blocks.Furnace} doing the smelting
+     * @param smelting
+     *         the {@link net.canarymod.api.inventory.Item} being smelted
      */
     public SmeltBeginHook(Furnace furnace, Item smelting) {
         this.furnace = furnace;
@@ -48,5 +50,4 @@ public final class SmeltBeginHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[Furnace=%s, Item=%s]", getHookName(), furnace, smelting);
     }
-
 }

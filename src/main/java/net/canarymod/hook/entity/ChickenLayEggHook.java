@@ -17,13 +17,13 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Creates a new ChickenLayEggHook
-     * 
+     *
      * @param chicken
-     *            the chicken that laid the egg
+     *         the chicken that laid the egg
      * @param egg
-     *            the egg that has been laid
+     *         the egg that has been laid
      * @param nextEggIn
-     *            the time until next egg will be laid
+     *         the time until next egg will be laid
      */
     public ChickenLayEggHook(Chicken chicken, Item egg, int nextEggIn) {
         this.chicken = chicken;
@@ -33,7 +33,7 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Get the {@link Chicken} the laid the egg
-     * 
+     *
      * @return the chicken that laid the egg
      */
     public Chicken getChicken() {
@@ -42,7 +42,7 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Get the egg that was laid
-     * 
+     *
      * @return the egg that was laid
      */
     public Item getEgg() {
@@ -51,9 +51,9 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Change the egg that should be laid
-     * 
+     *
      * @param egg
-     *            the egg that should be laid
+     *         the egg that should be laid
      */
     public void setEgg(Item egg) {
         this.egg = egg;
@@ -61,7 +61,7 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Get the time until the next egg will be laid for the chicken that laid the egg
-     * 
+     *
      * @return time until next egg will be laid from the current chicken
      */
     public int getNextEggIn() {
@@ -70,9 +70,9 @@ public class ChickenLayEggHook extends CancelableHook {
 
     /**
      * Set the time until next egg will be laid from the chicken that laid the egg
-     * 
+     *
      * @param nextEggIn
-     *            time until next egg will be laid
+     *         time until next egg will be laid
      */
     public void setNextEggIn(int nextEggIn) {
         this.nextEggIn = nextEggIn;

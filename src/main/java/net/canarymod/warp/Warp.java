@@ -7,6 +7,7 @@ import net.canarymod.hook.player.TeleportHook;
 import net.canarymod.user.Group;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -70,7 +71,7 @@ public class Warp {
     }
 
     /**
-     * Get owners name. May return null if this is no private home warp
+     * Get owners identity. May return null if this is no private home warp
      *
      * @return
      */
@@ -106,7 +107,7 @@ public class Warp {
      */
     public boolean canWarp(Player player) {
         if (owner != null) {
-            return player.getName().equals(owner) || (player.isAdmin() || player.hasPermission("canary.command.warp.admin"));
+            return isOwner(player) || (player.isAdmin() || player.hasPermission("canary.command.warp.admin"));
         }
         else if (allowedGroups != null) {
             for (Group gr : allowedGroups) {
@@ -217,4 +218,17 @@ public class Warp {
         return isPlayerHome;
     }
 
+    public boolean isOwner(Player player) {
+        return owner != null && (owner.equals(player.getName()) || owner.equals(player.getUUIDString()));
+    }
+
+    public final String toString() {
+        return String.format("Warp[Name:%s, Location:%s, Groups:%s, Owner:%s, PlayerHome:%b]",
+                             getName(),
+                             getLocation().asReadableString(Location.ReadMode.XYZFLOAT, Location.ReadMode.ROTATION, Location.ReadMode.WORLD, Location.ReadMode.DIMENSION),
+                             Arrays.deepToString(getGroups()),
+                             getOwner(),
+                             isPlayerHome()
+                            );
+    }
 }

@@ -12,7 +12,7 @@ public interface Silverfish extends EntityMob {
      *
      * @return the ticks before calling allies
      */
-    public int getAllySummonCooldown();
+    int getAllySummonCooldown();
 
     /**
      * Sets the ticks before calling allies
@@ -20,5 +20,5 @@ public interface Silverfish extends EntityMob {
      * @param cooldown
      *         the ticks before calling allies
      */
-    public void setAllySummonCooldown(int cooldown);
+    void setAllySummonCooldown(int cooldown);
 }

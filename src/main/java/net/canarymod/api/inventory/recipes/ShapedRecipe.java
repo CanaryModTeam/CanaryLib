@@ -14,14 +14,14 @@ public interface ShapedRecipe extends Recipe {
      *
      * @return the recipe width
      */
-    public int getWidth();
+    int getWidth();
 
     /**
      * Gets the height of the Recipe
      *
      * @return the recipe height
      */
-    public int getHeight();
+    int getHeight();
 
     /**
      * Gets the {@link Item}s that make up the recipe.<br>
@@ -29,6 +29,5 @@ public interface ShapedRecipe extends Recipe {
      *
      * @return an array of {@link Item}
      */
-    public Item[] getRecipeItems();
-
+    Item[] getRecipeItems();
 }

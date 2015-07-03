@@ -10,13 +10,15 @@ import net.visualillusionsent.utils.PropertiesFile;
  */
 public interface ConfigurationContainer {
 
-    /** Reloads the configuration */
-    public void reload();
+    /**
+     * Reloads the configuration
+     */
+    void reload();
 
     /**
      * Get the configuration file
      *
      * @return ConfigurationFile
      */
-    public PropertiesFile getFile();
+    PropertiesFile getFile();
 }

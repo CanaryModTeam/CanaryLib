@@ -39,7 +39,7 @@ public final class PlayerInformation implements NativeCommand {
             subject = Canary.getServer().matchKnownPlayer(args[0]);
         }
         else {
-            subject = (Player) caller;
+            subject = (Player)caller;
         }
 
         if (subject != null) {

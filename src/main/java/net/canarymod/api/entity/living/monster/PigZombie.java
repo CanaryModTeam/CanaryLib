@@ -14,14 +14,14 @@ public interface PigZombie extends Zombie {
      *
      * @return true if angry
      */
-    public boolean isAngry();
+    boolean isAngry();
 
     /**
      * gets this PigZombie's anger level
      *
      * @return level
      */
-    public int getAngerLevel();
+    int getAngerLevel();
 
     /**
      * sets this PigZombie's anger level
@@ -29,7 +29,7 @@ public interface PigZombie extends Zombie {
      * @param level
      *         the anger level
      */
-    public void setAngerLevel(int level);
+    void setAngerLevel(int level);
 
     /**
      * Argo on the specified {@link Player}
@@ -37,7 +37,7 @@ public interface PigZombie extends Zombie {
      * @param player
      *         the {@link Player} to become angry at
      */
-    public void becomeAngryAt(Player player);
+    void becomeAngryAt(Player player);
 
     /**
      * Get mad!
@@ -45,5 +45,5 @@ public interface PigZombie extends Zombie {
      * @param player
      *         target
      */
-    public void dontMakeLemonade(Player player);
+    void dontMakeLemonade(Player player);
 }

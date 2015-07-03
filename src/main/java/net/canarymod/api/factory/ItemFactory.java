@@ -156,5 +156,4 @@ public interface ItemFactory {
      * @return MapData or {@code null} if item passed was not a Map
      */
     MapData getMapData(Item item);
-
 }

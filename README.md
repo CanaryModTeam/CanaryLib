@@ -18,6 +18,7 @@ We do the dirty work for you, you go and make amazing plugins. It’s as easy as
 
 This repository contains the library/specifications.
 
+
 Plugin Development
 =============
 
@@ -60,6 +61,7 @@ However, We have standards for the sources we have. Things like formatting
 and generally following the [Sun/Oracle coding standards](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html)  
 We also ask that you read and sign our [Contribitors License Agreement Form](https://dl.dropboxusercontent.com/u/25586491/Canary/CanaryModTeam_CLA.pdf)  
 (Please note that Mailing Address may be omitted and if submitted will only be used as an alternative contact method if anything should change in the project)  
+Signed CLA's can be sent to either email address listed in the form
 
 Source Formatting and requirements
 -------------

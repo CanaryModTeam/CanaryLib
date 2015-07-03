@@ -60,5 +60,4 @@ public abstract class ChunkProviderCustom {
     public void setWorld(World world) {
         this.world = world;
     }
-
 }

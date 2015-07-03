@@ -1,8 +1,8 @@
 package net.canarymod.api.inventory.recipes;
 
-import java.util.List;
-
 import net.canarymod.api.inventory.Item;
+
+import java.util.List;
 
 /**
  * ShapelessRecipes wrapper interface
@@ -16,6 +16,5 @@ public interface ShapelessRecipe extends Recipe {
      *
      * @return a list of {@link Item}
      */
-    public List<Item> getRecipeItems();
-
+    List<Item> getRecipeItems();
 }

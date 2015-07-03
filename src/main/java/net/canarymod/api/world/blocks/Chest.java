@@ -14,7 +14,7 @@ public interface Chest extends LockableTileEntity, Inventory {
      *
      * @return {@code true} if attached chest; {@code false} if not
      */
-    public boolean hasAttachedChest();
+    boolean hasAttachedChest();
 
     /**
      * Gets the DoubleChest that results from this chest and its attached chest.
@@ -22,5 +22,5 @@ public interface Chest extends LockableTileEntity, Inventory {
      *
      * @return {@link DoubleChest} if found; {@code null} if not
      */
-    public DoubleChest getDoubleChest();
+    DoubleChest getDoubleChest();
 }

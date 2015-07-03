@@ -15,28 +15,28 @@ public interface DamageSource {
      *
      * @return {@code true} if valid, {@code false} if not
      */
-    public boolean validInCreativeMode();
+    boolean validInCreativeMode();
 
     /**
      * Check if this is fire damage
      *
      * @return {@code true} if fire damage; {@code false} if not
      */
-    public boolean isFireDamage();
+    boolean isFireDamage();
 
     /**
      * Check if this is projectile damage
      *
      * @return {@code true} if projectile damage; {@code false} if not
      */
-    public boolean isProjectile();
+    boolean isProjectile();
 
     /**
      * Return the {@link DamageType} of this damage
      *
      * @return the {@link DamageType}
      */
-    public DamageType getDamagetype();
+    DamageType getDamagetype();
 
     /**
      * Set a custom death message to this damage type. put "%d" (without ") as
@@ -45,7 +45,7 @@ public interface DamageSource {
      * @param deathmessage
      *         the death message to be set
      */
-    public void setCustomDeathMessage(String deathmessage);
+    void setCustomDeathMessage(String deathmessage);
 
     /**
      * Get death message for this DamageSource
@@ -55,14 +55,14 @@ public interface DamageSource {
      *
      * @return the death message
      */
-    public String getDeathMessage(Player player);
+    String getDeathMessage(Player player);
 
     /**
      * How much hunger will be added by indulging this damage type
      *
      * @return {@code float} damage amount
      */
-    public float getHungerDamage();
+    float getHungerDamage();
 
     /**
      * Set the amount of hunger this damage costs
@@ -70,7 +70,7 @@ public interface DamageSource {
      * @param hunger
      *         the amount of damage
      */
-    public void setHungerDamage(float hunger);
+    void setHungerDamage(float hunger);
 
     /**
      * Get the entity that caused the damage. This may return null if damage
@@ -78,7 +78,7 @@ public interface DamageSource {
      *
      * @return the {@link Entity} dealer
      */
-    public Entity getDamageDealer();
+    Entity getDamageDealer();
 
     /**
      * Check if this damage is unblockable (penetrates armor and can't be held
@@ -86,7 +86,7 @@ public interface DamageSource {
      *
      * @return {@code true} if unblockable; {@code false} if not
      */
-    public boolean isUnblockable();
+    boolean isUnblockable();
 
     /**
      * Set this damagetype as unblockable or not
@@ -94,12 +94,19 @@ public interface DamageSource {
      * @param blockable
      *         {@code true} for unblockable; {@code false} for not
      */
-    public void setUnblockable(boolean blockable);
+    void setUnblockable(boolean blockable);
 
     /**
      * Gets the name used within Native Minecraft Sources
      *
      * @return the name used within NMS
      */
-    public String getNativeName();
+    String getNativeName();
+
+    /**
+     * Gets if the DamageSource includes a critical hit.
+     *
+     * @return {@code true} if critical hit; {@code false} if not
+     */
+    boolean isCritical();
 }

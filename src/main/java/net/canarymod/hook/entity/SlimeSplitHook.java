@@ -1,8 +1,9 @@
 package net.canarymod.hook.entity;
 
-import java.util.List;
 import net.canarymod.api.entity.living.monster.Slime;
 import net.canarymod.hook.Hook;
+
+import java.util.List;
 
 /**
  * Slime split hook, Contains information about a slime split.
@@ -18,9 +19,9 @@ public class SlimeSplitHook extends Hook {
      * Constructs a new SlimeSplitHook
      *
      * @param originalSlime
-     *            the original {@link Slime} that died
+     *         the original {@link Slime} that died
      * @param childSlimes
-     *            the {@link Slime}s that should spawn
+     *         the {@link Slime}s that should spawn
      */
     public SlimeSplitHook(Slime originalSlime, List<Slime> childSlimes) {
         this.originalSlime = originalSlime;
@@ -29,7 +30,7 @@ public class SlimeSplitHook extends Hook {
 
     /**
      * Get the original {@link Slime} that died
-     * 
+     *
      * @return the {@link Slime} that died
      */
     public Slime getOriginalSlime() {
@@ -38,7 +39,7 @@ public class SlimeSplitHook extends Hook {
 
     /**
      * Get the {@link Slime}s that should be spawned
-     * 
+     *
      * @return a list of {@link Slime}s that will spawn
      */
     public List<Slime> getChildSlimes() {

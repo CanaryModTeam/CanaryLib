@@ -14,5 +14,5 @@ public interface EnderChestInventory extends Inventory {
      *
      * @return {@link Human} owner (NPC or Player)
      */
-    public Human getInventoryOwner();
+    Human getInventoryOwner();
 }

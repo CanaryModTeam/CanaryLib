@@ -16,8 +16,10 @@ public final class EntityRightClickHook extends CancelableHook {
     /**
      * Construct a new EntityRightClickHook
      *
-     * @param clicked the {@link Entity} clicked
-     * @param player  the {@link Player} clicking
+     * @param clicked
+     *         the {@link Entity} clicked
+     * @param player
+     *         the {@link Player} clicking
      */
     public EntityRightClickHook(Entity clicked, Player player) {
         this.clickedEntity = clicked;

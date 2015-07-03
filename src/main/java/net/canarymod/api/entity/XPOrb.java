@@ -15,7 +15,7 @@ public interface XPOrb extends Entity {
      *
      * @return orb age
      */
-    public short getOrbAge();
+    short getOrbAge();
 
     /**
      * Sets the age of the XPOrb.
@@ -23,7 +23,7 @@ public interface XPOrb extends Entity {
      * @param age
      *         the age of the orb
      */
-    public void setOrbAge(short age);
+    void setOrbAge(short age);
 
     /**
      * Gets the ticks before being allowed to be picked up.<br>
@@ -31,7 +31,7 @@ public interface XPOrb extends Entity {
      *
      * @return pick up delay
      */
-    public int getPickUpDelay();
+    int getPickUpDelay();
 
     /**
      * Sets the ticks before being allowed to be picked up.
@@ -39,7 +39,7 @@ public interface XPOrb extends Entity {
      * @param delay
      *         the pick up delay
      */
-    public void setPickUpDelay(int delay);
+    void setPickUpDelay(int delay);
 
     /**
      * Gets the health of the orb.<br>
@@ -47,7 +47,7 @@ public interface XPOrb extends Entity {
      *
      * @return the orb health
      */
-    public short getHealth();
+    short getHealth();
 
     /**
      * Sets the health of the orb. Maxed at 255.
@@ -55,14 +55,14 @@ public interface XPOrb extends Entity {
      * @param health
      *         the orb health
      */
-    public void setHealth(short health);
+    void setHealth(short health);
 
     /**
      * Gets the XP value of the orb.
      *
      * @return the XP value
      */
-    public short getXPValue();
+    short getXPValue();
 
     /**
      * Sets the XP value of the orb.
@@ -70,7 +70,7 @@ public interface XPOrb extends Entity {
      * @param value
      *         the XP value
      */
-    public void setXPValue(short value);
+    void setXPValue(short value);
 
     /**
      * Gets the closest {@link Player} to the XP Orb.<br>
@@ -78,6 +78,5 @@ public interface XPOrb extends Entity {
      *
      * @return the closest {@link Player} or {@code null} if no player is in range
      */
-    public Player getClosestPlayer();
-
+    Player getClosestPlayer();
 }

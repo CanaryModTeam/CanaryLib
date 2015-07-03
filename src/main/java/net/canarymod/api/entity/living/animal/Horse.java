@@ -20,12 +20,17 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      *
      * @author Jason (darkdiplomat)
      */
-    public enum HorseType {
-        HORSE, //
-        DONKEY, //
-        MULE, //
-        ZOMBIE, //
-        SKELETON, //
+    enum HorseType {
+        HORSE,
+        //
+        DONKEY,
+        //
+        MULE,
+        //
+        ZOMBIE,
+        //
+        SKELETON,
+        //
         ;
     }
 
@@ -34,14 +39,14 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      *
      * @return {@code true} if eating; {@code false} if not
      */
-    public boolean isEatingHay();
+    boolean isEatingHay();
 
     /**
      * Gets if the Horse has been bred
      *
      * @return {@code true} if bred; {@code false} if not
      */
-    public boolean isBred();
+    boolean isBred();
 
     /**
      * Sets if the Horse was bred
@@ -49,14 +54,14 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param bred
      *         {@code true} for bred; {@code false} for not
      */
-    public void setIsBred(boolean bred);
+    void setIsBred(boolean bred);
 
     /**
      * Gets if the Horse has a {@link Chest} attached
      *
      * @return {@code true} if is chested; {@code false} if not
      */
-    public boolean isChested();
+    boolean isChested();
 
     /**
      * Sets if the Horse has a {@link Chest} attached
@@ -64,14 +69,14 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param chested
      *         {@code true} for chested; {@code false} for not
      */
-    public void setIsChested(boolean chested);
+    void setIsChested(boolean chested);
 
     /**
      * Gets if the Horse has reproduced
      *
      * @return {@code true} if reproduced; {@code false} if not
      */
-    public boolean hasReproduced();
+    boolean hasReproduced();
 
     /**
      * Sets if the Horse has reproduced
@@ -79,21 +84,21 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param reproduced
      *         {@code true} for reproduced; {@code false} if not
      */
-    public void setHasReproduced(boolean reproduced);
+    void setHasReproduced(boolean reproduced);
 
     /**
      * Gets the {@link HorseType} of the Horse
      *
      * @return the Horse Type
      */
-    public HorseType getType();
+    HorseType getType();
 
     /**
      * Gets the raw integer type of the Horse
      *
      * @return the type integer
      */
-    public int getRawType();
+    int getRawType();
 
     /**
      * Sets the {@link HorseType} of the Horse
@@ -101,7 +106,7 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param type
      *         the {@link HorseType} to set
      */
-    public void setType(HorseType type);
+    void setType(HorseType type);
 
     /**
      * Sets the type of the horse
@@ -109,14 +114,14 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param type
      *         {@code 0} for Horse; {@code 1} for Donkey; {@code 2} for Mule; {@code 3} for Zombie; {@code 4} for Skeleton
      */
-    public void setType(int type);
+    void setType(int type);
 
     /**
      * Information unknown at this time.
      *
      * @return variant
      */
-    public int getVariant();
+    int getVariant();
 
     /**
      * Information unknown at this time.
@@ -124,14 +129,14 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param variant
      *         the variant integer
      */
-    public void setVariant(int variant);
+    void setVariant(int variant);
 
     /**
      * Gets the Temper level of the Horse. More information is unknown
      *
      * @return temper
      */
-    public int getTemper();
+    int getTemper();
 
     /**
      * Sets the Temper level of the Horse. More information is unknown
@@ -139,13 +144,12 @@ public interface Horse extends AnimalVehicle, Ageable, Tameable {
      * @param temper
      *         the temper level
      */
-    public void setTemper(int temper);
+    void setTemper(int temper);
 
     /**
      * Gets the inventory for the Horse if Chested
      *
      * @return inventory
      */
-    public Inventory getInventory();
-
+    Inventory getInventory();
 }

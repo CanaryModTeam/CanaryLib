@@ -16,15 +16,15 @@ public interface EntityThrowable extends Entity, Projectile {
      *
      * @return the LivingBase that threw the Throwable
      */
-    public LivingBase getThrower();
+    LivingBase getThrower();
 
     /**
      * Gets the amount of gravity to apply to the thrown entity with each tick.
      *
      * @return gravity
-     *         the amount of gravity applied
+     * the amount of gravity applied
      */
-    public float getGravity();
+    float getGravity();
 
     /**
      * Sets the amount of gravity to apply to the thrown entity with each tick.
@@ -32,5 +32,5 @@ public interface EntityThrowable extends Entity, Projectile {
      * @param velocity
      *         the amount of gravity to apply
      */
-    public void setGravity(float velocity);
+    void setGravity(float velocity);
 }

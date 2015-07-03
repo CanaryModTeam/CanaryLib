@@ -71,39 +71,48 @@ public final class TeleportHook extends CancelableHook {
         /**
          * Teleported by sleeping in/waking up from a bed
          */
-        BED, //
+        BED,
+        //
         /**
          * Teleported by use of a command
          */
-        COMMAND, //
+        COMMAND,
+        //
         /**
          * Teleported by mounting/unmounting an {@link net.canarymod.api.entity.Entity}
          */
-        MOUNT_CHANGE, //
+        MOUNT_CHANGE,
+        //
         /**
          * Teleported by normal moving
          */
-        MOVEMENT, //
+        MOVEMENT,
+        //
         /**
          * Teleported by a plugin
          */
-        PLUGIN, //
+        PLUGIN,
+        //
         /**
          * Teleported by a Portal
          */
-        PORTAL, //
+        PORTAL,
+        //
         /**
          * Teleported by respawn
          */
-        RESPAWN, //
+        RESPAWN,
+        //
         /**
          * Generic Reasoning
          */
-        UNDEFINED, //
+        UNDEFINED,
+        //
         /**
          * WARP SYSTEM
          */
-        WARP, //
+        WARP,
+        //
         ;
     }
 }

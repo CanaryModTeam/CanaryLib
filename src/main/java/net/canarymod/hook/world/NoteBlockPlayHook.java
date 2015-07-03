@@ -14,7 +14,8 @@ public final class NoteBlockPlayHook extends CancelableHook {
     /**
      * Constructs a new NoteBlockPlayHook
      *
-     * @param noteBlock the {@link net.canarymod.api.world.blocks.NoteBlock} being played
+     * @param noteBlock
+     *         the {@link net.canarymod.api.world.blocks.NoteBlock} being played
      */
     public NoteBlockPlayHook(NoteBlock noteBlock) {
         this.noteBlock = noteBlock;
@@ -35,5 +36,4 @@ public final class NoteBlockPlayHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[NoteBlock=%s]", this.getHookName(), this.noteBlock);
     }
-
 }

@@ -15,7 +15,7 @@ public interface AIBase {
      * @return {@code true} if the manager should execute this, {@code false}
      * otherwise.
      */
-    public boolean shouldExecute();
+    boolean shouldExecute();
 
     /**
      * Returns whether an in-progress AIBase should continue executing
@@ -23,7 +23,7 @@ public interface AIBase {
      * @return {@code true} if the manager should continue executing this,
      * {@code false} otherwise.
      */
-    public boolean continueExecuting();
+    boolean continueExecuting();
 
     /**
      * Returns whether the task requires multiple updates or not
@@ -31,22 +31,22 @@ public interface AIBase {
      * @return {@code true} means this takes multiple ticks to execute,
      * {@code false} otherwise.
      */
-    public boolean isContinuous();
+    boolean isContinuous();
 
     /**
      * Execute a one shot task or start executing a continuous task
      */
-    public void startExecuting();
+    void startExecuting();
 
     /**
      * Resets the task
      */
-    public void resetTask();
+    void resetTask();
 
     /**
      * Updates the task.<br>
      * This is called on ticks following the tick where AIBase.startExecuting()
      * is called until AIBase.resetTask() is called.
      */
-    public void updateTask();
+    void updateTask();
 }

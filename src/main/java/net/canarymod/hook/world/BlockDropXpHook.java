@@ -38,7 +38,8 @@ public class BlockDropXpHook extends CancelableHook {
     /**
      * Set the experience amount that will be dropped.
      *
-     * @param xp The experience amount that will be dropped
+     * @param xp
+     *         The experience amount that will be dropped
      */
     public void setXp(int xp) {
         // Be sure to not put any invalid values

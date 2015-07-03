@@ -19,7 +19,7 @@ public interface Beacon extends LockableTileEntity, Inventory {
      *
      * @return {@code true} if valid; {@code false} if not
      */
-    public boolean isValidEffect(PotionEffectType effect);
+    boolean isValidEffect(PotionEffectType effect);
 
     /**
      * Checks through the list of supported potions up to the specified level
@@ -31,14 +31,14 @@ public interface Beacon extends LockableTileEntity, Inventory {
      *
      * @return {@code true} if valid; {@code false} if not
      */
-    public boolean isValidEffectAtLevels(PotionEffectType effect, int levels);
+    boolean isValidEffectAtLevels(PotionEffectType effect, int levels);
 
     /**
      * Gets the primary {@link PotionEffectType}
      *
      * @return the primary {@link PotionEffectType}
      */
-    public PotionEffectType getPrimaryEffect();
+    PotionEffectType getPrimaryEffect();
 
     /**
      * Sets the primary {@link PotionEffectType} *IF* the effect is on the supported potion list
@@ -46,7 +46,7 @@ public interface Beacon extends LockableTileEntity, Inventory {
      * @param effect
      *         the {@link PotionEffectType} to set
      */
-    public void setPrimaryEffect(PotionEffectType effect);
+    void setPrimaryEffect(PotionEffectType effect);
 
     /**
      * Allows mods to set other potion effects not allowed by default
@@ -54,14 +54,14 @@ public interface Beacon extends LockableTileEntity, Inventory {
      * @param effect
      *         the {@link PotionEffectType} to set
      */
-    public void setPrimaryEffectDirectly(PotionEffectType effect);
+    void setPrimaryEffectDirectly(PotionEffectType effect);
 
     /**
      * Gets the secondary {@link PotionEffectType}
      *
      * @return the secondary {@link PotionEffectType}
      */
-    public PotionEffectType getSecondaryEffect();
+    PotionEffectType getSecondaryEffect();
 
     /**
      * Sets the secondary {@link PotionEffectType} *IF* the effect is on the supported potion list
@@ -69,7 +69,7 @@ public interface Beacon extends LockableTileEntity, Inventory {
      * @param effect
      *         the secondary {@link PotionEffectType}
      */
-    public void setSecondaryEffect(PotionEffectType effect);
+    void setSecondaryEffect(PotionEffectType effect);
 
     /**
      * Allows mods to set other potion effects not allowed by default
@@ -77,14 +77,14 @@ public interface Beacon extends LockableTileEntity, Inventory {
      * @param effect
      *         the {@link PotionEffectType} to set
      */
-    public void setSecondaryEffectDirectly(PotionEffectType effect);
+    void setSecondaryEffectDirectly(PotionEffectType effect);
 
     /**
      * Gets the levels of the Beacon
      *
      * @return the beacon levels
      */
-    public int getLevels();
+    int getLevels();
 
     /**
      * Sets the levels of the Beacon
@@ -92,5 +92,5 @@ public interface Beacon extends LockableTileEntity, Inventory {
      * @param levels
      *         the beacon levels
      */
-    public void setLevels(int levels);
+    void setLevels(int levels);
 }

@@ -21,7 +21,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public boolean canSave();
+    boolean canSave();
 
     /**
      * Check if a chunk at the given coords exist
@@ -36,7 +36,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public boolean chunkExists(int x, int z);
+    boolean chunkExists(int x, int z);
 
     /**
      * Load chunk at that x-z coordinate
@@ -49,7 +49,7 @@ public interface ChunkProvider {
      *
      * @return Chunk that has been loaded
      */
-    public Chunk loadChunk(int x, int z);
+    Chunk loadChunk(int x, int z);
 
     /**
      * Is called after the large-scale generation is done to populate the world with details.
@@ -63,7 +63,7 @@ public interface ChunkProvider {
      * @param z
      *         the Z Chunk coordinate
      */
-    public void populate(ChunkProvider provider, int x, int z);
+    void populate(ChunkProvider provider, int x, int z);
 
     /**
      * Return a String that displays the statistics for this ChunkProvider.
@@ -74,7 +74,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this (But you can)
      */
-    public String getStatistics();
+    String getStatistics();
 
     /**
      * Reload the given chunk.
@@ -87,7 +87,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public void reloadChunk(int x, int z);
+    void reloadChunk(int x, int z);
 
     /**
      * Drop the chunk at the given coordinates
@@ -100,7 +100,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public void dropChunk(int x, int z);
+    void dropChunk(int x, int z);
 
     /**
      * Provides a Chunk. If that chunk didn't exist in any case it will
@@ -114,7 +114,7 @@ public interface ChunkProvider {
      *
      * @return the provided {@link Chunk}
      */
-    public Chunk provideChunk(int x, int z);
+    Chunk provideChunk(int x, int z);
 
     /**
      * Save up to two chunks or if saveAll is true, save all chunks.
@@ -126,7 +126,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public boolean saveChunk(boolean saveAll);
+    boolean saveChunk(boolean saveAll);
 
     /**
      * Regenerate the whole chunk at the given x/z coordinate.
@@ -139,7 +139,7 @@ public interface ChunkProvider {
      *
      * @return the {@link Chunk} regenerated
      */
-    public Chunk regenerateChunk(int x, int z);
+    Chunk regenerateChunk(int x, int z);
 
     /**
      * Check if a chunk at the specified coordinates is loaded
@@ -154,7 +154,7 @@ public interface ChunkProvider {
      *
      * @PluginDev You do not need to implement this
      */
-    public boolean isChunkLoaded(int x, int z);
+    boolean isChunkLoaded(int x, int z);
 
     /**
      * Get a List of Chunks that are currently handled by this ChunkProvider.
@@ -165,6 +165,5 @@ public interface ChunkProvider {
      *
      * @return a List of Chunk objects.
      */
-    public List<Chunk> getLoadedChunks();
-
+    List<Chunk> getLoadedChunks();
 }

@@ -45,7 +45,8 @@ public final class PlayerRespawningHook extends Hook {
     /**
      * Sets the respawn {@link Location}
      *
-     * @param respawn the respawn location
+     * @param respawn
+     *         the respawn location
      */
     public void setRespawnLocation(Location respawn) {
         this.respawn = respawn;

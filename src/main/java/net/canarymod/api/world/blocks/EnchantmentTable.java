@@ -23,7 +23,7 @@ public interface EnchantmentTable extends TileEntity, Inventory {
      * @see #getEnchantLevels() to see which slot has which level.
      * @see Player#getExperience() For checking XP levels.
      */
-    public boolean enchantItem(Player player, int slot);
+    boolean enchantItem(Player player, int slot);
 
     /**
      * Gets the levels as displayed in the GUI.
@@ -31,19 +31,19 @@ public interface EnchantmentTable extends TileEntity, Inventory {
      *
      * @return an int[3] containing the levels of the slots
      */
-    public int[] getEnchantLevels();
+    int[] getEnchantLevels();
 
     /**
      * Gets the number of Bookshelves that are validly in range of the Enchantment Table
      *
      * @return the number of nearby Bookshelves
      */
-    public int getNumBookshelves();
+    int getNumBookshelves();
 
     /**
      * Gets the Bookshelves that are validly in range of the Enchantment Table
      *
      * @return an array of nearby Bookshelves
      */
-    public Block[] getBookshelves();
+    Block[] getBookshelves();
 }

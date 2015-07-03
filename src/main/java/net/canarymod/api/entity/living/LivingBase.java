@@ -23,7 +23,7 @@ public interface LivingBase extends Entity {
      *
      * @return health
      */
-    public float getHealth();
+    float getHealth();
 
     /**
      * Set this entities health. May not work on entities that are not
@@ -32,7 +32,7 @@ public interface LivingBase extends Entity {
      * @param health
      *         the health to be set
      */
-    public void setHealth(float health);
+    void setHealth(float health);
 
     /**
      * Increase this entities health. This does not set but add the amount of
@@ -41,14 +41,14 @@ public interface LivingBase extends Entity {
      * @param health
      *         to increase the health with (negative values decrease)
      */
-    public void increaseHealth(float health);
+    void increaseHealth(float health);
 
     /**
      * Gets the Maximum allowed health for the Entity
      *
      * @return maximum health
      */
-    public double getMaxHealth();
+    double getMaxHealth();
 
     /**
      * Sets the Maximum allowed health for the Entity
@@ -56,7 +56,7 @@ public interface LivingBase extends Entity {
      * @param maxHealth
      *         the maximum health
      */
-    public void setMaxHealth(double maxHealth);
+    void setMaxHealth(double maxHealth);
 
     /**
      * Check if this entity can see the provided entity.
@@ -67,14 +67,14 @@ public interface LivingBase extends Entity {
      * @return {@code true} if the entity can see the provided entity (provided is not
      * hidden); {@code false} otherwise
      */
-    public boolean canSee(LivingBase entity);
+    boolean canSee(LivingBase entity);
 
     /**
      * Get the amount of ticks this entity is dead.
      *
      * @return death ticks
      */
-    public int getDeathTicks();
+    int getDeathTicks();
 
     /**
      * Set how many ticks this entity is dead
@@ -82,14 +82,14 @@ public interface LivingBase extends Entity {
      * @param ticks
      *         the amount of death ticks to set
      */
-    public void setDeathTicks(int ticks);
+    void setDeathTicks(int ticks);
 
     /**
      * Get the amount of ticks this entity remains invincible
      *
      * @return invulnerability ticks
      */
-    public int getInvulnerabilityTicks();
+    int getInvulnerabilityTicks();
 
     /**
      * Set the amount of ticks this entity remains invincible
@@ -97,14 +97,14 @@ public interface LivingBase extends Entity {
      * @param ticks
      *         the amount of invulnerability ticks to set
      */
-    public void setInvulnerabilityTicks(int ticks);
+    void setInvulnerabilityTicks(int ticks);
 
     /**
      * Get this entities age. (Has nothing to do with the breeding stuff!! Use {@link Ageable#getGrowingAge()} instead!)
      *
      * @return age of the entity
      */
-    public int getAge();
+    int getAge();
 
     /**
      * Set how long this entity exists already. (Has nothing to do with the
@@ -113,10 +113,12 @@ public interface LivingBase extends Entity {
      * @param age
      *         the age to be set
      */
-    public void setAge(int age);
+    void setAge(int age);
 
-    /** Murder this entity */
-    public void kill();
+    /**
+     * Murder this entity
+     */
+    void kill();
 
     /**
      * Inflict the given damage to this entity
@@ -126,7 +128,7 @@ public interface LivingBase extends Entity {
      * @param damage
      *         the amount of damage
      */
-    public void dealDamage(DamageType type, float damage);
+    void dealDamage(DamageType type, float damage);
 
     /**
      * Knock back this entity with the given forces on x and z axis
@@ -136,7 +138,7 @@ public interface LivingBase extends Entity {
      * @param zForce
      *         the Z-wise force
      */
-    public void knockBack(double xForce, double zForce);
+    void knockBack(double xForce, double zForce);
 
     /**
      * Add a {@link PotionEffect} to this entity
@@ -144,7 +146,7 @@ public interface LivingBase extends Entity {
      * @param effect
      *         the {@link PotionEffect} to add
      */
-    public void addPotionEffect(PotionEffect effect);
+    void addPotionEffect(PotionEffect effect);
 
     /**
      * Add a {@link PotionEffect} to this entity using custom values
@@ -156,7 +158,7 @@ public interface LivingBase extends Entity {
      * @param amplifier
      *         the amplifier of the effect
      */
-    public void addPotionEffect(PotionEffectType type, int duration, int amplifier);
+    void addPotionEffect(PotionEffectType type, int duration, int amplifier);
 
     /**
      * Removes a specified {@link PotionEffectType} from this entity.
@@ -164,12 +166,12 @@ public interface LivingBase extends Entity {
      * @param type
      *         the {@link PotionEffectType} to remove
      */
-    public void removePotionEffect(PotionEffectType type);
+    void removePotionEffect(PotionEffectType type);
 
     /**
      * Removes all potion effects from this entity
      */
-    public void removeAllPotionEffects();
+    void removeAllPotionEffects();
 
     /**
      * Is this potion active on this entity
@@ -179,7 +181,7 @@ public interface LivingBase extends Entity {
      *
      * @return {code true} if potion is active; {@code false} otherwise
      */
-    public boolean isPotionActive(Potion potion);
+    boolean isPotionActive(Potion potion);
 
     /**
      * Gets the supplied potions {@link PotionEffect} if it is active, else null
@@ -189,14 +191,14 @@ public interface LivingBase extends Entity {
      *
      * @return {@link PotionEffect} or null
      */
-    public PotionEffect getActivePotionEffect(Potion potion);
+    PotionEffect getActivePotionEffect(Potion potion);
 
     /**
      * Get a list of all active {@link PotionEffect}s.
      *
      * @return a List<PotionEffect>
      */
-    public List<PotionEffect> getAllActivePotionEffects();
+    List<PotionEffect> getAllActivePotionEffects();
 
     /**
      * Set this Entities revenge target entity. Depending on entity type this must not
@@ -205,14 +207,14 @@ public interface LivingBase extends Entity {
      * @param target
      *         the {@link LivingBase} target or {@code null} to remove target
      */
-    public void setRevengeTarget(LivingBase target);
+    void setRevengeTarget(LivingBase target);
 
     /**
      * Get the current revenge target of this entity
      *
      * @return the revenge target or {@code null} if no target
      */
-    public LivingBase getRevengeTarget();
+    LivingBase getRevengeTarget();
 
     /**
      * Set the last entity to have attacked this entity.
@@ -221,14 +223,14 @@ public interface LivingBase extends Entity {
      * @param entity
      *         the {@link LivingBase} to set as last assailant
      */
-    public void setLastAssailant(LivingBase entity);
+    void setLastAssailant(LivingBase entity);
 
     /**
      * Get the last living entity to attack this entity
      *
      * @return last assailant
      */
-    public LivingBase getLastAssailant();
+    LivingBase getLastAssailant();
 
     /**
      * Look at the specified x, y, z coordinates
@@ -240,7 +242,7 @@ public interface LivingBase extends Entity {
      * @param z
      *         the Z coordinate
      */
-    public void lookAt(double x, double y, double z);
+    void lookAt(double x, double y, double z);
 
     /**
      * Look at the specified location
@@ -248,7 +250,7 @@ public interface LivingBase extends Entity {
      * @param location
      *         the {@link Location} to look at
      */
-    public void lookAt(Location location);
+    void lookAt(Location location);
 
     /**
      * Look at the specified {@link Entity}
@@ -256,14 +258,14 @@ public interface LivingBase extends Entity {
      * @param entity
      *         the {@link Entity} to look at
      */
-    public void lookAt(Entity entity);
+    void lookAt(Entity entity);
 
     /**
      * Gets how many Arrows are stuck in an Entity
      *
      * @return arrow count
      */
-    public int getArrowCountInEntity();
+    int getArrowCountInEntity();
 
     /**
      * Sets how many Arrows are stuck in an Entity
@@ -271,10 +273,12 @@ public interface LivingBase extends Entity {
      * @param arrows
      *         the count of arrows to set
      */
-    public void setArrowCountInEntity(int arrows);
+    void setArrowCountInEntity(int arrows);
 
-    /** Swings the Item holding arm */
-    public void swingArm();
+    /**
+     * Swings the Item holding arm
+     */
+    void swingArm();
 
     /**
      * Attacks the {@link LivingBase} target and causes the specified damage.
@@ -284,14 +288,14 @@ public interface LivingBase extends Entity {
      * @param damage
      *         The amount of damage to do.
      */
-    public void attackEntity(LivingBase target, float damage);
+    void attackEntity(LivingBase target, float damage);
 
     /**
      * Gets the head rotation
      *
      * @return head rotation
      */
-    public float getHeadRotation();
+    float getHeadRotation();
 
     /**
      * Sets the head rotation
@@ -299,26 +303,56 @@ public interface LivingBase extends Entity {
      * @param rot
      *         the head rotation to set
      */
-    public void setHeadRotation(float rot);
+    void setHeadRotation(float rot);
 
-    public AttributeMap getAttributeMap();
-    
+    AttributeMap getAttributeMap();
+
     /**
      * Gets the entity in this entity is looking at. with a default search radius
      * of 64 blocks.
-     * 
+     *
      * @return The Entity in this entity is looking at or null if none in range.
      */
-    public Entity getTargetLookingAt();
-    
-    /**
-     * Gets the entity in this entity is looking at. with the given search 
-     * radius from this entity.
-     * 
-     * @param searchRadius search radius from this entity to search within
-     * 
-     * @return The Entity in this entity is looking at or null if none in range.
-     */
-    public Entity getTargetLookingAt(int searchRadius);
+    Entity getTargetLookingAt();
 
+    /**
+     * Gets the entity in this entity is looking at. with the given search
+     * radius from this entity.
+     *
+     * @param searchRadius
+     *         search radius from this entity to search within
+     *
+     * @return The Entity in this entity is looking at or null if none in range.
+     */
+    Entity getTargetLookingAt(int searchRadius);
+
+    /**
+     * Gets whether the Entity drops loot or not
+     *
+     * @return {@code true} if drops loot; {@code false} if not
+     */
+    boolean lootDrop();
+
+    /**
+     * Sets whether the Entity drops loot or not
+     *
+     * @param lootDrop
+     *         {@code true} if drops loot; {@code false} if not
+     */
+    void setLootDrop(boolean lootDrop);
+
+    /**
+     * Gets whether the Entity drops xp or not
+     *
+     * @return {@code true} if drops xp; {@code false} if not
+     */
+    boolean xpDrop();
+
+    /**
+     * Sets whether the Entity drops xp or not
+     *
+     * @param xpDrop
+     *         {@code true} if drops xp; {@code false} if not
+     */
+    void setXPDrop(boolean xpDrop);
 }

@@ -33,5 +33,4 @@ public final class LoadWorldHook extends Hook {
     public String toString() {
         return String.format("%s[World=%s]", getHookName(), world);
     }
-
 }

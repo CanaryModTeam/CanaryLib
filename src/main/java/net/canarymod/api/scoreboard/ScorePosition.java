@@ -6,14 +6,22 @@ package net.canarymod.api.scoreboard;
  * @author Somners
  */
 public enum ScorePosition {
-    /** Shows next to the players name in the player list when pressing the TAB key. */
+    /**
+     * Shows next to the players name in the player list when pressing the TAB key.
+     */
     PLAYER_LIST(0),
-    /** shows in a sidebar that pops up on the side of the players screen. */
+    /**
+     * shows in a sidebar that pops up on the side of the players screen.
+     */
     SIDEBAR(1),
-    /** Shows below the name above a players head. */
+    /**
+     * Shows below the name above a players head.
+     */
     BELOW_NAME(2);
 
-    /** Minecraft protocol ID value for the scoreboard position. */
+    /**
+     * Minecraft protocol ID value for the scoreboard position.
+     */
     private int id;
 
     ScorePosition(int id) {

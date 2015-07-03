@@ -12,7 +12,7 @@ public interface Ghast extends EntityMob {
      *
      * @return the ticks before course change
      */
-    public int getCourseChangeCooldown();
+    int getCourseChangeCooldown();
 
     /**
      * Sets the ticks before the Ghast will change course
@@ -20,14 +20,14 @@ public interface Ghast extends EntityMob {
      * @param cooldown
      *         the ticks before course change
      */
-    public void setCourseChangeCooldown(int cooldown);
+    void setCourseChangeCooldown(int cooldown);
 
     /**
      * Gets the x coordinate of the target waypoint
      *
      * @return the x coordinate of the target waypoint
      */
-    public double getWaypointX();
+    double getWaypointX();
 
     /**
      * Sets the x coordinate of the target waypoint
@@ -35,14 +35,14 @@ public interface Ghast extends EntityMob {
      * @param waypointX
      *         the x coordinate of the target waypoint
      */
-    public void setWaypointX(double waypointX);
+    void setWaypointX(double waypointX);
 
     /**
      * Gets the y coordinate of the target waypoint
      *
      * @return the y coordinate of the target waypoint
      */
-    public double getWaypointY();
+    double getWaypointY();
 
     /**
      * Sets the y coordinate of the target waypoint
@@ -50,14 +50,14 @@ public interface Ghast extends EntityMob {
      * @param waypointY
      *         the y coordinate of the target waypoint
      */
-    public void setWaypointY(double waypointY);
+    void setWaypointY(double waypointY);
 
     /**
      * Gets the z coordinate of the target waypoint
      *
      * @return the z coordinate of the target waypoint
      */
-    public double getWaypointZ();
+    double getWaypointZ();
 
     /**
      * Sets the z coordinate of the target waypoint
@@ -65,14 +65,14 @@ public interface Ghast extends EntityMob {
      * @param waypointZ
      *         the z coordinate of the target waypoint
      */
-    public void setWaypointZ(double waypointZ);
+    void setWaypointZ(double waypointZ);
 
     /**
      * Gets the ticks before looking for a new target
      *
      * @return the ticks before looking for a new target
      */
-    public int getArgoCooldown();
+    int getArgoCooldown();
 
     /**
      * Sets the ticks before looking for a new target
@@ -80,6 +80,5 @@ public interface Ghast extends EntityMob {
      * @param ticks
      *         the ticks before looking for a new target
      */
-    public void setArgoCooldown(int ticks);
-
+    void setArgoCooldown(int ticks);
 }

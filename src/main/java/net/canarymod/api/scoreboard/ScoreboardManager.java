@@ -1,8 +1,8 @@
 package net.canarymod.api.scoreboard;
 
-import net.canarymod.api.world.World;
-
-/** @author Somners */
+/**
+ * @author Somners
+ */
 public interface ScoreboardManager {
 
     /**
@@ -11,7 +11,7 @@ public interface ScoreboardManager {
      *
      * @return the Scoreboard.
      */
-    public Scoreboard getScoreboard();
+    Scoreboard getScoreboard();
 
     /**
      * Gets a registered {@link ScoreObjectiveCriteria}
@@ -21,7 +21,7 @@ public interface ScoreboardManager {
      *
      * @return The {@link ScoreObjectiveCriteria} or null if it is not registered.
      */
-    public ScoreObjectiveCriteria getScoreCriteria(String name);
+    ScoreObjectiveCriteria getScoreCriteria(String name);
 
     /**
      * Registers the {@link ScoreObjectiveCriteria} if it is not already registered.
@@ -31,20 +31,22 @@ public interface ScoreboardManager {
      * @param criteria
      *         the class to register.
      */
-    public void registerScoreCriteria(String name, Class<? extends ScoreObjectiveCriteria> criteria);
-    
+    void registerScoreCriteria(String name, Class<? extends ScoreObjectiveCriteria> criteria);
+
     /**
      * Gets a {@link Scoreboard} instance.
      * If the scoreboard already exists it will load from cache or file, whichever
      * is necessary.  If it does not already exist it create a new Scoreboard.
-     * 
-     * @param name The unique name for this scoreboard.
+     *
+     * @param name
+     *         The unique name for this scoreboard.
+     *
      * @return {@link Scoreboard} instance
      */
-    public Scoreboard getScoreboard(String name);
-    
+    Scoreboard getScoreboard(String name);
+
     /**
      * Saves all cached {@link Scoreboard} instances.
      */
-    public void saveAllScoreboards();
+    void saveAllScoreboards();
 }

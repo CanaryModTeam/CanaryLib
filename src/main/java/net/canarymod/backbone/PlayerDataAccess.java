@@ -5,6 +5,7 @@ import net.canarymod.database.Column;
 import net.canarymod.database.Column.DataType;
 import net.canarymod.database.DataAccess;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,23 +19,33 @@ public class PlayerDataAccess extends DataAccess {
         super(Configuration.getDbConfig().getPlayersTableName());
     }
 
-    /** Player uuid for this ban. */
+    /**
+     * Player uuid for this ban.
+     */
     @Column(columnName = "uuid", dataType = DataType.STRING)
     public String uuid;
 
-    /** name of the player. */
+    /**
+     * name of the player.
+     */
     @Column(columnName = "name", dataType = DataType.STRING)
     public String name;
 
-    /** Player prefix. */
+    /**
+     * Player prefix.
+     */
     @Column(columnName = "prefix", dataType = DataType.STRING)
     public String prefix;
 
-    /** Player group. */
+    /**
+     * Player group.
+     */
     @Column(columnName = "group", dataType = DataType.STRING)
     public String group;
 
-    /** Is this player muted? */
+    /**
+     * Is this player muted?
+     */
     @Column(columnName = "isMuted", dataType = DataType.BOOLEAN)
     public boolean isMuted = false;
 
@@ -49,5 +60,9 @@ public class PlayerDataAccess extends DataAccess {
     @Override
     public DataAccess getInstance() {
         return new PlayerDataAccess();
+    }
+
+    public final String toString() {
+        return String.format("PlayerDataAccess[UUID:%s Name:%s Prefix:%s Group:%s Muted:%b SubGroups:%s]", uuid, name, prefix, group, isMuted, Arrays.deepToString(subgroups.toArray()));
     }
 }

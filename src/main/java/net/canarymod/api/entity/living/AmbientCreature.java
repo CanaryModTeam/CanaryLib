@@ -5,4 +5,5 @@ package net.canarymod.api.entity.living;
  *
  * @author Larry1123
  */
-public interface AmbientCreature {}
+public interface AmbientCreature {
+}

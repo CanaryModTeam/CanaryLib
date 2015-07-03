@@ -7,7 +7,7 @@ package net.canarymod.api.entity.living.monster;
  */
 public interface Witch extends EntityMob, RangedAttackMob {
 
-    public boolean isAgressive();
+    boolean isAgressive();
 
-    public void setAggressive(boolean aggressive);
+    void setAggressive(boolean aggressive);
 }

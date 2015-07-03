@@ -3,6 +3,7 @@ package net.canarymod.hook.player;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.chat.ChatFormat;
 import net.canarymod.hook.CancelableHook;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -222,7 +223,8 @@ public final class ChatHook extends CancelableHook {
             if (entry.getKey().equals("%prefix")) {
                 builder.append(entry.getKey()).append("=").append(entry.getValue()).append(entry.getValue().replace("\u00A7", ""));
                 builder.append(ChatFormat.RESET);
-            } else {
+            }
+            else {
                 builder.append(entry);
             }
         }

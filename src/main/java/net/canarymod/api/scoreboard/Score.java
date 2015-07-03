@@ -2,10 +2,10 @@ package net.canarymod.api.scoreboard;
 
 import java.util.List;
 
-/** 
+/**
  * Scoreboard score
  *
- * @author Aaron (somners) 
+ * @author Aaron (somners)
  */
 public interface Score {
 
@@ -14,7 +14,7 @@ public interface Score {
      *
      * @return score name
      */
-    public String getName();
+    String getName();
 
     /**
      * Adds to the score
@@ -22,7 +22,7 @@ public interface Score {
      * @param toAdd
      *         amount to add
      */
-    public void addToScore(int toAdd);
+    void addToScore(int toAdd);
 
     /**
      * removes from the score
@@ -30,7 +30,7 @@ public interface Score {
      * @param toRemove
      *         amount to remove
      */
-    public void removeFromScore(int toRemove);
+    void removeFromScore(int toRemove);
 
     /**
      * Sets the score
@@ -38,28 +38,28 @@ public interface Score {
      * @param toSet
      *         value to set thes score to.
      */
-    public void setScore(int toSet);
+    void setScore(int toSet);
 
     /**
      * Gets the score
      *
      * @return the score.
      */
-    public int getScore();
+    int getScore();
 
     /**
      * Gets the ScoreObjective for this score.
      *
      * @return the score objective
      */
-    public ScoreObjective getScoreObjective();
+    ScoreObjective getScoreObjective();
 
     /**
      * Gets the scoreboard for this Score.
      *
      * @return The Scoreboard.
      */
-    public Scoreboard getScoreboard();
+    Scoreboard getScoreboard();
 
     /**
      * This Method is used to set the score if it is a read-only score.<br>
@@ -68,8 +68,10 @@ public interface Score {
      * @param list
      *         The list of parameters needed to update this score.
      */
-    public void setReadOnlyScore(List<?> list);
+    void setReadOnlyScore(List<?> list);
 
-    /** Updates this Score to all clients connected to the server. */
-    public void update();
+    /**
+     * Updates this Score to all clients connected to the server.
+     */
+    void update();
 }

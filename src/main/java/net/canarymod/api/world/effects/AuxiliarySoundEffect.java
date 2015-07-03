@@ -13,24 +13,42 @@ public class AuxiliarySoundEffect {
      * @author Jason (darkdiplomat)
      */
     public enum Type {
-        CLICK(1000), //
-        CLICK2(1001), //
-        BOW(1002), //
-        DOOR_TOGGLE(1003), //
-        EXTINGUISH(1004), //
-        RECORD_PLAY(1005), //
-        GHAST_SCREAM(1007), //
-        GHAST_SHOOT(1008), //
-        BLAZE_SHOOT(1009), //
-        ZOMBIE_BANG_DOOR(1010), //
-        ZOMBIE_BANG_IRON_DOOR(1011), //
-        ZOMBIE_DESTROY_DOOR(1012), //
-        SMOKE(2000), //
-        STEP_SOUND(2001), //
-        POTION_BREAK(2002), //
-        ENDER_SIGNAL(2003), //
-        MOBSPAWNER_FLAMES(2004), //
-        BONE_MEAL(2005), //
+        CLICK(1000),
+        //
+        CLICK2(1001),
+        //
+        BOW(1002),
+        //
+        DOOR_TOGGLE(1003),
+        //
+        EXTINGUISH(1004),
+        //
+        RECORD_PLAY(1005),
+        //
+        GHAST_SCREAM(1007),
+        //
+        GHAST_SHOOT(1008),
+        //
+        BLAZE_SHOOT(1009),
+        //
+        ZOMBIE_BANG_DOOR(1010),
+        //
+        ZOMBIE_BANG_IRON_DOOR(1011),
+        //
+        ZOMBIE_DESTROY_DOOR(1012),
+        //
+        SMOKE(2000),
+        //
+        STEP_SOUND(2001),
+        //
+        POTION_BREAK(2002),
+        //
+        ENDER_SIGNAL(2003),
+        //
+        MOBSPAWNER_FLAMES(2004),
+        //
+        BONE_MEAL(2005),
+        //
         ;
 
         private int digits;
@@ -85,5 +103,4 @@ public class AuxiliarySoundEffect {
         this.z = z;
         this.extra = extra;
     }
-
 }

@@ -24,7 +24,7 @@ public class Kick implements NativeCommand {
         if (targets != null && targets.length > 0) {
             for (Player player : targets) {
                 if (caller.getReceiverType().equals(ReceiverType.PLAYER)) {
-                    Player c = (Player) caller;
+                    Player c = (Player)caller;
                     if (!c.getGroup().hasControlOver(player.getGroup())) {
                         continue;
                     }
@@ -42,7 +42,7 @@ public class Kick implements NativeCommand {
         }
         else if (target != null) {
             if (caller.getReceiverType().equals(ReceiverType.PLAYER)) {
-                Player c = (Player) caller;
+                Player c = (Player)caller;
                 if (!c.getGroup().hasControlOver(target.getGroup())) {
                     sendTranslatedNotice(caller, "kick nocontrol");
                     return;
@@ -58,7 +58,7 @@ public class Kick implements NativeCommand {
         }
         else {
             sendTranslatedNotice(caller, "kick failed");
-            sendTranslatedNotice(caller, "unknown player", parameters[1]);
+            sendTranslatedNotice(caller, "unknown player", parameters[0]);
         }
     }
 }

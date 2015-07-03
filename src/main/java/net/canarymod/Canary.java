@@ -14,6 +14,7 @@ import net.canarymod.help.HelpManager;
 import net.canarymod.hook.HookExecutor;
 import net.canarymod.kit.KitProvider;
 import net.canarymod.logger.Logman;
+import net.canarymod.metrics.CanaryMetrics;
 import net.canarymod.motd.MessageOfTheDay;
 import net.canarymod.permissionsystem.PermissionManager;
 import net.canarymod.plugin.PluginManager;
@@ -32,7 +33,9 @@ import net.visualillusionsent.utils.JarUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLClassLoader;
 import java.util.HashMap;
+import java.util.jar.Manifest;
 
 /**
  * The interface to the brains of the bird! AKA Utils
@@ -46,6 +49,7 @@ public abstract class Canary implements TaskOwner {
     public final static Logman log;
     private static boolean latePluginsLoaded, earlyPluginsLoaded;
     private static String jarPath;
+    private static CanaryMetrics metrics;
     protected Server server;
 
     protected BanManager banManager;
@@ -283,7 +287,6 @@ public abstract class Canary implements TaskOwner {
         instance.server = server;
     }
 
-
     /**
      * Enables all late plugins.
      * That means: All plugins that require sub systems to be functioning, such as warps.
@@ -293,6 +296,22 @@ public abstract class Canary implements TaskOwner {
             log.info("Enabling late Plugins...");
             pluginManager().enableLatePlugins();
             latePluginsLoaded = true;
+        }
+
+        // Enable metrics
+        if (metrics == null) {
+            try {
+                log.debug("Starting Metrics...");
+                metrics = new CanaryMetrics(getImplementationTitle(), getImplementationVersion());
+                if (!metrics.start()) {
+                    log.debug("Metrics failed to start, no error thrown (opt-out?)");
+                    return;
+                }
+                log.debug("Metrics started!");
+            }
+            catch (IOException e) {
+                log.debug("Metrics failed to start, Error thrown: ", e);
+            }
         }
     }
 
@@ -441,6 +460,18 @@ public abstract class Canary implements TaskOwner {
      */
     public static String getImplementationTitle() {
         return Canary.class.getPackage().getImplementationTitle();
+    }
+
+    public static long getBuildNumber() {
+        URLClassLoader cl = (URLClassLoader)Canary.class.getClassLoader();
+        try {
+            Manifest manifest = new Manifest(cl.findResource("META-INF/MANIFEST.MF").openStream());
+            String build = manifest.getMainAttributes().getValue("Build");
+            return Long.parseLong(build);
+        }
+        catch (Exception ex) {
+            return 0;
+        }
     }
 
     /**

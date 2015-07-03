@@ -16,7 +16,6 @@ public final class BlockUpdateHook extends CancelableHook {
     private BlockType newBlockType;
 
     /**
-     *
      * @deprecated Use the other constructor instead
      */
     @Deprecated
@@ -52,6 +51,7 @@ public final class BlockUpdateHook extends CancelableHook {
 
     /**
      * Gets the block type of the new {@link Block}
+     *
      * @return {@link net.canarymod.api.world.blocks.BlockType} type
      */
     public BlockType getNewBlockType() {

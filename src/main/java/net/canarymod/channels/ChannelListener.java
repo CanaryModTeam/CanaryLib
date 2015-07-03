@@ -2,7 +2,9 @@ package net.canarymod.channels;
 
 import net.canarymod.api.entity.living.humanoid.Player;
 
-/** @author Somners */
+/**
+ * @author Somners
+ */
 public abstract class ChannelListener {
 
     /**

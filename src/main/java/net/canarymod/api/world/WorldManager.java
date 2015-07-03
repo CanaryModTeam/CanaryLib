@@ -26,7 +26,7 @@ public interface WorldManager {
      *         doesn't exist, or when the world is not loaded and {@code autoload} is
      *         {@code false}.
      */
-    public World getWorld(String name, boolean autoload);
+    World getWorld(String name, boolean autoload);
 
     /**
      * Get world with name by WorldType.
@@ -45,7 +45,7 @@ public interface WorldManager {
      *         doesn't exist, or when the world is not loaded and {@code autoload} is
      *         {@code false}.
      */
-    public World getWorld(String name, DimensionType type, boolean autoload);
+    World getWorld(String name, DimensionType type, boolean autoload);
 
     /**
      * Create a new world with the given name, seed will be selected randomly
@@ -54,7 +54,7 @@ public interface WorldManager {
      *
      * @return
      */
-    public boolean createWorld(String name, DimensionType dimensionType);
+    boolean createWorld(String name, DimensionType dimensionType);
 
     /**
      * Create a new world with the given name and seed
@@ -64,7 +64,7 @@ public interface WorldManager {
      *
      * @return
      */
-    public boolean createWorld(String name, long seed, DimensionType dimensionType);
+    boolean createWorld(String name, long seed, DimensionType dimensionType);
 
     /**
      * Create a new world with the given name and seed and GeneratorType
@@ -75,27 +75,27 @@ public interface WorldManager {
      *
      * @return
      */
-    public boolean createWorld(String name, long seed, DimensionType dimensionType, WorldType worldType);
+    boolean createWorld(String name, long seed, DimensionType dimensionType, WorldType worldType);
 
     /**
      * Creats a {@link net.canarymod.api.world.World} based on a passed {@link net.canarymod.config.WorldConfiguration}<p/>
      * One should create and configue a {@link net.canarymod.config.WorldConfiguration} using {@link net.canarymod.config.WorldConfiguration#create(String, DimensionType)}
      *
      * @param configuration
-     * the configuration to use to create a world
+     *         the configuration to use to create a world
      *
      * @return doesn't matter...
      *
      * @see net.canarymod.config.WorldConfiguration#create(String, DimensionType)
      */
-    public boolean createWorld(WorldConfiguration configuration);
+    boolean createWorld(WorldConfiguration configuration);
 
     /**
      * Destroys the world with the given name
      *
      * @param name
      */
-    public boolean destroyWorld(String name);
+    boolean destroyWorld(String name);
 
     /**
      * Load the world with the given name that is of the given world type.
@@ -106,7 +106,7 @@ public interface WorldManager {
      *
      * @return
      */
-    public World loadWorld(String name, DimensionType type);
+    World loadWorld(String name, DimensionType type);
 
     /**
      * Unloads a world, effectively removing it from the servers tick loop, until it is loaded again.<br>
@@ -119,14 +119,14 @@ public interface WorldManager {
      * @param force
      *         Will kick players in this world before unloading, making it possible to unload the world.
      */
-    public void unloadWorld(String name, DimensionType type, boolean force);
+    void unloadWorld(String name, DimensionType type, boolean force);
 
     /**
      * Returns a list of all loaded worlds
      *
      * @return a Collection of World objects
      */
-    public Collection<World> getAllWorlds();
+    Collection<World> getAllWorlds();
 
     /**
      * Check if a world with the given name is loaded.
@@ -137,7 +137,7 @@ public interface WorldManager {
      *
      * @return true if world exists, false otherwise
      */
-    public boolean worldIsLoaded(String name);
+    boolean worldIsLoaded(String name);
 
     /**
      * Check if a world with the given base name and the DimensionType is loaded.
@@ -150,7 +150,7 @@ public interface WorldManager {
      *
      * @return
      */
-    public boolean worldIsLoaded(String name, DimensionType type);
+    boolean worldIsLoaded(String name, DimensionType type);
 
     /**
      * Check if a world with the given name exists,
@@ -161,28 +161,28 @@ public interface WorldManager {
      *
      * @return
      */
-    public boolean worldExists(String name);
+    boolean worldExists(String name);
 
     /**
      * Return a static list of all existing worlds
      *
      * @return
      */
-    public List<String> getExistingWorlds();
+    List<String> getExistingWorlds();
 
     /**
      * Returns a {@code String[]} of all existing worlds
      *
      * @return existing world names as a {@code String[]}
      */
-    public String[] getExistingWorldsArray();
+    String[] getExistingWorldsArray();
 
     /**
      * Gets a {@code String[]} of loaded worlds' names
      *
      * @return array of loaded worlds' names
      */
-    public String[] getLoadedWorldsNames();
+    String[] getLoadedWorldsNames();
 
     /**
      * Gets a {@code String[]} of loaded worlds' names of the specified {@link net.canarymod.api.world.DimensionType}
@@ -192,5 +192,5 @@ public interface WorldManager {
      *
      * @return array of loaded worlds' names
      */
-    public String[] getLoadedWorldsNamesOfDimension(DimensionType dimensionType);
+    String[] getLoadedWorldsNamesOfDimension(DimensionType dimensionType);
 }

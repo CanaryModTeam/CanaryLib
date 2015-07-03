@@ -18,7 +18,8 @@ public final class VehicleCollisionHook extends CancelableHook {
      * Constructs a Collision hook.
      *
      * @param vehicle
-     * @param entity  entity that got hit by a vehicle
+     * @param entity
+     *         entity that got hit by a vehicle
      */
     public VehicleCollisionHook(Vehicle vehicle, Entity entity) {
         this.vehicle = vehicle;

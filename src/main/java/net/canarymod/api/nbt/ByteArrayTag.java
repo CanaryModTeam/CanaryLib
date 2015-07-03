@@ -12,7 +12,7 @@ public interface ByteArrayTag extends BaseTag<ByteArrayTag> {
      *
      * @return the byte array value
      */
-    public byte[] getValue();
+    byte[] getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface ByteArrayTag extends BaseTag<ByteArrayTag> {
      * @param value
      *         the byte array value
      */
-    public void setValue(byte[] value);
-
+    void setValue(byte[] value);
 }

@@ -97,7 +97,7 @@ public class BackboneOperators extends Backbone {
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                OperatorsDataAccess data = (OperatorsDataAccess) da;
+                OperatorsDataAccess data = (OperatorsDataAccess)da;
                 ops.add(data.player);
             }
         }

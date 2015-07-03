@@ -16,7 +16,7 @@ public interface Anvil extends TileEntity, Inventory {
      *
      * @return The tool name.
      */
-    public String getToolName();
+    String getToolName();
 
     /**
      * Set the name this tool will be set to.
@@ -24,14 +24,14 @@ public interface Anvil extends TileEntity, Inventory {
      * @param name
      *         The name to set.
      */
-    public void setToolName(String name);
+    void setToolName(String name);
 
     /**
      * Get the item that is to be produced.
      *
      * @return The Item
      */
-    public Item getResult();
+    Item getResult();
 
     /**
      * Set the item that is to be produced.
@@ -39,14 +39,14 @@ public interface Anvil extends TileEntity, Inventory {
      * @param item
      *         Item to set.
      */
-    public void setResult(Item item);
+    void setResult(Item item);
 
     /**
      * Returns the cost of the repair/rename in XP levels.
      *
      * @return xp cost
      */
-    public int getXPCost();
+    int getXPCost();
 
     /**
      * Sets the cost of the repair/rename in XP levels.
@@ -54,12 +54,12 @@ public interface Anvil extends TileEntity, Inventory {
      * @param level
      *         The XP level the repair/rename should cost.
      */
-    public void setXPCost(int level);
+    void setXPCost(int level);
 
     /**
      * Get the player who has this Anvil open.
      *
      * @return The player using this Anvil.
      */
-    public Player getPlayer();
+    Player getPlayer();
 }

@@ -12,7 +12,7 @@ public interface HumanCapabilities {
      *
      * @return {@code true} if invulnerable; {@code false} if not
      */
-    public boolean isInvulnerable();
+    boolean isInvulnerable();
 
     /**
      * Sets if the {@link Human} is invulnerable
@@ -20,14 +20,14 @@ public interface HumanCapabilities {
      * @param invulnerable
      *         {@code true} if invulnerable; {@code false} if not
      */
-    public void setInvulnerable(boolean invulnerable);
+    void setInvulnerable(boolean invulnerable);
 
     /**
      * Checks if the {@link Human} is flying
      *
      * @return {@code true} if flying; {@code false} if not
      */
-    public boolean isFlying();
+    boolean isFlying();
 
     /**
      * Sets if the {@link Human} is flying
@@ -35,14 +35,14 @@ public interface HumanCapabilities {
      * @param flying
      *         {@code true} if flying; {@code false} if not
      */
-    public void setFlying(boolean flying);
+    void setFlying(boolean flying);
 
     /**
      * Checks if the {@link Human} may fly
      *
      * @return {@code true} if may fly; {@code false} if not
      */
-    public boolean mayFly();
+    boolean mayFly();
 
     /**
      * Sets if the {@link Human} may fly
@@ -50,14 +50,14 @@ public interface HumanCapabilities {
      * @param mayfly
      *         {@code true} if may fly; {@code false} if not
      */
-    public void setMayFly(boolean mayfly);
+    void setMayFly(boolean mayfly);
 
     /**
      * Checks if the {@link Human} can instant build
      *
      * @return {@code true} if can instant build; {@code false} if not
      */
-    public boolean instantBuild();
+    boolean instantBuild();
 
     /**
      * Sets if the {@link Human} can instant build
@@ -65,14 +65,14 @@ public interface HumanCapabilities {
      * @param instant
      *         {@code true} if can instant build; {@code false} if not
      */
-    public void setInstantBuild(boolean instant);
+    void setInstantBuild(boolean instant);
 
     /**
      * Gets the flying speed of the {@link Human}
      *
      * @return flying speed
      */
-    public float getFlySpeed();
+    float getFlySpeed();
 
     /**
      * Sets the walking speed of the {@link Human}
@@ -80,14 +80,14 @@ public interface HumanCapabilities {
      * @param speed
      *         the flying speed to set
      */
-    public void setFlySpeed(float speed);
+    void setFlySpeed(float speed);
 
     /**
      * Gets the walking speed of the {@link Human}
      *
      * @return walking speed
      */
-    public float getWalkSpeed();
+    float getWalkSpeed();
 
     /**
      * Sets the walking speed of the {@link Human}
@@ -95,6 +95,5 @@ public interface HumanCapabilities {
      * @param speed
      *         the walking speed to set
      */
-    public void setWalkSpeed(float speed);
-
+    void setWalkSpeed(float speed);
 }

@@ -2,7 +2,9 @@ package net.canarymod.channels;
 
 import net.canarymod.plugin.Plugin;
 
-/** @author Somners */
+/**
+ * @author Somners
+ */
 public class RegisteredChannelListener {
 
     private Plugin plugin;

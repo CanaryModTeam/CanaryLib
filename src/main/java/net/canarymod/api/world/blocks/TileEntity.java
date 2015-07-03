@@ -16,52 +16,54 @@ public interface TileEntity {
      *
      * @return block
      */
-    public Block getBlock();
+    Block getBlock();
 
     /**
      * Gets the X location
      *
      * @return x
      */
-    public int getX();
+    int getX();
 
     /**
      * Gets the Y location
      *
      * @return y
      */
-    public int getY();
+    int getY();
 
     /**
      * Gets the Z
      *
      * @return z
      */
-    public int getZ();
+    int getZ();
 
     /**
      * Gets the dimension
      *
      * @return dimension
      */
-    public World getWorld();
+    World getWorld();
 
-    /** Updates this TileEntity */
-    public void update();
+    /**
+     * Updates this TileEntity
+     */
+    void update();
 
     /**
      * Gets the NBTTagCompound for the TileEntity (null if not a tile entity)
      *
      * @return data tag
      */
-    public CompoundTag getDataTag();
+    CompoundTag getDataTag();
 
     /**
      * Gets the MetaTag for the TileEntity (null if not a tile entity)
      *
      * @return meta tag
      */
-    public CompoundTag getMetaTag();
+    CompoundTag getMetaTag();
 
     /**
      * Writes to the NBTTagCompound for the TileEntity (null if not a tile entity)
@@ -71,7 +73,7 @@ public interface TileEntity {
      *
      * @return the written {@link CompoundTag}
      */
-    public CompoundTag writeToTag(CompoundTag tag);
+    CompoundTag writeToTag(CompoundTag tag);
 
     /**
      * Reads from NBTTagCompound for the TileEntity (null if not a tile entity)
@@ -79,5 +81,5 @@ public interface TileEntity {
      * @param tag
      *         the {@link CompoundTag} of data
      */
-    public void readFromTag(CompoundTag tag);
+    void readFromTag(CompoundTag tag);
 }

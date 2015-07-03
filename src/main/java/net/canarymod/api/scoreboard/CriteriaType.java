@@ -1,9 +1,9 @@
 package net.canarymod.api.scoreboard;
 
 /**
- * Scoreboard criteria type 
+ * Scoreboard criteria type
  *
- * @author Somners 
+ * @author Somners
  */
 public enum CriteriaType {
 

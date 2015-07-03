@@ -15,7 +15,7 @@ public interface Pig extends AnimalVehicle, Ageable {
      *
      * @return {@code true} if saddled; {@code false} if not
      */
-    public boolean isSaddled();
+    boolean isSaddled();
 
     /**
      * Sets whether the Pig has a saddle or not
@@ -23,5 +23,5 @@ public interface Pig extends AnimalVehicle, Ageable {
      * @param saddle
      *         {@code true} for saddled; {@code false} for not saddled
      */
-    public void setSaddled(boolean saddle);
+    void setSaddled(boolean saddle);
 }

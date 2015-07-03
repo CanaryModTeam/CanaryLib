@@ -14,33 +14,53 @@ public interface ArmorStand extends LivingBase {
     /**
      * The Equipment slots
      */
-    public enum Slot {
-        /** Held Item slot */
+    enum Slot {
+        /**
+         * Held Item slot
+         */
         HOLDING,
-        /** Feet (Boots) slot */
+        /**
+         * Feet (Boots) slot
+         */
         FEET,
-        /** Legs (Leggings) slot */
+        /**
+         * Legs (Leggings) slot
+         */
         LEGS,
-        /** Body (Chestplate) slot */
+        /**
+         * Body (Chestplate) slot
+         */
         BODY,
-        /** Head (Helmet/Skull) slot */
+        /**
+         * Head (Helmet/Skull) slot
+         */
         HEAD
     }
 
     /**
      * Disablitity flags for the Slots
      */
-    public enum Disability {
-        /** Flags for removing equipment */
-        REMOVE(new int[]{1, 2, 4, 8, 16}),
-        /** Flags for replacing equipment */
-        REPLACE(new int[]{256, 512, 1024, 2048, 4096}),
-        /** Flags for placing equipment */
-        PLACE(new int[]{65536, 131072, 262144, 524288, 1048576});
+    enum Disability {
+        /**
+         * Flags for removing equipment
+         */
+        REMOVE(new int[]{ 1, 2, 4, 8, 16 }),
+        /**
+         * Flags for replacing equipment
+         */
+        REPLACE(new int[]{ 256, 512, 1024, 2048, 4096 }),
+        /**
+         * Flags for placing equipment
+         */
+        PLACE(new int[]{ 65536, 131072, 262144, 524288, 1048576 });
 
-        /** Overall bitwise offsets */
+        /**
+         * Overall bitwise offsets
+         */
         public final int bitOffset = ordinal() * 8;
-        /** Slot offsets are ordered by slot id */
+        /**
+         * Slot offsets are ordered by slot id
+         */
         public final int[] slotOffsets;
 
         private Disability(int[] slotOffsets) {
@@ -51,7 +71,7 @@ public interface ArmorStand extends LivingBase {
     /**
      * The rotatable parts
      */
-    public enum RotatablePart {
+    enum RotatablePart {
         HEAD,
         BODY,
         LEFTARM,

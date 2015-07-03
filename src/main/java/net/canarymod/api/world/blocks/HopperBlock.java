@@ -15,14 +15,14 @@ public interface HopperBlock extends Hopper, LockableTileEntity {
      *
      * @return the Inventory or null if none.
      */
-    public Inventory getInputInventory();
+    Inventory getInputInventory();
 
     /**
      * Gets the Inventory the hopper outputs to.
      *
      * @return the Inventory or null if none.
      */
-    public Inventory getOutputInventory();
+    Inventory getOutputInventory();
 
     /**
      * Check if this hopper is connected to any Container either input or output.
@@ -30,7 +30,7 @@ public interface HopperBlock extends Hopper, LockableTileEntity {
      * @return true - it is connected<br>
      * false - it is not connected
      */
-    public boolean isConnected();
+    boolean isConnected();
 
     /**
      * Check if the block this hopper inputs from is a Container.
@@ -38,7 +38,7 @@ public interface HopperBlock extends Hopper, LockableTileEntity {
      * @return true - it is connected<br>
      * false - it is not connected
      */
-    public boolean isInputConnected();
+    boolean isInputConnected();
 
     /**
      * Check if the block this hopper outputs to is a Container.
@@ -46,5 +46,5 @@ public interface HopperBlock extends Hopper, LockableTileEntity {
      * @return true - it is connected<br>
      * false - it is not connected
      */
-    public boolean isOutputConnected();
+    boolean isOutputConnected();
 }

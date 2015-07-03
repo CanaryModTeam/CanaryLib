@@ -14,13 +14,12 @@ public interface EnderDragon extends EntityMob {
      *
      * @return {@code true} if slowed; {@code false} if not
      */
-    public boolean isSlowed();
+    boolean isSlowed();
 
     /**
      * Gets the EnderCrystal healing the EnderDragon if present
      *
      * @return EnderCrystal if one is healing the dragon; {@code null} if none present
      */
-    public EnderCrystal getHealingCrystal();
-
+    EnderCrystal getHealingCrystal();
 }

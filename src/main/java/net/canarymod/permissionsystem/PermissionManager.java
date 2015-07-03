@@ -63,13 +63,11 @@ public class PermissionManager {
     public void removeGroupPermission(String path, Group group) {
         backbone.removePermission(path, group.getName(), group.getWorldName(), false);
         group.getPermissionProvider().reload();
-
     }
 
     public void removeAllGroupPermissions(Group group) {
         backbone.removePermissions(group);
         group.getPermissionProvider().reload();
-
     }
 
     public int addPermission(String path, boolean value, String owner, String type, String world) {
@@ -79,5 +77,4 @@ public class PermissionManager {
     public void removePlayerPermission(String path, String player, String world) {
         backbone.removePermission(path, player, world, true);
     }
-
 }

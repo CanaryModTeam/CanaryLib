@@ -31,15 +31,24 @@ public final class SlotClickHook extends CancelableHook {
     /**
      * Constructs a new SlotClickHook
      *
-     * @param player              the {@link Player} clicking
-     * @param inventory           the {@link Inventory} thats open
-     * @param item                the {@link Item} in the slot clicked
-     * @param slotType           the {@link SlotType} being clicked
-     * @param secondarySlotType the {@link SecondarySlotType} being clicked
-     * @param grabMode           the {@link GrabMode} of the link
-     * @param button              the {@link ButtonPress}
-     * @param slotId             the slot id
-     * @param transNum           the transaction number
+     * @param player
+     *         the {@link Player} clicking
+     * @param inventory
+     *         the {@link Inventory} thats open
+     * @param item
+     *         the {@link Item} in the slot clicked
+     * @param slotType
+     *         the {@link SlotType} being clicked
+     * @param secondarySlotType
+     *         the {@link SecondarySlotType} being clicked
+     * @param grabMode
+     *         the {@link GrabMode} of the link
+     * @param button
+     *         the {@link ButtonPress}
+     * @param slotId
+     *         the slot id
+     * @param transNum
+     *         the transaction number
      */
     public SlotClickHook(Player player, Inventory inventory, Item item, SlotType slotType, SecondarySlotType secondarySlotType, GrabMode grabMode, ButtonPress button, short slotId, short transNum) {
         this.player = player;
@@ -146,7 +155,8 @@ public final class SlotClickHook extends CancelableHook {
     /**
      * Sets whether to notify the client of an update
      *
-     * @param update {@code true} to notify; {@code false} otherwise
+     * @param update
+     *         {@code true} to notify; {@code false} otherwise
      */
     public void setDoUpdate(boolean update) {
         this.update = update;
@@ -160,7 +170,7 @@ public final class SlotClickHook extends CancelableHook {
     public Item getItemOnCursor() {
         return this.player.getInventory().getItemOnCursor();
     }
-    
+
     /**
      * {@inheritDoc}
      */

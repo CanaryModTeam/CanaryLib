@@ -27,5 +27,4 @@ public class ServerGuiStartHook extends Hook {
     public final String toString() {
         return String.format("%s[GUI=%s]", getHookName(), gui);
     }
-
 }

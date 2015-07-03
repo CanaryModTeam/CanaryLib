@@ -12,7 +12,7 @@ public interface StringTag extends BaseTag<StringTag> {
      *
      * @return the String value
      */
-    public String getValue();
+    String getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface StringTag extends BaseTag<StringTag> {
      * @param value
      *         the String value
      */
-    public void setValue(String value);
-
+    void setValue(String value);
 }

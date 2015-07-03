@@ -7,6 +7,7 @@ import net.canarymod.database.exceptions.DatabaseAccessException;
 
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
 import static net.canarymod.Canary.log;
@@ -17,50 +18,15 @@ import static net.canarymod.Canary.log;
  * For sqlite, due to the minimal nature of it,
  * there need to be a separate handling.
  * TODO: Configure statement caching!
+ *
+ * @author Chris Ksoll (damagefilter)
+ * @author Jason Jones (darkdiplomat)
  */
 public class JdbcConnectionManager {
-    /**
-     * Helper enum type so we can easily identify the driver type further down the code
-     */
-    public enum Type {
-        MYSQL("com.mysql.jdbc.Driver", "mysql"),
-        SQLITE("org.sqlite.JDBC", "sqlite"),
-        XML("is.not.valid.NotADriver", "xml");
 
-        String classpath;
-        String identifier;
-
-        Type(String str, String identifier) {
-            this.classpath = str;
-            this.identifier = identifier;
-        }
-
-        public String getClassPath() {
-            return this.classpath;
-        }
-
-        public String getIdentifier() {
-            return this.identifier;
-        }
-
-        public static Type forName(String name) {
-            for (Type t : Type.values()) {
-                if (t.getIdentifier().equalsIgnoreCase(name)) {
-                    return t;
-                }
-            }
-            return null;
-        }
-    }
-
-    // The data source pool ;)
-    private ComboPooledDataSource cpds;
-    // Sqlite quirk. You cannot have multiple connections on one sqlite table.
-    // If you do, it results in a table deadlock.
-    // To prevent it, we force one connection only
-    private Connection sqliteConnection;
-
-    private Type type;
+    private ComboPooledDataSource cpds; // The data source pool ;)
+    private Connection nonManaged; // For those that bypass the manager/unable to use the manager
+    private SQLType type;
 
     private static JdbcConnectionManager instance;
 
@@ -72,51 +38,56 @@ public class JdbcConnectionManager {
      *
      * @throws SQLException
      */
-    private JdbcConnectionManager(Type type) throws SQLException {
+    private JdbcConnectionManager(SQLType type) throws SQLException {
         DatabaseConfiguration cfg = Configuration.getDbConfig();
         cpds = new ComboPooledDataSource();
         this.type = type;
-        try {
-            cpds.setDriverClass(type.getClassPath());
-            cpds.setJdbcUrl(cfg.getDatabaseUrl(type.getIdentifier()));
-            cpds.setUser(cfg.getDatabaseUser());
-            cpds.setPassword(cfg.getDatabasePassword());
+        if (type.usesJDBCManager()) {
+            try {
+                cpds.setDriverClass(type.getClassPath());
+                cpds.setJdbcUrl(cfg.getDatabaseUrl(type.getIdentifier()));
+                cpds.setUser(cfg.getDatabaseUser());
+                cpds.setPassword(cfg.getDatabasePassword());
 
-            // For settings explanations see
-            // http://javatech.org/2007/11/c3p0-connectionpool-configuration-rules-of-thumb/
-            // https://community.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool?_sscc=t
+                // For settings explanations see
+                // http://javatech.org/2007/11/c3p0-connectionpool-configuration-rules-of-thumb/
+                // https://community.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool?_sscc=t
 
-            //connection pooling
-            cpds.setAcquireIncrement(cfg.getAcquireIncrement());
-            cpds.setMaxIdleTime(cfg.getMaxConnectionIdleTime());
-            cpds.setMaxIdleTimeExcessConnections(cfg.getMaxExcessConnectionsIdleTime());
-            cpds.setMaxPoolSize(cfg.getMaxPoolSize());
-            cpds.setMinPoolSize(cfg.getMinPoolSize());
-            cpds.setNumHelperThreads(cfg.getNumHelperThreads());
-            cpds.setUnreturnedConnectionTimeout(cfg.getReturnConnectionTimeout());
-            cpds.setIdleConnectionTestPeriod(cfg.getConnectionTestFrequency());
+                //connection pooling
+                cpds.setAcquireIncrement(cfg.getAcquireIncrement());
+                cpds.setMaxIdleTime(cfg.getMaxConnectionIdleTime());
+                cpds.setMaxIdleTimeExcessConnections(cfg.getMaxExcessConnectionsIdleTime());
+                cpds.setMaxPoolSize(cfg.getMaxPoolSize());
+                cpds.setMinPoolSize(cfg.getMinPoolSize());
+                cpds.setNumHelperThreads(cfg.getNumHelperThreads());
+                cpds.setUnreturnedConnectionTimeout(cfg.getReturnConnectionTimeout());
+                cpds.setIdleConnectionTestPeriod(cfg.getConnectionTestFrequency());
 
-            //Statement pooling
-            cpds.setMaxStatements(cfg.getMaxCachedStatements());
-            cpds.setMaxStatementsPerConnection(cfg.getMaxCachedStatementsPerConnection());
-            cpds.setStatementCacheNumDeferredCloseThreads(cfg.getNumStatementCloseThreads());
-
+                //Statement pooling
+                cpds.setMaxStatements(cfg.getMaxCachedStatements());
+                cpds.setMaxStatementsPerConnection(cfg.getMaxCachedStatementsPerConnection());
+                cpds.setStatementCacheNumDeferredCloseThreads(cfg.getNumStatementCloseThreads());
+            }
+            catch (PropertyVetoException e) {
+                log.error("Failed to configure the connection pool!", e);
+            }
+            //Test connection...
+            //If this fails it throws an SQLException so we're notified
+            Connection c = cpds.getConnection();
+            c.close();
         }
-        catch (PropertyVetoException e) {
-            log.error("Failed to configure the connection pool!", e);
+        else {
+            nonManaged = DriverManager.getConnection(cfg.getDatabaseUrl(type.getIdentifier()), cfg.getDatabaseUser(), cfg.getDatabasePassword());
+            nonManaged.close();
         }
-        //Test connection...
-        //If this fails it throws an SQLException so we're notified
-        Connection c = cpds.getConnection();
-        c.close();
     }
 
     /**
-     * Get the Database type.
+     * Get the SQL Database type.
      *
      * @return the type
      */
-    public Type getType() {
+    public SQLType getType() {
         return this.type;
     }
 
@@ -130,16 +101,15 @@ public class JdbcConnectionManager {
     private static JdbcConnectionManager getInstance() throws DatabaseAccessException {
         if (instance == null) {
             try {
-                Type t = Type.forName(Configuration.getServerConfig().getDatasourceType());
-                if (t == Type.XML) {
-                    throw new DatabaseAccessException("XML is not a valid JDBC Database type");
+                SQLType type = SQLType.forName(Configuration.getServerConfig().getDatasourceType());
+                if (type == null) {
+                    throw new DatabaseAccessException(Configuration.getServerConfig().getDatasourceType() + " is not a valid JDBC Database type or has not been registered for use.");
                 }
-                instance = new JdbcConnectionManager(t);
+                instance = new JdbcConnectionManager(type);
             }
             catch (SQLException e) {
                 throw new DatabaseAccessException("Unable to instantiate Connection Pool!", e);
             }
-
         }
         return instance;
     }
@@ -152,15 +122,15 @@ public class JdbcConnectionManager {
     public static Connection getConnection() {
         try {
             JdbcConnectionManager cman = getInstance();
-            if (cman.type == Type.SQLITE) {
-                if (cman.sqliteConnection != null) {
-                    if (!cman.sqliteConnection.isClosed()) {
-                        return cman.sqliteConnection;
+            if (!cman.type.usesJDBCManager()) {
+                if (cman.nonManaged != null) {
+                    if (!cman.nonManaged.isClosed()) {
+                        return cman.nonManaged;
                     }
-//                    cman.sqliteConnection.close();
                 }
-                cman.sqliteConnection = cman.cpds.getConnection();
-                return cman.sqliteConnection;
+                DatabaseConfiguration cfg = Configuration.getDbConfig();
+                cman.nonManaged = DriverManager.getConnection(cfg.getDatabaseUrl(cman.type.getIdentifier()), cfg.getDatabaseUser(), cfg.getDatabasePassword());
+                return cman.nonManaged;
             }
             return cman.cpds.getConnection();
         }
@@ -184,12 +154,12 @@ public class JdbcConnectionManager {
             return;
         }
         instance.cpds.close();
-        if (instance.sqliteConnection != null) {
+        if (instance.nonManaged != null) {
             try {
-                instance.sqliteConnection.close();
+                instance.nonManaged.close();
             }
             catch (SQLException e) {
-                log.warn("SQLite connection could not be closed. Whoops!", e);
+                log.warn("Non-Managed connection could not be closed. Whoops!", e);
             }
         }
         instance = null;

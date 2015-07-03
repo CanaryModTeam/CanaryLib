@@ -12,12 +12,12 @@ public interface HoverEvent {
      *
      * @return the {@link HoverEventAction}
      */
-    public HoverEventAction getAction();
+    HoverEventAction getAction();
 
     /**
      * Gets the {@link net.canarymod.api.chat.ChatComponent} value
      *
      * @return {@link net.canarymod.api.chat.ChatComponent}
      */
-    public ChatComponent getValue();
+    ChatComponent getValue();
 }

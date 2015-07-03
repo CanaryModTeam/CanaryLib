@@ -17,8 +17,10 @@ public final class EndermanDropBlockHook extends CancelableHook {
     /**
      * Constructs a new EndermanDropBlockHook
      *
-     * @param enderman the {@link Enderman} dropping a block
-     * @param block    the {@link Block} being dropped on
+     * @param enderman
+     *         the {@link Enderman} dropping a block
+     * @param block
+     *         the {@link Block} being dropped on
      */
     public EndermanDropBlockHook(Enderman enderman, Block block) {
         this.enderman = enderman;

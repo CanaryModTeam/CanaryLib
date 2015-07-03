@@ -16,7 +16,9 @@ public class OperatorsDataAccess extends DataAccess {
         super(Configuration.getDbConfig().getOpertatorsTableName());
     }
 
-    /** Playername for this operator entry */
+    /**
+     * Playername for this operator entry
+     */
     @Column(columnName = "player", dataType = DataType.STRING)
     public String player;
 

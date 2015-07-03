@@ -23,7 +23,8 @@ public final class ServerTickHook extends Hook {
     }
 
     /**
-     * @param deltaTime the deltaTime to set
+     * @param deltaTime
+     *         the deltaTime to set
      */
     public void setDeltaTime(long deltaTime) {
         this.deltaTime = deltaTime;

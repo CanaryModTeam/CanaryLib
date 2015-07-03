@@ -57,8 +57,13 @@ public class HookExecutor implements HookExecutorInterface {
                 public void execute(PluginListener listener, Hook hook) {
                     try {
                         method.invoke(listener, hook);
-                    } catch (Exception ex) {
-                        throw new HookExecutionException(ex.getMessage(), ex);
+                    }
+                    catch (Throwable thrown) {
+                        if (thrown.getCause() != null) {
+                            // Skip past wrapper exceptions and cut straight to the point
+                            throw new HookExecutionException(thrown.getCause().getMessage(), thrown.getCause());
+                        }
+                        throw new HookExecutionException(thrown.getMessage(), thrown);
                     }
                 }
             };
@@ -73,14 +78,15 @@ public class HookExecutor implements HookExecutorInterface {
      */
     public void registerHook(PluginListener listener, Plugin plugin, Class<?> hookCls, Dispatcher dispatcher, Priority priority) {
         // Caller is assumed to check class (this is an internal API)
-        listeners.put((Class<? extends Hook>) hookCls, new RegisteredPluginListener(listener, plugin, dispatcher, priority));
-        Collections.sort(listeners.get((Class<? extends Hook>) hookCls), listener_comp);
+        listeners.put((Class<? extends Hook>)hookCls, new RegisteredPluginListener(listener, plugin, dispatcher, priority));
+        Collections.sort(listeners.get((Class<? extends Hook>)hookCls), listener_comp);
     }
 
     /**
      * Unregisters all listeners for specified plugin
      *
-     * @param plugin the {@link Plugin} instance
+     * @param plugin
+     *         the {@link Plugin} instance
      */
     @Override
     public void unregisterPluginListeners(Plugin plugin) {
@@ -121,9 +127,11 @@ public class HookExecutor implements HookExecutorInterface {
             RegisteredPluginListener listener = iter.next();
             try {
                 listener.execute(hook);
-            } catch (HookExecutionException hexex) {
+            }
+            catch (HookExecutionException hexex) {
                 log.error("Exception while executing Hook: " + hook.getHookName() + " in PluginListener: " +
-                        listener.getListener().getClass().getSimpleName() + " (Plugin: " + listener.getPlugin().getName() + ")", hexex.getCause());
+                                  listener.getListener().getClass().getSimpleName() + " (Plugin: " + listener.getPlugin().getName() + ")", hexex.getCause()
+                         );
             }
         }
     }
@@ -134,7 +142,7 @@ public class HookExecutor implements HookExecutorInterface {
             if (o1 == o2) {
                 return 0;
             }
-            return (int) Math.signum((o2.getMethodPriority().getPriorityValue() + o2.getPluginPriority()) - (o1.getMethodPriority().getPriorityValue() + o1.getPluginPriority()));
+            return (int)Math.signum((o2.getMethodPriority().getPriorityValue() + o2.getPluginPriority()) - (o1.getMethodPriority().getPriorityValue() + o1.getPluginPriority()));
         }
     }
 }

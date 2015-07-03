@@ -42,7 +42,8 @@ public final class ConnectionHook extends Hook {
     /**
      * Sets the message set to all
      *
-     * @param message the message to be sent
+     * @param message
+     *         the message to be sent
      */
     public void setMessage(String message) {
         this.message = message;
@@ -69,7 +70,8 @@ public final class ConnectionHook extends Hook {
     /**
      * Sets whether this should be a hidden connect/disconnect
      *
-     * @param hidden {@code true} to hide message; {@code false} for not
+     * @param hidden
+     *         {@code true} to hide message; {@code false} for not
      */
     public void setHidden(boolean hidden) {
         this.hidden = hidden;

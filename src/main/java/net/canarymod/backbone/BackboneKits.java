@@ -162,7 +162,7 @@ public class BackboneKits extends Backbone {
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                KitDataAccess data = (KitDataAccess) da;
+                KitDataAccess data = (KitDataAccess)da;
                 Kit kit = new Kit();
 
                 kit.setContentFromStrings(data.items);

@@ -69,5 +69,4 @@ public interface PotionFactory {
      * @return new {@link PotionEffect}
      */
     PotionEffect newPotionEffect(PotionEffectType type, int duration, int amplifier, boolean ambient);
-
 }

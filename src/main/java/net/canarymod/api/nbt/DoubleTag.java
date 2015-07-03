@@ -12,7 +12,7 @@ public interface DoubleTag extends PrimitiveTag<DoubleTag> {
      *
      * @return the double value
      */
-    public double getValue();
+    double getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface DoubleTag extends PrimitiveTag<DoubleTag> {
      * @param value
      *         the double value
      */
-    public void setValue(double value);
-
+    void setValue(double value);
 }

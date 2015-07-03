@@ -16,7 +16,9 @@ public class PermissionNode {
 
     private String name;
 
-    /** ID in the database */
+    /**
+     * ID in the database
+     */
     private int id;
 
     private Map<String, PermissionNode> childs = new HashMap<String, PermissionNode>();
@@ -26,8 +28,10 @@ public class PermissionNode {
     /**
      * Create a new PermissionNode.
      *
-     * @param name the name
-     * @param value the value
+     * @param name
+     *         the name
+     * @param value
+     *         the value
      */
     public PermissionNode(String name, boolean value) {
         if (name == null) {
@@ -61,7 +65,8 @@ public class PermissionNode {
     /**
      * Sets the parent node.
      *
-     * @param parent the new parent
+     * @param parent
+     *         the new parent
      */
     public void setParentNode(PermissionNode parent) {
         if (this.parent != null) {
@@ -83,7 +88,8 @@ public class PermissionNode {
     /**
      * Override the initially given value for this node
      *
-     * @param value the value for this node
+     * @param value
+     *         the value for this node
      */
     public void setValue(boolean value) {
         this.value = value;
@@ -140,7 +146,8 @@ public class PermissionNode {
     /**
      * Get a child node of this node with the given name
      *
-     * @param child name of the child node
+     * @param child
+     *         name of the child node
      *
      * @return an instance of the child node. Might be null if the specified child does not exist
      */
@@ -180,7 +187,8 @@ public class PermissionNode {
     /**
      * Put the given PermissionNode into the child list of this PermissionNode
      *
-     * @param child the child to add
+     * @param child
+     *         the child to add
      */
     public void addChildNode(PermissionNode child) {
         child.setParentNode(this);
@@ -227,7 +235,7 @@ public class PermissionNode {
         // as other paths may require them to remain granted.
 
         // If this nodes value is false but new value is true, grant this node
-        if (!getValue() && value) {
+        if ((!this.getValue() && value) && !this.isWildcard()) {
             setValue(true);
         }
         if (index >= path.length) {
@@ -243,27 +251,31 @@ public class PermissionNode {
     /**
      * Resolves a given path of permission names into the resulting value.
      * This resolves the permission
-     * @param path the path
-     * @param index the current index in the string array
+     *
+     * @param path
+     *         the path
+     * @param index
+     *         the current index in the string array
+     *
      * @return true if permission on this path is granted, false otherwise
      */
     public boolean resolveToValue(String[] path, int index) {
-        boolean hasWildcardChild = hasChildNode("*");
+        boolean hasWildcardChild = this.hasChildNode("*");
 
         // If this is denied and it's not a wildcard, exit.
         // Wildcards specify no direct path thus subsequent nodes may be allowed
-        if (!this.getValue() && !isWildcard()) {
+        if (!this.getValue() && !this.isWildcard()) {
             return false;
         }
-        // That means this is the final node
+        // Found final node
         if (index >= path.length) {
             return this.getValue();
         }
         // Check explicit permission
-        if (hasChildNode(path[index])) {
-            return getChildNode(path[index]).resolveToValue(path, ++index);
+        if (this.hasChildNode(path[index])) {
+            return this.getChildNode(path[index]).resolveToValue(path, ++index);
         }
-        // Check implicit permission
+        // Check implicit permission via wildcards
         else if (hasWildcardChild) {
             return getChildNode("*").getValue();
         }
@@ -276,8 +288,12 @@ public class PermissionNode {
      * Purely resolves a path.
      * This can be used to see if any given permission path
      * can be fully resolved. Wildcards are taken into account
-     * @param path the path
-     * @param index the current index in the string array
+     *
+     * @param path
+     *         the path
+     * @param index
+     *         the current index in the string array
+     *
      * @return true if path can be resolved, false otherwise
      */
     public boolean resolvePath(String[] path, int index) {

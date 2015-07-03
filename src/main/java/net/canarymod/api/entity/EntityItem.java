@@ -16,16 +16,16 @@ public interface EntityItem extends Entity {
      * @param age
      *         the age to set
      */
-    public void setAge(short age);
+    void setAge(short age);
 
     /**
      * Get item's age.<br>
      * When age is greater than or equal to 6000, the entity is destroyed.
      *
      * @return age
-     *         the age of the item.
+     * the age of the item.
      */
-    public short getAge();
+    short getAge();
 
     /**
      * Gets the ticks before allowing to be picked up.<br>
@@ -34,7 +34,7 @@ public interface EntityItem extends Entity {
      *
      * @return the ticks before pickup
      */
-    public int getPickUpDelay();
+    int getPickUpDelay();
 
     /**
      * Sets the ticks before allowing to be picked up.<br>
@@ -43,7 +43,7 @@ public interface EntityItem extends Entity {
      * @param delay
      *         the ticks before allowing pickup or -1 for never pickup
      */
-    public void setPickUpDelay(int delay);
+    void setPickUpDelay(int delay);
 
     /**
      * Gets the health of the Item.<br>
@@ -52,7 +52,7 @@ public interface EntityItem extends Entity {
      *
      * @return the health
      */
-    public short getHealth();
+    short getHealth();
 
     /**
      * Sets the health of the Item.<br>
@@ -61,14 +61,14 @@ public interface EntityItem extends Entity {
      * @param health
      *         the item health
      */
-    public void setHealth(short health);
+    void setHealth(short health);
 
     /**
      * Get the Item attached to the EntityItem.
      *
      * @return {@link Item}
      */
-    public Item getItem();
+    Item getItem();
 
     /**
      * Sets the Item attached to the EntityItem)
@@ -76,7 +76,7 @@ public interface EntityItem extends Entity {
      * @param item
      *         the Item to attach
      */
-    public void setItem(Item item);
+    void setItem(Item item);
 
     /**
      * Returns the owner of this item.
@@ -84,16 +84,17 @@ public interface EntityItem extends Entity {
      *
      * @return The name of the owner this item's owner
      */
-    public String getOwner();
+    String getOwner();
 
     /**
      * Sets the owner of this item.
      * Only the owner of an item can pick it up.
      *
-     * @param owner The name of this item's new owner, or {@code null} to unset
-     * the owner
+     * @param owner
+     *         The name of this item's new owner, or {@code null} to unset
+     *         the owner
      */
-    public void setOwner(String owner);
+    void setOwner(String owner);
 
     /**
      * Returns the thrower of this item.
@@ -102,15 +103,16 @@ public interface EntityItem extends Entity {
      *
      * @return The name of this item's thrower
      */
-    public String getThrower();
+    String getThrower();
 
     /**
      * Sets the thrower of this item.
      * This is the name of the player who dropped this item.
      * Used for the "Diamonds to you!" achievement.
      *
-     * @param thrower The name of this item's new thrower, or {@code null} to
-     * unset the thrower
+     * @param thrower
+     *         The name of this item's new thrower, or {@code null} to
+     *         unset the thrower
      */
-    public void setThrower(String thrower);
+    void setThrower(String thrower);
 }

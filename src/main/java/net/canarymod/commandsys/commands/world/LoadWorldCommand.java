@@ -24,7 +24,7 @@ public final class LoadWorldCommand implements NativeCommand {
             WorldManager manage = Canary.getServer().getWorldManager();
             String worldName = parameters[0];
             String fqName = parameters[0];
-            String dim = parameters[1].toUpperCase();
+            String dim = parameters.length > 1 ? parameters[1].toUpperCase() : "";
             DimensionType type = null;
 
             if (matcher.reset(worldName).matches()) {

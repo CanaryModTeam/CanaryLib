@@ -21,5 +21,5 @@ public @interface TabComplete {
      *
      * @return list of commands or command aliases
      */
-    String[] commands() default { }; // Empty as legacy
+    String[] commands() default {}; // Empty as legacy
 }

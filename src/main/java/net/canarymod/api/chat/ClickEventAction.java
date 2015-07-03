@@ -12,13 +12,12 @@ public interface ClickEventAction {
      *
      * @return {@code true} if allowed; {@code false} if not
      */
-    public boolean allowedInChat();
+    boolean allowedInChat();
 
     /**
      * Gets the name of the action
      *
      * @return the name
      */
-    public String getName();
-
+    String getName();
 }

@@ -16,21 +16,21 @@ public interface MobSpawnerEntry {
      * @param weight
      *         The chance that this entry will spawn.
      */
-    public void setWeight(int weight);
+    void setWeight(int weight);
 
     /**
      * Gets the chance that this entry will spawn compared to other entries.
      *
      * @return The chance that this entry will spawn.
      */
-    public int getWeight();
+    int getWeight();
 
     /**
      * Get an instance of the {@link Entity} representing this Entry.
      *
      * @return An instance of the {@link Entity} this Entry will spawn.
      */
-    public Entity getEntity();
+    Entity getEntity();
 
     /**
      * Set an instance of the {@link Entity} we wish to spawn with this Entry.
@@ -38,7 +38,7 @@ public interface MobSpawnerEntry {
      * @param entity
      *         The {@link Entity} to spawn.
      */
-    public void setEntity(Entity entity);
+    void setEntity(Entity entity);
 
     /**
      * Checks if this is a valid Mob Spawner Entry.<br>
@@ -46,7 +46,7 @@ public interface MobSpawnerEntry {
      *
      * @return {@code true} if the Entry is Valid; {@code false} if not
      */
-    public boolean isValid();
+    boolean isValid();
 
     /**
      * Get the 'SpawnPotentials' {@link Entity} for this Entry.<br>
@@ -54,5 +54,5 @@ public interface MobSpawnerEntry {
      *
      * @return A 'SpawnPotentials' {@link Entity} entry if valid; {@code null} if not a valid entry.
      */
-    public CompoundTag getSpawnPotentialsTag();
+    CompoundTag getSpawnPotentialsTag();
 }

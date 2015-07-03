@@ -14,6 +14,5 @@ public interface AnimalInventory extends Inventory {
      *
      * @return the {@link EntityAnimal} owner
      */
-    public EntityAnimal getOwner();
-
+    EntityAnimal getOwner();
 }

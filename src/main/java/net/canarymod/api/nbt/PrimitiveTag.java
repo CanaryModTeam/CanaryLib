@@ -5,16 +5,15 @@ package net.canarymod.api.nbt;
  */
 public interface PrimitiveTag<T> extends BaseTag<T> {
 
-    public abstract long getLongValue();
+    long getLongValue();
 
-    public abstract int getIntValue();
+    int getIntValue();
 
-    public abstract short getShortValue();
+    short getShortValue();
 
-    public abstract byte getByteValue();
+    byte getByteValue();
 
-    public abstract double getDoubleValue();
+    double getDoubleValue();
 
-    public abstract float getFloatValue();
-
+    float getFloatValue();
 }

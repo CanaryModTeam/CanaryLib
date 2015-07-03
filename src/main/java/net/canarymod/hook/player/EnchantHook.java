@@ -67,7 +67,8 @@ public final class EnchantHook extends CancelableHook {
     /**
      * Override the whole list of enchantments
      *
-     * @param newList the list of enchantments to set
+     * @param newList
+     *         the list of enchantments to set
      */
     public void setEnchantmentList(List<Enchantment> newList) {
         this.enchantments = newList;
@@ -76,7 +77,8 @@ public final class EnchantHook extends CancelableHook {
     /**
      * Add a new enchantment to the list of existing enchantments
      *
-     * @param enchantment the {@link Enchantment} to add
+     * @param enchantment
+     *         the {@link Enchantment} to add
      */
     public void addEnchantment(Enchantment enchantment) {
         enchantments.add(enchantment);
@@ -85,7 +87,8 @@ public final class EnchantHook extends CancelableHook {
     /**
      * Remove an enchantment from the list
      *
-     * @param enchantment the {@link Enchantment} to remove
+     * @param enchantment
+     *         the {@link Enchantment} to remove
      */
     public void removeEnchantment(Enchantment enchantment) {
         enchantments.remove(enchantment);
@@ -94,7 +97,9 @@ public final class EnchantHook extends CancelableHook {
     /**
      * Validate the enchantments
      *
-     * @param checkStackable {@code true} to check if can stack; {@code false} for not
+     * @param checkStackable
+     *         {@code true} to check if can stack; {@code false} for not
+     *
      * @return {@code true} if valid; {@code false} if not
      */
     public boolean isValid(boolean checkStackable) {
@@ -107,11 +112,13 @@ public final class EnchantHook extends CancelableHook {
                         if (checkStackable && !enchantmentsArray[i].canStack(enchantmentsArray[j])) {
                             return false;
                         }
-                    } else {
+                    }
+                    else {
                         return false;
                     }
                 }
-            } else {
+            }
+            else {
                 return false;
             }
         }

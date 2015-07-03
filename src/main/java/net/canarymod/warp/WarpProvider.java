@@ -1,11 +1,13 @@
 package net.canarymod.warp;
 
-import java.util.Collections;
-import java.util.List;
-
+import net.canarymod.Canary;
+import net.canarymod.ToolBox;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.world.position.Location;
 import net.canarymod.backbone.BackboneWarps;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Access to the backbone for the whitelist
@@ -52,15 +54,23 @@ public class WarpProvider {
      * @param player
      */
     public void setHome(Player player, Location location) {
-        Warp w = getHome(player);
+        Warp warp = getHome(player);
 
-        if (w != null) {
-            w.setLocation(location);
-            backbone.updateWarp(w);
+        if (warp != null) {
+            if (!ToolBox.isUUID(warp.getOwner())) {
+                Canary.log.info("Replacing legacy Home for User: " + player.getName() + " (Original: " + warp.toString() + ")");
+                removeWarp(warp);
+                warp = new Warp(location, "HOME_" + player.getUUIDString(), player.getUUIDString(), true);
+                warps.add(warp);
+                backbone.addWarp(warp);
+            }
+            else {
+                warp.setLocation(location);
+                backbone.updateWarp(warp);
+            }
         }
         else {
-            Warp newWarp = new Warp(location, "HOME_" + player.getName().toUpperCase(), player.getName(), true);
-
+            Warp newWarp = new Warp(location, "HOME_" + player.getUUIDString(), player.getUUIDString(), true);
             warps.add(newWarp);
             backbone.addWarp(newWarp);
         }
@@ -74,10 +84,10 @@ public class WarpProvider {
      * @return
      */
     public Warp getWarp(String name) {
-        for (Warp g : warps) {
-            if (g.getName().equals(name)) {
-                if (!g.isPlayerHome()) {
-                    return g;
+        for (Warp warp : warps) {
+            if (warp.getName().equals(name)) {
+                if (!warp.isPlayerHome()) {
+                    return warp;
                 }
             }
         }
@@ -92,21 +102,32 @@ public class WarpProvider {
      * @return
      */
     public Warp getHome(Player player) {
-        return getHome(player.getName());
+        Warp home = getHome(player.getUUIDString());
+        if (home == null) {
+            home = getHome(player.getName());
+            if (home != null) {
+                Canary.log.info("Replacing legacy Home for User: " + player.getName() + " (Original: " + home.toString() + ")");
+                Location original = home.getLocation();
+                removeWarp(home);
+                home = new Warp(original, "HOME_" + player.getUUIDString(), player.getUUIDString(), true);
+                addWarp(home);
+            }
+        }
+        return home;
     }
 
     /**
      * Return home for a player with this name
      *
-     * @param player
+     * @param identity
      *
      * @return
      */
-    public Warp getHome(String player) {
-        for (Warp g : warps) {
-            if (g.isPlayerHome()) {
-                if (g.getOwner().equals(player)) {
-                    return g;
+    public Warp getHome(String identity) {
+        for (Warp warp : warps) {
+            if (warp.isPlayerHome()) {
+                if (warp.getOwner().equals(identity)) {
+                    return warp;
                 }
             }
         }

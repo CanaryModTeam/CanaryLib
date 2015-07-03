@@ -55,7 +55,6 @@ public class SQLiteDatabase extends Database {
         catch (SQLException e) {
             log.error("Error while instantiating a new SQLiteDatabase!", e);
         }
-
     }
 
     public static SQLiteDatabase getInstance() {
@@ -80,7 +79,7 @@ public class SQLiteDatabase extends Database {
             for (Column c : columns.keySet()) {
                 if (!c.autoIncrement()) {
                     if (c.isList()) {
-                        ps.setString(i, getString((List<?>) columns.get(c)));
+                        ps.setString(i, getString((List<?>)columns.get(c)));
                     }
                     ps.setObject(i, columns.get(c));
                     i++;
@@ -100,7 +99,6 @@ public class SQLiteDatabase extends Database {
         finally {
             close(null, ps, null);
         }
-
     }
 
     @Override
@@ -128,7 +126,7 @@ public class SQLiteDatabase extends Database {
                     while (it.hasNext()) {
                         column = it.next();
                         if (column.isList()) {
-                            rs.updateObject(column.columnName(), this.getString((List<?>) columns.get(column)));
+                            rs.updateObject(column.columnName(), this.getString((List<?>)columns.get(column)));
                         }
                         else {
                             rs.updateObject(column.columnName(), columns.get(column));
@@ -153,7 +151,7 @@ public class SQLiteDatabase extends Database {
         finally {
             PreparedStatement st = null;
             try {
-                st = rs != null && rs.getStatement() instanceof PreparedStatement ? (PreparedStatement) rs.getStatement() : null;
+                st = rs != null && rs.getStatement() instanceof PreparedStatement ? (PreparedStatement)rs.getStatement() : null;
             }
             catch (SQLException e) {
                 log.error(e.getMessage(), e);
@@ -219,7 +217,7 @@ public class SQLiteDatabase extends Database {
         finally {
             try {
                 if (rs != null) {
-                    PreparedStatement st = rs.getStatement() instanceof PreparedStatement ? (PreparedStatement) rs.getStatement() : null;
+                    PreparedStatement st = rs.getStatement() instanceof PreparedStatement ? (PreparedStatement)rs.getStatement() : null;
                     close(null, st, rs);
                 }
             }
@@ -260,7 +258,6 @@ public class SQLiteDatabase extends Database {
                     stuff.add(dataSet);
                 }
             }
-
         }
         catch (DatabaseReadException dre) {
             log.error(dre.getMessage(), dre);
@@ -274,7 +271,7 @@ public class SQLiteDatabase extends Database {
         finally {
             try {
                 if (rs != null) {
-                    PreparedStatement st = rs.getStatement() instanceof PreparedStatement ? (PreparedStatement) rs.getStatement() : null;
+                    PreparedStatement st = rs.getStatement() instanceof PreparedStatement ? (PreparedStatement)rs.getStatement() : null;
                     close(null, st, rs);
                 }
             }
@@ -288,7 +285,6 @@ public class SQLiteDatabase extends Database {
                 newData.load(temp);
                 datasets.add(newData);
             }
-
         }
         catch (DatabaseAccessException dae) {
             log.error(dae.getMessage(), dae);
@@ -410,7 +406,6 @@ public class SQLiteDatabase extends Database {
                     else {
                         primary.add(column.columnName());
                     }
-
                 }
             }
 
@@ -419,7 +414,7 @@ public class SQLiteDatabase extends Database {
                 primaryFields = " PRIMARY KEY (" + StringUtils.joinString(primary.toArray(new String[primary.size()]), ",", 0) + ")";
             }
             // CREATE TABLE something (column1, column2, column3, PRIMARY KEY (column1, column2));
-            String state = "CREATE TABLE IF NOT EXISTS `" + data.getName() + "` (" + fields.toString() + ""+primaryFields+")";
+            String state = "CREATE TABLE IF NOT EXISTS `" + data.getName() + "` (" + fields.toString() + "" + primaryFields + ")";
             ps = JdbcConnectionManager.getConnection().prepareStatement(state);
             if (ps.execute()) {
                 log.debug("Statment Executed!");
@@ -456,7 +451,6 @@ public class SQLiteDatabase extends Database {
         finally {
             close(null, ps, null);
         }
-
     }
 
     // SQLite sucks.
@@ -491,9 +485,11 @@ public class SQLiteDatabase extends Database {
             stmt.addBatch("INSERT INTO " + tableName + " SELECT " + concatColumns + " FROM " + tempTable + ";");
             stmt.addBatch("DROP TABLE " + tempTable + ";");
             stmt.executeBatch();
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             throw new DatabaseWriteException("Error retaining SQLite columns (something went horribly wrong)", ex);
-        } finally {
+        }
+        finally {
             close(null, stmt, null);
         }
     }
@@ -536,11 +532,11 @@ public class SQLiteDatabase extends Database {
             if (rs != null) {
                 toRet = rs.next();
             }
-
         }
         catch (SQLException ex) {
             throw new DatabaseWriteException(ex.getMessage() + " Error checking SQLite Entry Key in "
-                    + data.toString());
+                                                     + data.toString()
+            );
         }
         catch (DatabaseTableInconsistencyException ex) {
             LogManager.getLogger().error("", ex);
@@ -550,7 +546,6 @@ public class SQLiteDatabase extends Database {
         }
         return toRet;
     }
-
 
     /**
      * Close a set of working data.
@@ -579,7 +574,6 @@ public class SQLiteDatabase extends Database {
         catch (SQLException e) {
             log.error(e.getMessage(), e);
         }
-
     }
 
     public ResultSet getResultSet(Connection conn, DataAccess data, Map<String, Object> filters, boolean limitOne) throws DatabaseReadException {
@@ -612,7 +606,6 @@ public class SQLiteDatabase extends Database {
                     }
                     setToStatement(i + 1, filters.get(fieldName), ps, col.dataType());
                 }
-
             }
             else {
                 if (limitOne) {
@@ -661,7 +654,6 @@ public class SQLiteDatabase extends Database {
                     }
                     setToStatement(i + 1, filters.get(fieldName), ps, col.dataType());
                 }
-
             }
             else {
                 ps = conn.prepareStatement("DELETE FROM `" + data.getName() + "`");
@@ -703,14 +695,14 @@ public class SQLiteDatabase extends Database {
                 case LONG:
                 case SHORT:
                 case BOOLEAN: //SQlite doesn't know boolean values, it converts it to tinyint
-                    ps.setInt(index, (Integer) o);
+                    ps.setInt(index, (Integer)o);
                     break;
                 case FLOAT:
                 case DOUBLE:
-                    ps.setDouble(index, (Double) o);
+                    ps.setDouble(index, (Double)o);
                     break;
                 case STRING:
-                    ps.setString(index, (String) o);
+                    ps.setString(index, (String)o);
             }
         }
         catch (SQLException e) {
@@ -719,7 +711,6 @@ public class SQLiteDatabase extends Database {
         catch (ClassCastException e) {
             throw new DatabaseWriteException("Failed to set property to prepared statement!", e);
         }
-
     }
 
     public List<String> getColumnNames(DataAccess data) {

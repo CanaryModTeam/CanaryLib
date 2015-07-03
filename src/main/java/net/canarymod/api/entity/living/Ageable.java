@@ -15,7 +15,7 @@ public interface Ageable {
      * @param age
      *         Age to set. Negative values are child ages.
      */
-    public void setGrowingAge(int age);
+    void setGrowingAge(int age);
 
     /**
      * Get the growing age for this entity.
@@ -23,6 +23,5 @@ public interface Ageable {
      *
      * @return The integer age of the Entity. Negative values are child ages.
      */
-    public int getGrowingAge();
-
+    int getGrowingAge();
 }

@@ -6,101 +6,100 @@ package net.canarymod.api.entity;
  * @author Jason (darkdiplomat)
  */
 public enum EntityType {
-
-    ARMORSTAND(30, 0),
-    ARROW(10, 0),
-    BAT(65, 4),
-    BLACKSMITH(120, 3),
-    BLAZE(61, 5),
-    BUTCHER(120, 3),
-    BOAT(41, 2),
-    CAVESPIDER(59, 5),
-    CHESTMINECART(43, 2),
-    CHICKEN(93, 4),
-    CHICKENEGG(0, 1),
-    COMMANDBLOCKMINECART(40, 2),
-    COW(92, 4),
-    CREEPER(50, 5),
-    DONKEY(100, 4),
-    EMPTYMINECART(42, 2),
-    ENDERCRYSTAL(200, 0),
-    ENDERDRAGON(63, 5),
-    ENDEREYE(15, 0),
-    ENDERMAN(58, 5),
-    ENDERMITE(67, 5),
-    ENDERPEARL(14, 1),
-    ENTITYITEM(1, 0),
-    ENTITYPOTION(16, 1),
-    FALLINGBLOCK(21, 0),
-    FARMER(120, 3),
-    FIREWORKROCKET(22, 0),
-    // FishHook has no ID, weird...
-    FISHHOOK(0, 0),
-    FURNACEMINECART(44, 2),
-    GUARDIAN(68, 5),
-    GHAST(56, 5),
-    GIANTZOMBIE(53, 5),
-    HOPPERMINECART(46, 2),
-    HORSE(100, 4),
-    IRONGOLEM(99, 3),
-    ITEMFRAME(18, 6),
-    LARGEFIREBALL(12, 0),
-    LEASHKNOT(8, 6),
-    LIBRARIAN(120, 3),
-    LIGHTNINGBOLT(0, 8),
-    MAGMACUBE(62, 5),
-    MOBSPAWNERMINECART(47, 2),
-    MOOSHROOM(96, 4),
-    MULE(100, 4),
-    NPC(48, 3),
-    NONPLAYABLECHARACTER(48, 3),
-    OCELOT(98, 4),
-    PAINTING(9, 6),
-    PIG(90, 4),
-    PIGZOMBIE(57, 5),
-    PLAYER(48, 3),
-    POTION(16, 1),
-    PRIEST(120, 3),
-    SHEEP(91, 4),
-    SILVERFISH(60, 5),
-    SKELETON(51, 5),
-    SKELETONHORSE(100, 4),
-    SLIME(55, 5),
-    SMALLFIREBALL(13, 0),
-    SNOWBALL(11, 1),
-    SNOWMAN(97, 3),
-    SPIDER(52, 5),
-    SQUID(94, 4),
-    RABBIT(101, 4),
-    TNTMINECART(45, 2),
-    TNTPRIMED(20, 0),
-    VILLAGER(120, 3),
-    WITCH(66, 5),
-    WITHER(64, 5),
-    WITHERSKELETON(51, 5),
-    WITHERSKULL(19, 0),
-    WOLF(95, 4),
-    XPBOTTLE(17, 1),
-    XPORB(2, 0),
-    ZOMBIE(54, 5),
-    ZOMBIEHORSE(100, 4),
-
     /* GENERIC TYPING */
-    GENERIC_ENTITY(0, 0),
-    GENERIC_THROWABLE(0, 1),
-    GENERIC_VEHICLE(0, 2),
-    GENERIC_LIVING(49, 3),
-    GENERIC_ANIMAL(49, 4),
-    GENERIC_MOB(48, 5),
-    GENERIC_HANGING(0, 6),
-    GENERIC_EFFECT(0, 7);
+    GENERIC_ENTITY(0, null),
+    GENERIC_THROWABLE(0, GENERIC_ENTITY),
+    GENERIC_VEHICLE(0, GENERIC_ENTITY),
+    GENERIC_LIVING(49, GENERIC_ENTITY),
+    GENERIC_ANIMAL(49, GENERIC_LIVING),
+    GENERIC_MOB(48, GENERIC_LIVING),
+    GENERIC_HANGING(0, GENERIC_ENTITY),
+    GENERIC_EFFECT(0, GENERIC_ENTITY),
 
-    private final byte type;
+    ARMORSTAND(30, GENERIC_ENTITY),
+    ARROW(10, GENERIC_THROWABLE),
+    BAT(65, GENERIC_ANIMAL),
+    BLACKSMITH(120, GENERIC_LIVING),
+    BLAZE(61, GENERIC_MOB),
+    BUTCHER(120, GENERIC_LIVING),
+    BOAT(41, GENERIC_VEHICLE),
+    CAVESPIDER(59, GENERIC_MOB),
+    CHESTMINECART(43, GENERIC_VEHICLE),
+    CHICKEN(93, GENERIC_ANIMAL),
+    CHICKENEGG(0, GENERIC_THROWABLE),
+    COMMANDBLOCKMINECART(40, GENERIC_VEHICLE),
+    COW(92, GENERIC_ANIMAL),
+    CREEPER(50, GENERIC_MOB),
+    DONKEY(100, GENERIC_ANIMAL),
+    EMPTYMINECART(42, GENERIC_VEHICLE),
+    ENDERCRYSTAL(200, GENERIC_ENTITY),
+    ENDERDRAGON(63, GENERIC_MOB),
+    ENDEREYE(15, GENERIC_ENTITY),
+    ENDERMAN(58, GENERIC_MOB),
+    ENDERMITE(67, GENERIC_MOB),
+    ENDERPEARL(14, GENERIC_THROWABLE),
+    ENTITYITEM(1, GENERIC_ENTITY),
+    ENTITYPOTION(16, GENERIC_THROWABLE),
+    FALLINGBLOCK(21, GENERIC_ENTITY),
+    FARMER(120, GENERIC_LIVING),
+    FIREWORKROCKET(22, GENERIC_ENTITY),
+    // FishHook has no ID, weird...
+    FISHHOOK(0, GENERIC_ENTITY),
+    FURNACEMINECART(44, GENERIC_VEHICLE),
+    GUARDIAN(68, GENERIC_MOB),
+    GHAST(56, GENERIC_MOB),
+    GIANTZOMBIE(53, GENERIC_MOB),
+    HOPPERMINECART(46, GENERIC_VEHICLE),
+    HORSE(100, GENERIC_ANIMAL),
+    IRONGOLEM(99, GENERIC_LIVING),
+    ITEMFRAME(18, GENERIC_HANGING),
+    LARGEFIREBALL(12, GENERIC_ENTITY),
+    LEASHKNOT(8, GENERIC_HANGING),
+    LIBRARIAN(120, GENERIC_LIVING),
+    LIGHTNINGBOLT(0, GENERIC_EFFECT),
+    MAGMACUBE(62, GENERIC_MOB),
+    MOBSPAWNERMINECART(47, GENERIC_VEHICLE),
+    MOOSHROOM(96, GENERIC_ANIMAL),
+    MULE(100, GENERIC_ANIMAL),
+    NPC(48, GENERIC_LIVING),
+    NONPLAYABLECHARACTER(48, GENERIC_LIVING),
+    OCELOT(98, GENERIC_ANIMAL),
+    PAINTING(9, GENERIC_HANGING),
+    PIG(90, GENERIC_ANIMAL),
+    PIGZOMBIE(57, GENERIC_MOB),
+    PLAYER(48, GENERIC_LIVING),
+    POTION(16, GENERIC_THROWABLE),
+    PRIEST(120, GENERIC_LIVING),
+    SHEEP(91, GENERIC_ANIMAL),
+    SILVERFISH(60, GENERIC_MOB),
+    SKELETON(51, GENERIC_MOB),
+    SKELETONHORSE(100, GENERIC_ANIMAL),
+    SLIME(55, GENERIC_MOB),
+    SMALLFIREBALL(13, GENERIC_ENTITY),
+    SNOWBALL(11, GENERIC_THROWABLE),
+    SNOWMAN(97, GENERIC_LIVING),
+    SPIDER(52, GENERIC_MOB),
+    SQUID(94, GENERIC_ANIMAL),
+    RABBIT(101, GENERIC_ANIMAL),
+    TNTMINECART(45, GENERIC_VEHICLE),
+    TNTPRIMED(20, GENERIC_ENTITY),
+    VILLAGER(120, GENERIC_LIVING),
+    WITCH(66, GENERIC_MOB),
+    WITHER(64, GENERIC_MOB),
+    WITHERSKELETON(51, GENERIC_MOB),
+    WITHERSKULL(19, GENERIC_ENTITY),
+    WOLF(95, GENERIC_ANIMAL),
+    XPBOTTLE(17, GENERIC_THROWABLE),
+    XPORB(2, GENERIC_ENTITY),
+    ZOMBIE(54, GENERIC_MOB),
+    ZOMBIEHORSE(100, GENERIC_ANIMAL);
+
     private final short id;
+    private EntityType subtype;
 
-    private EntityType(int id, int type) {
-        this.id = (short) id;
-        this.type = (byte) type;
+    private EntityType(int id, EntityType subtype) {
+        this.id = (short)id;
+        this.subtype = subtype;
     }
 
     public short getEntityID() {
@@ -113,7 +112,7 @@ public enum EntityType {
      * @return {@code true} if throwable; {@code false} if not
      */
     public boolean isThrowable() {
-        return this.type == 1;
+        return this == GENERIC_THROWABLE || this.isOf(GENERIC_THROWABLE);
     }
 
     /**
@@ -122,7 +121,7 @@ public enum EntityType {
      * @return {@code true} if vehicle; {@code false} if not
      */
     public boolean isVehicle() {
-        return this.type == 2;
+        return this == GENERIC_VEHICLE || this.isOf(GENERIC_VEHICLE);
     }
 
     /**
@@ -131,7 +130,7 @@ public enum EntityType {
      * @return {@code true} if living; {@code false} if not
      */
     public boolean isLiving() {
-        return type == 3 || type == 4 || type == 5;
+        return this == GENERIC_LIVING || this.isOf(GENERIC_LIVING);
     }
 
     /**
@@ -140,7 +139,7 @@ public enum EntityType {
      * @return {@code true} if animal; {@code false} if not
      */
     public boolean isAnimal() {
-        return type == 4;
+        return this == GENERIC_ANIMAL || this.isOf(GENERIC_ANIMAL);
     }
 
     /**
@@ -149,7 +148,7 @@ public enum EntityType {
      * @return {@code true} if mob; {@code false} if not
      */
     public boolean isMob() {
-        return type == 5;
+        return this == GENERIC_MOB || this.isOf(GENERIC_MOB);
     }
 
     /**
@@ -158,7 +157,7 @@ public enum EntityType {
      * @return {@code true} if hanging; {@code false} if not
      */
     public boolean isHanging() {
-        return type == 6;
+        return this == GENERIC_HANGING || this.isOf(GENERIC_HANGING);
     }
 
     /**
@@ -167,6 +166,25 @@ public enum EntityType {
      * @return {@code true} if effect; {@code false} if not
      */
     public boolean isEffect() {
-        return type == 7;
+        return this == GENERIC_EFFECT || this.isOf(GENERIC_EFFECT);
+    }
+
+    /**
+     * Checks if the EntityType is of a given type
+     *
+     * @param type
+     *         the type to check for
+     *
+     * @return {@code true} if equal to or a subtype of; {@code false} if no relation
+     */
+    public boolean isOf(EntityType type) {
+        if (this.subtype != null) {
+            if (this.subtype.equals(type)) {
+                return true;
+            }
+            // Else recurse
+            return subtype.isOf(type);
+        }
+        return type.equals(this); // GENERIC_ENTITY final test
     }
 }

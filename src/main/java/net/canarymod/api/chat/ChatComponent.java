@@ -30,7 +30,7 @@ public interface ChatComponent extends Cloneable {
      * Overrides the original text and sets the new text
      *
      * @param text
-     * the text to be set
+     *         the text to be set
      *
      * @return {@code this} with the new text set
      */

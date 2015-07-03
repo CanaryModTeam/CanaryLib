@@ -19,9 +19,12 @@ public final class VillagerTradeHook extends CancelableHook {
     /**
      * Constructs a new VillagerTradeHook
      *
-     * @param player   the {@link Player} who is trading
-     * @param villager the {@link Villager} merchant
-     * @param trade    the {@link VillagerTrade}
+     * @param player
+     *         the {@link Player} who is trading
+     * @param villager
+     *         the {@link Villager} merchant
+     * @param trade
+     *         the {@link VillagerTrade}
      */
     public VillagerTradeHook(Player player, Villager villager, VillagerTrade trade) {
         this.player = player;

@@ -22,6 +22,8 @@ public class CanaryModCommand implements NativeCommand {
         StringBuilder builder = new StringBuilder();
         temp.add(builder.append(ChatFormat.RED).append("---- ").append(ChatFormat.GOLD).append(Canary.getImplementationTitle()).append(" ").append(Canary.getImplementationVersion()).append(ChatFormat.RED).append(" ----").toString());
         builder.delete(0, builder.length());
+        temp.add(builder.append(ChatFormat.GOLD).append("Build#: ").append(ChatFormat.WHITE).append(Canary.getBuildNumber()).toString());
+        builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.GOLD).append("Project Leaders: ").append(ChatFormat.WHITE).append("damagefilter, darkdiplomat").toString());
         builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.GOLD).append("Lead Programmer: ").append(ChatFormat.WHITE).append("darkdiplomat").toString());

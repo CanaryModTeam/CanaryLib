@@ -30,5 +30,4 @@ public interface Achievement extends Stat {
      * @return {@code true} if special; {@code false} if not
      */
     boolean isSpecial();
-
 }

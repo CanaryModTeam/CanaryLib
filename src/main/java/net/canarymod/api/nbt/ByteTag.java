@@ -12,7 +12,7 @@ public interface ByteTag extends PrimitiveTag<ByteTag> {
      *
      * @return the byte value
      */
-    public byte getValue();
+    byte getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface ByteTag extends PrimitiveTag<ByteTag> {
      * @param value
      *         the byte value
      */
-    public void setValue(byte value);
-
+    void setValue(byte value);
 }

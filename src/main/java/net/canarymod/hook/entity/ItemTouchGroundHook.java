@@ -15,7 +15,8 @@ public class ItemTouchGroundHook extends CancelableHook {
     /**
      * Constructs a new ItemTouchGroundHook
      *
-     * @param item the {@link EntityItem} hitting the ground
+     * @param item
+     *         the {@link EntityItem} hitting the ground
      */
     public ItemTouchGroundHook(EntityItem item) {
         this.item = item;

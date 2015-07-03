@@ -12,27 +12,26 @@ public interface ChatFormatting {
      *
      * @return {@code character}
      */
-    public char getFormattingCode();
+    char getFormattingCode();
 
     /**
      * Checks if this is a formatting code (ie: Bold, Italic, Strikethrough, Obfuscated, Underline)
      *
      * @return {@code true} if formatting code; {@code false} if not
      */
-    public boolean isFormat();
+    boolean isFormat();
 
     /**
      * Checks if this is a color code (ie: DARK_GREEN)
      *
      * @return {@code true} if color code; {@code false} if not
      */
-    public boolean isColor();
+    boolean isColor();
 
     /**
      * Gets the name of this {@code ChatFormatting} (ie: DARK_GREEN)
      *
      * @return name
      */
-    public String getName();
-
+    String getName();
 }

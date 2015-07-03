@@ -15,7 +15,7 @@ public interface Enderman extends EntityMob {
      *
      * @return the block being carried
      */
-    public Block getCarriedBlock();
+    Block getCarriedBlock();
 
     /**
      * Get the block id for the block this Enderman carries
@@ -25,25 +25,26 @@ public interface Enderman extends EntityMob {
      * @deprecated Use {@link #getCarriedBlock} instead
      */
     @Deprecated
-    public short getCarriedBlockID();
+    short getCarriedBlockID();
 
     /**
      * Sets the Block the Enderman carries
      *
      * @param block
-     * the block to set
+     *         the block to set
      */
-    public void setCarriedBlock(Block block);
+    void setCarriedBlock(Block block);
 
     /**
      * Sets the Block ID for the block this Enderman carries
      *
      * @param blockId
      *         the block id
+     *
      * @deprecated Use {@link #setCarriedBlock(net.canarymod.api.world.blocks.Block)} instead
      */
     @Deprecated
-    public void setCarriedBlockID(short blockId);
+    void setCarriedBlockID(short blockId);
 
     /**
      * Gets the metadata of the Block the Enderman carries
@@ -53,31 +54,32 @@ public interface Enderman extends EntityMob {
      * @deprecated Block MetaData has gone away, use {@link #getCarriedBlock()} instead
      */
     @Deprecated
-    public short getCarriedBlockMetaData();
+    short getCarriedBlockMetaData();
 
     /**
      * Sets the metadata of the Block
      *
      * @param metadata
      *         the data for the block being carried
+     *
      * @deprecated Block MetaData has gone away, use {@link #setCarriedBlock(net.canarymod.api.world.blocks.Block)} instead
      */
     @Deprecated
-    public void setCarriedBlockMetaData(short metadata);
+    void setCarriedBlockMetaData(short metadata);
 
     /**
      * Teleport the Enderman to a random position nearby
      *
      * @return {@code true} if successful; {@code false} if not
      */
-    public boolean randomTeleport();
+    boolean randomTeleport();
 
     /**
      * Gets if the Enderman is screaming
      *
      * @return {@code true} if screaming; {@code false} if not
      */
-    public boolean isScreaming();
+    boolean isScreaming();
 
     /**
      * Sets if the Enderman is screaming
@@ -85,6 +87,5 @@ public interface Enderman extends EntityMob {
      * @param screaming
      *         {@code true} for screaming; {@code false} for not
      */
-    public void setScreaming(boolean screaming);
-
+    void setScreaming(boolean screaming);
 }

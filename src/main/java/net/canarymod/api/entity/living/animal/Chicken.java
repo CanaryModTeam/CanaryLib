@@ -14,7 +14,7 @@ public interface Chicken extends EntityAnimal, Ageable {
      *
      * @return tick until next egg
      */
-    public int getTimeUntilNextEgg();
+    int getTimeUntilNextEgg();
 
     /**
      * Time in ticks (~20/Second) until the chicken lays the next egg.
@@ -23,5 +23,5 @@ public interface Chicken extends EntityAnimal, Ageable {
      * @param timeTicks
      *         the ticks until the next egg
      */
-    public void setTimeUntilNextEgg(int timeTicks);
+    void setTimeUntilNextEgg(int timeTicks);
 }

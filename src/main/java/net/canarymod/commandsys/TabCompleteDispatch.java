@@ -10,5 +10,5 @@ import java.util.List;
  * @author Jason (darkdiplomat)
  */
 public interface TabCompleteDispatch {
-    public abstract List<String> complete(MessageReceiver msgrec, String[] args) throws TabCompleteException;
+    List<String> complete(MessageReceiver msgrec, String[] args) throws TabCompleteException;
 }

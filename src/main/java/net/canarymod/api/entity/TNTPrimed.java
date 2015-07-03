@@ -14,5 +14,5 @@ public interface TNTPrimed extends Entity, Explosive {
      *
      * @return {@link LivingBase} if activated by an entity; {@code null} if not activated by an entity
      */
-    public LivingBase getActivatedBy();
+    LivingBase getActivatedBy();
 }

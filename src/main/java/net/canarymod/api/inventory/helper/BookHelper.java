@@ -132,7 +132,7 @@ public class BookHelper extends ItemHelper {
         if (!isValidPage(page, getPageCount(book))) {
             return null;
         }
-        return ((StringTag) book.getDataTag().getListTag("pages").get(page)).getValue();
+        return ((StringTag)book.getDataTag().getListTag("pages").get(page)).getValue();
     }
 
     /**
@@ -198,7 +198,7 @@ public class BookHelper extends ItemHelper {
         }
         return success;
     }
-    
+
     /**
      * Adds pages to a writable/written book
      *
@@ -256,7 +256,7 @@ public class BookHelper extends ItemHelper {
         book.getDataTag().getListTag("pages").set(page_index, toSet);
         return true;
     }
-    
+
     /**
      * Sets a page at the specified index
      *
@@ -315,7 +315,7 @@ public class BookHelper extends ItemHelper {
         book.getDataTag().put("pages", pages_to_set);
         return success;
     }
-    
+
     /**
      * Sets the pages of the book
      *
@@ -418,7 +418,7 @@ public class BookHelper extends ItemHelper {
         if (!verifyTags(book, "author", STRING, true)) {
             return false;
         }
-        ((StringTag) book.getDataTag().get("author")).setValue(correctAuthor(author));
+        ((StringTag)book.getDataTag().get("author")).setValue(correctAuthor(author));
         return true;
     }
 
@@ -475,7 +475,7 @@ public class BookHelper extends ItemHelper {
         if (!verifyTags(book, "title", STRING, true)) {
             return false;
         }
-        ((StringTag) book.getDataTag().get("title")).setValue(correctTitle(title));
+        ((StringTag)book.getDataTag().get("title")).setValue(correctTitle(title));
         return true;
     }
 
@@ -587,13 +587,13 @@ public class BookHelper extends ItemHelper {
     }
 
     /**
-    * @deprecated  As of release CanaryLib 1.2.0, replaced by {@link #addEnchantments(Item, Enchantment...)}
-    */
+     * @deprecated As of release CanaryLib 1.2.0, replaced by {@link #addEnchantments(Item, Enchantment...)}
+     */
     @Deprecated
     public static boolean addEncahntments(Item book, Enchantment... enchantments) {
-        return addEnchantments(book,enchantments);
+        return addEnchantments(book, enchantments);
     }
-    
+
     /**
      * Adds enchantments to the book
      *
@@ -625,7 +625,7 @@ public class BookHelper extends ItemHelper {
             }
             CompoundTag ench_tag = ENCH_TAG.copy();
             ench_tag.put("lvl", ench.getLevel());
-            ench_tag.put("id", (short) ench.getType().getId());
+            ench_tag.put("id", (short)ench.getType().getId());
             success &= sto_ench.add(ench_tag);
         }
         return success;

@@ -20,40 +20,64 @@ public interface Enchantment {
      * @author Yariv
      * @author Jason (darkdiplomat)
      */
-    public enum Type {
-        Protection(0), //
-        FireProtection(1), //
-        FeatherFalling(2), //
-        BlastProtection(3), //
-        ProjectileProtection(4), //
-        Respiration(5), //
-        AquaAffinity(6), //
-        Thorns(7), //
+    enum Type {
+        Protection(0),
+        //
+        FireProtection(1),
+        //
+        FeatherFalling(2),
+        //
+        BlastProtection(3),
+        //
+        ProjectileProtection(4),
+        //
+        Respiration(5),
+        //
+        AquaAffinity(6),
+        //
+        Thorns(7),
+        //
         DepthStrider(8),
         //
-        Sharpness(16), //
-        Smite(17), //
-        BaneOfArthropods(18), //
-        Knockback(19), //
-        FireAspect(20), //
-        Looting(21), //
-        Efficiency(32), //
-        SilkTouch(33), //
-        Unbreaking(34), //
-        Fortune(35), //
-        Power(48), //
-        Punch(49), //
-        Flame(50), //
-        Infinity(51), //
-        LuckOfTheSea(61), //
-        Lure(62), //
+        Sharpness(16),
+        //
+        Smite(17),
+        //
+        BaneOfArthropods(18),
+        //
+        Knockback(19),
+        //
+        FireAspect(20),
+        //
+        Looting(21),
+        //
+        Efficiency(32),
+        //
+        SilkTouch(33),
+        //
+        Unbreaking(34),
+        //
+        Fortune(35),
+        //
+        Power(48),
+        //
+        Punch(49),
+        //
+        Flame(50),
+        //
+        Infinity(51),
+        //
+        LuckOfTheSea(61),
+        //
+        Lure(62),
+        //
 
         ;
 
         private int id;
         private static Map<Integer, Type> map;
 
-        private Type(int id) {
+        Type(int id) {
             this.id = id;
             add(id, this);
         }
@@ -93,35 +117,35 @@ public interface Enchantment {
      *
      * @return The weight of the enchantment (priority level)
      */
-    public int getWeight();
+    int getWeight();
 
     /**
      * Get the smallest valid level this enchantment can have
      *
      * @return the minimum level this enchantment can have (will be integer 1-5)
      */
-    public int getMinEnchantmentLevel();
+    int getMinEnchantmentLevel();
 
     /**
      * Get the maximum level this enchantment can have
      *
      * @return the maximum level this enchantment can have (will be integer 1-5)
      */
-    public int getMaxEnchantmentLevel();
+    int getMaxEnchantmentLevel();
 
     /**
      * Returns the minimal value of enchantability needed on the enchantment level passed.
      *
      * @return the enchantability
      */
-    public int getMinEnchantability();
+    int getMinEnchantability();
 
     /**
      * Returns the maximum value of enchantability needed on the enchantment level passed.
      *
      * @return the enchantability
      */
-    public int getMaxEnchantability();
+    int getMaxEnchantability();
 
     /**
      * Calculates the damage protection of the enchantment based on level and damage source passed.
@@ -131,7 +155,7 @@ public interface Enchantment {
      *
      * @return damage modifier
      */
-    public int getDamageModifier(DamageSource source);
+    int getDamageModifier(DamageSource source);
 
     /**
      * Calculates the damage done by this enchantment to the given EntityLiving
@@ -141,7 +165,7 @@ public interface Enchantment {
      *
      * @return Damage value that would be done to this entity.
      */
-    public float getDamageModifier(EntityLiving entity);
+    float getDamageModifier(EntityLiving entity);
 
     /**
      * Check if this enchantment can stack with another one
@@ -150,10 +174,10 @@ public interface Enchantment {
      *         Enchantment to check.
      *
      * @return true - this is a stackable enchantment<br>
-     *         false - this is not a
-     *         stackable enchantment
+     * false - this is not a
+     * stackable enchantment
      */
-    public boolean canStack(Enchantment other);
+    boolean canStack(Enchantment other);
 
     /**
      * Checks if the Enchantment can be applied to the {@link Item}
@@ -163,21 +187,21 @@ public interface Enchantment {
      *
      * @return {@code true} if can be applied; {@code false} if not
      */
-    public boolean canEnchantItem(Item item);
+    boolean canEnchantItem(Item item);
 
     /**
      * Get this Enchantment's Type
      *
      * @return The Enchantment.Type of this Enchantment.
      */
-    public Type getType();
+    Type getType();
 
     /**
      * Get the level of this enchantment
      *
      * @return A value of 1 - 5. Varies by Enchantment type.
      */
-    public short getLevel();
+    short getLevel();
 
     /**
      * Sets the level of this enchantment
@@ -185,12 +209,12 @@ public interface Enchantment {
      * @param level
      *         the level to set
      */
-    public void setLevel(short level);
+    void setLevel(short level);
 
     /**
      * Checks if the level of the Enchantment is within the min and max range
      *
      * @return {@code true} if valid; {@code false} if not
      */
-    public boolean isValid();
+    boolean isValid();
 }

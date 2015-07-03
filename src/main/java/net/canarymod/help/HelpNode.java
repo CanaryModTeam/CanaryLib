@@ -14,9 +14,13 @@ import net.canarymod.commandsys.CommandOwner;
  * @author Jarvix
  */
 public class HelpNode {
-    /** The Plugin (or Server) that has registered this command */
+    /**
+     * The Plugin (or Server) that has registered this command
+     */
     private CommandOwner plugin;
-    /** A list of names of sub commands */
+    /**
+     * A list of names of sub commands
+     */
     public String[] subCommands;
 
     private CanaryCommand command;

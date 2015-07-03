@@ -1,6 +1,5 @@
 package net.canarymod.config;
 
-import net.canarymod.database.JdbcConnectionManager;
 import net.visualillusionsent.utils.PropertiesFile;
 
 import java.io.File;
@@ -26,26 +25,33 @@ public class DatabaseConfiguration implements ConfigurationContainer {
         verifyConfig();
     }
 
-    /** Reloads the configuration file */
+    /**
+     * Reloads the configuration file
+     */
     @Override
     public void reload() {
         cfg.reload();
         verifyConfig();
     }
 
-    /** Get the configuration file */
+    /**
+     * Get the configuration file
+     */
     @Override
     public PropertiesFile getFile() {
         return cfg;
     }
 
-    /** Creates the default configuration */
+    /**
+     * Creates the default configuration
+     */
     private void verifyConfig() {
         cfg.clearHeader();
         cfg.addHeaderLines(
                 "For more settings explanations see following websites ...",
                 "http://javatech.org/2007/11/c3p0-connectionpool-configuration-rules-of-thumb/",
-                "https://community.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool?_sscc=t");
+                "https://community.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool?_sscc=t"
+                          );
 
         cfg.getString("name", "canarymod");
         cfg.getString("host", "localhost");
@@ -132,13 +138,7 @@ public class DatabaseConfiguration implements ConfigurationContainer {
      */
     public String getDatabaseUrl(String driver) {
         int port = getDatabasePort();
-        if (driver.equals(JdbcConnectionManager.Type.SQLITE.getIdentifier())) {
-            return "jdbc:" + driver + ":db/" + getDatabaseName() + ".db";
-        }
-        else {
-            return "jdbc:" + driver + "://" + getDatabaseHost() + ((port == 0) ? "" : (":" + port)) + "/" + getDatabaseName();
-        }
-
+        return "jdbc:" + driver + "://" + getDatabaseHost() + ((port == 0) ? "" : (":" + port)) + "/" + getDatabaseName();
     }
 
     /**
@@ -339,5 +339,4 @@ public class DatabaseConfiguration implements ConfigurationContainer {
     public String getWhitelistTableName() {
         return cfg.getString("whitelist-table-name", "whitelist");
     }
-
 }

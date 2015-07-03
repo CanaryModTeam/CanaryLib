@@ -1,9 +1,9 @@
 package net.canarymod.user;
 
+import net.canarymod.ToolBox;
 import net.canarymod.backbone.BackboneWhitelist;
 
 import java.util.List;
-import net.canarymod.ToolBox;
 
 /**
  * Access to the backbone for whitelist
@@ -19,7 +19,9 @@ public class WhitelistProvider {
         whitelist = backboneWhitelist.loadWhitelist();
     }
 
-    /** Reload the whitelist from database */
+    /**
+     * Reload the whitelist from database
+     */
     public void reload() {
         whitelist = backboneWhitelist.loadWhitelist();
     }
@@ -27,7 +29,8 @@ public class WhitelistProvider {
     /**
      * Check if a given player is whitelisted.
      *
-     * @param subject player name or uuid
+     * @param subject
+     *         player name or uuid
      *
      * @return
      */
@@ -42,7 +45,8 @@ public class WhitelistProvider {
     /**
      * Adds a new whitelist entry
      *
-     * @param subject player name or uuid
+     * @param subject
+     *         player name or uuid
      */
     public void addPlayer(String subject) {
         String uuid = subject;
@@ -58,7 +62,8 @@ public class WhitelistProvider {
     /**
      * Removes the given player from the whitelist
      *
-     * @param subject player name or uuid
+     * @param subject
+     *         player name or uuid
      */
     public void removePlayer(String subject) {
         String uuid = subject;

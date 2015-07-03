@@ -1,8 +1,9 @@
 package net.canarymod.api.scoreboard;
 
-import java.util.List;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.world.World;
+
+import java.util.List;
 
 /**
  * Scoreboard wrapper interface
@@ -16,16 +17,17 @@ public interface Scoreboard {
      *
      * @return List of ScoreObjective instances.
      */
-    public List<ScoreObjective> getScoreObjectives();
+    List<ScoreObjective> getScoreObjectives();
 
     /**
      * Creates and Adds a new ScoreObjective to this Scoreboard.
      *
      * @param name
      *         Name of Objective to add.
+     *
      * @return The new {@link ScoreObjective} is returned for convenience. (or the existing one if it already existed)
      */
-    public ScoreObjective addScoreObjective(String name);
+    ScoreObjective addScoreObjective(String name);
 
     /**
      * Creates and Adds a scoreboard objective.
@@ -38,10 +40,11 @@ public interface Scoreboard {
      *         <b>NOTE: </b> This is only needed if you wish to make it a read-only
      *         score, if this is not the case use {@link #addScoreObjective(String)}
      *
-     * @see #addScoreObjective(String)
      * @return The new {@link ScoreObjective} is returned for convenience. (or the existing one if it already existed)
+     *
+     * @see #addScoreObjective(String)
      */
-    public ScoreObjective addScoreObjective(String name, ScoreObjectiveCriteria criteria);
+    ScoreObjective addScoreObjective(String name, ScoreObjectiveCriteria criteria);
 
     /**
      * Removes a ScoreObjective from this Scoreboard.
@@ -49,7 +52,7 @@ public interface Scoreboard {
      * @param objective
      *         The Objective to remove.
      */
-    public void removeScoreObjective(ScoreObjective objective);
+    void removeScoreObjective(ScoreObjective objective);
 
     /**
      * Removes a ScoreObjective from this Scoreboard.
@@ -57,7 +60,7 @@ public interface Scoreboard {
      * @param name
      *         The name of the Objective to remove.
      */
-    public void removeScoreObjective(String name);
+    void removeScoreObjective(String name);
 
     /**
      * Get a scoreboard objective.
@@ -67,14 +70,14 @@ public interface Scoreboard {
      *
      * @return The objective or null if it does not exist.
      */
-    public ScoreObjective getScoreObjective(String name);
+    ScoreObjective getScoreObjective(String name);
 
     /**
      * Get a List of Team instances associated with this Scoreboard.
      *
      * @return the List of Teams.
      */
-    public List<Team> getTeams();
+    List<Team> getTeams();
 
     /**
      * Adds a new Team to this Scoreboard.
@@ -82,7 +85,7 @@ public interface Scoreboard {
      * @param team
      *         the {@link Team} to add
      */
-    public void addTeam(Team team);
+    void addTeam(Team team);
 
     /**
      * Removes a team from this scoreboard.
@@ -90,7 +93,7 @@ public interface Scoreboard {
      * @param team
      *         the team to remove.
      */
-    public void removeTeam(Team team);
+    void removeTeam(Team team);
 
     /**
      * Removes a team from this scoreboard.
@@ -98,7 +101,7 @@ public interface Scoreboard {
      * @param name
      *         name of the team to remove.
      */
-    public void removeTeam(String name);
+    void removeTeam(String name);
 
     /**
      * Gets the score for the given player and given score objective.
@@ -110,7 +113,7 @@ public interface Scoreboard {
      *
      * @return {@link Score}
      */
-    public Score getScore(Player player, ScoreObjective scoreObjective);
+    Score getScore(Player player, ScoreObjective scoreObjective);
 
     /**
      * Gets the score for the given player and given score objective.
@@ -122,7 +125,7 @@ public interface Scoreboard {
      *
      * @return {@link Score}
      */
-    public Score getScore(String name, ScoreObjective scoreObjective);
+    Score getScore(String name, ScoreObjective scoreObjective);
 
     /**
      * Gets a list of scores for the given score objective.
@@ -132,14 +135,14 @@ public interface Scoreboard {
      *
      * @return list of {@link Score}
      */
-    public List<Score> getScores(ScoreObjective scoreObjective);
+    List<Score> getScores(ScoreObjective scoreObjective);
 
     /**
      * Gets a list of all scores for all objectives.
      *
      * @return list of {@link Score}
      */
-    public List<Score> getAllScores();
+    List<Score> getAllScores();
 
     /**
      * Sets the {@link ScoreObjective}'s position for all players on the server.
@@ -149,7 +152,7 @@ public interface Scoreboard {
      * @param objective
      *         the objective to set.
      */
-    public void setScoreboardPosition(ScorePosition type, ScoreObjective objective);
+    void setScoreboardPosition(ScorePosition type, ScoreObjective objective);
 
     /**
      * Sets the {@link ScoreObjective}'s position for the given player.
@@ -161,10 +164,10 @@ public interface Scoreboard {
      * @param player
      *         the player to set the scoreboard for.
      */
-    public void setScoreboardPosition(ScorePosition type, ScoreObjective objective, Player player);
+    void setScoreboardPosition(ScorePosition type, ScoreObjective objective, Player player);
 
     /**
-     * Sets the {@link ScoreObjective}'s position for all Players in the given 
+     * Sets the {@link ScoreObjective}'s position for all Players in the given
      * {@link World}.
      *
      * @param type
@@ -174,7 +177,7 @@ public interface Scoreboard {
      * @param world
      *         the player to set the scoreboard for.
      */
-    public void setScoreboardPosition(ScorePosition type, ScoreObjective objective, World world);
+    void setScoreboardPosition(ScorePosition type, ScoreObjective objective, World world);
 
     /**
      * Clears the {@link Scoreboard}'s position for all players on the server.
@@ -182,7 +185,7 @@ public interface Scoreboard {
      * @param type
      *         the position type.
      */
-    public void clearScoreboardPosition(ScorePosition type);
+    void clearScoreboardPosition(ScorePosition type);
 
     /**
      * Clears the {@link Scoreboard}'s position for the given player.
@@ -192,25 +195,25 @@ public interface Scoreboard {
      * @param player
      *         the player to set the scoreboard for.
      */
-    public void clearScoreboardPosition(ScorePosition type, Player player);
-    
+    void clearScoreboardPosition(ScorePosition type, Player player);
+
     /**
      * Gets the name associated with this scoreboard, used for save file.
-     * For "world" bound scoreboards, it will be "scoreboard" always.  For 
+     * For "world" bound scoreboards, it will be "scoreboard" always.  For
      * Canary generated instances it will be user-defined.
-     * 
+     *
      * @return the name used for saving.
      */
-    public String getSaveName();
-    
+    String getSaveName();
+
     /**
      * Removes all scores associated with this name
      *
      * @param name
      *         the score's name
      */
-    public void removeScore(String name);
-    
+    void removeScore(String name);
+
     /**
      * Removes the score associated with this name from the target objective
      *
@@ -219,8 +222,8 @@ public interface Scoreboard {
      * @param objective
      *         the target objective
      */
-    public void removeScore(String name, ScoreObjective objective);
-    
+    void removeScore(String name, ScoreObjective objective);
+
     /**
      * Get a team by it's name
      *
@@ -229,8 +232,8 @@ public interface Scoreboard {
      *
      * @return The team or null if it does not exist.
      */
-    public Team getTeam(String name);
-    
+    Team getTeam(String name);
+
     /**
      * Create and add a new team to the scoreboard
      *
@@ -238,9 +241,9 @@ public interface Scoreboard {
      *         The name of the team to create.
      *
      * @return The new {@link Team}
-     * 
+     *
      * @throws IllegalArgumentException
      *         if the team already exists.
      */
-    public Team addTeam(String name) throws IllegalArgumentException;
+    Team addTeam(String name) throws IllegalArgumentException;
 }

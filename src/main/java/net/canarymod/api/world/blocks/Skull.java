@@ -12,7 +12,7 @@ public interface Skull extends TileEntity {
      *
      * @return skull type
      */
-    public int getSkullType();
+    int getSkullType();
 
     /**
      * Sets the skull type
@@ -20,14 +20,14 @@ public interface Skull extends TileEntity {
      * @param type
      *         the skull type
      */
-    public void setSkullType(int type);
+    void setSkullType(int type);
 
     /**
      * Gets the extra type of the Skull, typically a Player's name
      *
      * @return the extra type
      */
-    public String getExtraType();
+    String getExtraType();
 
     /**
      * Sets the extra type of the Skull.
@@ -35,7 +35,7 @@ public interface Skull extends TileEntity {
      * @param extra
      *         the extra type
      */
-    public void setExtraType(String extra);
+    void setExtraType(String extra);
 
     /**
      * Sets both the Skull and extra type data
@@ -45,14 +45,14 @@ public interface Skull extends TileEntity {
      * @param extra
      *         the extra type
      */
-    public void setSkullAndExtraType(int type, String extra);
+    void setSkullAndExtraType(int type, String extra);
 
     /**
      * Gets the rotation of the skull
      *
      * @return rotation
      */
-    public int getRotation();
+    int getRotation();
 
     /**
      * Sets the rotatoin of the Skull
@@ -60,6 +60,5 @@ public interface Skull extends TileEntity {
      * @param rot
      *         the rotation
      */
-    public void setRotation(int rot);
-
+    void setRotation(int rot);
 }

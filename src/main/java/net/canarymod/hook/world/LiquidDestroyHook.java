@@ -58,7 +58,8 @@ public final class LiquidDestroyHook extends CancelableHook {
      * Set this to true to force the block to be destroyed.
      * This will not work if the hook is canceled already!
      *
-     * @param forceDestroy {@code true} for force destroy
+     * @param forceDestroy
+     *         {@code true} for force destroy
      */
     public void setForceDestroy(boolean forceDestroy) {
         this.forceDestroy = forceDestroy;

@@ -10,7 +10,21 @@ import net.canarymod.hook.CancelableHook;
  */
 public final class DecorateHook extends CancelableHook {
     public enum DecoratorType {
-        BEACH, DESERT, END, FOREST, HELL, HILLS, JUNGLE, MUSHROOM_ISLAND, OCEAN, PLAINS, RIVER, SNOW, SWAMP, TAIGA, UNKNOWN;
+        BEACH,
+        DESERT,
+        END,
+        FOREST,
+        HELL,
+        HILLS,
+        JUNGLE,
+        MUSHROOM_ISLAND,
+        OCEAN,
+        PLAINS,
+        RIVER,
+        SNOW,
+        SWAMP,
+        TAIGA,
+        UNKNOWN;
     }
 
     int x;
@@ -65,36 +79,50 @@ public final class DecorateHook extends CancelableHook {
      * Return a {@link DecoratorType} from a string
      *
      * @param name
+     *
      * @return {@link DecoratorType#UNKNOWN} if of unknown type.
      */
     public DecoratorType getFromName(String name) {
         if (name.equals("BiomeGenBeach")) {
             return DecoratorType.BEACH;
-        } else if (name.equals("BiomeGenDesert")) {
+        }
+        else if (name.equals("BiomeGenDesert")) {
             return DecoratorType.DESERT;
-        } else if (name.equals("BiomeGenEnd")) {
+        }
+        else if (name.equals("BiomeGenEnd")) {
             return DecoratorType.END;
-        } else if (name.equals("BiomeGenForest")) {
+        }
+        else if (name.equals("BiomeGenForest")) {
             return DecoratorType.FOREST;
-        } else if (name.equals("BiomeGenHell")) {
+        }
+        else if (name.equals("BiomeGenHell")) {
             return DecoratorType.HELL;
-        } else if (name.equals("OBiomeGenHills")) {
+        }
+        else if (name.equals("OBiomeGenHills")) {
             return DecoratorType.HILLS;
-        } else if (name.equals("BiomeGenJungle")) {
+        }
+        else if (name.equals("BiomeGenJungle")) {
             return DecoratorType.JUNGLE;
-        } else if (name.equals("BiomeGenMushroomIsland")) {
+        }
+        else if (name.equals("BiomeGenMushroomIsland")) {
             return DecoratorType.MUSHROOM_ISLAND;
-        } else if (name.equals("BiomeGenOcean")) {
+        }
+        else if (name.equals("BiomeGenOcean")) {
             return DecoratorType.OCEAN;
-        } else if (name.equals("BiomeGenPlains")) {
+        }
+        else if (name.equals("BiomeGenPlains")) {
             return DecoratorType.PLAINS;
-        } else if (name.equals("BiomeGenRiver")) {
+        }
+        else if (name.equals("BiomeGenRiver")) {
             return DecoratorType.RIVER;
-        } else if (name.equals("BiomeGenSnow")) {
+        }
+        else if (name.equals("BiomeGenSnow")) {
             return DecoratorType.SNOW;
-        } else if (name.equals("BiomeGenSwamp")) {
+        }
+        else if (name.equals("BiomeGenSwamp")) {
             return DecoratorType.SWAMP;
-        } else if (name.equals("BiomeGenTaiga")) {
+        }
+        else if (name.equals("BiomeGenTaiga")) {
             return DecoratorType.TAIGA;
         }
         return DecoratorType.UNKNOWN;

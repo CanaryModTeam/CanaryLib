@@ -13,22 +13,24 @@ public interface PluginLifecycle {
      *
      * @return True if sucessfully enabled, false otherwise.
      */
-    public boolean enable();
+    boolean enable();
 
     /**
      * Disables the plugin.
      *
      * @return True if successfully disabled, false otherwise.
      */
-    public boolean disable();
+    boolean disable();
 
     /**
      * Loads the plugin.
      *
      * @return Newly loaded plugin.
-     * @throws net.canarymod.exceptions.PluginLoadFailedException If an error occurred loading the plugin.
+     *
+     * @throws net.canarymod.exceptions.PluginLoadFailedException
+     *         If an error occurred loading the plugin.
      */
-    public Plugin load() throws PluginLoadFailedException;
+    Plugin load() throws PluginLoadFailedException;
 
     /**
      * Unloads the plugin.

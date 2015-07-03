@@ -38,25 +38,21 @@ public interface Block {
     void setTypeId(short type);
 
     /**
-     * Get this blocks data
+     * Get this blocks meta data based on its current properties
+     * NOTE: This method should only be used in cases where BlockProperties aren't viable options (such as serialization)
      *
-     * @return data
-     *
-     * @deprecated Block meta data is going away, look at BlockProperties instead
+     * @return meta data
      */
-    @Deprecated
-    short getData();
+    int getData();
 
     /**
-     * Sets the block's data
+     * Sets the block's BlockProperties based on data value
+     * NOTE: This method should only be used in cases where BlockProperties aren't viable options (such as deserialization)
      *
      * @param data
      *         the data to set
-     *
-     * @deprecated Block meta data is going away, look at BlockProperties instead
      */
-    @Deprecated
-    void setData(short data);
+    void setData(int data);
 
     /**
      * Gets the block's BlockType
@@ -394,4 +390,12 @@ public interface Block {
      * @return {@link net.canarymod.api.world.blocks.BlockBase}
      */
     BlockBase getBlockBase();
+
+    /**
+     * Returns the Mojang string of the BlockState implementation<br/>
+     * If any properties are applied to a state, they are serialized in the returned string
+     *
+     * @return state to String
+     */
+    String stateToString();
 }

@@ -12,7 +12,7 @@ public interface ShortTag extends PrimitiveTag<ShortTag> {
      *
      * @return the short value
      */
-    public short getValue();
+    short getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface ShortTag extends PrimitiveTag<ShortTag> {
      * @param value
      *         the short value
      */
-    public void setValue(short value);
-
+    void setValue(short value);
 }

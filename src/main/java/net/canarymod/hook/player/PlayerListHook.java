@@ -53,5 +53,4 @@ public final class PlayerListHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[Data=%s Receiver=%s]", getHookName(), data, receiver);
     }
-
 }

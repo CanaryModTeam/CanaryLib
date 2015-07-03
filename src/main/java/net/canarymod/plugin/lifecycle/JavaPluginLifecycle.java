@@ -26,7 +26,7 @@ public class JavaPluginLifecycle extends PluginLifecycleBase {
             Class<?> cls = ploader.loadClass(desc.getCanaryInf().getString("main-class"));
             //A hacky way of getting the name in during the constructor/initializer
             Plugin.threadLocalName.set(desc.getName());
-            Plugin p = (Plugin) cls.newInstance();
+            Plugin p = (Plugin)cls.newInstance();
             //If it isn't called in initializer, gotta set it here.
             p.setName(desc.getName());
             p.setPriority(desc.getPriority());
@@ -43,5 +43,4 @@ public class JavaPluginLifecycle extends PluginLifecycleBase {
             ploader.close();
         }
     }
-
 }

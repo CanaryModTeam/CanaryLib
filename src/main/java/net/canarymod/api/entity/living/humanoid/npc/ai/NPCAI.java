@@ -28,5 +28,4 @@ public abstract class NPCAI {
     public final void call(NonPlayableCharacter npc) {
         NPCBehaviorRegistry.execute(npc, this);
     }
-
 }

@@ -93,7 +93,7 @@ public final class RecipeRow {
         if (!(obj instanceof RecipeRow)) {
             return false;
         }
-        RecipeRow theRow = (RecipeRow) obj;
+        RecipeRow theRow = (RecipeRow)obj;
         Item[] rowItems = theRow.getItems();
         if (rowItems.length == items.length) {
             for (int index = 0; index < items.length; index++) {

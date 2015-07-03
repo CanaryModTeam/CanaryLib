@@ -12,7 +12,7 @@ public interface FurnaceMinecart extends Minecart {
      *
      * @return fuel level
      */
-    public int getFuelLevel();
+    int getFuelLevel();
 
     /**
      * Sets the fuel level of the FurnaceMinecart
@@ -21,7 +21,7 @@ public interface FurnaceMinecart extends Minecart {
      * @param level
      *         the level to be set
      */
-    public void setFuelLevel(int level);
+    void setFuelLevel(int level);
 
     /**
      * Increases the fuel level of the FurnaceMinecart
@@ -29,7 +29,7 @@ public interface FurnaceMinecart extends Minecart {
      * @param increase
      *         the amount to increase the fuel level
      */
-    public void increaseFuelLevel(int increase);
+    void increaseFuelLevel(int increase);
 
     /**
      * Decreases the fuel level of the FurnaceMinecart
@@ -37,6 +37,5 @@ public interface FurnaceMinecart extends Minecart {
      * @param decrease
      *         the amount to decrease the fuel level
      */
-    public void decreaseFuelLevel(int decrease);
-
+    void decreaseFuelLevel(int decrease);
 }

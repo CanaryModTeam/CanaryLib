@@ -21,7 +21,7 @@ public interface PlayerSelector {
      *
      * @return the one {@link Player} that matches the pattern, if multiple or none returns null
      */
-    public Player matchOnePlayer(MessageReceiver caller, String pattern);
+    Player matchOnePlayer(MessageReceiver caller, String pattern);
 
     /**
      * Get all players that matches the pattern
@@ -33,7 +33,7 @@ public interface PlayerSelector {
      *
      * @return all players that matches the pattern
      */
-    public Player[] matchPlayers(MessageReceiver caller, String pattern);
+    Player[] matchPlayers(MessageReceiver caller, String pattern);
 
     /**
      * Returns if the pattern can match more then one player
@@ -43,5 +43,5 @@ public interface PlayerSelector {
      *
      * @return if the pattern matches more the one player
      */
-    public boolean matchesMultiplePlayers(String pattern);
+    boolean matchesMultiplePlayers(String pattern);
 }

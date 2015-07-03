@@ -4,7 +4,9 @@ import net.canarymod.api.NetServerHandler;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.plugin.Plugin;
 
-/** @author Somners */
+/**
+ * @author Somners
+ */
 public interface ChannelManagerInterface {
 
     /**
@@ -101,5 +103,4 @@ public interface ChannelManagerInterface {
      * @return True if any channels were unregistered, false otherwise.
      */
     boolean unregisterListeners(Plugin plugin);
-
 }

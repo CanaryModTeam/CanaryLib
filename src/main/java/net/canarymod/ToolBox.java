@@ -25,6 +25,7 @@ import java.util.Scanner;
 import java.util.TimeZone;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -36,16 +37,19 @@ import java.util.regex.Pattern;
 public class ToolBox {
 
     private static TimeZone tz_GMT = TimeZone.getTimeZone("GMT");
-    private static Pattern uuid = Pattern.compile("[0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12}");
-    private static Pattern uName = Pattern.compile("[A-Za-z0-9_]{3,16}");
+    private static Matcher uuidMatcher = Pattern.compile("[0-9a-f]{8}\\-([0-9a-f]{4}\\-){3}[0-9a-f]{12}").matcher("");
+    private static Matcher usrMatcher = Pattern.compile("[A-Za-z0-9_]{3,16}").matcher("");
     protected static final PropertiesFile userLookup = new PropertiesFile("uuidreverselookup.cfg");
 
     /**
      * Check if an array contains a specified value
      *
-     * @param haystack the array to look into
-     * @param needle   the thign to look for
-     * @param <T>      the type
+     * @param haystack
+     *         the array to look into
+     * @param needle
+     *         the thign to look for
+     * @param <T>
+     *         the type
      *
      * @return true if needle is found in haystack, false otherwise
      */
@@ -62,8 +66,10 @@ public class ToolBox {
     /**
      * Merge 2 arrays. This will just merge two arrays.
      *
-     * @param first  the first array to be merged
-     * @param second the second array to be merged
+     * @param first
+     *         the first array to be merged
+     * @param second
+     *         the second array to be merged
      *
      * @return array containing all elements of the 2 given ones
      */
@@ -77,8 +83,10 @@ public class ToolBox {
     /**
      * Merge 2 integer arrays. This will just merge two arrays.
      *
-     * @param first  the first array to be merged
-     * @param second the second array to be merged
+     * @param first
+     *         the first array to be merged
+     * @param second
+     *         the second array to be merged
      *
      * @return array containing all elements of the 2 given ones
      */
@@ -92,9 +100,12 @@ public class ToolBox {
     /**
      * Merge 2 arrays. This will remove duplicates.
      *
-     * @param first    the first array to be merged
-     * @param second   the second array to be merged
-     * @param template the array to use as a template for merging the arrays into one
+     * @param first
+     *         the first array to be merged
+     * @param second
+     *         the second array to be merged
+     * @param template
+     *         the array to use as a template for merging the arrays into one
      *
      * @return array containing all elements of the given 2 arrays, minus duplicate entries
      */
@@ -110,7 +121,8 @@ public class ToolBox {
      * If the given string is "null" or null, this method returns null,
      * otherwise it will return the string as it was passed
      *
-     * @param str the {@link String} to parse
+     * @param str
+     *         the {@link String} to parse
      *
      * @return {@code null} if the {@link String} is {@code null} or is equal to {@code "null"}; the {@link String} value otherwise
      */
@@ -130,12 +142,13 @@ public class ToolBox {
      * Round a entity ordinate to a valid block location component
      * This takes into account the rounding issues in negative x/z direction
      *
-     * @param num the {@code double} value to round to the nearest lower integer
+     * @param num
+     *         the {@code double} value to round to the nearest lower integer
      *
      * @return the rounded number
      */
     public static int floorToBlock(double num) {
-        int i = (int) num;
+        int i = (int)num;
 
         return num < i ? i - 1 : i;
     }
@@ -148,7 +161,8 @@ public class ToolBox {
      * <p/>
      * Will not auto load the world if not loaded
      *
-     * @param world the fully qualified world name or a world group name.
+     * @param world
+     *         the fully qualified world name or a world group name.
      *
      * @return the world that was parsed or null if the world didn't exist or wasn't loaded.
      */
@@ -164,8 +178,10 @@ public class ToolBox {
      * <p/>
      * Will auto load the world if {@code autoLoad} is {@code true}
      *
-     * @param world    the fully qualified world name or a world group name.
-     * @param autoLoad Will auto load the world if {@code true}
+     * @param world
+     *         the fully qualified world name or a world group name.
+     * @param autoLoad
+     *         Will auto load the world if {@code true}
      *
      * @return the world that was parsed or null if the world didn't exist or wasn't loaded.
      */
@@ -183,7 +199,8 @@ public class ToolBox {
      * Takes <code>World</code> and turns it into <code>World_Normal</code>
      * Takes <code>World:NORMAL</code> and turns it into <code>World_NORMAL</code>
      *
-     * @param world The FQ name, main world name, or the FQ name with <code>:</code> and not <code>_</code>
+     * @param world
+     *         The FQ name, main world name, or the FQ name with <code>:</code> and not <code>_</code>
      *
      * @return The right FQ name
      */
@@ -201,8 +218,11 @@ public class ToolBox {
      * Gets the FQ world name for the base world and {@link DimensionType}
      * Takes <code>World</code> and turns it into <code>World_Normal</code>
      *
-     * @param world     main world's name
-     * @param dimension The dimension, can be {@code null}
+     * @param world
+     *         main world's name
+     * @param dimension
+     *         The dimension, can be {@code null}
+     *
      * @return The right FQ name
      */
     public static String parseWorldName(String world, DimensionType dimension) {
@@ -223,8 +243,10 @@ public class ToolBox {
      * Example: long 1 String HOUR will give you number of seconds in 1 hour.<br>
      * This is used to work with Unix timestamps.
      *
-     * @param time     the {@code long} time
-     * @param timeUnit MINUTES, HOURS, DAYS, WEEKS, MONTHS
+     * @param time
+     *         the {@code long} time
+     * @param timeUnit
+     *         MINUTES, HOURS, DAYS, WEEKS, MONTHS
      *
      * @return {@code long} parsed time
      */
@@ -256,8 +278,10 @@ public class ToolBox {
      * Example: long 1 String HOUR will give you number of seconds in 1 hour.<br>
      * This is used to work with Unix timestamps.
      *
-     * @param time     the {@code long} time
-     * @param timeUnit MINUTES, HOURS, DAYS, WEEKS, MONTHS
+     * @param time
+     *         the {@code long} time
+     * @param timeUnit
+     *         MINUTES, HOURS, DAYS, WEEKS, MONTHS
      *
      * @return {@code long} parsed time
      */
@@ -289,8 +313,10 @@ public class ToolBox {
      * seconds in 1 hour.<br>
      * This is used to work with unix timestamps.
      *
-     * @param time the {@code long} time
-     * @param unit the {@link TimeUnit} to use for conversion
+     * @param time
+     *         the {@code long} time
+     * @param unit
+     *         the {@link TimeUnit} to use for conversion
      *
      * @return {@code long} parsed time
      */
@@ -301,7 +327,8 @@ public class ToolBox {
     /**
      * Formats a Unix timestamp into the date format defined in server.cfg
      *
-     * @param timestamp the {@code long} time
+     * @param timestamp
+     *         the {@code long} time
      *
      * @return {@link String} formatted TimeStamp
      */
@@ -312,8 +339,10 @@ public class ToolBox {
     /**
      * Form ats a Unix timestamp into the date format specified by {@code format}
      *
-     * @param timestamp The time to get formatted
-     * @param format    The pattern describing the date and time format
+     * @param timestamp
+     *         The time to get formatted
+     * @param format
+     *         The pattern describing the date and time format
      *
      * @return {@link String} formatted TimeStamp
      */
@@ -324,8 +353,10 @@ public class ToolBox {
     /**
      * Gets a readable string for the days/hours/minutes/seconds until a period of time
      *
-     * @param time  the Unix-TimeStamp to start from
-     * @param delay the delay from the start point until expiration
+     * @param time
+     *         the Unix-TimeStamp to start from
+     * @param delay
+     *         the delay from the start point until expiration
      *
      * @return the String representation of the time until
      */
@@ -340,7 +371,8 @@ public class ToolBox {
     /**
      * Gets a readable string for the days/hours/minutes/seconds until a period of time
      *
-     * @param time the Unix-TimeStamp of (or amount of seconds until) the future time expiration
+     * @param time
+     *         the Unix-TimeStamp of (or amount of seconds until) the future time expiration
      *
      * @return the String representation of the time until
      */
@@ -351,7 +383,7 @@ public class ToolBox {
         // How many days left?
         StringBuilder stringTimeLeft = new StringBuilder();
         if (time >= 60 * 60 * 24) {
-            int days = (int) Math.floor(time / (60 * 60 * 24));
+            int days = (int)Math.floor(time / (60 * 60 * 24));
             time -= 60 * 60 * 24 * days;
             if (days == 1) {
                 stringTimeLeft.append(Integer.toString(days)).append(" day, ");
@@ -361,7 +393,7 @@ public class ToolBox {
             }
         }
         if (time >= 60 * 60) {
-            int hours = (int) Math.floor(time / (60 * 60));
+            int hours = (int)Math.floor(time / (60 * 60));
             time -= 60 * 60 * hours;
             if (hours == 1) {
                 stringTimeLeft.append(Integer.toString(hours)).append(" hour, ");
@@ -371,7 +403,7 @@ public class ToolBox {
             }
         }
         if (time >= 60) {
-            int minutes = (int) Math.floor(time / (60));
+            int minutes = (int)Math.floor(time / (60));
             time -= 60 * minutes;
             if (minutes == 1) {
                 stringTimeLeft.append(Integer.toString(minutes)).append(" minute ");
@@ -386,7 +418,7 @@ public class ToolBox {
                 stringTimeLeft.deleteCharAt(stringTimeLeft.length() - 1);
             }
         }
-        int secs = (int) time;
+        int secs = (int)time;
         if (stringTimeLeft.length() != 0) {
             stringTimeLeft.append("and ");
         }
@@ -405,7 +437,8 @@ public class ToolBox {
      * Year, month and day values may be odd as those are not contained within the range
      * of the world tick times in Minecraft.
      *
-     * @param ticks the relative time of a world
+     * @param ticks
+     *         the relative time of a world
      *
      * @return Calendar object representing the world time as real date
      */
@@ -419,7 +452,8 @@ public class ToolBox {
     /**
      * Converts World relative time into a 24 hour clock format
      *
-     * @param ticks the current time of a world, retrieved by World.getRelativeTime()
+     * @param ticks
+     *         the current time of a world, retrieved by World.getRelativeTime()
      *
      * @return 24 hour clock formatted string of the time
      */
@@ -432,7 +466,8 @@ public class ToolBox {
     /**
      * Converts World relative time into a 12 hour clock format
      *
-     * @param ticks the current time of a world, retrieved by World.getRelativeTime()
+     * @param ticks
+     *         the current time of a world, retrieved by World.getRelativeTime()
      *
      * @return 12 hour clock formatted string of the time
      */
@@ -442,12 +477,12 @@ public class ToolBox {
         return dateFormat.format(worldTicksToCalendar(ticks).getTime());
     }
 
-
     /**
      * Calculate experience points from the given level,
      * The returned value can be passed to Player.set/remove/addExperience.
      *
-     * @param level the level you want to get the Experience points for
+     * @param level
+     *         the level you want to get the Experience points for
      *
      * @return the amount of experience points for the given level
      */
@@ -458,23 +493,60 @@ public class ToolBox {
         return level * 17 + (mid * (mid - 1) / 2) * 3 + (high * (high - 1) / 2) * 7;
     }
 
+    /**
+     * Checks if a string is a UUID
+     *
+     * @param uuid
+     *         the string uuid
+     *
+     * @return {@code true} if UUID; {@code false} if not
+     */
     public static boolean isUUID(String uuid) {
-        return ToolBox.uuid.matcher(uuid).matches();
+        if (uuid == null) {
+            return false;
+        }
+        return uuidMatcher.reset(uuid).matches();
+    }
+
+    /**
+     * Checks if a given user name is a valid Minecraft Username
+     *
+     * @param username
+     *         the username to check
+     *
+     * @return {@code true} of valid; {@code false} if not
+     */
+    public static boolean isValidUsername(String username) {
+        if (username == null) {
+            return false;
+        }
+        return usrMatcher.reset(username).matches();
+    }
+
+    public static UUID getOfflineUUID(String username) {
+        if (isUUID(username)) {
+            return UUID.fromString(username); // shmuck passed in a UUID so pass it back
+        }
+        return UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(Charsets.UTF_8));
     }
 
     /**
      * Ask's Mojang's API for a UUID for a give UserName
      *
-     * @param username the user name to get a UUID for
+     * @param username
+     *         the user name to get a UUID for
      *
      * @return user's uuid or null if not found/on error
      */
     public static String usernameToUUID(String username) {
-        if (!uName.matcher(username).matches()) {
-            if (uuid.matcher(username).matches()) {
+        if (username == null) {
+            return null;
+        }
+        if (!isValidUsername(username)) {
+            if (isUUID(username)) {
                 return username; // shmuck passed in a UUID so pass it back
             }
-            return null; // username isn't valid, so don't bother checking against the mojang API
+            return getOfflineUUID(username).toString(); // username isn't valid, so don't bother checking against the mojang API
         }
 
         // Make sure the server isn't null, this can happen when called early in server init
@@ -487,7 +559,7 @@ public class ToolBox {
 
         // If offline mode and not doing BungeeCord, don't continue forward with the API checks
         if (!Configuration.getServerConfig().isOnlineMode() && !Configuration.getServerConfig().getBungeecordSupport()) {
-            return UUID.nameUUIDFromBytes(("OfflinePlayer:" + username).getBytes(Charsets.UTF_8)).toString();
+            return getOfflineUUID(username).toString(); // username isn't valid, so don't bother checking against the mojang API
         }
 
         // Check the reverse lookup cache
@@ -506,7 +578,7 @@ public class ToolBox {
         String uuid = null;
         try {
             URL url = new URL("https://api.mojang.com/profiles/page/1");
-            HttpURLConnection uc = (HttpURLConnection) url.openConnection();
+            HttpURLConnection uc = (HttpURLConnection)url.openConnection();
             uc.setRequestMethod("POST");
             uc.setUseCaches(false);
             uc.setDefaultUseCaches(false);
@@ -524,10 +596,11 @@ public class ToolBox {
             String json = new Scanner(uc.getInputStream(), "UTF-8").useDelimiter("\\A").next();
             JSONParser parser = new JSONParser();
             Object obj = parser.parse(json);
-            uuid = (String) ((JSONObject) ((JSONArray) ((JSONObject) obj).get("profiles")).get(0)).get("id");
+            uuid = (String)((JSONObject)((JSONArray)((JSONObject)obj).get("profiles")).get(0)).get("id");
         }
         catch (Exception ex) {
             Canary.log.warn("Failed to translate Username into a UUID");
+            Canary.log.debug("Debugging Stacktrace of failed UUID lookup", ex);
         }
         if (uuid != null && !uuid.contains("-")) {
             // Add the hyphens back in
@@ -546,7 +619,8 @@ public class ToolBox {
     /**
      * Asks Mojang's API for a UUID for a given UserName
      *
-     * @param username the user name to get a UUID for
+     * @param username
+     *         the user name to get a UUID for
      *
      * @return user's uuid or null if not found/on error
      */
@@ -564,7 +638,7 @@ public class ToolBox {
             return true; // re-verify
         }
 
-        // 3 days seems legit
-        return time == 0 || TimeUnit.MILLISECONDS.toDays(time) + 3 < TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis());
+        // 24 Hour look ups
+        return time == 0 || TimeUnit.MILLISECONDS.toDays(time) + 1 < TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis());
     }
 }

@@ -12,7 +12,7 @@ public interface Skeleton extends EntityMob, RangedAttackMob {
      *
      * @return {@code true} if WitherSkeleton; {@code false} if not
      */
-    public boolean isWitherSkeleton();
+    boolean isWitherSkeleton();
 
     /**
      * Sets whether this Skeleton is a WitherSkeleton
@@ -20,5 +20,5 @@ public interface Skeleton extends EntityMob, RangedAttackMob {
      * @param wither
      *         {@code true} if WitherSkeleton; {@code false} if not
      */
-    public void setIsWitherSkeleton(boolean wither);
+    void setIsWitherSkeleton(boolean wither);
 }

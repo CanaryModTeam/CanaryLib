@@ -10,7 +10,11 @@ import net.canarymod.database.DataAccess;
 import net.canarymod.database.Database;
 import net.canarymod.database.exceptions.DatabaseReadException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 /**
@@ -30,7 +34,8 @@ public class MultiworldPermissionProvider implements PermissionProvider {
     /**
      * Constructs a new PermissionProvider that's valid for the given world
      *
-     * @param world the world
+     * @param world
+     *         the world
      */
     public MultiworldPermissionProvider(String world, boolean isPlayer, String owner) {
         this.world = world;
@@ -278,7 +283,7 @@ public class MultiworldPermissionProvider implements PermissionProvider {
         }
         if (list.size() > 0) {
             for (DataAccess da : list) {
-                PermissionDataAccess perm = (PermissionDataAccess) da;
+                PermissionDataAccess perm = (PermissionDataAccess)da;
                 if (perm.value) {
                     caller.message(ChatFormat.GREEN + perm.path + ": true");
                 }

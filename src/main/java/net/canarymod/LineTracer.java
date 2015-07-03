@@ -98,7 +98,7 @@ public class LineTracer {
         rotX = rotX < 0 ? Math.abs(rotX) : 360 - rotX;
         /* convert minecraft pitch to degree pitch */
         rotY = 90 + playerLoc.getPitch();
-                
+
         currentX = playerLoc.getX();
         /* Add Eye Height to the Y */
         currentY = playerLoc.getY() + viewHeight;
@@ -129,7 +129,7 @@ public class LineTracer {
      */
     public void setTargetBlock(int type) {
         if (targetBlock != null) {
-            targetBlock.setTypeId((short) type);
+            targetBlock.setTypeId((short)type);
             targetBlock.update();
         }
     }
@@ -173,7 +173,7 @@ public class LineTracer {
                 break;
             }
 
-            block = playerLoc.getWorld().getBlockAt(ToolBox.floorToBlock(currentX),ToolBox.floorToBlock(currentY), ToolBox.floorToBlock(currentZ));
+            block = playerLoc.getWorld().getBlockAt(ToolBox.floorToBlock(currentX), ToolBox.floorToBlock(currentY), ToolBox.floorToBlock(currentZ));
 
             if (block != null && !block.equals(currentBlock)) {
                 if (block.isAir() && !doAir) {
@@ -204,9 +204,15 @@ public class LineTracer {
 
     /* Checks if loop can continue above */
     private boolean continueLoop(Block block) {
-        if (block == null) return true;
-        if (currentBlock != null && currentBlock.equals(block)) return true;
-        if (block.isAir()) return true;
+        if (block == null) {
+            return true;
+        }
+        if (currentBlock != null && currentBlock.equals(block)) {
+            return true;
+        }
+        if (block.isAir()) {
+            return true;
+        }
         return false;
     }
 
@@ -231,7 +237,7 @@ public class LineTracer {
      */
     public void setCurBlock(int type) {
         if (currentBlock != null) {
-            currentBlock.setTypeId((short) type);
+            currentBlock.setTypeId((short)type);
             currentBlock.update();
         }
     }
@@ -253,7 +259,7 @@ public class LineTracer {
      */
     public void setLastBlock(int type) {
         if (lastBlock != null) {
-            lastBlock.setTypeId((short) type);
+            lastBlock.setTypeId((short)type);
             lastBlock.update();
         }
     }

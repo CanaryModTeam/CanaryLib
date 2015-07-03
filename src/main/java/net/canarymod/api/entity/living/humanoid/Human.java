@@ -28,7 +28,9 @@ public interface Human extends LivingBase {
      */
     void setDisplayName(String display);
 
-    /** Destroys the current item in hand */
+    /**
+     * Destroys the current item in hand
+     */
     void destroyItemHeld();
 
     /**

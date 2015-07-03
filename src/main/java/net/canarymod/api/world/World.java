@@ -34,8 +34,11 @@ import java.util.List;
  */
 public interface World {
 
-    public enum Difficulty {
-        PEACEFUL(0), EASY(1), NORMAL(2), HARD(3);
+    enum Difficulty {
+        PEACEFUL(0),
+        EASY(1),
+        NORMAL(2),
+        HARD(3);
 
         private int id;
 
@@ -582,6 +585,7 @@ public interface World {
 
     /**
      * Get the difficulty setting for this world.
+     *
      * @return the difficulty enum property
      */
     Difficulty getDifficulty();
@@ -589,7 +593,8 @@ public interface World {
     /**
      * Set the difficulty for this world.
      *
-     * @param difficulty the new difficulty value to set
+     * @param difficulty
+     *         the new difficulty value to set
      */
     void setDifficulty(Difficulty difficulty);
 
@@ -600,7 +605,9 @@ public interface World {
      */
     WorldType getWorldType();
 
-    /** Spawns the given particle in the world */
+    /**
+     * Spawns the given particle in the world
+     */
     void spawnParticle(Particle particle);
 
     /**
@@ -658,7 +665,7 @@ public interface World {
      * @return
      */
     int getBlockPower(Block block);
-    
+
     /**
      * Get the restone power for the block at the given vector position
      *
@@ -667,7 +674,7 @@ public interface World {
      * @return
      */
     int getBlockPower(Position position);
-    
+
     /**
      * Get the restone power for the block at the given coordinates
      *
@@ -678,7 +685,7 @@ public interface World {
      * @return
      */
     int getBlockPower(int x, int y, int z);
-    
+
     /**
      * Check if this block is powered by redstone
      *
@@ -749,7 +756,8 @@ public interface World {
      * Set the strength of the thundering.
      * This is a value from 0 to X. Setting it will have an effect on the world weather
      *
-     * @param strength the new thunder strength
+     * @param strength
+     *         the new thunder strength
      */
     void setThunderStrength(float strength);
 
@@ -778,7 +786,8 @@ public interface World {
      * Set the strength of the rain.
      * This is a value from 0 to X. Setting it will have an effect on the world weather
      *
-     * @param strength the new rain strength
+     * @param strength
+     *         the new rain strength
      */
     void setRainStrength(float strength);
 
@@ -941,7 +950,9 @@ public interface World {
      */
     void setGameMode(GameMode mode);
 
-    /** Save this world to disk */
+    /**
+     * Save this world to disk
+     */
     void save();
 
     /**
@@ -951,43 +962,42 @@ public interface World {
      *         the message to broadcast
      */
     void broadcastMessage(String msg);
-    
+
     /**
      * Gets all the villages in this world
-     * 
+     *
      * @return a list containing all the loaded villages in the world
      */
     List<Village> getVillages();
-    
+
     /**
      * Gets the nearest villages to the specified position
-     * 
+     *
      * @param position
      * @param radius
-     * 
+     *
      * @return the nearest village to that position in range; {@code null} if no village in range
      */
     Village getNearestVillage(Position position, int radius);
-    
-    
+
     /**
      * Gets the nearest villages to the specified location
-     * 
+     *
      * @param location
      * @param radius
-     * 
+     *
      * @return the nearest village to that location in range; {@code null} if no village in range
      */
     Village getNearestVillage(Location location, int radius);
-    
+
     /**
      * Gets the nearest villages to the specified coordinates
-     * 
+     *
      * @param x
      * @param y
      * @param z
      * @param radius
-     * 
+     *
      * @return the nearest village in range of the given coordinates; {@code null} if no village in range
      */
     Village getNearestVillage(int x, int y, int z, int radius);

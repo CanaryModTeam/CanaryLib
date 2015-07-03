@@ -14,7 +14,7 @@ public interface IronGolem extends Golem {
      *
      * @return the Village the IronGolem is attached to
      */
-    public Village getVillage();
+    Village getVillage();
 
     /**
      * Sets the Village the IronGolem is attached to
@@ -22,14 +22,14 @@ public interface IronGolem extends Golem {
      * @param village
      *         the Village to attach the IronGolem to
      */
-    public void setVillage(Village village);
+    void setVillage(Village village);
 
     /**
      * Checks if the IronGolem was created by a Player
      *
      * @return {@code true} if was Player created; {@code false} if not
      */
-    public boolean isPlayerCreated();
+    boolean isPlayerCreated();
 
     /**
      * Sets if the IronGolem was created by a Player
@@ -37,14 +37,14 @@ public interface IronGolem extends Golem {
      * @param created
      *         {@code true} if was Player created; {@code false} if not
      */
-    public void setPlayerCreated(boolean created);
+    void setPlayerCreated(boolean created);
 
     /**
      * Checks if the IronGolem is holding a rose
      *
      * @return {@code true} if holding a rose; {@code false} if not
      */
-    public boolean isHoldingRose();
+    boolean isHoldingRose();
 
     /**
      * Sets whether the IronGolem is holding a rose
@@ -52,7 +52,7 @@ public interface IronGolem extends Golem {
      * @param holding
      *         {@code true} if holding a rose; {@code false} if not
      */
-    public void setHoldingRose(boolean holding);
+    void setHoldingRose(boolean holding);
 
     /**
      * Gets the ticks that the IronGolem should hold a rose.<br>
@@ -60,7 +60,7 @@ public interface IronGolem extends Golem {
      *
      * @return the holding rose ticks
      */
-    public int getHoldRoseTicks();
+    int getHoldRoseTicks();
 
     /**
      * Sets the ticks that the IronGolem should hold a rose.
@@ -68,5 +68,5 @@ public interface IronGolem extends Golem {
      * @param ticks
      *         the amount of holding rose ticks
      */
-    public void setHoldRoseTicks(int ticks);
+    void setHoldRoseTicks(int ticks);
 }

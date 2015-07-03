@@ -401,7 +401,6 @@ public class XmlDatabase extends Database {
             Element col = new Element(column.columnName());
             addToElement(dbTable, col, entry.get(column), column);
             set.addContent(col);
-
         }
         dbTable.getRootElement().addContent(set);
         if (write) {
@@ -937,7 +936,7 @@ public class XmlDatabase extends Database {
                         }
                     }
                 }
-        );
+                                         );
 
         /* Why is this necessary? */
         for (Element e : doc.getRootElement().getChildren()) {
@@ -1039,7 +1038,7 @@ public class XmlDatabase extends Database {
         for (Field field : template.getClass().getFields()) {
             for (Annotation annotation : field.getAnnotations()) {
                 if (annotation instanceof Column) {
-                    Column column = (Column) annotation;
+                    Column column = (Column)annotation;
                     setPropertyFor(column, properties);
                 }
             }

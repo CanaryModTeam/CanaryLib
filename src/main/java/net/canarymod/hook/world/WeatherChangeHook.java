@@ -15,15 +15,17 @@ public final class WeatherChangeHook extends CancelableHook {
     /**
      * Constructs a new WeatherChangeHook
      *
-     * @param world   the World where weather is changing
-     * @param on      whether weather is turning on or off
-     * @param thunder whether or not thunder is changing
+     * @param world
+     *         the World where weather is changing
+     * @param on
+     *         whether weather is turning on or off
+     * @param thunder
+     *         whether or not thunder is changing
      */
     public WeatherChangeHook(World world, boolean on, boolean thunder) {
         this.world = world;
         this.on = on;
         this.thunder = thunder;
-
     }
 
     /**

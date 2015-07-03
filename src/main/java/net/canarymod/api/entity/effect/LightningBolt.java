@@ -13,7 +13,7 @@ public interface LightningBolt extends WeatherEffect {
      *
      * @return the living time
      */
-    public int getLivingTime();
+    int getLivingTime();
 
     /**
      * Sets the ticks that the LightningBolt will live for.
@@ -21,7 +21,7 @@ public interface LightningBolt extends WeatherEffect {
      * @param time
      *         the living time
      */
-    public void setLivingTime(int time);
+    void setLivingTime(int time);
 
     /**
      * Gets the state of the LightingBolt.
@@ -30,7 +30,7 @@ public interface LightningBolt extends WeatherEffect {
      * {@code < 0} for living time decrement and setting blocks a blaze;<br>
      * {@code >= 0} for striking entities
      */
-    public int getLightningState();
+    int getLightningState();
 
     /**
      * Sets the state of the LightingBolt.
@@ -40,5 +40,5 @@ public interface LightningBolt extends WeatherEffect {
      *         {@code < 0} for living time decrement and setting blocks a blaze;<br>
      *         {@code >= 0} for striking entities
      */
-    public void setLightingState(int state);
+    void setLightingState(int state);
 }

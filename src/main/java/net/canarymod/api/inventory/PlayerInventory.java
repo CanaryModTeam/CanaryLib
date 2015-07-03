@@ -12,7 +12,7 @@ public interface PlayerInventory extends Inventory {
      *
      * @return the helmet {@link Item} or {@code null}
      */
-    public Item getHelmetSlot();
+    Item getHelmetSlot();
 
     /**
      * Sets the Helmet slot
@@ -20,14 +20,14 @@ public interface PlayerInventory extends Inventory {
      * @param item
      *         the {@link Item} to set
      */
-    public void setHelmetSlot(Item item);
+    void setHelmetSlot(Item item);
 
     /**
      * Gets the {@link Item} in the Chestplate slot
      *
      * @return the Chestplate {@link Item} or {@code null}
      */
-    public Item getChestplateSlot();
+    Item getChestplateSlot();
 
     /**
      * Sets the Chestplate slot
@@ -35,14 +35,14 @@ public interface PlayerInventory extends Inventory {
      * @param item
      *         the {@link Item} to set
      */
-    public void setChestPlateSlot(Item item);
+    void setChestPlateSlot(Item item);
 
     /**
      * Gets the {@link Item} in the Leggings slot
      *
      * @return the Leggins {@link Item} or {@code null}
      */
-    public Item getLeggingsSlot();
+    Item getLeggingsSlot();
 
     /**
      * Sets the Leggings slot
@@ -50,14 +50,14 @@ public interface PlayerInventory extends Inventory {
      * @param item
      *         the {@link Item} to set
      */
-    public void setLeggingsSlot(Item item);
+    void setLeggingsSlot(Item item);
 
     /**
      * Gets the {@link Item} in the Boots slot
      *
      * @return the Boots {@link Item} or {@code null}
      */
-    public Item getBootsSlot();
+    Item getBootsSlot();
 
     /**
      * Sets the Boots slot
@@ -65,34 +65,34 @@ public interface PlayerInventory extends Inventory {
      * @param item
      *         the {@link Item} to set
      */
-    public void setBootsSlot(Item item);
+    void setBootsSlot(Item item);
 
     /**
      * Gets the selected hotbar slot's id
      *
      * @return the selected hotbar slot's id
      */
-    public int getSelectedHotbarSlotId();
+    int getSelectedHotbarSlotId();
 
     /**
      * Gets the current {@link Item} in hand
      *
      * @return the {@link Item} in hand
      */
-    public Item getItemInHand();
-    
+    Item getItemInHand();
+
     /**
      * Gets the current {@link Item} on the cursor
      *
      * @return the {@link Item} in hand
      */
-    public Item getItemOnCursor();
-    
+    Item getItemOnCursor();
+
     /**
      * Sets the Item on cursor
      *
      * @param item
      *         the {@link Item} to set
      */
-    public void setItemOnCursor(Item item);
+    void setItemOnCursor(Item item);
 }

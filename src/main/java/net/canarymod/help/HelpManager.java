@@ -7,7 +7,13 @@ import net.canarymod.chat.ChatFormat;
 import net.canarymod.chat.MessageReceiver;
 import net.canarymod.commandsys.CanaryCommand;
 import net.canarymod.commandsys.CommandOwner;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author Jos (Jarvix)
@@ -133,7 +139,7 @@ public class HelpManager {
                 }
             }
         }
-        int pageNum = (int) Math.ceil((double) lines.size() / (double) pageSize);
+        int pageNum = (int)Math.ceil((double)lines.size() / (double)pageSize);
 
         if (page > pageNum) {
             page = 1;
@@ -188,7 +194,7 @@ public class HelpManager {
         }
         ArrayList<String> lines = new ArrayList<String>();
 
-        int pageNum = (int) Math.ceil((double) hits.size() / (double) pageSize);
+        int pageNum = (int)Math.ceil((double)hits.size() / (double)pageSize);
         if (page > pageNum) {
             page = 1;
         }

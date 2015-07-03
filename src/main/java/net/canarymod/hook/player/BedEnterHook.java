@@ -15,11 +15,11 @@ public class BedEnterHook extends CancelableHook {
 
     /**
      * Create a new BedEnterHook
-     * 
+     *
      * @param player
-     *            the player that entered the bed
+     *         the player that entered the bed
      * @param bed
-     *            the bed that the player entered
+     *         the bed that the player entered
      */
     public BedEnterHook(Player player, Block bed) {
         this.player = player;

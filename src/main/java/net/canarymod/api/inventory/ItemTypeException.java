@@ -12,5 +12,4 @@ public class ItemTypeException extends RuntimeException {
     public ItemTypeException(String str) {
         super(str);
     }
-
 }

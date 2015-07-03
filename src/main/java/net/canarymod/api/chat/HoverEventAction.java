@@ -12,12 +12,12 @@ public interface HoverEventAction {
      *
      * @return {@code true} if allowed; {@code false} if not
      */
-    public boolean allowedInChat();
+    boolean allowedInChat();
 
     /**
      * Gets the name of this action
      *
      * @return the name
      */
-    public String getName();
+    String getName();
 }

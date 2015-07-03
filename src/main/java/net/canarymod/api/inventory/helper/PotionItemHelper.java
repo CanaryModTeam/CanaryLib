@@ -101,9 +101,9 @@ public class PotionItemHelper extends ItemHelper {
                 continue;
             }
             CompoundTag potion_effect = TAG.copy();
-            potion_effect.put("Id", (byte) effect.getPotionID());
+            potion_effect.put("Id", (byte)effect.getPotionID());
             potion_effect.put("Duration", effect.getDuration());
-            potion_effect.put("Amplifier", (byte) effect.getAmplifier());
+            potion_effect.put("Amplifier", (byte)effect.getAmplifier());
             potion_effect.put("Ambient", effect.isAmbient());
             success &= potion_effects.add(potion_effect);
         }
@@ -135,9 +135,9 @@ public class PotionItemHelper extends ItemHelper {
                 continue;
             }
             CompoundTag potion_effect = TAG.copy();
-            potion_effect.put("Id", (byte) effect.getPotionID());
+            potion_effect.put("Id", (byte)effect.getPotionID());
             potion_effect.put("Duration", effect.getDuration());
-            potion_effect.put("Amplifier", (byte) effect.getAmplifier());
+            potion_effect.put("Amplifier", (byte)effect.getAmplifier());
             potion_effect.put("Ambient", effect.isAmbient());
             success &= potion_effects.add(potion_effect);
         }

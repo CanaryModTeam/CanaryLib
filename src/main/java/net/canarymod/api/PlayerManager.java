@@ -19,7 +19,7 @@ public interface PlayerManager {
      * @param player
      *         the {@link Player} to update
      */
-    public void updateMountedMovingPlayer(Player player);
+    void updateMountedMovingPlayer(Player player);
 
     /**
      * Add the given {@link Player} to this PlayerManager
@@ -27,7 +27,7 @@ public interface PlayerManager {
      * @param player
      *         the {@link Player} to be added
      */
-    public void addPlayer(Player player);
+    void addPlayer(Player player);
 
     /**
      * Remove the given {@link Player} from this PlayerManager
@@ -35,14 +35,14 @@ public interface PlayerManager {
      * @param player
      *         the {@link Player} to be removed
      */
-    public void removePlayer(Player player);
+    void removePlayer(Player player);
 
     /**
      * Get a list of all {@link Player}s that are managed by this PlayerManager
      *
      * @return an {@link List} of {@link Player}s
      */
-    public List<Player> getManagedPlayers();
+    List<Player> getManagedPlayers();
 
     /**
      * Marks a {@link Block} at this position for updating for this PlayerManager
@@ -54,19 +54,19 @@ public interface PlayerManager {
      * @param z
      *         the z coordinate
      */
-    public void markBlockNeedsUpdate(int x, int y, int z);
+    void markBlockNeedsUpdate(int x, int y, int z);
 
     /**
      * Get the maximum tracking distance for this PlayerManager
      *
      * @return the maximum tracking distance
      */
-    public int getMaxTrackingDistance();
+    int getMaxTrackingDistance();
 
     /**
      * Get the dimension this PlayerManager is in charge of
      *
      * @return the {@link World} dimension
      */
-    public World getAttachedDimension();
+    World getAttachedDimension();
 }

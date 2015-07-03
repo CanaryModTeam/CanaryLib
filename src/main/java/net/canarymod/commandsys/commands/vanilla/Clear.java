@@ -21,7 +21,7 @@ public final class Clear extends VanillaCommandWrapper {
             return;
         }
         if (parameters.length == 0 && caller.getReceiverType().equals(ReceiverType.PLAYER)) { // Set caller's name as parameter
-            parameters = new String[]{caller.getName()};
+            parameters = new String[]{ caller.getName() };
         }
         passOn(caller, "clear", parameters);
     }

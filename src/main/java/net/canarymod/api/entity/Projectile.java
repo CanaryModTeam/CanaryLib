@@ -21,6 +21,5 @@ public interface Projectile extends Entity {
      * @param rotationPitch
      *         the X-rotation
      */
-    public void setProjectileHeading(double motionX, double motionY, double motionZ, float rotationYaw, float rotationPitch);
-
+    void setProjectileHeading(double motionX, double motionY, double motionZ, float rotationYaw, float rotationPitch);
 }

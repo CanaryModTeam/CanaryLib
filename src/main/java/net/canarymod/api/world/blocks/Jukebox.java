@@ -16,7 +16,7 @@ public interface Jukebox extends TileEntity {
      *
      * @return the Disc or {@code null} if no disc
      */
-    public Item getDisc();
+    Item getDisc();
 
     /**
      * Setting the disc that is played. This may activate the jukebox
@@ -24,5 +24,5 @@ public interface Jukebox extends TileEntity {
      * @param disc
      *         the {@link Item} music disc
      */
-    public void setDisc(Item disc);
+    void setDisc(Item disc);
 }

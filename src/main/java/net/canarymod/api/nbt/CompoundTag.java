@@ -15,14 +15,14 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return {@link Collection} of values
      */
-    public Collection<BaseTag> values();
+    Collection<BaseTag> values();
 
     /**
      * Gets the key set of the CompoundTag
      *
      * @return {@link Set} of keys
      */
-    public Set<String> keySet();
+    Set<String> keySet();
 
     /**
      * Puts a new Tag inside the CompoundTag
@@ -32,7 +32,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the {@link BaseTag} value
      */
-    public void put(String key, BaseTag value);
+    void put(String key, BaseTag value);
 
     /**
      * Puts a byte value inside the CompoundTag
@@ -42,7 +42,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the byte value
      */
-    public void put(String key, byte value);
+    void put(String key, byte value);
 
     /**
      * Puts a short value inside the CompoundTag
@@ -52,7 +52,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the short value
      */
-    public void put(String key, short value);
+    void put(String key, short value);
 
     /**
      * Puts an integer value inside the CompoundTag
@@ -62,7 +62,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the integer value
      */
-    public void put(String key, int value);
+    void put(String key, int value);
 
     /**
      * Puts a long value inside the CompoundTag
@@ -72,7 +72,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the long value
      */
-    public void put(String key, long value);
+    void put(String key, long value);
 
     /**
      * Puts a float value inside the CompoundTag
@@ -82,7 +82,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the float value
      */
-    public void put(String key, float value);
+    void put(String key, float value);
 
     /**
      * Puts a double value inside the CompoundTag
@@ -92,7 +92,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the double value
      */
-    public void put(String key, double value);
+    void put(String key, double value);
 
     /**
      * Puts a String value inside the CompoundTag
@@ -102,7 +102,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the String value
      */
-    public void put(String key, String value);
+    void put(String key, String value);
 
     /**
      * Puts a byte array value inside the CompoundTag
@@ -112,7 +112,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the byte array value
      */
-    public void put(String key, byte[] value);
+    void put(String key, byte[] value);
 
     /**
      * Puts a int array value inside the CompoundTag
@@ -122,7 +122,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the int array value
      */
-    public void put(String key, int[] value);
+    void put(String key, int[] value);
 
     /**
      * Puts a CompoundTag value inside the CompoundTag
@@ -132,7 +132,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the CompoundTag value
      */
-    public void put(String key, CompoundTag value);
+    void put(String key, CompoundTag value);
 
     /**
      * Puts a boolean value inside the CompoundTag
@@ -142,7 +142,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param value
      *         the boolean value
      */
-    public void put(String key, boolean value);
+    void put(String key, boolean value);
 
     /**
      * Gets a {@link BaseTag} value from the CompoundTag
@@ -152,7 +152,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the {@link BaseTag}
      */
-    public BaseTag get(String key);
+    BaseTag get(String key);
 
     /**
      * Checks if the CompoundTag contains the given key
@@ -162,17 +162,19 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return {@code true} if contains the key; {@code false} if not
      */
-    public boolean containsKey(String key);
+    boolean containsKey(String key);
 
     /**
      * Checks if the CompoundTag contains the given key with a given value type
+     *
      * @param key
-     * the key to check for
+     *         the key to check for
      * @param type
-     * the {@link net.canarymod.api.nbt.NBTTagType} to check for
+     *         the {@link net.canarymod.api.nbt.NBTTagType} to check for
+     *
      * @return {@code true} if the key is of the given type; {@code false} if not
      */
-    public boolean containsKey(String key, NBTTagType type);
+    boolean containsKey(String key, NBTTagType type);
 
     /**
      * Gets a byte value from the CompoundTag
@@ -182,7 +184,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the byte value
      */
-    public byte getByte(String key);
+    byte getByte(String key);
 
     /**
      * Gets a short value from the CompoundTag
@@ -192,7 +194,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the short value
      */
-    public short getShort(String key);
+    short getShort(String key);
 
     /**
      * Gets a integer value from the CompoundTag
@@ -202,7 +204,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the integer value
      */
-    public int getInt(String key);
+    int getInt(String key);
 
     /**
      * Gets a long value from the CompoundTag
@@ -212,7 +214,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the long value
      */
-    public long getLong(String key);
+    long getLong(String key);
 
     /**
      * Gets a float value from the CompoundTag
@@ -222,7 +224,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the float value
      */
-    public float getFloat(String key);
+    float getFloat(String key);
 
     /**
      * Gets a double value from the CompoundTag
@@ -232,7 +234,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the double value
      */
-    public double getDouble(String key);
+    double getDouble(String key);
 
     /**
      * Gets a String value from the CompoundTag
@@ -242,7 +244,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the String value
      */
-    public String getString(String key);
+    String getString(String key);
 
     /**
      * Gets a byte array value from the CompoundTag
@@ -252,7 +254,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the byte array value
      */
-    public byte[] getByteArray(String key);
+    byte[] getByteArray(String key);
 
     /**
      * Gets a int array value from the CompoundTag
@@ -262,7 +264,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the int array value
      */
-    public int[] getIntArray(String key);
+    int[] getIntArray(String key);
 
     /**
      * Gets a CompoundTag value from the CompoundTag
@@ -272,7 +274,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the CompoundTag value
      */
-    public CompoundTag getCompoundTag(String key);
+    CompoundTag getCompoundTag(String key);
 
     /**
      * Gets a {@link ListTag} value from the CompoundTag
@@ -282,7 +284,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the {@link ListTag} value
      */
-    public <E extends BaseTag> ListTag<E> getListTag(String key);
+    <E extends BaseTag> ListTag<E> getListTag(String key);
 
     /**
      * Gets a boolean value from the CompoundTag
@@ -292,7 +294,7 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      *
      * @return the boolean value
      */
-    public boolean getBoolean(String key);
+    boolean getBoolean(String key);
 
     /**
      * Removes a key from the CompoundTag
@@ -300,13 +302,12 @@ public interface CompoundTag extends BaseTag<CompoundTag> {
      * @param key
      *         the key to remove
      */
-    public void remove(String key);
+    void remove(String key);
 
     /**
      * Checks if the CompoundTag is empty
      *
      * @return {@code true} if empty; {@code false} if not
      */
-    public boolean isEmpty();
-
+    boolean isEmpty();
 }

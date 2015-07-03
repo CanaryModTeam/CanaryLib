@@ -7,12 +7,14 @@ package net.canarymod.api.entity.living.monster;
  */
 public interface Slime extends EntityMob {
 
-    public enum Size {
+    enum Size {
         // sizes 1, 2, and 4 spawn naturally -- according to CanaryWiki
-        TINY((byte) 1), SMALL((byte) 2), BIG((byte) 4);
+        TINY((byte)1),
+        SMALL((byte)2),
+        BIG((byte)4);
         private byte size;
 
-        private Size(byte size) {
+        Size(byte size) {
             this.size = size;
         }
 
@@ -55,7 +57,7 @@ public interface Slime extends EntityMob {
      *
      * @return size
      */
-    public Size getSize();
+    Size getSize();
 
     /**
      * Sets the size of the slime
@@ -63,5 +65,5 @@ public interface Slime extends EntityMob {
      * @param size
      *         the {@link Size} to set
      */
-    public void setSize(Size size);
+    void setSize(Size size);
 }

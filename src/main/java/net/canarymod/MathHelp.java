@@ -54,5 +54,4 @@ public class MathHelp {
     public static float setInRange(float def, float min, float max) {
         return def <= max ? def >= min ? def : min : max;
     }
-
 }

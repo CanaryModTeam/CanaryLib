@@ -12,7 +12,7 @@ import net.canarymod.backbone.BackboneBans;
  */
 public class Ban {
     private String uuid, subject, reason, moderator, ip = "xxx.xxx.xxx.xxx";
-    private boolean isIpBan = false;
+    private BanType banType = BanType.UUID;
     private long issued = ToolBox.getUnixTimestamp(), expiration = -1;
 
     /**
@@ -30,14 +30,22 @@ public class Ban {
     }
 
     public Ban(PlayerReference player, String reason, long expiration, boolean ipBan) {
+        this(player, reason, expiration, ipBan ? BanType.IP : BanType.UUID);
+    }
+
+    public Ban(PlayerReference player, String reason, BanType banType) {
+        this(player, reason, -1, banType);
+    }
+
+    public Ban(PlayerReference player, String reason, long expiration, BanType banType) {
         this.uuid = player.getUUIDString();
         this.subject = player.getName();
         this.reason = reason;
         this.expiration = expiration;
 
-        if (ipBan) {
+        if(banType == BanType.IP) {
             this.ip = player.getIP();
-            this.isIpBan = true;
+            this.banType = BanType.IP;
         }
     }
 
@@ -104,6 +112,7 @@ public class Ban {
      * with a date formatter if you need to.
      *
      * @return UNIX timestamp
+     *
      * @deprecated Use {@link Ban#getExpiration} instead
      */
     @Deprecated
@@ -157,7 +166,7 @@ public class Ban {
      * @return {@code true} if IP Ban; {@code false} if not
      */
     public boolean isIpBan() {
-        return isIpBan;
+        return banType == BanType.IP;
     }
 
     /**
@@ -167,7 +176,25 @@ public class Ban {
      *         {@code true} for IP Ban; {@code false} for not
      */
     public void setIsIpBan(boolean isIpBan) {
-        this.isIpBan = isIpBan;
+        this.banType = isIpBan ? BanType.IP : BanType.UUID;
+    }
+
+    /**
+     * Checks the ban type
+     *
+     * @return the correct ban type for this ban
+     */
+    public BanType getBanType() {
+        return banType;
+    }
+
+    /**
+     * Sets the ban type
+     *
+     * @param banType the ban type to apply to this ban
+     */
+    public void setBanType(BanType banType) {
+        this.banType = banType;
     }
 
     /**
@@ -188,10 +215,10 @@ public class Ban {
     public void setBanningPlayer(String banningPlayer) {
         this.moderator = banningPlayer;
     }
-    
+
     /**
      * Gets the UUID of the user for this ban.
-     * 
+     *
      * @return UUID of user
      */
     public String getUUID() {
@@ -201,11 +228,11 @@ public class Ban {
         }
         return this.uuid;
     }
-    
+
     /**
      * Sets the UUID for the ban on this user
-     * 
-     * @param uuid 
+     *
+     * @param uuid
      */
     public void setUUID(String uuid) {
         this.uuid = uuid;

@@ -49,9 +49,7 @@ public class Particle {
         BLOCK_DUST("blockdust_"),
         WATER_DROP("droplet"),
         ITEM_TAKE("take"),
-        MOB_APPEARANCE("mobappearance"),
-
-        ;
+        MOB_APPEARANCE("mobappearance"),;
 
         private String mcName;
 

@@ -14,7 +14,7 @@ public interface Packet {
      *
      * @return the packet's size
      */
-    public int getPacketSize();
+    int getPacketSize();
 
     /**
      * Returns the ID for this packet.<br>
@@ -22,5 +22,5 @@ public interface Packet {
      *
      * @return the packet's id
      */
-    public int getPacketId();
+    int getPacketId();
 }

@@ -5,5 +5,4 @@ package net.canarymod.api.ai;
  */
 public interface AIBeg extends AIBase {
 
-
 }

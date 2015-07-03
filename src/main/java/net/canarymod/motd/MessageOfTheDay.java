@@ -52,11 +52,11 @@ public class MessageOfTheDay {
             }
             PrintWriter writer = new PrintWriter(new FileWriter(motd_file));
             writer.println("# (Login) Message of the Day");
-            writer.println("# See forums thread http://forums.canarymod.net/?topic=3619");
+            writer.println("# See forums thread http://canarymod.net/forum/canarymod-board/discussions/motd-variables-3447");
             writer.println("# for the list of default variables");
             writer.println("# or the plugins threads that add-on to the Message Of The Day");
-            writer.println("# Lines may be prefixed with {permission:<[node] or ![node] or [node]&[node]&![node]>}");
-            writer.println("# Examples: {permission:canary.super.administor} {permission:canary.world.build&!canary.super.administrator}");
+            writer.println("# Lines may be prefixed with {permissions:<[node] or ![node] or [node]&[node]&![node]>}");
+            writer.println("# Examples: {permissions:canary.super.administor} {permissions:canary.world.build&!canary.super.administrator}");
             writer.println("# # # # #");
             writer.flush();
             writer.close();
@@ -141,12 +141,12 @@ public class MessageOfTheDay {
     /**
      * Registers a new {@link MessageOfTheDayListener} to be used with the MessageOfTheDay
      *
-     * @param listner
+     * @param listener
      *         the {@link MessageOfTheDayListener} to be added
      * @param owner
      *         the {@link MOTDOwner} (either the server or a plugin)
      * @param force
-     *         {@code true} to override existing keys if existant; {@code false} to error out on duplicate keys (recommended)
+     *         {@code true} to override existing keys if existent; {@code false} to error out on duplicate keys (recommended)
      */
     public void registerMOTDListener(final MessageOfTheDayListener listener, final MOTDOwner owner, final boolean force) {
         Method[] methods = listener.getClass().getDeclaredMethods();
@@ -173,7 +173,7 @@ public class MessageOfTheDay {
             MOTDParser motdp = new MOTDParser(meta.key(), owner) {
                 @Override
                 String parse(MessageReceiver msgrec) throws Exception {
-                    return (String) method.invoke(listener, new Object[]{ msgrec });
+                    return (String)method.invoke(listener, new Object[]{ msgrec });
                 }
             };
 

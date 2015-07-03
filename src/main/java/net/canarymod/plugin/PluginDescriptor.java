@@ -6,6 +6,8 @@ import net.visualillusionsent.utils.PropertiesFile;
 import net.visualillusionsent.utils.UtilityException;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.zip.ZipFile;
 
 /**
  * Describes information about a plugin, including meta information and start/stop/load information.
@@ -32,8 +34,8 @@ public class PluginDescriptor {
         try {
             reloadInf();
         }
-        catch (UtilityException e) {
-            throw new InvalidPluginException("Unable to load INF file", e);
+        catch (UtilityException uex) {
+            throw new InvalidPluginException("Unable to load INF file", uex);
         }
         currentState = PluginState.KNOWN;
     }
@@ -67,6 +69,19 @@ public class PluginDescriptor {
     private void findAndLoadCanaryInf() throws InvalidPluginException {
         File pluginFile = new File(path);
         if (pluginFile.isFile() && pluginFile.getName().matches(".+\\.(jar|zip)$")) {
+            try {
+                ZipFile zip = new ZipFile(path);
+                if (zip.getEntry("Canary.inf") == null) {
+                    if (zip.getEntry("plugin.yml") != null) {
+                        throw new InvalidPluginException("Bukkit Plugins are not natively supported. Please remove '" + pluginFile.getName() + "' from your plugins directory.");
+                    }
+                    throw new InvalidPluginException("I don't know where to find a Canary.inf in " + path);
+                }
+            }
+            catch (IOException ioex) {
+                throw new InvalidPluginException("Oops, something exploded while checking " + path, ioex);
+            }
+
             canaryInf = new PropertiesFile(pluginFile.getAbsolutePath(), "Canary.inf");
         }
         else if (pluginFile.isDirectory()) {
@@ -77,7 +92,6 @@ public class PluginDescriptor {
             throw new InvalidPluginException("I don't know where to find a Canary.inf in " + path);
         }
     }
-
 
     public PropertiesFile getCanaryInf() {
         return canaryInf;
@@ -118,7 +132,8 @@ public class PluginDescriptor {
     /**
      * DO NOT CALL THIS METHOD. It is for internal use only.
      *
-     * @param plugin Current plugin object
+     * @param plugin
+     *         Current plugin object
      */
     public void setPlugin(Plugin plugin) {
         this.plugin = plugin;
@@ -131,7 +146,8 @@ public class PluginDescriptor {
     /**
      * DO NOT CALL THIS METHOD. It is for internal use only.
      *
-     * @param state New plugin state
+     * @param state
+     *         New plugin state
      */
     public void setCurrentState(PluginState state) {
         this.currentState = state;

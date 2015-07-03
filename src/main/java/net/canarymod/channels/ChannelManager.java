@@ -30,7 +30,9 @@ public abstract class ChannelManager implements ChannelManagerInterface {
     private ArrayListMultimap<String, RegisteredChannelListener> listeners = ArrayListMultimap.create();
     protected ArrayListMultimap<String, NetServerHandler> clients = ArrayListMultimap.create();
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void registerListener(Plugin plugin, String channel, ChannelListener listener) {
         try {
@@ -56,7 +58,9 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean unregisterListeners(Plugin plugin) {
         boolean toRet = false;
@@ -72,15 +76,21 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         return toRet;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public abstract boolean sendCustomPayloadToAllPlayers(String channel, byte[] bytestream);
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public abstract boolean sendCustomPayloadToPlayer(String channel, byte[] bytestream, Player player);
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void sendCustomPayloadToListeners(String channel, byte[] byteStream, Player player) {
         if (listeners.containsKey(channel)) {
@@ -90,7 +100,9 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void registerClient(String channel, NetServerHandler handler) {
         try {
@@ -106,7 +118,9 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         }
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean unregisterClient(String channel, NetServerHandler handler) {
         synchronized (clients) {
@@ -118,7 +132,9 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         return false;
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean unregisterClientAll(NetServerHandler handler) {
         boolean toRet = true;
@@ -128,5 +144,4 @@ public abstract class ChannelManager implements ChannelManagerInterface {
         }
         return toRet;
     }
-
 }

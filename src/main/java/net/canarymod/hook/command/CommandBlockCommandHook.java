@@ -19,8 +19,10 @@ public final class CommandBlockCommandHook extends CancelableHook {
     /**
      * Constructs a new CommandBlockCommandHook
      *
-     * @param reference the {@link CommandBlockLogic} used (either CommandBlock or CommandBlockMinecart)
-     * @param args  the command and arguments
+     * @param reference
+     *         the {@link CommandBlockLogic} used (either CommandBlock or CommandBlockMinecart)
+     * @param args
+     *         the command and arguments
      */
     public CommandBlockCommandHook(CommandBlockLogic reference, String[] args) {
         this.reference = reference;
@@ -33,15 +35,16 @@ public final class CommandBlockCommandHook extends CancelableHook {
      * @return the {@link CommandBlock} if it is one; {@code null} if its a {@link CommandBlockMinecart} instead
      */
     public CommandBlock getCommandBlock() {
-        return reference instanceof CommandBlock ? (CommandBlock) reference : null;
+        return reference instanceof CommandBlock ? (CommandBlock)reference : null;
     }
 
     /**
      * Gets the CommandBlockMinecart if actually a CommandBlockMinecart
+     *
      * @return the {@link CommandBlockMinecart} if it is one; {@code null} if its a {@link CommandBlock} instead
      */
     public CommandBlockMinecart getCommandBlockMinecart() {
-        return reference instanceof CommandBlockMinecart ? (CommandBlockMinecart) reference : null;
+        return reference instanceof CommandBlockMinecart ? (CommandBlockMinecart)reference : null;
     }
 
     public CommandBlockLogic getReference() {
@@ -61,5 +64,4 @@ public final class CommandBlockCommandHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[CommandBlock=%s, Arguments=%s]", getHookName(), reference, StringUtils.joinString(args, " ", 0));
     }
-
 }

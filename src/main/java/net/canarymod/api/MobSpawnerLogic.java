@@ -45,7 +45,7 @@ public interface MobSpawnerLogic {
      * The delay between spawns is picked randomly between this and the max delay.
      *
      * @return minDelay
-     *         The minimum delay for spawning.
+     * The minimum delay for spawning.
      */
     int getMinDelay();
 
@@ -64,7 +64,7 @@ public interface MobSpawnerLogic {
      * The delay between spawns is picked randomly between this and the min delay.
      *
      * @return maxDelay
-     *         The max delay value.
+     * The max delay value.
      */
     int getMaxDelay();
 
@@ -174,5 +174,4 @@ public interface MobSpawnerLogic {
      * @return An {@code Array} of Entities set to spawn on this logic.
      */
     MobSpawnerEntry[] getSpawnedEntities();
-
 }

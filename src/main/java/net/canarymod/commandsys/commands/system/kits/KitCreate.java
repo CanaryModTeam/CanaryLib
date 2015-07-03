@@ -13,7 +13,9 @@ import net.canarymod.user.Group;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static net.canarymod.Translator.*;
+import static net.canarymod.Translator.sendTranslatedMessage;
+import static net.canarymod.Translator.sendTranslatedNotice;
+import static net.canarymod.Translator.translate;
 import static net.canarymod.commandsys.CanaryCommandPermissions.KIT$GROUP;
 import static net.canarymod.commandsys.CanaryCommandPermissions.KIT$PRIVATE;
 

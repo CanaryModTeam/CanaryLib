@@ -21,7 +21,9 @@ public class ReservelistProvider {
         reservelist = backbonereservelist.loadReservelist();
     }
 
-    /** Reload the reservelist from database */
+    /**
+     * Reload the reservelist from database
+     */
     public void reload() {
         reservelist = backbonereservelist.loadReservelist();
     }

@@ -134,14 +134,3 @@ Temporary Items
 *.un~
 Session.vim
 .netrwhist
-
-# CanaryMod/Minecraft directories
-config/
-crash-reports/
-databases/
-db/
-lang/
-logs/
-plugins/
-viutilslogs/
-worlds/

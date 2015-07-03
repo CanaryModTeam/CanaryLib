@@ -7,29 +7,53 @@ package net.canarymod.api.inventory.slot;
  */
 public enum GrabMode {
 
-    /** Default slot clicking */
-    DEFAULT, //
+    /**
+     * Default slot clicking
+     */
+    DEFAULT,
+    //
 
-    /** Holding shift while clicking */
-    SHIFT_CLICK, //
+    /**
+     * Holding shift while clicking
+     */
+    SHIFT_CLICK,
+    //
 
-    /** Center mouse button click */
-    PICK_BLOCK, //
+    /**
+     * Center mouse button click
+     */
+    PICK_BLOCK,
+    //
 
-    /** Hovering over an Item and hitting a HotBar key (0-9) */
-    HOVER_SWAP, //
+    /**
+     * Hovering over an Item and hitting a HotBar key (0-9)
+     */
+    HOVER_SWAP,
+    //
 
-    /** Drop key press while hovering over an Item or clicking outside window without an item */
-    DROP, //
+    /**
+     * Drop key press while hovering over an Item or clicking outside window without an item
+     */
+    DROP,
+    //
 
-    /** Clicking outside with an Item stack and dragging it over the window */
-    PAINT, //
+    /**
+     * Clicking outside with an Item stack and dragging it over the window
+     */
+    PAINT,
+    //
 
-    /** Double (left) clicking a slot */
-    DOUBLE_CLICK, //
+    /**
+     * Double (left) clicking a slot
+     */
+    DOUBLE_CLICK,
+    //
 
-    /** Unknown mode */
-    UNKNOWN, //
+    /**
+     * Unknown mode
+     */
+    UNKNOWN,
+    //
     ;
 
     /**

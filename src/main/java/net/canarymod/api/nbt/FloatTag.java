@@ -12,7 +12,7 @@ public interface FloatTag extends PrimitiveTag<FloatTag> {
      *
      * @return the float value
      */
-    public float getValue();
+    float getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface FloatTag extends PrimitiveTag<FloatTag> {
      * @param value
      *         the float value
      */
-    public void setValue(float value);
-
+    void setValue(float value);
 }

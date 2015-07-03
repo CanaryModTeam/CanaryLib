@@ -21,5 +21,4 @@ public interface StatisticsFactory {
     Stat getStat(String nmsName);
 
     Achievement getAchievement(String nmsName);
-
 }

@@ -15,35 +15,35 @@ public interface PotionEffect {
      *
      * @return potion ID
      */
-    public int getPotionID();
+    int getPotionID();
 
     /**
      * The duration of this potion effect
      *
      * @return duration
      */
-    public int getDuration();
+    int getDuration();
 
     /**
      * Return this potions amplifier
      *
      * @return amplifier
      */
-    public int getAmplifier();
+    int getAmplifier();
 
     /**
      * Checks if the Potion is ambient
      *
      * @return {@code true} if ambient; {@code false} if not
      */
-    public boolean isAmbient();
+    boolean isAmbient();
 
     /**
      * Get the name of this potion effect
      *
      * @return name
      */
-    public String getName();
+    String getName();
 
     /**
      * Perform this potion effect against a {@link LivingBase}
@@ -51,5 +51,5 @@ public interface PotionEffect {
      * @param entity
      *         the {@link LivingBase} to perform the effect on
      */
-    public void performEffect(LivingBase entity);
+    void performEffect(LivingBase entity);
 }

@@ -28,7 +28,9 @@ public final class CanaryClassLoader extends URLClassLoader {
         super(new URL[]{ url }, loader);
     }
 
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final Class<?> findClass(String name) throws ClassNotFoundException {
         ClassNotFoundException rethrow = null;
@@ -59,7 +61,9 @@ public final class CanaryClassLoader extends URLClassLoader {
         throw rethrow;
     }
 
-    /** Closes the loader and jar file */
+    /**
+     * Closes the loader and jar file
+     */
     public synchronized final void close() {
         if (System.getProperty("java.version").startsWith("1.6")) { // Java 6 doesn't have the URLClassLoader.close() method
             try { // Insert Reflection Magic
@@ -70,13 +74,12 @@ public final class CanaryClassLoader extends URLClassLoader {
                 Field loadersField = ucp.getClass().getDeclaredField("loaders"); // get the loaders collection
                 loadersField.setAccessible(true); // Allow access
                 Object loaders = loadersField.get(ucp); // get loaders
-                for (Object jarLoader : ((Collection<?>) loaders)) { // iterate the loaders
+                for (Object jarLoader : ((Collection<?>)loaders)) { // iterate the loaders
                     try {
                         Field jarField = jarLoader.getClass().getDeclaredField("jar"); // Get the jarField
                         jarField.setAccessible(true); // Allow access
                         Object jarFile = jarField.get(jarLoader); // get the JarFile
-                        ((JarFile) jarFile).close(); // Close jar
-
+                        ((JarFile)jarFile).close(); // Close jar
                     }
                     catch (Throwable t) {
                         // Not a loader, ignored...

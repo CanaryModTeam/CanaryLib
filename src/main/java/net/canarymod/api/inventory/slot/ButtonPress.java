@@ -7,48 +7,111 @@ package net.canarymod.api.inventory.slot;
  */
 public enum ButtonPress {
 
-    /** Left Mouse Button */
-    LEFT, //
-    /** Right Mouse Button */
-    RIGHT, //
-    /** Middle Mouse Button */
-    MIDDLE, //
-    /** Hotbar 1 */
-    KEY_1, //
-    /** Hotbar 2 */
-    KEY_2, //
-    /** Hotbar 3 */
-    KEY_3, //
-    /** Hotbar 4 */
-    KEY_4, //
-    /** Hotbar 5 */
-    KEY_5, //
-    /** Hotbar 6 */
-    KEY_6, //
-    /** Hotbar 7 */
-    KEY_7, //
-    /** Hotbar 8 */
-    KEY_8, //
-    /** Hotbar 9 */
-    KEY_9, //
-    /** Drop Key */
-    KEY_DROP, //
-    /** Control + Drop key */
-    CTRL_DROP, //
-    /** Starting Painting with Left Click (or Middle Click) */
-    LEFT_PAINT_START, //
-    /** Slot passed with Left Click Paint (or Middle Click) */
-    LEFT_PAINT_PROGRESS, //
-    /** Left Click Paint end (or Middle Click) */
-    LEFT_PAINT_END, //
-    /** Starting Painting with Right Click */
-    RIGHT_PAINT_START, //
-    /** Slot passed with Right Click Paint */
-    RIGHT_PAINT_PROGRESS, //
-    /** Right Click Paint end */
-    RIGHT_PAINT_END, //
-    /** Unknown button pressed */
-    UNKNOWN, //
+    /**
+     * Left Mouse Button
+     */
+    LEFT,
+    //
+    /**
+     * Right Mouse Button
+     */
+    RIGHT,
+    //
+    /**
+     * Middle Mouse Button
+     */
+    MIDDLE,
+    //
+    /**
+     * Hotbar 1
+     */
+    KEY_1,
+    //
+    /**
+     * Hotbar 2
+     */
+    KEY_2,
+    //
+    /**
+     * Hotbar 3
+     */
+    KEY_3,
+    //
+    /**
+     * Hotbar 4
+     */
+    KEY_4,
+    //
+    /**
+     * Hotbar 5
+     */
+    KEY_5,
+    //
+    /**
+     * Hotbar 6
+     */
+    KEY_6,
+    //
+    /**
+     * Hotbar 7
+     */
+    KEY_7,
+    //
+    /**
+     * Hotbar 8
+     */
+    KEY_8,
+    //
+    /**
+     * Hotbar 9
+     */
+    KEY_9,
+    //
+    /**
+     * Drop Key
+     */
+    KEY_DROP,
+    //
+    /**
+     * Control + Drop key
+     */
+    CTRL_DROP,
+    //
+    /**
+     * Starting Painting with Left Click (or Middle Click)
+     */
+    LEFT_PAINT_START,
+    //
+    /**
+     * Slot passed with Left Click Paint (or Middle Click)
+     */
+    LEFT_PAINT_PROGRESS,
+    //
+    /**
+     * Left Click Paint end (or Middle Click)
+     */
+    LEFT_PAINT_END,
+    //
+    /**
+     * Starting Painting with Right Click
+     */
+    RIGHT_PAINT_START,
+    //
+    /**
+     * Slot passed with Right Click Paint
+     */
+    RIGHT_PAINT_PROGRESS,
+    //
+    /**
+     * Right Click Paint end
+     */
+    RIGHT_PAINT_END,
+    //
+    /**
+     * Unknown button pressed
+     */
+    UNKNOWN,
+    //
     ;
 
     /**
@@ -105,7 +168,6 @@ public enum ButtonPress {
                 default:
                     return UNKNOWN;
             }
-
         }
         else if (mode == GrabMode.DROP) {
             switch (pressed) {

@@ -12,7 +12,7 @@ public interface Blaze extends EntityMob {
      *
      * @return {@code true} if burning; {@code false} if not
      */
-    public boolean isBurning();
+    boolean isBurning();
 
     /**
      * Sets if this Blaze is on fire or not
@@ -20,5 +20,5 @@ public interface Blaze extends EntityMob {
      * @param isBurning
      *         {@code true} for burning; {@code false} for not
      */
-    public void setBurning(boolean isBurning);
+    void setBurning(boolean isBurning);
 }

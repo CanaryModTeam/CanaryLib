@@ -8,6 +8,8 @@ import net.canarymod.api.inventory.CustomStorageInventory;
 import net.canarymod.api.inventory.Item;
 import net.canarymod.api.world.Chunk;
 import net.canarymod.api.world.World;
+import net.canarymod.api.world.blocks.BlockType;
+import net.canarymod.api.world.blocks.properties.BlockProperty;
 
 /**
  * Object Manufacturing Factory
@@ -112,4 +114,5 @@ public interface ObjectFactory {
      */
     Chunk newChunk(World world, int x, int z);
 
+    <T extends BlockProperty> T getPropertyInstance(BlockType blockType, String propertyName);
 }

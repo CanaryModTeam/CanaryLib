@@ -107,10 +107,10 @@ public class Translator extends LocaleHelper {
      * @param key
      *         the key to translate
      *
-     * @return the translated string
+     * @return the translated string or empty string is no translation is found
      */
     public static String nativeTranslate(String key) {
-        return NativeTranslateBridge.$.nativeTranslate(key);
+        return !nativeCanTranslate(key) ? "" : NativeTranslateBridge.$.nativeTranslate(key);
     }
 
     /**
@@ -121,10 +121,10 @@ public class Translator extends LocaleHelper {
      * @param args
      *         the argument objects to use with translation
      *
-     * @return the translated string
+     * @return the translated string or empty string is no translation is found
      */
     public static String nativeTranslate(String key, Object... args) {
-        return NativeTranslateBridge.$.nativeTranslate(key, args);
+        return !nativeCanTranslate(key) ? "" : NativeTranslateBridge.$.nativeTranslate(key, args);
     }
 
     /**
@@ -136,7 +136,7 @@ public class Translator extends LocaleHelper {
      * @return {@code true} if exists; {@code false} if not
      */
     public static boolean nativeCanTranslate(String key) {
-        return NativeTranslateBridge.$.nativeCanTranslate(key);
+        return NativeTranslateBridge.$ != null && NativeTranslateBridge.$.nativeCanTranslate(key);
     }
 
     /**
@@ -162,7 +162,7 @@ public class Translator extends LocaleHelper {
      *         the argument objects to use with translation
      */
     public static void sendTranslatedNotice(MessageReceiver receiver, String key, Object... args) {
-        Canary.log.debug("Translation - "+key+": Local{"+localTranslate(key, receiver.getLocale(), args)+"} Raw{"+translateAndFormat(key, args)+"}");
+        Canary.log.debug("Translation - " + key + ": Local{" + localTranslate(key, receiver.getLocale(), args) + "} Raw{" + translateAndFormat(key, args) + "}");
         receiver.notice(localTranslate(key, receiver.getLocale(), args));
     }
 

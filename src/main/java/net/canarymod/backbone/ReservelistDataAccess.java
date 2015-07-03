@@ -16,11 +16,15 @@ public class ReservelistDataAccess extends DataAccess {
         super(Configuration.getDbConfig().getReservelistTableName());
     }
 
-    /** UUID for this reservelist entry */
+    /**
+     * UUID for this reservelist entry
+     */
     @Column(columnName = "uuid", dataType = DataType.STRING)
     public String uuid;
 
-    /** Playername for this reservelist entry */
+    /**
+     * Playername for this reservelist entry
+     */
     @Column(columnName = "player", dataType = DataType.STRING)
     public String player;
 

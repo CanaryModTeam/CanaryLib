@@ -20,16 +20,31 @@ public class SkullHelper extends ItemHelper {
     } // This class should never be constructed
 
     public enum SkullType {
-        /** Skeleton Skull */
-        SKELETON, //
-        /** Wither Skull */
-        WITHER, //
-        /** Zombie Skull */
-        ZOMBIE, //
-        /** Player Skull */
-        PLAYER, //
-        /** Creeper Skull */
-        CREEPER, //
+        /**
+         * Skeleton Skull
+         */
+        SKELETON,
+        //
+        /**
+         * Wither Skull
+         */
+        WITHER,
+        //
+        /**
+         * Zombie Skull
+         */
+        ZOMBIE,
+        //
+        /**
+         * Player Skull
+         */
+        PLAYER,
+        //
+        /**
+         * Creeper Skull
+         */
+        CREEPER,
+        //
         ;
     }
 

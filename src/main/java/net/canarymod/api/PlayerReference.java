@@ -1,5 +1,8 @@
 package net.canarymod.api;
 
+import net.canarymod.api.inventory.EnderChestInventory;
+import net.canarymod.api.inventory.Inventory;
+import net.canarymod.api.inventory.PlayerInventory;
 import net.canarymod.api.statistics.Achievement;
 import net.canarymod.api.statistics.Achievements;
 import net.canarymod.api.statistics.Stat;
@@ -24,28 +27,28 @@ public interface PlayerReference {
      *
      * @return PermissionProvider
      */
-    public PermissionProvider getPermissionProvider();
+    PermissionProvider getPermissionProvider();
 
     /**
      * Get this players main group
      *
      * @return {@link Group}
      */
-    public Group getGroup();
+    Group getGroup();
 
     /**
      * get this players prefix
      *
      * @return {@link String}
      */
-    public String getPrefix();
+    String getPrefix();
 
     /**
      * Check if there is an online player for this offline player
      *
      * @return {@code true} if online; {@code false} otherwise
      */
-    public boolean isOnline();
+    boolean isOnline();
 
     /**
      * Check if this player has the given permission
@@ -55,7 +58,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if has permission; {@code false} otherwise
      */
-    public boolean hasPermission(String path);
+    boolean hasPermission(String path);
 
     /**
      * Set this players group
@@ -63,7 +66,7 @@ public interface PlayerReference {
      * @param group
      *         the {@link net.canarymod.user.Group} to set
      */
-    public void setGroup(Group group);
+    void setGroup(Group group);
 
     /**
      * Add a group to this players sub groups
@@ -71,7 +74,7 @@ public interface PlayerReference {
      * @param group
      *         the {@link Group} to add
      */
-    public void addGroup(Group group);
+    void addGroup(Group group);
 
     /**
      * Remove this group from the player.<br>
@@ -82,7 +85,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if successful; {@code false} otherwise
      */
-    public boolean removeGroup(Group g);
+    boolean removeGroup(Group g);
 
     /**
      * Remove a group with this name from the player.<br>
@@ -93,7 +96,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if successful; {@code false} otherwise
      */
-    public boolean removeGroup(String g);
+    boolean removeGroup(String g);
 
     /**
      * Check if player is in the given group
@@ -105,7 +108,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if the player is in the group, {@code false} otherwise
      */
-    public boolean isInGroup(Group group, boolean parents);
+    boolean isInGroup(Group group, boolean parents);
 
     /**
      * Check if player is in the given group
@@ -117,7 +120,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if the player is in the group; {@code false} otherwise
      */
-    public boolean isInGroup(String group, boolean parents);
+    boolean isInGroup(String group, boolean parents);
 
     /**
      * Set this players prefix
@@ -125,49 +128,49 @@ public interface PlayerReference {
      * @param prefix
      *         the prefix to be set
      */
-    public void setPrefix(String prefix);
+    void setPrefix(String prefix);
 
     /**
      * get the world the player logged off in
      *
      * @return {@link net.canarymod.api.world.World}
      */
-    public World getWorld();
+    World getWorld();
 
     /**
      * get the position the player logged off at
      *
      * @return {@link net.canarymod.api.world.position.Position}
      */
-    public Position getPosition();
+    Position getPosition();
 
     /**
      * Get this offline players name
      *
      * @return name
      */
-    public String getName();
+    String getName();
 
     /**
      * Get the UUID of this Player
      *
      * @return UUID
      */
-    public UUID getUUID();
+    UUID getUUID();
 
     /**
      * Gets the UUID of this Player as a string
      *
      * @return UUID as string
      */
-    public String getUUIDString();
+    String getUUIDString();
 
     /**
      * Check if this player is muted
      *
      * @return {@code true} if muted; {@code false} otherwise
      */
-    public boolean isMuted();
+    boolean isMuted();
 
     /**
      * Mute or unmute this offline player
@@ -175,42 +178,42 @@ public interface PlayerReference {
      * @param muted
      *         {@code true} to mute; {@code false} to unmute
      */
-    public void setMuted(boolean muted);
+    void setMuted(boolean muted);
 
     /**
      * Get all of this players groups
      *
      * @return Group array
      */
-    public Group[] getPlayerGroups();
+    Group[] getPlayerGroups();
 
     /**
      * Gets the date and time the Player first joined (or when the player.dat was created) formatted as dd-MMM-yyyy HH:mm:ss
      *
      * @return first joined
      */
-    public String getFirstJoined();
+    String getFirstJoined();
 
     /**
      * Gets the time played in seconds
      *
      * @return time played
      */
-    public long getTimePlayed();
+    long getTimePlayed();
 
     /**
      * Gets the {@link GameMode} for the Player
      *
      * @return the Player's {@link GameMode}
      */
-    public GameMode getMode();
+    GameMode getMode();
 
     /**
      * Gets the {@link GameMode} ID for the Player
      *
      * @return 0 for Survival; 1 for Creative; 2 for Adventure
      */
-    public int getModeId();
+    int getModeId();
 
     /**
      * Sets the Player's {@link GameMode}
@@ -218,7 +221,7 @@ public interface PlayerReference {
      * @param mode
      *         the {@link GameMode} to set
      */
-    public void setMode(GameMode mode);
+    void setMode(GameMode mode);
 
     /**
      * Sets the Player's {@link GameMode}
@@ -226,28 +229,28 @@ public interface PlayerReference {
      * @param mode
      *         0 for Survival; 1 for Creative; 2 for Adventure
      */
-    public void setModeId(int mode);
+    void setModeId(int mode);
 
     /**
      * Checks if this player is a Server Operator
      *
      * @return {@code true} if is op; {@code false} otherwise
      */
-    public boolean isOperator();
+    boolean isOperator();
 
     /**
      * Check if this player has the admin flag set
      *
      * @return {@code true} if is Admin; {@code false} otherwise
      */
-    public boolean isAdmin();
+    boolean isAdmin();
 
     /**
      * Check if this player can modify the world
      *
      * @return {@code true} if can Build; {@code false} otherwise
      */
-    public boolean canBuild();
+    boolean canBuild();
 
     /**
      * Set whether this player can modify the world
@@ -255,14 +258,14 @@ public interface PlayerReference {
      * @param canModify
      *         {@code true} if can build; {@code false} if not
      */
-    public void setCanBuild(boolean canModify);
+    void setCanBuild(boolean canModify);
 
     /**
      * Check if this player can bypass permission checks
      *
      * @return {@code true} if can ignore restrictions; {@code false} otherwise
      */
-    public boolean canIgnoreRestrictions();
+    boolean canIgnoreRestrictions();
 
     /**
      * Set whether this player can bypass permission checks
@@ -270,7 +273,7 @@ public interface PlayerReference {
      * @param canIgnore
      *         {@code true} if can ignore restrictions; {@code false} if not
      */
-    public void setCanIgnoreRestrictions(boolean canIgnore);
+    void setCanIgnoreRestrictions(boolean canIgnore);
 
     /**
      * Add to the level of food exhaustion of a player
@@ -278,7 +281,7 @@ public interface PlayerReference {
      * @param exhaustion
      *         the exhaustion to add
      */
-    public void addExhaustion(float exhaustion);
+    void addExhaustion(float exhaustion);
 
     /**
      * Set the food exhaustion level to the specified value
@@ -286,14 +289,37 @@ public interface PlayerReference {
      * @param exhaustion
      *         the exhaustion to set
      */
-    public void setExhaustion(float exhaustion);
+    void setExhaustion(float exhaustion);
 
     /**
      * Retrieve the current exhaustion level for this player
      *
      * @return exhaustion level
      */
-    public float getExhaustionLevel();
+    float getExhaustionLevel();
+
+    /**
+     * Add to the level of food saturation of a player
+     *
+     * @param saturation
+     *         the saturation to add
+     */
+    void addSaturation(float saturation);
+
+    /**
+     * Set the food saturation level to the specified value
+     *
+     * @param saturation
+     *         the saturation to set
+     */
+    void setSaturation(float saturation);
+
+    /**
+     * Retrieve the current food saturation level for this player
+     *
+     * @return saturation level
+     */
+    float getSaturationLevel();
 
     /**
      * Set this players food level
@@ -301,14 +327,14 @@ public interface PlayerReference {
      * @param hunger
      *         the hunger to set
      */
-    public void setHunger(int hunger);
+    void setHunger(int hunger);
 
     /**
      * Get this players food level
      *
      * @return the food level.
      */
-    public int getHunger();
+    int getHunger();
 
     /**
      * Add experience to the player
@@ -316,7 +342,7 @@ public interface PlayerReference {
      * @param experience
      *         the experience amount
      */
-    public void addExperience(int experience);
+    void addExperience(int experience);
 
     /**
      * Remove experience from the player
@@ -324,14 +350,14 @@ public interface PlayerReference {
      * @param experience
      *         the experience amount
      */
-    public void removeExperience(int experience);
+    void removeExperience(int experience);
 
     /**
      * Get experience points for this player
      *
      * @return experience
      */
-    public int getExperience();
+    int getExperience();
 
     /**
      * Set the experience of this player
@@ -339,14 +365,14 @@ public interface PlayerReference {
      * @param xp
      *         the experience amount
      */
-    public void setExperience(int xp);
+    void setExperience(int xp);
 
     /**
      * Get the current level of this player.
      *
      * @return level
      */
-    public int getLevel();
+    int getLevel();
 
     /**
      * Explicitly override this players level.
@@ -354,7 +380,7 @@ public interface PlayerReference {
      * @param level
      *         the new player level
      */
-    public void setLevel(int level);
+    void setLevel(int level);
 
     /**
      * Add the specific amount of levels to the player.
@@ -362,7 +388,7 @@ public interface PlayerReference {
      * @param level
      *         amount of levels to add
      */
-    public void addLevel(int level);
+    void addLevel(int level);
 
     /**
      * Explicitly remove the amount of levels from the player.
@@ -370,7 +396,7 @@ public interface PlayerReference {
      * @param level
      *         amount of levels to remove
      */
-    public void removeLevel(int level);
+    void removeLevel(int level);
 
     /**
      * Set this players home location
@@ -378,49 +404,49 @@ public interface PlayerReference {
      * @param loc
      *         The new home location.
      */
-    public void setHome(Location loc);
+    void setHome(Location loc);
 
     /**
      * Get this players home location
      *
      * @return home {@link Location}
      */
-    public Location getHome();
+    Location getHome();
 
     /**
      * Check if this player has a home location set
      *
      * @return {@code true} if home is set; {@code false} if not
      */
-    public boolean hasHome();
+    boolean hasHome();
 
     /**
      * Returns all allowed IPs for this player as Array
      *
      * @return allowed ips
      */
-    public String[] getAllowedIPs();
+    String[] getAllowedIPs();
 
     /**
      * Get the IP for this player (or last known IP)
      *
      * @return ip address
      */
-    public String getIP();
+    String getIP();
 
     /**
      * Gets the timestamp of the last time the player was online
      *
      * @return last seen timestamp
      */
-    public String getLastJoined();
+    String getLastJoined();
 
     /**
      * Get this player's health.
      *
      * @return health
      */
-    public float getHealth();
+    float getHealth();
 
     /**
      * Set this player's health.
@@ -428,7 +454,7 @@ public interface PlayerReference {
      * @param health
      *         the health to be set
      */
-    public void setHealth(float health);
+    void setHealth(float health);
 
     /**
      * Increase this player's health. This does not set but add the amount of
@@ -437,7 +463,7 @@ public interface PlayerReference {
      * @param health
      *         to increase the health with (negative values decrease)
      */
-    public void increaseHealth(float health);
+    void increaseHealth(float health);
 
     /**
      * Sets the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -447,7 +473,7 @@ public interface PlayerReference {
      * @param value
      *         the value to be set
      */
-    public void setStat(Stat stat, int value);
+    void setStat(Stat stat, int value);
 
     /**
      * Sets the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -457,7 +483,7 @@ public interface PlayerReference {
      * @param value
      *         the value to be set
      */
-    public void setStat(Statistics stat, int value);
+    void setStat(Statistics stat, int value);
 
     /**
      * Increases the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -467,7 +493,7 @@ public interface PlayerReference {
      * @param value
      *         the amount to increase
      */
-    public void increaseStat(Stat stat, int value);
+    void increaseStat(Stat stat, int value);
 
     /**
      * Increases the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -477,7 +503,7 @@ public interface PlayerReference {
      * @param value
      *         the amount to increase
      */
-    public void increaseStat(Statistics stat, int value);
+    void increaseStat(Statistics stat, int value);
 
     /**
      * Decrease the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -487,7 +513,7 @@ public interface PlayerReference {
      * @param value
      *         the amount to decrease
      */
-    public void decreaseStat(Stat stat, int value);
+    void decreaseStat(Stat stat, int value);
 
     /**
      * Decrease the value of a given {@link net.canarymod.api.statistics.Stat}
@@ -497,7 +523,7 @@ public interface PlayerReference {
      * @param value
      *         the amount to decrease
      */
-    public void decreaseStat(Statistics stat, int value);
+    void decreaseStat(Statistics stat, int value);
 
     /**
      * Gets the value of a {@link net.canarymod.api.statistics.Stat}
@@ -507,7 +533,7 @@ public interface PlayerReference {
      *
      * @return stat value
      */
-    public int getStat(Stat stat);
+    int getStat(Stat stat);
 
     /**
      * Gets the value of a {@link net.canarymod.api.statistics.Stat}
@@ -517,7 +543,7 @@ public interface PlayerReference {
      *
      * @return stat value
      */
-    public int getStat(Statistics stat);
+    int getStat(Statistics stat);
 
     /**
      * Checks if the {@link net.canarymod.api.statistics.Achievement} has been awarded
@@ -527,7 +553,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if has achievement; {@code false} if not
      */
-    public boolean hasAchievement(Achievement achievement);
+    boolean hasAchievement(Achievement achievement);
 
     /**
      * Checks if the {@link net.canarymod.api.statistics.Achievement} has been awarded
@@ -537,7 +563,7 @@ public interface PlayerReference {
      *
      * @return {@code true} if has achievement; {@code false} if not
      */
-    public boolean hasAchievement(Achievements achievement);
+    boolean hasAchievement(Achievements achievement);
 
     /**
      * Removes an awarded {@link net.canarymod.api.statistics.Achievement} and any child achievements
@@ -545,7 +571,7 @@ public interface PlayerReference {
      * @param achievement
      *         the {@link net.canarymod.api.statistics.Achievement} to be removed
      */
-    public void removeAchievement(Achievement achievement);
+    void removeAchievement(Achievement achievement);
 
     /**
      * Removes an awarded {@link net.canarymod.api.statistics.Achievement} and any child achievements
@@ -553,7 +579,7 @@ public interface PlayerReference {
      * @param achievement
      *         the {@link net.canarymod.api.statistics.Achievements} to be removed
      */
-    public void removeAchievement(Achievements achievement);
+    void removeAchievement(Achievements achievement);
 
     /**
      * Awards an {@link net.canarymod.api.statistics.Achievement} and any parent achievements requried
@@ -561,7 +587,7 @@ public interface PlayerReference {
      * @param achievement
      *         the {@link net.canarymod.api.statistics.Achievement} to be awarded
      */
-    public void awardAchievement(Achievement achievement);
+    void awardAchievement(Achievement achievement);
 
     /**
      * Awards an {@link net.canarymod.api.statistics.Achievement} and any parent achievements requried
@@ -569,5 +595,20 @@ public interface PlayerReference {
      * @param achievement
      *         the {@link net.canarymod.api.statistics.Achievements} to be awarded
      */
-    public void awardAchievement(Achievements achievement);
+    void awardAchievement(Achievements achievement);
+
+    /**
+     * Get player inventory
+     *
+     * @return inventory
+     */
+    PlayerInventory getInventory();
+
+    /**
+     * Get player enderchest inventory.
+     * NOTE: An offline player will throw an exception with {@link EnderChestInventory#getInventoryOwner()} due to null reference.
+     *
+     * @return enderchest inventory
+     */
+    Inventory getEnderChestInventory();
 }

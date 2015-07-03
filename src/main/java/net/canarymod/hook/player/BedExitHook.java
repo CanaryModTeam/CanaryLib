@@ -15,11 +15,11 @@ public class BedExitHook extends Hook {
 
     /**
      * Create a new BedExitHook
-     * 
+     *
      * @param player
-     *            the player that left the bed
+     *         the player that left the bed
      * @param bed
-     *            the bed the player left
+     *         the bed the player left
      */
     public BedExitHook(Player player, Block bed) {
         this.player = player;

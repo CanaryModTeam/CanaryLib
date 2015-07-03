@@ -109,7 +109,7 @@ public class BackboneWarps extends Backbone {
         try {
             HashMap<String, Object> filter = new HashMap<String, Object>();
             filter.put("name", warp.getName());
-            filter.put("location", warp.getLocation().toString());
+            // filter.put("location", warp.getLocation().toString()); // Location is a bad filter, mkay
             Database.get().remove(schema, filter);
         }
         catch (DatabaseWriteException e) {
@@ -156,7 +156,7 @@ public class BackboneWarps extends Backbone {
         try {
             Database.get().loadAll(schema, daos, new HashMap<String, Object>());
             for (DataAccess dao : daos) {
-                WarpDataAccess data = (WarpDataAccess) dao;
+                WarpDataAccess data = (WarpDataAccess)dao;
                 Group[] groups = makeGroupArray(data.groups);
                 String owner = ToolBox.stringToNull(data.owner);
                 String name = data.name;

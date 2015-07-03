@@ -1,12 +1,6 @@
 package net.canarymod.backbone;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.canarymod.Canary;
-import static net.canarymod.Canary.log;
 import net.canarymod.ToolBox;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.world.World;
@@ -18,6 +12,12 @@ import net.canarymod.permissionsystem.MultiworldPermissionProvider;
 import net.canarymod.permissionsystem.PermissionNode;
 import net.canarymod.permissionsystem.PermissionProvider;
 import net.canarymod.user.Group;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import static net.canarymod.Canary.log;
 
 /**
  * Backbone to the permissions System. This contains NO logic, it is only the
@@ -65,7 +65,7 @@ public class BackbonePermissions extends Backbone {
             filter.put("type", "group");
             Database.get().loadAll(new PermissionDataAccess(world), dataList, filter);
             for (DataAccess da : dataList) {
-                PermissionDataAccess data = (PermissionDataAccess) da;
+                PermissionDataAccess data = (PermissionDataAccess)da;
 
                 provider.addPermission(data.path, data.value, data.id);
             }
@@ -103,7 +103,7 @@ public class BackbonePermissions extends Backbone {
             filter.put("type", "player");
             Database.get().loadAll(new PermissionDataAccess(world), dataList, filter);
             for (DataAccess da : dataList) {
-                PermissionDataAccess data = (PermissionDataAccess) da;
+                PermissionDataAccess data = (PermissionDataAccess)da;
 
                 provider.addPermission(data.path, data.value, data.id);
             }
@@ -157,7 +157,6 @@ public class BackbonePermissions extends Backbone {
         catch (DatabaseReadException e) {
             log.error(e.getMessage(), e);
         }
-
     }
 
     /**
@@ -394,7 +393,9 @@ public class BackbonePermissions extends Backbone {
         return data.hasData();
     }
 
-    /** Creates a range of default permissions for the default groups defined in BackboneGroups */
+    /**
+     * Creates a range of default permissions for the default groups defined in BackboneGroups
+     */
     public static void createDefaultPermissionSet() {
         PermissionDataAccess admin = new PermissionDataAccess(null);
         PermissionDataAccess mods = new PermissionDataAccess(null);
@@ -424,7 +425,7 @@ public class BackbonePermissions extends Backbone {
             log.error(e.getMessage(), e);
         }
     }
-    
+
     /**
      * Validate that player permissions have a UUID and not a playername.
      */
@@ -440,20 +441,20 @@ public class BackbonePermissions extends Backbone {
             filter.put("type", "player");
             Database.get().loadAll(new PermissionDataAccess(world), dataList, filter);
             for (DataAccess da : dataList) {
-                PermissionDataAccess data = (PermissionDataAccess) da;
+                PermissionDataAccess data = (PermissionDataAccess)da;
 
                 if (!ToolBox.isUUID(data.owner)) {
                     HashMap<String, Object> updateFilter = new HashMap<String, Object>();
                     updateFilter.put("owner", data.owner);
-                    
+
                     String uuid = ToolBox.usernameToUUID(data.owner);
                     data.owner = uuid;
                     try {
                         Database.get().update(data, updateFilter);
-                    } catch (DatabaseWriteException ex) {
+                    }
+                    catch (DatabaseWriteException ex) {
                         Canary.log.error("Error Validating Player Permissions: ", ex);
                     }
-                    
                 }
             }
         }

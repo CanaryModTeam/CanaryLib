@@ -52,7 +52,7 @@ public final class NPCBehaviorRegistry {
                 }
 
                 // We checked the class above, ignore unchecked warnings.
-                registered.put((Class<? extends NPCAI>) npcAICls, new NPCBehaviorRegisteredListener(listener, npc, method));
+                registered.put((Class<? extends NPCAI>)npcAICls, new NPCBehaviorRegisteredListener(listener, npc, method));
             }
         }
     }
@@ -78,8 +78,9 @@ public final class NPCBehaviorRegistry {
 
     /**
      * Unregisters a {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener} using the associated {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter}
+     *
      * @param npc
-     * the npc associated with the listener to be unregistered
+     *         the npc associated with the listener to be unregistered
      */
     public static void unregister(NonPlayableCharacter npc) {
         synchronized (registered) {
@@ -92,16 +93,19 @@ public final class NPCBehaviorRegistry {
             }
         }
     }
-    
+
     /**
      * Gets the Registered {@link NPCBehaviorListener} for manipulation.
-     * 
-     * @param clazz The class type of the {@link NPCBehaviorListener} you wish
-     *              to get.
-     * @param npc The {@link NonPlayableCharacter} for which the {@link NPCBehaviorListener} 
-     *              should be registered to.
-     * @return The {@link NPCBehaviorListener}  or null if one of that type is 
-     *          not registered to the given {@link NonPlayableCharacter} 
+     *
+     * @param clazz
+     *         The class type of the {@link NPCBehaviorListener} you wish
+     *         to get.
+     * @param npc
+     *         The {@link NonPlayableCharacter} for which the {@link NPCBehaviorListener}
+     *         should be registered to.
+     *
+     * @return The {@link NPCBehaviorListener}  or null if one of that type is
+     * not registered to the given {@link NonPlayableCharacter}
      */
     public static NPCBehaviorListener getRegisteredListener(Class<? extends NPCBehaviorListener> clazz, NonPlayableCharacter npc) {
         NPCBehaviorListener listener = null;
@@ -117,13 +121,15 @@ public final class NPCBehaviorRegistry {
         }
         return listener;
     }
-    
+
     /**
      * Gets a list of all the Registered {@link NPCBehaviorListener} for manipulation.
-     * 
-     * @param npc The {@link NonPlayableCharacter} for which the {@link NPCBehaviorListener} 
-     *              should be registered to.
-     * @return The list of {@link NPCBehaviorListener} registered to the given {@link NonPlayableCharacter} 
+     *
+     * @param npc
+     *         The {@link NonPlayableCharacter} for which the {@link NPCBehaviorListener}
+     *         should be registered to.
+     *
+     * @return The list of {@link NPCBehaviorListener} registered to the given {@link NonPlayableCharacter}
      */
     public static List<NPCBehaviorListener> getRegisteredListeners(NonPlayableCharacter npc) {
         List<NPCBehaviorListener> listeners = new ArrayList<NPCBehaviorListener>();
@@ -141,10 +147,11 @@ public final class NPCBehaviorRegistry {
 
     /**
      * Parses a NPC AI Event to the {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}s
+     *
      * @param npc
-     * the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} the event is called for
+     *         the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} the event is called for
      * @param npcai
-     * the AI event called
+     *         the AI event called
      */
     public static void execute(NonPlayableCharacter npc, NPCAI npcai) {
         synchronized (registered) {

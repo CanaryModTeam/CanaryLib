@@ -16,8 +16,10 @@ public class PortalUseHook extends CancelableHook {
     /**
      * Constructs a new PortalUseHook
      *
-     * @param player the {@link Player} using the Portal
-     * @param to     the {@link Location} the portal goes to
+     * @param player
+     *         the {@link Player} using the Portal
+     * @param to
+     *         the {@link Location} the portal goes to
      */
     public PortalUseHook(Player player, Location to) {
         this.player = player;

@@ -14,7 +14,7 @@ public interface Biome {
      *
      * @return {@code true} is spawns lightning; {@code false} if not
      */
-    public boolean canSpawnLightning();
+    boolean canSpawnLightning();
 
     /**
      * Check if this is a tropic biome by determining the amount of rainfall.
@@ -22,7 +22,7 @@ public interface Biome {
      *
      * @return {@code true} is tropic; {@code false} if not
      */
-    public boolean isTropic();
+    boolean isTropic();
 
     /**
      * Returns the chance a create can spawn here.
@@ -30,21 +30,21 @@ public interface Biome {
      *
      * @return spawn chance
      */
-    public float getSpawnChance();
+    float getSpawnChance();
 
     /**
      * get an integer representing the amount of rainfall in this biome
      *
      * @return rainfall
      */
-    public int getRainfall();
+    int getRainfall();
 
     /**
      * Returns a float value representing this biomes temperature
      *
      * @return temperature
      */
-    public float getTemperature();
+    float getTemperature();
 
     /**
      * Decorates the chunk coordinates in the given world with decorations of this biome generator
@@ -58,14 +58,14 @@ public interface Biome {
      * @param z
      *         the chunk z coordinate
      */
-    public void decorate(World world, Random rnd, int x, int z);
+    void decorate(World world, Random rnd, int x, int z);
 
     /**
      * get the BiomeType for this BiomeGen
      *
      * @return {@link BiomeType}
      */
-    public BiomeType getBiomeType();
+    BiomeType getBiomeType();
 
     /**
      * Sets the temperature for the biome, and the precipitation amount.<br>
@@ -79,7 +79,7 @@ public interface Biome {
      * @param precipitation
      *         precipitation value
      */
-    public void setTemperatureAndPrecipitation(float temp, float precipitation);
+    void setTemperatureAndPrecipitation(float temp, float precipitation);
 
     /**
      * Sets whether or not snow is permitted.
@@ -87,7 +87,7 @@ public interface Biome {
      * @param canSnow
      *         whether or not it can snow.
      */
-    public void setCanSnow(boolean canSnow);
+    void setCanSnow(boolean canSnow);
 
     /**
      * Sets whether or not Rain is permitted
@@ -95,21 +95,21 @@ public interface Biome {
      * @param canRain
      *         make it rain.
      */
-    public void setCanRain(boolean canRain);
+    void setCanRain(boolean canRain);
 
     /**
      * Gets whether or not snow is permitted.
      *
      * @return true if snow is permitted.
      */
-    public boolean canSnow();
+    boolean canSnow();
 
     /**
      * Gets whether or not Rain is permitted
      *
      * @return true if rein is permitted.
      */
-    public boolean canRain();
+    boolean canRain();
 
     /**
      * Sets the color of this biome.
@@ -117,5 +117,5 @@ public interface Biome {
      * @param hexColor
      *         The hex code for this color.
      */
-    public void setColor(String hexColor);
+    void setColor(String hexColor);
 }

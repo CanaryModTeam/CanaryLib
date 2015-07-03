@@ -17,8 +17,10 @@ public final class BlockRightClickHook extends CancelableHook {
     /**
      * Construct a new BlockRightClickHook
      *
-     * @param player  the Player doing the clicking
-     * @param clicked the block being clicked
+     * @param player
+     *         the Player doing the clicking
+     * @param clicked
+     *         the block being clicked
      */
     public BlockRightClickHook(Player player, Block clicked) {
         this.clicked = clicked;

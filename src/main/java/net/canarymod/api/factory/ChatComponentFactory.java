@@ -1,6 +1,11 @@
 package net.canarymod.api.factory;
 
-import net.canarymod.api.chat.*;
+import net.canarymod.api.chat.ChatComponent;
+import net.canarymod.api.chat.ChatFormatting;
+import net.canarymod.api.chat.ClickEvent;
+import net.canarymod.api.chat.ClickEventAction;
+import net.canarymod.api.chat.HoverEvent;
+import net.canarymod.api.chat.HoverEventAction;
 
 /**
  * Interface to creating the ChatComponent components
@@ -61,7 +66,7 @@ public interface ChatComponentFactory {
      * @return the matching {@link net.canarymod.api.chat.ChatFormatting}
      */
     ChatFormatting getFormattingByName(String name);
-    
+
     /**
      * Gets the {@link net.canarymod.api.chat.ChatFormatting} by it's matching character
      *

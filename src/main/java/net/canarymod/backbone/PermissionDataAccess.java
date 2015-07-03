@@ -25,19 +25,27 @@ public class PermissionDataAccess extends DataAccess {
         this.suffix = suffix;
     }
 
-    /** Node for this Permission. */
+    /**
+     * Node for this Permission.
+     */
     @Column(columnName = "path", dataType = DataType.STRING)
     public String path;
 
-    /** Whether or not this permission is true or false. */
+    /**
+     * Whether or not this permission is true or false.
+     */
     @Column(columnName = "value", dataType = DataType.BOOLEAN)
     public boolean value;
 
-    /** The name of the owner of this node (group or player uuid ) */
+    /**
+     * The name of the owner of this node (group or player uuid )
+     */
     @Column(columnName = "owner", dataType = DataType.STRING)
     public String owner;
 
-    /** The permission node type (player or group) */
+    /**
+     * The permission node type (player or group)
+     */
     @Column(columnName = "type", dataType = DataType.STRING)
     public String type;
 

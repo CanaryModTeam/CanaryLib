@@ -14,5 +14,5 @@ public interface MobSpawner extends TileEntity {
      *
      * @return The Logic Instance.
      */
-    public MobSpawnerLogic getLogic();
+    MobSpawnerLogic getLogic();
 }

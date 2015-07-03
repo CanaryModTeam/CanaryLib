@@ -29,7 +29,7 @@ public class ServerConfiguration implements ConfigurationContainer {
 
         // For control panels still tweaking the server.properties file only...
         PropertiesFile servCfgTemp = null;
-        if(panelSupport){
+        if (panelSupport) {
             // Only initialize the file if we need to read from it
             servCfgTemp = new PropertiesFile("server.properties");
         }
@@ -97,6 +97,10 @@ public class ServerConfiguration implements ConfigurationContainer {
         cfg.setComments("default-world-name", "Name of the default loaded world");
         cfg.getInt("default-world-size", 29999984);
         cfg.setComments("default-world-size", "This sets the maximum possible size in blocks, expressed as a radius, that the world border can obtain.");
+        cfg.getBoolean("flight-kick", true);
+        cfg.setComments("flight-kick", "Enables kicking players who are floating too long.");
+        cfg.getInt("flight-detect-ticks", 80);
+        cfg.setComments("flight-detect-ticks", "The number of ticks a player may float before triggering flight-kick or flight-alert.");
         //cfg.getBoolean("logging", false); //REMOVED
         if (cfg.containsKey("logging")) { // Remove old key
             cfg.removeKey("logging");
@@ -303,6 +307,24 @@ public class ServerConfiguration implements ConfigurationContainer {
     }
 
     /**
+     * Checks if players will be kicked when floating too long.
+     *
+     * @return {@code true} if kick enabled; {@code false} if not
+     */
+    public boolean isFlightKickEnabled() {
+        return cfg.getBoolean("flight-kick", true);
+    }
+
+    /**
+     * Gets the number of ticks a Player is allowed to float before triggering the anti-flying
+     *
+     * @return the number of ticks
+     */
+    public int getFlightDetectTicks() {
+        return cfg.getInt("flight-detect-ticks", 80);
+    }
+
+    /**
      * Gets the Level of message to log
      *
      * @return logger level
@@ -317,7 +339,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return max players
      */
     public int getMaxPlayers() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getInt("max-players", 20);
         }
         return cfg.getInt("max-players", 20);
@@ -341,7 +363,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return {@code true} if online mode is enabled; {@code false} if not
      */
     public boolean isOnlineMode() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getBoolean("online-mode", true);
         }
         return cfg.getBoolean("online-mode", true);
@@ -409,7 +431,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return {@code true} if enabled; {@code false} if not
      */
     public boolean isQueryEnabled() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getBoolean("enable-query", false);
         }
         return cfg.getBoolean("query-enabled", false);
@@ -421,7 +443,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return query port
      */
     public int getQueryPort() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getInt("query.port", 25570);
         }
         return cfg.getInt("query-port", 25565);
@@ -496,7 +518,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return server ip
      */
     public String getBindIp() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getString("server-ip", "");
         }
         return cfg.getString("server-ip", "");
@@ -508,7 +530,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return port
      */
     public int getPort() {
-        if(panelSupport){
+        if (panelSupport) {
             return servCfg.getInt("server-port", 25565);
         }
         return cfg.getInt("server-port", 25565);

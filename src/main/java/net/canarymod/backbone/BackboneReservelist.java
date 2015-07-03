@@ -1,5 +1,6 @@
 package net.canarymod.backbone;
 
+import net.canarymod.ToolBox;
 import net.canarymod.database.DataAccess;
 import net.canarymod.database.Database;
 import net.canarymod.database.exceptions.DatabaseReadException;
@@ -10,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import static net.canarymod.Canary.log;
-import net.canarymod.ToolBox;
 
 /**
  * Backbone to the reservelist system. This contains NO logic, it is only the data
@@ -121,7 +121,7 @@ public class BackboneReservelist extends Backbone {
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                ReservelistDataAccess data = (ReservelistDataAccess) da;
+                ReservelistDataAccess data = (ReservelistDataAccess)da;
                 reservelist.add(data.uuid);
             }
         }
@@ -130,7 +130,7 @@ public class BackboneReservelist extends Backbone {
         }
         return reservelist;
     }
-    
+
     /**
      * Validate all user entries in the database.
      * At this time it merely checks that all entries have a valid UUID.  If an
@@ -142,17 +142,20 @@ public class BackboneReservelist extends Backbone {
         try {
             Database.get().loadAll(schema, daos, new HashMap<String, Object>());
             for (DataAccess dao : daos) {
-                ReservelistDataAccess data = (ReservelistDataAccess) dao;
-                if (data.uuid != null && !data.uuid.trim().equals("")) continue;
-                    String uuid = ToolBox.usernameToUUID(data.player);
-                    HashMap<String, Object> filter = new HashMap<String, Object>();
-                    filter.put("player", data.player);
-                    data.uuid = uuid == null ? "" : uuid;
-                    try {
-                        Database.get().update(data, filter);
-                    } catch (DatabaseWriteException e) {
-                        log.error(e.getMessage(), e);
-                    }
+                ReservelistDataAccess data = (ReservelistDataAccess)dao;
+                if (data.uuid != null && !data.uuid.trim().equals("")) {
+                    continue;
+                }
+                String uuid = ToolBox.usernameToUUID(data.player);
+                HashMap<String, Object> filter = new HashMap<String, Object>();
+                filter.put("player", data.player);
+                data.uuid = uuid == null ? "" : uuid;
+                try {
+                    Database.get().update(data, filter);
+                }
+                catch (DatabaseWriteException e) {
+                    log.error(e.getMessage(), e);
+                }
             }
         }
         catch (DatabaseReadException e) {

@@ -19,8 +19,10 @@ public final class AnvilUseHook extends Hook {
     /**
      * Constructs a new AnvilUseHook
      *
-     * @param player the {@link Player} using the {@link Anvil}
-     * @param anvil  the {@link Anvil} being used
+     * @param player
+     *         the {@link Player} using the {@link Anvil}
+     * @param anvil
+     *         the {@link Anvil} being used
      */
     public AnvilUseHook(Player player, Anvil anvil) {
         this.player = player;

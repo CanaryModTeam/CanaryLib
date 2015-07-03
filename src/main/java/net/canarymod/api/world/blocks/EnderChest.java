@@ -20,5 +20,5 @@ public interface EnderChest extends TileEntity {
      *
      * @return EnderChest inventory
      */
-    public Inventory getInventory(Player player);
+    Inventory getInventory(Player player);
 }

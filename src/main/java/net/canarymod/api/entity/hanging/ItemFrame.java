@@ -14,7 +14,7 @@ public interface ItemFrame extends HangingEntity {
      *
      * @return the Item on the frame
      */
-    public Item getItemInFrame();
+    Item getItemInFrame();
 
     /**
      * Sets the Item in this frame
@@ -22,14 +22,14 @@ public interface ItemFrame extends HangingEntity {
      * @param item
      *         the {@link Item} to attach to the frame
      */
-    public void setItemInFrame(Item item);
+    void setItemInFrame(Item item);
 
     /**
      * Return the rotation of the item currently on this frame.
      *
      * @return integer between 0 and 3
      */
-    public int getItemRotation();
+    int getItemRotation();
 
     /**
      * Sets the rotation of the item currently on this frame
@@ -37,14 +37,14 @@ public interface ItemFrame extends HangingEntity {
      * @param rot
      *         An integer between 0 and 3
      */
-    public void setItemRotation(int rot);
+    void setItemRotation(int rot);
 
     /**
      * Gets the chance for this item frame's item to drop from the frame.
      *
      * @return drop chance
      */
-    public float getItemDropChance();
+    float getItemDropChance();
 
     /**
      * Gets the chance for this item frame's item to drop from the frame.
@@ -52,5 +52,5 @@ public interface ItemFrame extends HangingEntity {
      * @param chance
      *         The chance for drop, float between 0.0 and 1.0
      */
-    public void setItemDropChance(float chance);
+    void setItemDropChance(float chance);
 }

@@ -277,5 +277,4 @@ public class CanaryToVanilla {
 
         return true;
     }
-
 }

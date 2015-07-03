@@ -1,4 +1,3 @@
-
 package net.canarymod.hook.entity;
 
 import net.canarymod.api.entity.Entity;

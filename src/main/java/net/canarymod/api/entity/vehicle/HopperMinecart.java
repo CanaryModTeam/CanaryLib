@@ -14,5 +14,5 @@ public interface HopperMinecart extends ContainerMinecart, Hopper {
      *
      * @return {@code true} if blocked; {@code false} if not
      */
-    public boolean isBlocked();
+    boolean isBlocked();
 }

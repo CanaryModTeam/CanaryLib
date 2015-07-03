@@ -8,6 +8,9 @@ import net.canarymod.api.world.World;
 import net.canarymod.config.Configuration;
 import net.canarymod.database.LocationDataAccess;
 
+import java.util.Arrays;
+import java.util.EnumSet;
+
 /**
  * A Location represents a point in the world including pitch and rotation headings.
  *
@@ -142,33 +145,39 @@ public class Location extends Vector3D {
         this.dimension = dimension;
     }
 
-    /** Check if this object is equal to another one */
+    /**
+     * Check if this object is equal to another one
+     */
     @Override
     public boolean equals(Object other) {
         if (!(other instanceof Location)) {
             return false;
         }
         else {
-            Location l = (Location) other;
+            Location l = (Location)other;
 
             return ((l.x == x) && (l.y == y) && (l.z == z) && (l.dimension == dimension) && (l.pitch == pitch) && (l.rotation == rotation) && (l.world.equals(world)));
         }
     }
 
-    /** Return a hashcode for this object */
+    /**
+     * Return a hashcode for this object
+     */
     @Override
     public int hashCode() {
         int hash = 5;
 
-        hash = (int) (hash + x);
-        hash = (int) (hash + y);
-        hash = (int) (hash + z);
-        hash = (int) (hash + pitch);
-        hash = (int) (hash + rotation);
+        hash = (int)(hash + x);
+        hash = (int)(hash + y);
+        hash = (int)(hash + z);
+        hash = (int)(hash + pitch);
+        hash = (int)(hash + rotation);
         return hash;
     }
 
-    /** @return the world */
+    /**
+     * @return the world
+     */
     public String getWorldName() {
         return cachedWorld.getName();
     }
@@ -185,8 +194,11 @@ public class Location extends Vector3D {
     /**
      * Returns the actual world this location belongs to
      *
-     * @param autoload    {@code true} to auto load the world; {@code false} otherwise.
+     * @param autoload
+     *         {@code true} to auto load the world; {@code false} otherwise.
+     *
      * @return the location's world
+     *
      * @deprecated Use getWorld instead. World is loaded in all cases
      */
     @Deprecated
@@ -216,6 +228,7 @@ public class Location extends Vector3D {
      * Will auto load the world if the world's config has allow warp auto load set to {@code true}
      *
      * @return the location's world
+     *
      * @deprecated use getWorld, world is already checked
      */
     @Deprecated
@@ -269,6 +282,38 @@ public class Location extends Vector3D {
         }
     }
 
+    public String asReadableString(ReadMode... modes) {
+        EnumSet<ReadMode> modeSet = EnumSet.noneOf(ReadMode.class);
+        if (modes != null && modes.length != 0) {
+            modeSet.addAll(Arrays.asList(modes));
+        }
+        StringBuilder builder = new StringBuilder();
+        if (modeSet.contains(ReadMode.XYZ)) {
+            builder.append("X:").append(getBlockX()).append(" ");
+            builder.append("Y:").append(getBlockY()).append(" ");
+            builder.append("Z:").append(getBlockZ()).append(" ");
+        }
+        else if (modeSet.contains(ReadMode.XYZFLOAT)) {
+            builder.append("X:").append(String.format("%.3f", getX())).append(" ");
+            builder.append("Y:").append(String.format("%.3f", getY())).append(" ");
+            builder.append("Z:").append(String.format("%.3f", getZ())).append(" ");
+        }
+
+        if (modeSet.contains(ReadMode.ROTATION)) {
+            builder.append("Rotation:").append(String.format("%.3f", getRotation())).append(" ");
+            builder.append("Pitch:").append(String.format("%.3f", getPitch())).append(" ");
+        }
+
+        if (modeSet.contains(ReadMode.WORLD)) {
+            builder.append("World:").append(getWorldName()).append(" ");
+        }
+
+        if (modeSet.contains(ReadMode.DIMENSION)) {
+            builder.append("Dimension:").append(getType().getName()).append(" ");
+        }
+        return builder.toString();
+    }
+
     public LocationDataAccess toDataAccess(LocationDataAccess lda) {
         super.toDataAccess(lda);
         lda.rotation = this.rotation;
@@ -308,5 +353,16 @@ public class Location extends Vector3D {
             // it is supported...
         }
         return new Location(this);
+    }
+
+    /**
+     * Used in Readable String to define what information to pass
+     */
+    public enum ReadMode {
+        XYZ,
+        XYZFLOAT,
+        ROTATION,
+        WORLD,
+        DIMENSION
     }
 }

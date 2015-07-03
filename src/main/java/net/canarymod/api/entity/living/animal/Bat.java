@@ -12,7 +12,7 @@ public interface Bat extends EntityAnimal {
      *
      * @return {@code true} if hanging; {@code false} if not
      */
-    public boolean isHanging();
+    boolean isHanging();
 
     /**
      * Sets wheter or not this Bat is hanging
@@ -20,6 +20,5 @@ public interface Bat extends EntityAnimal {
      * @param hanging
      *         {@code true} for hanging; {@code false} for not
      */
-    public void setHanging(boolean hanging);
-
+    void setHanging(boolean hanging);
 }

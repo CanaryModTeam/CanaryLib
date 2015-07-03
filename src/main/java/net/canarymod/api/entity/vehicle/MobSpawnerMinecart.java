@@ -14,5 +14,5 @@ public interface MobSpawnerMinecart extends Minecart {
      *
      * @return mobspawnerlogic
      */
-    public MobSpawnerLogic getMobSpawnerLogic();
+    MobSpawnerLogic getMobSpawnerLogic();
 }

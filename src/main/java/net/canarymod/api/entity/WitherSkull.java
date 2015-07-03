@@ -12,7 +12,7 @@ public interface WitherSkull extends Fireball, Explosive {
      *
      * @return {@code true} if invulnerable; {@code false} if not
      */
-    public boolean isInvulnerable();
+    boolean isInvulnerable();
 
     /**
      * Sets if the WitherSkull comes from an invulnerable WitherBoss
@@ -20,5 +20,5 @@ public interface WitherSkull extends Fireball, Explosive {
      * @param invulenerable
      *         {@code true} for invulnerable; {@code false} if not
      */
-    public void setInvulnerable(boolean invulenerable);
+    void setInvulnerable(boolean invulenerable);
 }

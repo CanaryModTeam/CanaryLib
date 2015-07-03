@@ -1,12 +1,12 @@
 package net.canarymod.api;
 
-import java.util.List;
-
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.packet.Packet;
 import net.canarymod.api.world.DimensionType;
 import net.canarymod.api.world.World;
 import net.canarymod.api.world.blocks.Block;
+
+import java.util.List;
 
 /**
  * Interface for the server configuration manager.
@@ -24,14 +24,14 @@ public interface ConfigurationManager {
      * @param packet
      *         the {@link net.canarymod.api.packet.Packet} to be sent
      */
-    public void sendPacketToAllInWorld(String world, Packet packet);
+    void sendPacketToAllInWorld(String world, Packet packet);
 
     /**
      * Get the numbers of online players
      *
      * @return number of online players
      */
-    public int getNumPlayersOnline();
+    int getNumPlayersOnline();
 
     /**
      * Get a player by this name.
@@ -43,21 +43,21 @@ public interface ConfigurationManager {
      *
      * @return the {@link Player} if online; {@code null} if not found
      */
-    public Player getPlayerByName(String name);
+    Player getPlayerByName(String name);
 
     /**
      * Get a list of all players that are currently online
      *
      * @return an {@link List} of all {@link Player}s online
      */
-    public List<Player> getAllPlayers();
+    List<Player> getAllPlayers();
 
     /**
      * Get the maximum number of allowed {@link Player}s on the server
      *
      * @return the maximum
      */
-    public int getMaxPlayers();
+    int getMaxPlayers();
 
     /**
      * Marks a {@link Block} to be updated with the next tick
@@ -73,7 +73,7 @@ public interface ConfigurationManager {
      * @param world
      *         the {@link World} name
      */
-    public void markBlockNeedsUpdate(int x, int y, int z, DimensionType dimension, String world);
+    void markBlockNeedsUpdate(int x, int y, int z, DimensionType dimension, String world);
 
     /**
      * This will put the {@link Player} into the given {@link World}
@@ -85,5 +85,5 @@ public interface ConfigurationManager {
      * @param createPortal
      *         {@code true} to create a Portal; {@code false} if not
      */
-    public void switchDimension(Player player, World world, boolean createPortal);
+    void switchDimension(Player player, World world, boolean createPortal);
 }

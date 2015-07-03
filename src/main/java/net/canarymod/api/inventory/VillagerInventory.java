@@ -10,25 +10,25 @@ import net.canarymod.api.entity.living.humanoid.Villager;
  * @author Almog (Swift)
  */
 public interface VillagerInventory extends Inventory {
-    
+
     /**
      * Get the {@link Villager} involved with this trade
      *
      * @return The {@link Villager} owning this inventory
      */
-    public Villager getOwner();
-    
+    Villager getOwner();
+
     /**
      * Get the {@link Player} who is trading with this Villager
      *
      * @return The {@link Player} trading this Villager
      */
-    public Player getPlayer();
-    
+    Player getPlayer();
+
     /**
      * Get the {@link VillagerTrade} in the inventory window
      *
      * @return the {@link VillagerTrade} in the inventory
      */
-    public VillagerTrade getTrade();
+    VillagerTrade getTrade();
 }

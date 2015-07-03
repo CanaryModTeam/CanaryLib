@@ -15,7 +15,15 @@ public class Backbone {
     }
 
     public enum System {
-        BANS, GROUPS, WARPS, KITS, PERMISSIONS, USERS, WHITELIST, OPERATORS, RESERVELIST;
+        BANS,
+        GROUPS,
+        WARPS,
+        KITS,
+        PERMISSIONS,
+        USERS,
+        WHITELIST,
+        OPERATORS,
+        RESERVELIST;
     }
 
     /**

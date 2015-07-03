@@ -38,6 +38,7 @@ public final class IgnitionHook extends CancelableHook {
      * </ul>
      *
      * @return the {@link Block} catching fire
+     *
      * @see Block#getStatus()
      * @see IgnitionCause
      */
@@ -89,35 +90,43 @@ public final class IgnitionHook extends CancelableHook {
         /**
          * Unknown/Undefined reason
          */
-        UNDEFINED, //
+        UNDEFINED,
+        //
         /**
          * Lava causing ignition
          */
-        LAVA, //
+        LAVA,
+        //
         /**
          * Flint & Steel clicking
          */
-        FLINT_AND_STEEL, //
+        FLINT_AND_STEEL,
+        //
         /**
          * Natural Fire Spread
          */
-        FIRE_SPREAD, //
+        FIRE_SPREAD,
+        //
         /**
          * Block burning up from fire nearby
          */
-        BURNT, //
+        BURNT,
+        //
         /**
          * Lightning strikes
          */
-        LIGHTNING_STRIKE, //
+        LIGHTNING_STRIKE,
+        //
         /**
          * Small Fireball clicking
          */
-        FIREBALL_CLICK, //
+        FIREBALL_CLICK,
+        //
         /**
          * Small or Large Fireball hitting a block
          */
-        FIREBALL_HIT, //
+        FIREBALL_HIT,
+        //
         ;
     }
 }

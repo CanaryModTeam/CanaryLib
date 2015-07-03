@@ -16,9 +16,12 @@ public final class FoodSaturationHook extends Hook {
     /**
      * Constructs a new FoodSaturationHook
      *
-     * @param player the {@link Player} who's Food Level is changing
-     * @param oldval the old (current) value
-     * @param newval the new value
+     * @param player
+     *         the {@link Player} who's Food Level is changing
+     * @param oldval
+     *         the old (current) value
+     * @param newval
+     *         the new value
      */
     public FoodSaturationHook(Player player, float oldval, float newval) {
         this.player = player;
@@ -56,7 +59,8 @@ public final class FoodSaturationHook extends Hook {
     /**
      * Sets the new value to actually be set
      *
-     * @param value the level to set
+     * @param value
+     *         the level to set
      */
     public void setNewValue(float value) {
         this.newval = value;

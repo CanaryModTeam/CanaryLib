@@ -12,7 +12,7 @@ public interface LongTag extends PrimitiveTag<LongTag> {
      *
      * @return the long value
      */
-    public long getValue();
+    long getValue();
 
     /**
      * Sets the value associated with this tag.
@@ -20,6 +20,5 @@ public interface LongTag extends PrimitiveTag<LongTag> {
      * @param value
      *         the long value
      */
-    public void setValue(long value);
-
+    void setValue(long value);
 }

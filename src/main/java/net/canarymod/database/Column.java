@@ -15,7 +15,14 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Column {
     public enum DataType {
-        INTEGER(Integer.class), FLOAT(Float.class), DOUBLE(Double.class), LONG(Long.class), SHORT(Short.class), BYTE(Byte.class), STRING(String.class), BOOLEAN(Boolean.class);
+        INTEGER(Integer.class),
+        FLOAT(Float.class),
+        DOUBLE(Double.class),
+        LONG(Long.class),
+        SHORT(Short.class),
+        BYTE(Byte.class),
+        STRING(String.class),
+        BOOLEAN(Boolean.class);
 
         private Class<?> cls;
 
@@ -42,7 +49,9 @@ public @interface Column {
     }
 
     public enum ColumnType {
-        UNIQUE, PRIMARY, NORMAL;
+        UNIQUE,
+        PRIMARY,
+        NORMAL;
     }
 
     String columnName();
@@ -51,12 +60,15 @@ public @interface Column {
 
     ColumnType columnType() default ColumnType.NORMAL;
 
-    /** Should we auto-increment the value of this field? */
+    /**
+     * Should we auto-increment the value of this field?
+     */
     boolean autoIncrement() default false;
 
-    /** Is this field an implementation of the List interface? */
+    /**
+     * Is this field an implementation of the List interface?
+     */
     boolean isList() default false;
 
     boolean notNull() default false;
-
 }

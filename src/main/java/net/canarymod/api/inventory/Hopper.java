@@ -1,6 +1,5 @@
 package net.canarymod.api.inventory;
 
-import net.canarymod.api.inventory.Inventory;
 import net.canarymod.api.world.World;
 
 /**
@@ -16,35 +15,35 @@ public interface Hopper extends Inventory {
      *
      * @return This <tt>Hopper</tt>'s {@link World}
      */
-    public World getWorld();
+    World getWorld();
 
     /**
      * Get the X position for this <tt>Hopper</tt>.
      *
      * @return This <tt>Hopper</tt>'s X position
      */
-    public double getPosX();
+    double getPosX();
 
     /**
      * Get the Y position for this <tt>Hopper</tt>.
      *
      * @return This <tt>Hopper</tt>'s Y position
      */
-    public double getPosY();
+    double getPosY();
 
     /**
      * Get the Y position for this <tt>Hopper</tt>.
      *
      * @return This <tt>Hopper</tt>'s Y position
      */
-    public double getPosZ();
+    double getPosZ();
 
     /**
      * Get the transfer cooldown for this <tt>Hopper</tt>.
      *
      * @return This <tt>Hopper</tt>'s transfer cooldown in ticks
      */
-    public int getTranferCooldown();
+    int getTranferCooldown();
 
     /**
      * Set the transfer cooldown for this <tt>Hopper</tt>.
@@ -52,5 +51,5 @@ public interface Hopper extends Inventory {
      * @param cooldown
      *         This <tt>Hopper</tt>'s new transfer cooldown in ticks
      */
-    public void setTransferCooldown(int cooldown);
+    void setTransferCooldown(int cooldown);
 }

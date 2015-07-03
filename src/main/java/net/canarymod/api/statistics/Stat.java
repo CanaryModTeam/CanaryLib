@@ -28,5 +28,4 @@ public interface Stat {
      * @return {@code true} if independent; {@code false} if not
      */
     boolean isIndependent();
-
 }

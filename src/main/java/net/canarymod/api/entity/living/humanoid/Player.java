@@ -4,7 +4,6 @@ import com.mojang.authlib.GameProfile;
 import net.canarymod.api.NetServerHandler;
 import net.canarymod.api.PlayerListAction;
 import net.canarymod.api.PlayerListData;
-import net.canarymod.api.PlayerListEntry;
 import net.canarymod.api.PlayerReference;
 import net.canarymod.api.chat.ChatComponent;
 import net.canarymod.api.inventory.Inventory;
@@ -78,13 +77,6 @@ public interface Player extends Human, MessageReceiver, PlayerReference {
     NetServerHandler getNetServerHandler();
 
     /**
-     * Get player enderchest inventory
-     *
-     * @return enderchest inventory
-     */
-    Inventory getEnderChestInventory();
-
-    /**
      * Teleport to this location with specified cause
      * <p/>
      * If other Teleport methods are called, cause default to PLUGIN
@@ -127,22 +119,6 @@ public interface Player extends Human, MessageReceiver, PlayerReference {
     int getPing();
 
     /**
-     * Gets a {@link PlayerListEntry} for the Player
-     * <p/>
-     * The initially set name is {@link Player#getDisplayName()}
-     *
-     * @param shown
-     *         whether it should be shown by default
-     *
-     * @return {@link PlayerListEntry} for the Player
-     *
-     * @see PlayerListEntry
-     * @deprecated Use {@link #getPlayerListData(net.canarymod.api.PlayerListAction)} instead
-     */
-    @Deprecated
-    PlayerListEntry getPlayerListEntry(boolean shown);
-
-    /**
      * Gets a {@link net.canarymod.api.PlayerListData} for the Player
      * <p/>
      * The initially set name is {@link Player#getDisplayName()}
@@ -153,19 +129,6 @@ public interface Player extends Human, MessageReceiver, PlayerReference {
      * @see net.canarymod.api.PlayerListAction
      */
     PlayerListData getPlayerListData(PlayerListAction action);
-
-    /**
-     * Sends a {@link PlayerListEntry} to the Player
-     * <p/>
-     * NOTE: The server needs to have PlayerList enabled in the configuration
-     *
-     * @param plentry
-     *         the {@link PlayerListEntry} to send
-     *
-     * @see PlayerListEntry
-     * @deprecated use {@link #sendPlayerListData(PlayerListData)} instead
-     */
-    void sendPlayerListEntry(PlayerListEntry plentry);
 
     /**
      * Sends a {@link net.canarymod.api.PlayerListData} to the Player
@@ -422,6 +385,4 @@ public interface Player extends Human, MessageReceiver, PlayerReference {
      *         the text of the subtile to show; may be {@code null}
      */
     void showTitle(ChatComponent title, ChatComponent subtitle);
-
-
 }

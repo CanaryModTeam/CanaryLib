@@ -12,63 +12,63 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@link net.canarymod.api.chat.ChatFormatting}
      */
-    public ChatFormatting getColor();
+    ChatFormatting getColor();
 
     /**
      * Checks if this {@code ChatStyle} is bold
      *
      * @return {@code true} if bold; {@code false} if not
      */
-    public boolean isBold();
+    boolean isBold();
 
     /**
      * Checks if this {@code ChatStyle} is italic
      *
      * @return {@code true} if italic; {@code false} if not
      */
-    public boolean isItalic();
+    boolean isItalic();
 
     /**
      * Checks if this {@code ChatStyle} is strikethrough
      *
      * @return {@code true} if strikethrough; {@code false} if not
      */
-    public boolean isStrikethrough();
+    boolean isStrikethrough();
 
     /**
      * Checks if this {@code ChatStyle} is underlined
      *
      * @return {@code true} if underlined; {@code false} if not
      */
-    public boolean isUnderlined();
+    boolean isUnderlined();
 
     /**
      * Checks if this {@code ChatStyle} is obfuscated (random)
      *
      * @return {@code true} if obfuscated; {@code false} if not
      */
-    public boolean isObfuscated();
+    boolean isObfuscated();
 
     /**
      * Checks if this {@code ChatStyle} is empty
      *
      * @return {@code true} if empty; {@code false} if not
      */
-    public boolean isEmpty();
+    boolean isEmpty();
 
     /**
      * Gets the assigned {@link net.canarymod.api.chat.ClickEvent}
      *
      * @return {@link net.canarymod.api.chat.ClickEvent}
      */
-    public ClickEvent getChatClickEvent();
+    ClickEvent getChatClickEvent();
 
     /**
      * Gets the assigned {@link net.canarymod.api.chat.HoverEvent}
      *
      * @return {@link net.canarymod.api.chat.HoverEvent}
      */
-    public HoverEvent getChatHoverEvent();
+    HoverEvent getChatHoverEvent();
 
     /**
      * Sets the {@link net.canarymod.api.chat.ChatFormatting} of this {@code ChatStyle}
@@ -78,7 +78,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setColor(ChatFormatting color);
+    ChatStyle setColor(ChatFormatting color);
 
     /**
      * Sets if this {@code ChatStyle} is bold
@@ -88,7 +88,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setBold(boolean bold);
+    ChatStyle setBold(boolean bold);
 
     /**
      * Sets if this {@code ChatStyle} is italic
@@ -98,7 +98,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setItalic(boolean italic);
+    ChatStyle setItalic(boolean italic);
 
     /**
      * Sets if this {@code ChatStyle} is strikethrough
@@ -108,7 +108,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setStrikethrough(boolean strikethrough);
+    ChatStyle setStrikethrough(boolean strikethrough);
 
     /**
      * Sets if this {@code ChatStyle} is bold
@@ -118,7 +118,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setUnderlined(boolean underlined);
+    ChatStyle setUnderlined(boolean underlined);
 
     /**
      * Sets if this {@code ChatStyle} is bold
@@ -128,7 +128,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setObfuscated(boolean obfuscated);
+    ChatStyle setObfuscated(boolean obfuscated);
 
     /**
      * Sets the {@link net.canarymod.api.chat.ClickEvent} of this {@code ChatStyle}
@@ -138,7 +138,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setChatClickEvent(ClickEvent clickEvent);
+    ChatStyle setChatClickEvent(ClickEvent clickEvent);
 
     /**
      * Sets the {@link net.canarymod.api.chat.HoverEvent} of this {@code ChatStyle}
@@ -148,7 +148,7 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setChatHoverEvent(HoverEvent hoverEvent);
+    ChatStyle setChatHoverEvent(HoverEvent hoverEvent);
 
     /**
      * Sets the {@code ChatStyle} parent of this {@code ChatStyle}
@@ -158,19 +158,19 @@ public interface ChatStyle extends Cloneable {
      *
      * @return {@code this}
      */
-    public ChatStyle setParentStyle(ChatStyle chatStyle);
+    ChatStyle setParentStyle(ChatStyle chatStyle);
 
     /**
      * Gets the parent {@code ChatStyle} of this {@code ChatStyle}
      *
      * @return the parent {@code ChatStyle}
      */
-    public ChatStyle getParentStyle();
+    ChatStyle getParentStyle();
 
     /**
      * Clones this {@code ChatStyle}
      *
      * @return {@code ChatStyle} clone
      */
-    public ChatStyle clone();
+    ChatStyle clone();
 }

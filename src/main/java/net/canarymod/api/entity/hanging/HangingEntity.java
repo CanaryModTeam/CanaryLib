@@ -14,7 +14,7 @@ public interface HangingEntity extends Entity {
      *
      * @return {@code 0} for SOUTH; {@code 1} for WEST; {@code 2} for NORTH; {@code 3} for EAST
      */
-    public int getHangingDirection();
+    int getHangingDirection();
 
     /**
      * Sets the hanging direction of the HangingEntity
@@ -22,14 +22,14 @@ public interface HangingEntity extends Entity {
      * @param direction
      *         {@code 0} for SOUTH; {@code 1} for WEST; {@code 2} for NORTH; {@code 3} for EAST
      */
-    public void setHangingDirection(int direction);
+    void setHangingDirection(int direction);
 
     /**
      * Checks whether the HangingEntity is on a valid surface
      *
      * @return {@code true} if valid; {@code false} if not
      */
-    public boolean isOnValidSurface();
+    boolean isOnValidSurface();
 
     /**
      * Gets the current ticks the counter is at.<br>
@@ -37,7 +37,7 @@ public interface HangingEntity extends Entity {
      *
      * @return the current counter tick
      */
-    public int getTickCounter();
+    int getTickCounter();
 
     /**
      * Sets the current ticks the counter is at.
@@ -45,5 +45,5 @@ public interface HangingEntity extends Entity {
      * @param ticks
      *         the current ticks
      */
-    public void setTickCounter(int ticks);
+    void setTickCounter(int ticks);
 }

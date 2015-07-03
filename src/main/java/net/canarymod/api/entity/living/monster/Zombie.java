@@ -14,7 +14,7 @@ public interface Zombie extends EntityMob {
      *
      * @return {@code true} if Villager; {@code false} if not
      */
-    public boolean isVillager();
+    boolean isVillager();
 
     /**
      * Sets if the Zombie is a {@link Villager}
@@ -22,14 +22,14 @@ public interface Zombie extends EntityMob {
      * @param villager
      *         {@code true} for Villager; {@code false} for not
      */
-    public void setVillager(boolean villager);
+    void setVillager(boolean villager);
 
     /**
      * Gets if the Zombie is a child
      *
      * @return {@code true} if child; {@code false} if not
      */
-    public boolean isChild();
+    boolean isChild();
 
     /**
      * Sets if the Zombie is a child
@@ -37,7 +37,7 @@ public interface Zombie extends EntityMob {
      * @param child
      *         {@code true} for child; {@code false} for not
      */
-    public void setChild(boolean child);
+    void setChild(boolean child);
 
     /**
      * Gets the number of ticks till converting into a {@link Villager}<br>
@@ -45,7 +45,7 @@ public interface Zombie extends EntityMob {
      *
      * @return the ticks till converting
      */
-    public int getConversionTime();
+    int getConversionTime();
 
     /**
      * Sets the number of ticks till converting into a {@link Villager}<br>
@@ -54,21 +54,23 @@ public interface Zombie extends EntityMob {
      * @param ticks
      *         the number of ticks till converting
      */
-    public void setConversionTime(int ticks);
+    void setConversionTime(int ticks);
 
     /**
      * Gets whether the Zombie is in the process of converting to a {@link Villager}
      *
      * @return {@code true} if converting; {@code false} if not
      */
-    public boolean isConverting();
+    boolean isConverting();
 
     /**
      * Stops the conversion process of the Zombie.<br>
      * NOTE: This will set the ConversionTime to -1
      */
-    public void stopConverting();
+    void stopConverting();
 
-    /** Converts the Zombie into a {@link Villager} */
-    public void convertToVillager();
+    /**
+     * Converts the Zombie into a {@link Villager}
+     */
+    void convertToVillager();
 }

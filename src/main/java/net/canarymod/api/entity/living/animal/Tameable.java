@@ -14,7 +14,7 @@ public interface Tameable extends EntityAnimal {
      *
      * @return owner
      */
-    public LivingBase getOwner();
+    LivingBase getOwner();
 
     /**
      * Gets the name of the owner <br/>
@@ -25,14 +25,14 @@ public interface Tameable extends EntityAnimal {
      * @deprecated use {@link net.canarymod.api.entity.living.animal.Tameable#getOwnerID()} instead
      */
     @Deprecated
-    public String getOwnerName();
+    String getOwnerName();
 
     /**
-     * Return the identity of this Tameabe's Owner
+     * Return the identity of this Tamable's Owner
      *
      * @return owner id
      */
-    public String getOwnerID();
+    String getOwnerID();
 
     /**
      * Set the owner of this entity
@@ -40,7 +40,7 @@ public interface Tameable extends EntityAnimal {
      * @param entity
      *         the {@link LivingBase} to set as Owner
      */
-    public void setOwner(LivingBase entity);
+    void setOwner(LivingBase entity);
 
     /**
      * Sets the owner's name
@@ -48,14 +48,14 @@ public interface Tameable extends EntityAnimal {
      * @param name
      *         the name of the owner
      */
-    public void setOwner(String name);
+    void setOwner(String name);
 
     /**
      * Check if that animal is tamed
      *
      * @return {@code true} if tame; {@code false} otherwise
      */
-    public boolean isTamed();
+    boolean isTamed();
 
     /**
      * Set this entity tamed or not
@@ -63,14 +63,14 @@ public interface Tameable extends EntityAnimal {
      * @param tamed
      *         {@code true} for tame; {@code false} for not tame
      */
-    public void setTamed(boolean tamed);
+    void setTamed(boolean tamed);
 
     /**
      * Check if this animal is currently sitting
      *
      * @return {@code true} if sitting; {@code false} otherwise
      */
-    public boolean isSitting();
+    boolean isSitting();
 
     /**
      * Set this entity sitting or not
@@ -78,5 +78,5 @@ public interface Tameable extends EntityAnimal {
      * @param sitting
      *         {@code true} for sitting; {@code false} for not sitting
      */
-    public void setSitting(boolean sitting);
+    void setSitting(boolean sitting);
 }

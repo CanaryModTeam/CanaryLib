@@ -12,7 +12,7 @@ public interface Boat extends Vehicle {
      *
      * @return forward direction
      */
-    public int getForwardDirection();
+    int getForwardDirection();
 
     /**
      * Sets the direction that the vehicle is moving
@@ -20,5 +20,5 @@ public interface Boat extends Vehicle {
      * @param direction
      *         the forward direction (0,1,2,3)
      */
-    public void setForwardDirection(int direction);
+    void setForwardDirection(int direction);
 }

@@ -26,13 +26,13 @@ public interface EntityLiving extends LivingBase {
      *         Set the speed of this mob, it should be between 0.0F and 1.0F <br>
      *         <b>NOTE:</b> 1.0F is really really fast.<br>
      */
-    public void moveEntityToXYZ(double x, double y, double z, float speed);
+    void moveEntityToXYZ(double x, double y, double z, float speed);
 
     /**
      * Plays the sound of this entity (For example the growl of a Zombie if this
      * is a Zombie)
      */
-    public void playLivingSound();
+    void playLivingSound();
 
     /**
      * Spawn this entity with an attached rider(s) on its back
@@ -42,15 +42,15 @@ public interface EntityLiving extends LivingBase {
      *
      * @return {@code true} if successful; {@code false} if not
      */
-    public boolean spawn(EntityLiving... riders);
+    boolean spawn(EntityLiving... riders);
 
     /**
      * Get this Entity's attack target.
      *
      * @return target
-     *         the {@link LivingBase} target or {@code null} for no target
+     * the {@link LivingBase} target or {@code null} for no target
      */
-    public LivingBase getAttackTarget();
+    LivingBase getAttackTarget();
 
     /**
      * Sets this Entity's attack target.
@@ -58,14 +58,14 @@ public interface EntityLiving extends LivingBase {
      * @param livingbase
      *         the target to attack
      */
-    public void setAttackTarget(LivingBase livingbase);
+    void setAttackTarget(LivingBase livingbase);
 
     /**
      * Gets the item this {@link EntityLiving} is holding
      *
      * @return {@link Item} if holding an item; {@code null} otherwise
      */
-    public Item getItemInHand();
+    Item getItemInHand();
 
     /**
      * Returns an Item array with 5 elements, representing this Entities current equipment
@@ -74,7 +74,7 @@ public interface EntityLiving extends LivingBase {
      *
      * @see EntityLiving#getEquipmentInSlot(int)
      */
-    public Item[] getEquipment();
+    Item[] getEquipment();
 
     /**
      * Returns the equipment piece for the given slot.
@@ -91,7 +91,7 @@ public interface EntityLiving extends LivingBase {
      *
      * @return item in the slot
      */
-    public Item getEquipmentInSlot(int slot);
+    Item getEquipmentInSlot(int slot);
 
     /**
      * Override all of this Entities equipment
@@ -99,7 +99,7 @@ public interface EntityLiving extends LivingBase {
      * @param items
      *         the items to set as equipment
      */
-    public void setEquipment(Item[] items);
+    void setEquipment(Item[] items);
 
     /**
      * Set an item to a given slot.
@@ -116,7 +116,7 @@ public interface EntityLiving extends LivingBase {
      * @param slot
      *         the slot to set
      */
-    public void setEquipment(Item item, int slot);
+    void setEquipment(Item item, int slot);
 
     /**
      * Gets the drop chance of the items in the equipment slots
@@ -133,7 +133,7 @@ public interface EntityLiving extends LivingBase {
      *
      * @return drop chance
      */
-    public float getDropChance(int slot);
+    float getDropChance(int slot);
 
     /**
      * Set the drop chance of an item for a given slot.
@@ -150,14 +150,14 @@ public interface EntityLiving extends LivingBase {
      * @param chance
      *         the float chance for drop
      */
-    public void setDropChance(int slot, float chance);
+    void setDropChance(int slot, float chance);
 
     /**
      * Gets whether the EntityLiving can pick up loot
      *
      * @return {@code true} if can pick up; {@code false} if not
      */
-    public boolean canPickUpLoot();
+    boolean canPickUpLoot();
 
     /**
      * Sets whether the EntityLiving can pick up loot
@@ -165,40 +165,40 @@ public interface EntityLiving extends LivingBase {
      * @param loot
      *         {@code true} if can pick up; {@code false} if not
      */
-    public void setCanPickUpLoot(boolean loot);
+    void setCanPickUpLoot(boolean loot);
 
     /**
      * Gets if the EntityLiving is persistent (like Ocelots or Wolves)
      *
      * @return {@code true} for persistent; {@code false} for not
      */
-    public boolean isPersistenceRequired();
+    boolean isPersistenceRequired();
 
     /**
      * Get the PathFinder class for this Entity.
      *
      * @return the pathfinder
      */
-    public PathFinder getPathFinder();
+    PathFinder getPathFinder();
 
     /**
      * Returns the AIManager for this entity. <br>
-     * <b>NOTE:</b> This manager is for AI that is reaction based. i.e. attacking 
-     * enemy entities when they are close or picking up an item that is nearby 
+     * <b>NOTE:</b> This manager is for AI that is reaction based. i.e. attacking
+     * enemy entities when they are close or picking up an item that is nearby
      * when walking
      *
      * @return AI Manager
      */
-    public AIManager getAITaskManager();
+    AIManager getAITaskManager();
 
     /**
-     * Returns the AIManager for this entity. <br>
-     * <b>NOTE:</b> This manager is for AI that is target based. Like moving to 
+     * Returns the targeting AIManager for this entity. <br>
+     * <b>NOTE:</b> This manager is for AI that is target based. Like moving to
      * a Location or finding an entity to attack.
      *
      * @return AI Manager
      */
-    public AIManager getAITargetTaskManager();
+    AIManager getAITargetTaskManager();
 
     /**
      * Checks if the EntityLiving can attack the {@link EntityType}
@@ -208,5 +208,5 @@ public interface EntityLiving extends LivingBase {
      *
      * @return {@code true} if can attack; {@code false} if not
      */
-    public boolean canAttackEntity(EntityType type);
+    boolean canAttackEntity(EntityType type);
 }

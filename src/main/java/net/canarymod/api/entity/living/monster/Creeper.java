@@ -14,7 +14,7 @@ public interface Creeper extends EntityMob, Explosive {
      *
      * @return {@code true} if charged; {@code false} if not
      */
-    public boolean isCharged();
+    boolean isCharged();
 
     /**
      * Set this creeper charged (as if hit by lightning)
@@ -22,14 +22,14 @@ public interface Creeper extends EntityMob, Explosive {
      * @param charged
      *         {@code true} for charged; {@code false} for not
      */
-    public void setCharged(boolean charged);
+    void setCharged(boolean charged);
 
     /**
      * Gets if the Creeper is preparing to take everything out with it
      *
      * @return {@code true} if agro; {@code false} if not
      */
-    public boolean isAgro();
+    boolean isAgro();
 
     /**
      * Sets the Creeper agro state
@@ -37,6 +37,5 @@ public interface Creeper extends EntityMob, Explosive {
      * @param agro
      *         {@code true} if agro; {@code false} if not
      */
-    public void setAgro(boolean agro);
-
+    void setAgro(boolean agro);
 }

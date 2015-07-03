@@ -2,7 +2,7 @@ package net.canarymod.hook;
 
 /**
  * Thrown when an exception propogates up to the hook dispatcher
- * The exception is wrapped in this exception 
+ * The exception is wrapped in this exception
  *
  * @author Chris (damagefilter)
  */

@@ -1,7 +1,9 @@
 package net.canarymod.user;
 
+import net.canarymod.backbone.GroupDataAccess;
 import net.canarymod.chat.ChatFormat;
 import net.canarymod.permissionsystem.PermissionProvider;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -294,7 +296,28 @@ public class Group {
         }
     }
 
+    /**
+     * Checks if this group is applied globally (not assigned to a specific world)
+     *
+     * @return {@code true} if global; {@code false} if not
+     */
     public boolean isGlobal() {
         return this.worldName == null;
+    }
+
+    /**
+     * Creates a {@link net.canarymod.backbone.GroupDataAccess} of this Group
+     *
+     * @return {@link net.canarymod.backbone.GroupDataAccess}
+     */
+    public GroupDataAccess toDataAccess() {
+        GroupDataAccess gda = new GroupDataAccess();
+        gda.id = getId();
+        gda.isDefault = isDefaultGroup();
+        gda.name = getName();
+        gda.parent = getParent() != null ? getParent().getName() : null;
+        gda.prefix = getPrefix();
+        gda.worldName = getWorldName();
+        return gda;
     }
 }

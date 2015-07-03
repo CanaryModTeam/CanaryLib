@@ -22,8 +22,10 @@ public final class EntityDeathHook extends Hook {
     /**
      * Constructs a new EntityDeathHook
      *
-     * @param entity the {@link Entity} that is dying
-     * @param cause  the {@link DamageSource} that killed the Entity
+     * @param entity
+     *         the {@link Entity} that is dying
+     * @param cause
+     *         the {@link DamageSource} that killed the Entity
      */
     public EntityDeathHook(Entity entity, DamageSource cause) {
         this.entity = entity;

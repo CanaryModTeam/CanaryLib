@@ -15,5 +15,5 @@ public interface EntityTrackerEntry {
      *
      * @return the {@link Entity}
      */
-    public Entity getEntity();
+    Entity getEntity();
 }

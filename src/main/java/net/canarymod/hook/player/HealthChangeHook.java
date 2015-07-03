@@ -15,9 +15,12 @@ public final class HealthChangeHook extends CancelableHook {
     /**
      * Constructs a new HealthChange hook
      *
-     * @param player the {@link Player} who's health is changing
-     * @param oldVal the old health value
-     * @param newVal the new health value
+     * @param player
+     *         the {@link Player} who's health is changing
+     * @param oldVal
+     *         the old health value
+     * @param newVal
+     *         the new health value
      */
     public HealthChangeHook(Player player, float oldVal, float newVal) {
         this.player = player;

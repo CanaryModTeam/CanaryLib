@@ -38,7 +38,7 @@ public class SetHome implements NativeCommand {
                 sendTranslatedMessage(player, ChatFormat.YELLOW, "home set other", target.getName());
             }
             else {
-                sendTranslatedNotice(player, "unknown player", args[1]);
+                sendTranslatedNotice(player, "unknown player", args[0]);
             }
         }
         else {

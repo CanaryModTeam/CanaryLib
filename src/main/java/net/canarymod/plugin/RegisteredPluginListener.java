@@ -43,7 +43,7 @@ public class RegisteredPluginListener {
      */
     public void execute(Hook hook) {
         if (hook instanceof CancelableHook) {
-            if (((CancelableHook) hook).isCanceled()) {
+            if (((CancelableHook)hook).isCanceled()) {
                 if (!executor.ignoreCanceled) {
                     return;
                 }

@@ -61,7 +61,7 @@ public final class TNTActivateHook extends CancelableHook {
      *
      * @return the {@link net.canarymod.api.entity.vehicle.TNTMinecart}; {@code null} if TNT Block
      */
-    public TNTMinecart getTNTCart(){
+    public TNTMinecart getTNTCart() {
         return tntMinecart;
     }
 

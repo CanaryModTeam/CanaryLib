@@ -12,7 +12,7 @@ public interface Minecart extends Vehicle {
      *
      * @return {@code true} if this Minecart is in Reverse; {@code false} if not
      */
-    public boolean isInReverse();
+    boolean isInReverse();
 
     /**
      * Sets the rolling amplitude the cart rolls while being attacked.
@@ -20,14 +20,14 @@ public interface Minecart extends Vehicle {
      * @param amp
      *         the amplitude in which the cart rolls
      */
-    public void setRollingAmplitude(int amp);
+    void setRollingAmplitude(int amp);
 
     /**
      * Gets the rolling amplitude the cart rolls while being attacked.
      *
      * @return the rolling amplitude
      */
-    public int getRollingAmplitude();
+    int getRollingAmplitude();
 
     /**
      * Sets the rolling direction the cart rolls while being attacked. Can be 1 or -1.
@@ -35,13 +35,12 @@ public interface Minecart extends Vehicle {
      * @param direction
      *         the direction in which the cart rolls
      */
-    public void setRollingDirection(int direction);
+    void setRollingDirection(int direction);
 
     /**
      * Gets the rolling direction the cart rolls while being attacked. Can be 1 or -1.
      *
      * @return the direction the cart rolls
      */
-    public int getRollingDirection();
-
+    int getRollingDirection();
 }

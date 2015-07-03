@@ -18,7 +18,7 @@ public interface Serializer<T> {
      *
      * @throws CanaryDeserializeException
      */
-    public T deserialize(String data) throws CanaryDeserializeException;
+    T deserialize(String data) throws CanaryDeserializeException;
 
     /**
      * Serialize object into a String that can be saved
@@ -28,7 +28,7 @@ public interface Serializer<T> {
      *
      * @return
      */
-    public String serialize(T object);
+    String serialize(T object);
 
     /**
      * Returns the creator of this serializer.
@@ -36,12 +36,12 @@ public interface Serializer<T> {
      *
      * @return
      */
-    public String getVendor();
+    String getVendor();
 
     /**
      * Returns the simple name of the class that can be serialized/deserialized with this
      *
      * @return
      */
-    public String getType();
+    String getType();
 }

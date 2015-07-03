@@ -438,5 +438,4 @@ public interface EntityFactory {
      * @return the new NonPlayableCharacter if all arguments are valid; {@code null} if an argument is not
      */
     NonPlayableCharacter newNPC(String name, Location location);
-
 }

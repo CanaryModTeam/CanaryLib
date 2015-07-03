@@ -73,7 +73,6 @@ public abstract class PluginLifecycleBase implements PluginLifecycle {
         _load();
         desc.setCurrentState(PluginState.DISABLED);
         return desc.getPlugin();
-
     }
 
     /**

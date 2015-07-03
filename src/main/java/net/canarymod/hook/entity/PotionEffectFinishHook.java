@@ -17,8 +17,10 @@ public final class PotionEffectFinishHook extends Hook {
     /**
      * Constructs a new PotionEffectFinshHook
      *
-     * @param entity the {@link LivingBase} having the {@link PotionEffect} finishing it's effect
-     * @param effect the {@link PotionEffect} being finished
+     * @param entity
+     *         the {@link LivingBase} having the {@link PotionEffect} finishing it's effect
+     * @param effect
+     *         the {@link PotionEffect} being finished
      */
     public PotionEffectFinishHook(LivingBase entity, PotionEffect effect) {
         this.entity = entity;

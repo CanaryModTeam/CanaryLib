@@ -17,12 +17,11 @@ public interface OfflinePlayer extends PlayerReference {
      *
      * @return {@link CompoundTag}
      */
-    public CompoundTag getNBT();
+    CompoundTag getNBT();
 
     /**
      * Save changes made to this offline player.
      * <b>Important:</b> This will only apply if the player is not online!
      */
-    public void save();
-
+    void save();
 }

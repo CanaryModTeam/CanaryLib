@@ -8,7 +8,7 @@ import net.canarymod.hook.Hook;
  *
  * @author ar56te876mis <ar56te876mis@yahoo.de>
  */
-public class HeldItemChangeHook extends Hook{
+public class HeldItemChangeHook extends Hook {
 
     private Player player;
     private int oldval, newval;
@@ -16,9 +16,12 @@ public class HeldItemChangeHook extends Hook{
     /**
      * Constructs a new HeldItemChangeHook
      *
-     * @param player the {@link Player} whose hold slot is changing
-     * @param oldval the old (current) value
-     * @param newval the new value
+     * @param player
+     *         the {@link Player} whose hold slot is changing
+     * @param oldval
+     *         the old (current) value
+     * @param newval
+     *         the new value
      */
     public HeldItemChangeHook(Player player, int oldval, int newval) {
         this.player = player;
@@ -56,7 +59,8 @@ public class HeldItemChangeHook extends Hook{
     /**
      * Sets the new value to actually be set
      *
-     * @param value the held slot to set
+     * @param value
+     *         the held slot to set
      */
     public void setNewValue(int value) {
         this.newval = value;

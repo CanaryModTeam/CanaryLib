@@ -6,13 +6,17 @@ import net.canarymod.CanaryDeserializeException;
  * A Vector3D represents a point ins in the 3D space.
  * That can be a block or a player coodinate
  *
- * @author chris
+ * @author chris, Tobias (Toble_Miner)
  */
 public class Vector3D extends Position {
-    /** This is the nullvector (0,0,0) */
+    /**
+     * This is the nullvector (0,0,0)
+     */
     public static final Vector3D zero = new Vector3D(0, 0, 0);
 
-    /** Shortcut to Vector3D(0,0,1) */
+    /**
+     * Shortcut to Vector3D(0,0,1)
+     */
     public static final Vector3D forward = new Vector3D(0, 0, 1);
 
     public Vector3D(double x, double y, double z) {
@@ -78,6 +82,7 @@ public class Vector3D extends Position {
      * but you'll have to squre the numbers you're checking against yourself
      *
      * @param v
+     *
      * @return
      */
     public double getSquareDistance(Position v) {
@@ -111,20 +116,21 @@ public class Vector3D extends Position {
         if (!(obj instanceof Vector3D)) {
             return false;
         }
-        Vector3D other = (Vector3D) obj;
+        Vector3D other = (Vector3D)obj;
 
         return other.getX() == this.x && other.getY() == this.y && other.getZ() == this.z;
-
     }
 
-    /** Return a hashcode for this object */
+    /**
+     * Return a hashcode for this object
+     */
     @Override
     public int hashCode() {
         int hash = 3;
 
-        hash = (int) (hash + x);
-        hash = (int) (hash + y);
-        hash = (int) (hash + z);
+        hash = (int)(hash + x);
+        hash = (int)(hash + y);
+        hash = (int)(hash + z);
         return hash;
     }
 
@@ -142,6 +148,7 @@ public class Vector3D extends Position {
      *
      * @param min
      * @param max
+     *
      * @return
      */
     public boolean isWithin(Position min, Position max) {
@@ -151,7 +158,6 @@ public class Vector3D extends Position {
 
 //        return this.getBlockX() >= min.getBlockX() && this.getBlockX() <= max.getBlockX() && this.getBlockY() >= min.getBlockY() && this.getBlockY() <= max.getBlockY() && this.getBlockZ() >= min.getBlockZ() && this.getBlockZ() <= max.getBlockZ();
     }
-
 
     /**
      * Add the given Vector to this Vector and return the result as new Vector3D
@@ -187,12 +193,35 @@ public class Vector3D extends Position {
     }
 
     /**
+     * Calculates the dot product of this vector with another
+     *
+     * @param v
+     *         Vector
+     *
+     * @return dot product
+     */
+    public double dot(Vector3D v) {
+        return this.x * v.x + this.y * v.y + this.z * v.z;
+    }
+
+    /**
+     * Calculates the angle between this vector and another
+     * @param v Vector
+     *
+     * @return angle between vectors
+     */
+    public double angle(Vector3D v) {
+        return Math.acos(this.dot(v) / (this.getMagnitude() * v.getMagnitude()));
+    }
+
+
+    /**
      * Get the length (or magnitude) of this vector
      *
      * @return
      */
     public double getMagnitude() {
-        return Math.sqrt(x*x + y*y + z*z);
+        return Math.sqrt(x * x + y * y + z * z);
     }
 
     @Override
@@ -215,6 +244,7 @@ public class Vector3D extends Position {
      *
      * @param v1
      * @param v2
+     *
      * @return minimum
      */
     public static Vector3D getMinimum(Position v1, Position v2) {
@@ -226,17 +256,21 @@ public class Vector3D extends Position {
      *
      * @param v1
      * @param v2
+     *
      * @return minimum
      */
-    public static Vector3D getMaximum(Position  v1, Position v2) {
+    public static Vector3D getMaximum(Position v1, Position v2) {
         return new Vector3D(Math.max(v1.getX(), v2.getX()), Math.max(v1.getY(), v2.getY()), Math.max(v1.getZ(), v2.getZ()));
     }
 
     /**
      * Calculates the center point between 2 points
      *
-     * @param p1 first point
-     * @param p2 second point
+     * @param p1
+     *         first point
+     * @param p2
+     *         second point
+     *
      * @return Vector between p1 and p2
      */
     public static Vector3D getCenterPoint(Position p1, Position p2) {
@@ -251,6 +285,7 @@ public class Vector3D extends Position {
      *
      * @param v1
      * @param v2
+     *
      * @return Major Vector, null if something went wrong
      */
     public static Vector3D getMajor(Vector3D v1, Vector3D v2) {
@@ -273,6 +308,7 @@ public class Vector3D extends Position {
      *
      * @param v1
      * @param v2
+     *
      * @return Minor Vector, null if something went wrong
      */
     public static Vector3D getMinor(Vector3D v1, Vector3D v2) {

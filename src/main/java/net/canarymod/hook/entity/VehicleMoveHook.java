@@ -43,7 +43,8 @@ public final class VehicleMoveHook extends CancelableHook {
     /**
      * Override this vehicles target position
      *
-     * @param to the to to set
+     * @param to
+     *         the to to set
      */
     public void setTo(Vector3D to) {
         this.to = to;

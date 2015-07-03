@@ -9,47 +9,88 @@ import java.util.Map;
  * @author Jason (darkdiplomat)
  */
 public enum BiomeType {
-    UNDEFINED(-1), // Is this one safe?
-    OCEAN(0), //
-    PLAINS(1), //
-    DESERT(2), //
-    HILLS_EXTREME(3), //
-    FOREST(4), //
-    TAIGA(5), //
-    SWAMPLAND(6), //
-    RIVER(7), //
-    HELL(8), //
-    SKY(9), //
-    OCEAN_FROZEN(10), //
-    RIVER_FROZEN(11), //
-    PLAINS_ICE(12), //
-    MOUNTAINS_ICE(13), //
-    MUSHROOM_ISLAND(14), //
-    MUSHROOM_ISLAND_SHORE(15), //
-    BEACH(16), //
-    HILLS_DESERT(17), //
-    HILLS_FOREST(18), //
-    HILLS_TAIGA(19), //
-    HILLS_EXTREME_EDGE(20), //
-    JUNGLE(21), //
-    HILLS_JUNGLE(22), //
-    JUNGLE_EDGE(23), //
-    OCEAN_DEEP(24), //
-    BEACH_STONE(25), //
-    BEACH_COLD(26), //
-    FOREST_BIRCH(27), //
-    HILLS_FOREST_BIRCH(28), //
-    FOREST_ROOFED(29), //
-    TAIGA_COLD(30), //
-    HILLS_TAIGA_COLD(31), //
-    TAIGA_MEGA(32), //
-    HILLS_TAIGA_MEGA(33), //
-    HILLS_EXTREME_PLUS(34),//
-    SAVANNA(35), //
-    PLATEAU_SAVANNA(36), //
-    MESA(37), //
-    PLATEAU_MESA_F(38), //
-    PLATEAU_MESA(39), //
+    UNDEFINED(-1),
+    // Is this one safe?
+    OCEAN(0),
+    //
+    PLAINS(1),
+    //
+    DESERT(2),
+    //
+    HILLS_EXTREME(3),
+    //
+    FOREST(4),
+    //
+    TAIGA(5),
+    //
+    SWAMPLAND(6),
+    //
+    RIVER(7),
+    //
+    HELL(8),
+    //
+    SKY(9),
+    //
+    OCEAN_FROZEN(10),
+    //
+    RIVER_FROZEN(11),
+    //
+    PLAINS_ICE(12),
+    //
+    MOUNTAINS_ICE(13),
+    //
+    MUSHROOM_ISLAND(14),
+    //
+    MUSHROOM_ISLAND_SHORE(15),
+    //
+    BEACH(16),
+    //
+    HILLS_DESERT(17),
+    //
+    HILLS_FOREST(18),
+    //
+    HILLS_TAIGA(19),
+    //
+    HILLS_EXTREME_EDGE(20),
+    //
+    JUNGLE(21),
+    //
+    HILLS_JUNGLE(22),
+    //
+    JUNGLE_EDGE(23),
+    //
+    OCEAN_DEEP(24),
+    //
+    BEACH_STONE(25),
+    //
+    BEACH_COLD(26),
+    //
+    FOREST_BIRCH(27),
+    //
+    HILLS_FOREST_BIRCH(28),
+    //
+    FOREST_ROOFED(29),
+    //
+    TAIGA_COLD(30),
+    //
+    HILLS_TAIGA_COLD(31),
+    //
+    TAIGA_MEGA(32),
+    //
+    HILLS_TAIGA_MEGA(33),
+    //
+    HILLS_EXTREME_PLUS(34),
+    //
+    SAVANNA(35),
+    //
+    PLATEAU_SAVANNA(36),
+    //
+    MESA(37),
+    //
+    PLATEAU_MESA_F(38),
+    //
+    PLATEAU_MESA(39),
+    //
     ;
 
     private byte id;
@@ -57,7 +98,7 @@ public enum BiomeType {
     private static byte biomeCount = -1; //Start at -1 to account for undefined being -1
 
     private BiomeType(int id) {
-        this.id = (byte) id;
+        this.id = (byte)id;
         add(this.id, this);
     }
 
@@ -73,7 +114,7 @@ public enum BiomeType {
      * Gets the byte for the BiomeType
      *
      * @return id
-     *         the BiomeType id
+     * the BiomeType id
      */
     public byte getId() {
         return id;

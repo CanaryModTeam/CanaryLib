@@ -12,7 +12,7 @@ public interface NoteBlock extends TileEntity {
      *
      * @return note pitch
      */
-    public byte getNote();
+    byte getNote();
 
     /**
      * Set the note pitch
@@ -20,10 +20,12 @@ public interface NoteBlock extends TileEntity {
      * @param note
      *         the note pitch
      */
-    public void setNote(byte note);
+    void setNote(byte note);
 
-    /** Emit a sound from this note block */
-    public void play();
+    /**
+     * Emit a sound from this note block
+     */
+    void play();
 
     /**
      * Returns the instrument for this note block as byte value<br>
@@ -35,5 +37,5 @@ public interface NoteBlock extends TileEntity {
      *
      * @return instrument byte
      */
-    public byte getInstrument();
+    byte getInstrument();
 }

@@ -15,28 +15,28 @@ public interface Recipe {
      *
      * @return the resulting {@link Item}
      */
-    public Item getResult();
+    Item getResult();
 
     /**
      * Gets the size of the Recipe
      *
      * @return the recipe size
      */
-    public int getRecipeSize();
+    int getRecipeSize();
 
     /**
      * Gets if the Recipe is Shapeless or not
      *
      * @return {@code true} if shapeless; {@code false} if not
      */
-    public boolean isShapeless();
+    boolean isShapeless();
 
     /**
      * Gets if the Recipe is Shaped or not
      *
      * @return {@code true} if shaped; {@code false} if not
      */
-    public boolean isShaped();
+    boolean isShaped();
 
     /**
      * Checks the CraftingMatrix if it matches the Recipe
@@ -46,6 +46,5 @@ public interface Recipe {
      *
      * @return {@code true} if matches; {@code false} if not
      */
-    public boolean matchesMatrix(CraftingMatrix matrix);
-
+    boolean matchesMatrix(CraftingMatrix matrix);
 }

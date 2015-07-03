@@ -261,7 +261,9 @@ public abstract class DataAccess {
         }
     }
 
-    /** Makes sure the database file for this DataAccess exists before anything starts to use it */
+    /**
+     * Makes sure the database file for this DataAccess exists before anything starts to use it
+     */
     private void createTable() {
         if (!schemaUpdated.contains(getClass())) {
             try {

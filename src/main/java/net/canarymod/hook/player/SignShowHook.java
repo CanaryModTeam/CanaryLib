@@ -16,8 +16,10 @@ public final class SignShowHook extends Hook {
     /**
      * Constructs a new SignShowHook
      *
-     * @param player the {@link Player} being shown a {@link Sign}
-     * @param sign   the {@link Sign} being shown
+     * @param player
+     *         the {@link Player} being shown a {@link Sign}
+     * @param sign
+     *         the {@link Sign} being shown
      */
     public SignShowHook(Player player, Sign sign) {
         this.player = player;

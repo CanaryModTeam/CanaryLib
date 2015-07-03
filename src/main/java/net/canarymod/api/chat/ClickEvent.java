@@ -12,12 +12,12 @@ public interface ClickEvent {
      *
      * @return {@link ClickEventAction}
      */
-    public ClickEventAction getAction();
+    ClickEventAction getAction();
 
     /**
      * Gets the value of this {@code ClickEvent}
      *
      * @return the value
      */
-    public String getValue();
+    String getValue();
 }

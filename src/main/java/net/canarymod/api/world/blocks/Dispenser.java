@@ -14,7 +14,7 @@ public interface Dispenser extends LockableTileEntity {
      *
      * @return the entity spawned
      */
-    public Entity activate();
+    Entity activate();
 
     /**
      * Dispense the item from the given slot.
@@ -24,5 +24,5 @@ public interface Dispenser extends LockableTileEntity {
      *
      * @return the entity spawned
      */
-    public Entity dispenseFromSlot(int slot);
+    Entity dispenseFromSlot(int slot);
 }

@@ -15,14 +15,14 @@ public interface EntityPotion extends EntityThrowable {
      *
      * @return the Potion Type ID
      */
-    public short getPotionTypeId();
+    short getPotionTypeId();
 
     /**
      * Gets the Potion Type as a PotionType
      *
      * @return the Potion Type
      */
-    public PotionType getPotionType();
+    PotionType getPotionType();
 
     /**
      * Sets the Potion Type ID
@@ -30,7 +30,7 @@ public interface EntityPotion extends EntityThrowable {
      * @param typeId
      *         the Type ID to set
      */
-    public void setPotionTypeId(short typeId);
+    void setPotionTypeId(short typeId);
 
     /**
      * Sets the Potion Type
@@ -38,6 +38,5 @@ public interface EntityPotion extends EntityThrowable {
      * @param type
      *         the PotionType to set
      */
-    public void setPotionType(PotionType type);
-
+    void setPotionType(PotionType type);
 }

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * ScoreObjectiveCriteria wrapper
  *
- * @author Somners 
+ * @author Somners
  */
 public interface ScoreObjectiveCriteria {
 
@@ -14,7 +14,7 @@ public interface ScoreObjectiveCriteria {
      *
      * @return The internal protocol name.
      */
-    public String getProtocolName();
+    String getProtocolName();
 
     /**
      * Used to get a score based on this criteria<br>
@@ -25,7 +25,7 @@ public interface ScoreObjectiveCriteria {
      *
      * @return The score.
      */
-    public int getScore(List<?> list);
+    int getScore(List<?> list);
 
     /**
      * Is read only? If this is true you cannot add or remove to the score.
@@ -33,5 +33,5 @@ public interface ScoreObjectiveCriteria {
      *
      * @return true if read only, false otherwise.
      */
-    public boolean isReadOnly();
+    boolean isReadOnly();
 }

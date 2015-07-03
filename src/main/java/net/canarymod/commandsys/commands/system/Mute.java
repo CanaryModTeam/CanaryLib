@@ -20,7 +20,7 @@ public class Mute implements NativeCommand {
 
         if (target != null) {
             if (caller.getReceiverType().equals(ReceiverType.PLAYER)) {
-                Player c = (Player) caller;
+                Player c = (Player)caller;
                 if (!c.getGroup().hasControlOver(target.getGroup())) {
                     sendTranslatedNotice(caller, "mute nocontrol");
                     return;

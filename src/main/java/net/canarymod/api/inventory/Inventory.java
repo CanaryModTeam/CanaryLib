@@ -14,7 +14,7 @@ public interface Inventory {
      * @param item
      *         the {@link Item} to add
      */
-    public void addItem(Item item);
+    void addItem(Item item);
 
     /**
      * Adds an item to this inventory. (amount will be 1)
@@ -22,7 +22,7 @@ public interface Inventory {
      * @param type
      *         The ItemType for this item.
      */
-    public void addItem(ItemType type);
+    void addItem(ItemType type);
 
     /**
      * Adds an item to this inventory. (amount will be 1)
@@ -30,15 +30,15 @@ public interface Inventory {
      * @param itemId
      *         The ID number for this item.
      */
-    public void addItem(int itemId);
+    void addItem(int itemId);
 
     /**
      * Adds an item to this inventory (amount will be 1)
      *
      * @param machineName
-     *          The internal name for this item.
+     *         The internal name for this item.
      */
-    public void addItem(String machineName);
+    void addItem(String machineName);
 
     /**
      * Adds an item to this inventory (amount will be 1)
@@ -48,7 +48,7 @@ public interface Inventory {
      * @param damage
      *         the Item damage
      */
-    public void addItem(int itemId, short damage);
+    void addItem(int itemId, short damage);
 
     /**
      * Adds an item to this inventory
@@ -58,7 +58,7 @@ public interface Inventory {
      * @param amount
      *         Amount of this item.
      */
-    public void addItem(int itemId, int amount);
+    void addItem(int itemId, int amount);
 
     /**
      * Adds an item to this inventory
@@ -68,7 +68,7 @@ public interface Inventory {
      * @param amount
      *         Amount of this item.
      */
-    public void addItem(ItemType type, int amount);
+    void addItem(ItemType type, int amount);
 
     /**
      * Adds an item to this inventory
@@ -78,7 +78,7 @@ public interface Inventory {
      * @param amount
      *         Amount of this item.
      */
-    public void addItem(String machineName, int amount);
+    void addItem(String machineName, int amount);
 
     /**
      * Adds an item to this inventory
@@ -90,17 +90,19 @@ public interface Inventory {
      * @param damage
      *         the item damage
      */
-    public void addItem(int itemId, int amount, short damage);
+    void addItem(int itemId, int amount, short damage);
 
-    /** Remove all items from this container */
-    public void clearContents();
+    /**
+     * Remove all items from this container
+     */
+    void clearContents();
 
     /**
      * Empties the inventory and returns a copy of it for further processing
      *
      * @return a {@link Item} array of what the inventory had
      */
-    public Item[] clearInventory();
+    Item[] clearInventory();
 
     /**
      * Remove from the amount from the next available item stack with the given
@@ -111,7 +113,7 @@ public interface Inventory {
      * @param amount
      *         Amount of this item.
      */
-    public void decreaseItemStackSize(int itemId, int amount);
+    void decreaseItemStackSize(int itemId, int amount);
 
     /**
      * Remove from the amount from the next available item stack with the given
@@ -124,7 +126,7 @@ public interface Inventory {
      * @param damage
      *         Damage value for this item.
      */
-    public void decreaseItemStackSize(int itemId, int amount, short damage);
+    void decreaseItemStackSize(int itemId, int amount, short damage);
 
     /**
      * Remove from the amount from the next available item stack that matches the Item
@@ -132,28 +134,28 @@ public interface Inventory {
      * @param item
      *         the {@link Item}
      */
-    public void decreaseItemStackSize(Item item);
+    void decreaseItemStackSize(Item item);
 
     /**
      * Get the inventory contents
      *
      * @return a {@link Item} array of what the inventory has
      */
-    public Item[] getContents();
+    Item[] getContents();
 
     /**
      * Get the next empty slot or -1 if there are no more empty slots
      *
      * @return the slot id of an empty slot or -1 if no empty slot
      */
-    public int getEmptySlot();
+    int getEmptySlot();
 
     /**
      * Get the name of this container (something like inventory.chest)
      *
      * @return t
      */
-    public String getInventoryName();
+    String getInventoryName();
 
     /**
      * Get the stack limit for this inventory. That is: How big cna an item
@@ -161,7 +163,7 @@ public interface Inventory {
      *
      * @return stack limit
      */
-    public int getInventoryStackLimit();
+    int getInventoryStackLimit();
 
     /**
      * Get item by {@link ItemType} if it exists, returns null if inventory
@@ -172,7 +174,7 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(ItemType type);
+    Item getItem(ItemType type);
 
     /**
      * Get the next available item stack that has the specified ID
@@ -182,17 +184,17 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(int id);
+    Item getItem(int id);
 
     /**
      * Get the next available item stack that has the specified ID
      *
      * @param machineName
-     *        The internal name for this item.
+     *         The internal name for this item.
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(String machineName);
+    Item getItem(String machineName);
 
     /**
      * Get item by {@link ItemType} and this amount
@@ -204,7 +206,7 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(ItemType type, int amount);
+    Item getItem(ItemType type, int amount);
 
     /**
      * Get an item with the specified amount from this container. This will
@@ -218,7 +220,7 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(int id, int amount);
+    Item getItem(int id, int amount);
 
     /**
      * Get an item with the specified amount from this container. This will
@@ -232,7 +234,7 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(String machineName, int amount);
+    Item getItem(String machineName, int amount);
 
     /**
      * Get an item with the specified amount from this container. This will
@@ -248,14 +250,14 @@ public interface Inventory {
      *
      * @return the {@link Item} match or {@code null} if not found
      */
-    public Item getItem(int id, int amount, short damage);
+    Item getItem(int id, int amount, short damage);
 
     /**
      * Get the size of this inventory
      *
      * @return the inventory size
      */
-    public int getSize();
+    int getSize();
 
     /**
      * Get the item in the given slot
@@ -265,7 +267,7 @@ public interface Inventory {
      *
      * @return the {@link Item} in the slot or {@code null} if no Item
      */
-    public Item getSlot(int slot);
+    Item getSlot(int slot);
 
     /**
      * Check if this container contains any item stack with the specified ID
@@ -275,7 +277,7 @@ public interface Inventory {
      *
      * @return {@code true} if has item; {@code false} if not
      */
-    public boolean hasItem(int itemId);
+    boolean hasItem(int itemId);
 
     /**
      * Check if this inventory contains this item.
@@ -285,7 +287,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItem(String machineName);
+    boolean hasItem(String machineName);
 
     /**
      * Check if this inventory contains this item.
@@ -295,7 +297,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItem(ItemType type);
+    boolean hasItem(ItemType type);
 
     /**
      * Check if this container contains any item stack with the specified ID
@@ -307,7 +309,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItem(int itemId, short damage);
+    boolean hasItem(int itemId, short damage);
 
     /**
      * Check if this inventory contains the requested item with the requested
@@ -320,7 +322,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(ItemType type, int amount);
+    boolean hasItemStack(ItemType type, int amount);
 
     /**
      * Check if the container has an item stack with the specified ID and the
@@ -333,7 +335,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(int itemId, int amount);
+    boolean hasItemStack(int itemId, int amount);
 
     /**
      * Check if the container has an item stack with the specified ID and the
@@ -346,7 +348,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(String machineName, int amount);
+    boolean hasItemStack(String machineName, int amount);
 
     /**
      * Check if the container has an item stack with the specified ID and the
@@ -361,7 +363,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(int itemId, int amount, int damage);
+    boolean hasItemStack(int itemId, int amount, int damage);
 
     /**
      * Check if this container has an itemstack with the specified ID, a minimum
@@ -376,7 +378,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(String machineName, int minAmount, int maxAmount);
+    boolean hasItemStack(String machineName, int minAmount, int maxAmount);
 
     /**
      * Check if this container has an itemstack with the specified ID, a minimum
@@ -391,7 +393,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(ItemType type, int minAmount, int maxAmount);
+    boolean hasItemStack(ItemType type, int minAmount, int maxAmount);
 
     /**
      * Check if this container has an itemstack with the specified ID, a minimum
@@ -408,7 +410,7 @@ public interface Inventory {
      *
      * @return {@code true} if inventory contains this item, {@code false} otherwise
      */
-    public boolean hasItemStack(int itemId, int minAmount, int maxAmount, int damage);
+    boolean hasItemStack(int itemId, int minAmount, int maxAmount, int damage);
 
     /**
      * Adds the item to the set, appending to stacks or with no or full stack,
@@ -418,9 +420,9 @@ public interface Inventory {
      *         the {@link Item} to insert
      *
      * @return true if all items are in the inventory, false when items are left
-     *         over. item is updated to the leftover-amount.
+     * over. item is updated to the leftover-amount.
      */
-    public boolean insertItem(Item item);
+    boolean insertItem(Item item);
 
     /**
      * Set a slot in the inventory with this item. Item contains slot
@@ -429,7 +431,7 @@ public interface Inventory {
      * @param item
      *         the {@link Item} to set
      */
-    public void setSlot(Item item);
+    void setSlot(Item item);
 
     /**
      * Set item with this id at the provided slot.
@@ -441,7 +443,7 @@ public interface Inventory {
      * @param slot
      *         The slot for this item.
      */
-    public void setSlot(int itemId, int amount, int slot);
+    void setSlot(int itemId, int amount, int slot);
 
     /**
      * Put the specified item with the specified amount into the specified slot
@@ -455,7 +457,7 @@ public interface Inventory {
      * @param slot
      *         The slot for this item.
      */
-    public void setSlot(int itemId, int amount, int damage, int slot);
+    void setSlot(int itemId, int amount, int damage, int slot);
 
     /**
      * Put the specified item with the specified amount into the specified slot
@@ -467,7 +469,7 @@ public interface Inventory {
      * @param slot
      *         The slot for this item.
      */
-    public void setSlot(String machineName, int amount, int slot);
+    void setSlot(String machineName, int amount, int slot);
 
     /**
      * Put the specified item with the specified amount into the specified slot
@@ -479,7 +481,7 @@ public interface Inventory {
      * @param slot
      *         The slot for this item.
      */
-    public void setSlot(ItemType type, int amount, int slot);
+    void setSlot(ItemType type, int amount, int slot);
 
     /**
      * Remove an item from this container
@@ -489,7 +491,7 @@ public interface Inventory {
      *
      * @return the {@link Item} instance removed or {@code null} if no item
      */
-    public Item removeItem(Item item);
+    Item removeItem(Item item);
 
     /**
      * Remove an item by this ID from the container
@@ -499,7 +501,7 @@ public interface Inventory {
      *
      * @return the {@link Item} instance removed or {@code null} if no item
      */
-    public Item removeItem(int id);
+    Item removeItem(int id);
 
     /**
      * Remove an item by this ID from the container
@@ -511,7 +513,7 @@ public interface Inventory {
      *
      * @return the {@link Item} instance removed or {@code null} if no item
      */
-    public Item removeItem(int id, int damage);
+    Item removeItem(int id, int damage);
 
     /**
      * Remove an item by this ID from the container
@@ -521,7 +523,7 @@ public interface Inventory {
      *
      * @return the {@link Item} instance removed or {@code null} if no item
      */
-    public Item removeItem(String machineName);
+    Item removeItem(String machineName);
 
     /**
      * Remove an item by this ID from the container
@@ -531,7 +533,7 @@ public interface Inventory {
      *
      * @return the {@link Item} instance removed or {@code null} if no item
      */
-    public Item removeItem(ItemType type);
+    Item removeItem(ItemType type);
 
     /**
      * Set the contents of this container object
@@ -539,7 +541,7 @@ public interface Inventory {
      * @param items
      *         the {@link Item} array to set
      */
-    public void setContents(Item[] items);
+    void setContents(Item[] items);
 
     /**
      * Set the name of this container.
@@ -547,7 +549,7 @@ public interface Inventory {
      * @param value
      *         the name for the inventory
      */
-    public void setInventoryName(String value);
+    void setInventoryName(String value);
 
     /**
      * Set the slot at the given index with the specified value
@@ -557,28 +559,31 @@ public interface Inventory {
      * @param value
      *         the {@link Item} to set
      */
-    public void setSlot(int index, Item value);
+    void setSlot(int index, Item value);
 
     /**
      * Checks if this inventory can be opened remotely
      *
      * @return {@code true} if can be opened remotely; {@code false} if not.
      */
-    public boolean canOpenRemote();
+    boolean canOpenRemote();
 
-    public void setCanOpenRemote(boolean remote);
+    void setCanOpenRemote(boolean remote);
 
-    /** Update this container */
-    public void update();
+    /**
+     * Update this container
+     */
+    void update();
 
-    public InventoryType getInventoryType();
+    InventoryType getInventoryType();
 
     /**
      * Checks if the inventory has enough space to insert
      *
-     * @param item       The {@link Item} to insert
+     * @param item
+     *         The {@link Item} to insert
+     *
      * @return {@code true} if there is room to insert, else {@code false}
      */
-    public boolean canInsertItems(Item item);
-
+    boolean canInsertItems(Item item);
 }

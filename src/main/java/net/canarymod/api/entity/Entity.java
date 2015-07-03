@@ -1,5 +1,6 @@
 package net.canarymod.api.entity;
 
+import net.canarymod.api.BoundingBox;
 import net.canarymod.api.entity.living.Golem;
 import net.canarymod.api.inventory.Item;
 import net.canarymod.api.nbt.BaseTag;
@@ -9,6 +10,7 @@ import net.canarymod.api.world.position.Location;
 import net.canarymod.api.world.position.Position;
 import net.canarymod.api.world.position.Vector3D;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -527,7 +529,9 @@ public interface Entity {
      */
     void dismount();
 
-    /** Destroys this entity */
+    /**
+     * Destroys this entity
+     */
     void destroy();
 
     /**
@@ -662,4 +666,50 @@ public interface Entity {
      * @return {@code true} if eating; {@code false} if not
      */
     boolean isEating();
+
+    /**
+     * Gets a list of nearby entities within a given radius
+     *
+     * @param radius
+     *         the radius to check for entities
+     *
+     * @return a list of nearby entities
+     */
+    List<Entity> getNearbyEntities(double radius);
+
+    /**
+     * Gets a list of nearby entities within a given vector
+     *
+     * @param vector
+     *         the vector to check for entities
+     *
+     * @return a list of nearby entities
+     */
+    List<Entity> getNearbyEntities(Vector3D vector);
+
+    /**
+     * Gets a list of nearby entities within a given radius filtering out any that are not an instance of the given filtered types
+     *
+     * @param radius
+     *         the radius to check for entities
+     * @param filter
+     *         an array of Entity types to select for return
+     *
+     * @return a list of nearby entities filtered by the given classes
+     */
+    List<Entity> getNearbyEntities(double radius, EntityType... filter);
+
+    /**
+     * Gets a list of nearby entities within a given vector filtering out any that are not an instance of the given filtered types
+     *
+     * @param vector
+     *         the vector to check for entities
+     * @param filter
+     *         an array of Entity types to select for return
+     *
+     * @return a list of nearby entities filtered by the given classes
+     */
+    List<Entity> getNearbyEntities(Vector3D vector, EntityType... filter);
+
+    BoundingBox getBoundingBox();
 }

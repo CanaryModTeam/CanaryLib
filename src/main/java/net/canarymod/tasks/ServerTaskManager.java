@@ -2,7 +2,9 @@ package net.canarymod.tasks;
 
 import net.canarymod.plugin.Plugin;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -75,7 +77,44 @@ public final class ServerTaskManager {
         }
     }
 
-    /** Internal method called to run the tasks or decrease timers. */
+    /**
+     * Finds out if the given {@code task} is queued.
+     *
+     * @param task
+     *         what {@link ServerTask} to check
+     * @return
+     *         {@code true} if the given {@code task} is queued; {@code false} otherwise
+     */
+    public static boolean isQueued(ServerTask task) {
+        synchronized ($.tasks) {
+            return $.tasks.containsValue(task);
+        }
+    }
+
+    /**
+     * Gets a {@link List} of {@link ServerTask}s that are in queue with the given {@code owner}
+     *
+     * @param owner
+     *         The {@link TaskOwner} to look for {@link ServerTask}s with
+     *
+     * @return
+     *         will return an empty {@link ArrayList} if no {@link ServerTask}s are found
+     */
+    public static List<ServerTask> getServerTasksForTaskOwner(TaskOwner owner) {
+        synchronized ($.tasks) {
+            ArrayList<ServerTask> tasks = new ArrayList<ServerTask>();
+            for (Entry<ServerTask, TaskOwner> serverTaskTaskOwnerEntry : $.tasks.entrySet()) {
+                if (serverTaskTaskOwnerEntry.getValue().equals(owner)) {
+                    tasks.add(serverTaskTaskOwnerEntry.getKey());
+                }
+            }
+            return tasks;
+        }
+    }
+
+    /**
+     * Internal method called to run the tasks or decrease timers.
+     */
     public static void runTasks() {
         if ($.tasks.isEmpty()) {
             // No tasks? no execution needed

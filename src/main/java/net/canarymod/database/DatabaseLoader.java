@@ -18,13 +18,13 @@ import static net.canarymod.Canary.log;
  */
 public class DatabaseLoader {
     /**
-     * Scans database folder, loads all valid databases and registers them
+     * Scans db adapters folder, loads all valid databases and registers them
      * at Database.Type. This must be the first bootstrapping step,
      * as all other steps require a functional database.
      * This also means this must not make use of anything that isn't loaded already
      */
     public static void load() {
-        File dbFolder = new File("databases/");
+        File dbFolder = new File("dbadapters/");
         if (!dbFolder.exists()) {
             dbFolder.mkdirs();
         }
@@ -39,7 +39,7 @@ public class DatabaseLoader {
                 String dbName = inf.getString("database-name");
                 Class<?> dbClass = ploader.loadClass(mainclass);
 
-                Database db = (Database) dbClass.newInstance();
+                Database db = (Database)dbClass.newInstance();
                 if (db != null) {
                     Database.Type.registerDatabase(dbName, db);
                 }

@@ -62,7 +62,7 @@ public class BanCommand implements NativeCommand {
             if (playerSelectorArray.length > 0) {
                 for (Player p : playerSelectorArray) {
                     if (isPlayer) {
-                        Player c = (Player) caller;
+                        Player c = (Player)caller;
                         if (!c.getGroup().hasControlOver(p.getGroup())) {
                             continue;
                         }
@@ -113,7 +113,7 @@ public class BanCommand implements NativeCommand {
             return false;
         }
         if (isPlayer) {
-            Player c = (Player) caller;
+            Player c = (Player)caller;
             if (!c.getGroup().hasControlOver(ref.getGroup())) {
                 sendTranslatedNotice(caller, "ban nocontrol", caller.getLocale());
                 return true;
@@ -130,7 +130,7 @@ public class BanCommand implements NativeCommand {
         Canary.hooks().callHook(new BanHook(ref, ref.getIP(), caller, reason, timestamp));
         sendTranslatedNotice(caller, "ban banned", ref.getName());
         if (ref.isOnline() && ref instanceof Player) {
-            ((Player) ref).kick(reason);
+            ((Player)ref).kick(reason);
         }
         return true;
     }

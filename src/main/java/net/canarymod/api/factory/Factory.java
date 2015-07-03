@@ -14,69 +14,68 @@ public interface Factory {
      *
      * @return {@link ItemFactory}
      */
-    public ItemFactory getItemFactory();
+    ItemFactory getItemFactory();
 
     /**
      * Gets the {@link PotionFactory} instance
      *
      * @return {@link PotionFactory}
      */
-    public PotionFactory getPotionFactory();
+    PotionFactory getPotionFactory();
 
     /**
      * Gets the {@link EntityFactory} instance
      *
      * @return {@link EntityFactory}
      */
-    public EntityFactory getEntityFactory();
+    EntityFactory getEntityFactory();
 
     /**
      * Gets the {@link ObjectFactory} instance
      *
      * @return {@link ObjectFactory}
      */
-    public ObjectFactory getObjectFactory();
+    ObjectFactory getObjectFactory();
 
     /**
      * Gets the {@link NBTFactory} instance
      *
      * @return {@link NBTFactory}
      */
-    public NBTFactory getNBTFactory();
+    NBTFactory getNBTFactory();
 
     /**
      * Gets the {@link PacketFactory} instance
      *
      * @return {@link PacketFactory}
      */
-    public PacketFactory getPacketFactory();
+    PacketFactory getPacketFactory();
 
     /**
      * Gets the {@link net.canarymod.api.factory.ChatComponentFactory} instance
      *
      * @return {@link net.canarymod.api.factory.ChatComponentFactory}
      */
-    public ChatComponentFactory getChatComponentFactory();
+    ChatComponentFactory getChatComponentFactory();
 
     /**
      * Gets the {@link net.canarymod.api.factory.AttributeFactory} instance
      *
      * @return {@link net.canarymod.api.factory.AttributeFactory}
      */
-    public AttributeFactory getAttributeFactory();
+    AttributeFactory getAttributeFactory();
 
     /**
      * Gets the {@link net.canarymod.api.factory.StatisticsFactory} instance
      *
      * @return {@link net.canarymod.api.factory.StatisticsFactory}
      */
-    public StatisticsFactory getStatisticsFactory();
-    
+    StatisticsFactory getStatisticsFactory();
+
     /**
      * Gets the {@link net.canarymod.api.factory.AIFactory} instance
-     * 
+     *
      * @return {@link net.canarymod.api.factory.AIFactory}
      */
-    public AIFactory getAIFactory();
-
+    AIFactory getAIFactory();
 }

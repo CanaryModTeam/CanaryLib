@@ -2,14 +2,17 @@ package net.canarymod.api;
 
 /**
  * An enum of player game modes
- * 
+ *
  * @author Jason (darkdiplomat)
  */
 public enum GameMode {
     /* DO NOT REORDER */
-    SURVIVAL, //
-    CREATIVE, //
-    ADVENTURE, //
+    SURVIVAL,
+    //
+    CREATIVE,
+    //
+    ADVENTURE,
+    //
     SPECTATOR,
     //
     ;

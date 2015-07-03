@@ -12,7 +12,7 @@ public interface Comparator extends TileEntity {
      *
      * @return output signal
      */
-    public int getOutputSignal();
+    int getOutputSignal();
 
     /**
      * Sets the output signal of the Comparator
@@ -20,6 +20,5 @@ public interface Comparator extends TileEntity {
      * @param signal
      *         the output signal
      */
-    public void setOutputSignal(int signal);
-
+    void setOutputSignal(int signal);
 }

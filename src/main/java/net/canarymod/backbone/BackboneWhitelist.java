@@ -1,5 +1,6 @@
 package net.canarymod.backbone;
 
+import net.canarymod.ToolBox;
 import net.canarymod.database.DataAccess;
 import net.canarymod.database.Database;
 import net.canarymod.database.exceptions.DatabaseReadException;
@@ -10,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import static net.canarymod.Canary.log;
-import net.canarymod.ToolBox;
 
 /**
  * Backbone to the whitelist system. This contains NO logic, it is only the data
@@ -71,7 +71,7 @@ public class BackboneWhitelist extends Backbone {
             return;
         }
         WhitelistDataAccess data = new WhitelistDataAccess();
-        
+
         if (ToolBox.isUUID(player)) {
             data.player = "";
             data.uuid = player;
@@ -123,7 +123,7 @@ public class BackboneWhitelist extends Backbone {
         try {
             Database.get().loadAll(schema, dataList, new HashMap<String, Object>());
             for (DataAccess da : dataList) {
-                WhitelistDataAccess data = (WhitelistDataAccess) da;
+                WhitelistDataAccess data = (WhitelistDataAccess)da;
                 whiteList.add(data.uuid);
             }
         }
@@ -132,7 +132,7 @@ public class BackboneWhitelist extends Backbone {
         }
         return whiteList;
     }
-    
+
     /**
      * Validate all user entries in the database.
      * At this time it merely checks that all entries have a valid UUID.  If an
@@ -144,17 +144,20 @@ public class BackboneWhitelist extends Backbone {
         try {
             Database.get().loadAll(schema, daos, new HashMap<String, Object>());
             for (DataAccess dao : daos) {
-                WhitelistDataAccess data = (WhitelistDataAccess) dao;
-                if (data.uuid != null && !data.uuid.trim().equals("")) continue;
-                    String uuid = ToolBox.usernameToUUID(data.player);
-                    HashMap<String, Object> filter = new HashMap<String, Object>();
-                    filter.put("player", data.player);
-                    data.uuid = uuid == null ? "" : uuid;
-                    try {
-                        Database.get().update(data, filter);
-                    } catch (DatabaseWriteException e) {
-                        log.error(e.getMessage(), e);
-                    }
+                WhitelistDataAccess data = (WhitelistDataAccess)dao;
+                if (data.uuid != null && !data.uuid.trim().equals("")) {
+                    continue;
+                }
+                String uuid = ToolBox.usernameToUUID(data.player);
+                HashMap<String, Object> filter = new HashMap<String, Object>();
+                filter.put("player", data.player);
+                data.uuid = uuid == null ? "" : uuid;
+                try {
+                    Database.get().update(data, filter);
+                }
+                catch (DatabaseWriteException e) {
+                    log.error(e.getMessage(), e);
+                }
             }
         }
         catch (DatabaseReadException e) {

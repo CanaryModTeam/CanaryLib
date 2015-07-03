@@ -8,11 +8,16 @@ import net.canarymod.Canary;
  */
 @Beta
 public enum GenericAttribute {
-    MAXHEALTH("generic.maxHealth"), //
-    FOLLOWRANGE("generic.followRange"), //
-    MOVEMENTSPEED("generic.movementSpeed"), //
-    ATTACKDAMAGE("generic.attackDamage"), //
-    KNOCKBACKRESIST("generic.knockbackResistance"), //
+    MAXHEALTH("generic.maxHealth"),
+    //
+    FOLLOWRANGE("generic.followRange"),
+    //
+    MOVEMENTSPEED("generic.movementSpeed"),
+    //
+    ATTACKDAMAGE("generic.attackDamage"),
+    //
+    KNOCKBACKRESIST("generic.knockbackResistance"),
+    //
     ;
 
     private final String nmsName;

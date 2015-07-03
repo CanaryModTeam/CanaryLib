@@ -35,5 +35,4 @@ public interface Attribute {
      * @return {@code this} instance
      */
     Attribute setShouldWatch(boolean watch);
-
 }

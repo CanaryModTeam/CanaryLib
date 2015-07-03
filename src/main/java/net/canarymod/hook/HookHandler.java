@@ -1,16 +1,15 @@
 package net.canarymod.hook;
 
+import net.canarymod.plugin.Priority;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import net.canarymod.plugin.Priority;
-
 /**
- * @interface for defining that a method should recieve hooks
- *
  * @author Chris (damagefilter)
+ * @interface for defining that a method should recieve hooks
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

@@ -3,10 +3,10 @@ package net.canarymod.api.scoreboard;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.world.World;
 
-/** 
+/**
  * ScoreObjective wrapper
  *
- * @author Somners 
+ * @author Somners
  */
 public interface ScoreObjective {
 
@@ -17,14 +17,14 @@ public interface ScoreObjective {
      *
      * @return The protocol name.
      */
-    public String getProtocolName();
+    String getProtocolName();
 
     /**
      * Gets the ScoreObjectiveCriteria for this ScoreObjective.
      *
      * @return The score Objective Criteria.
      */
-    public ScoreObjectiveCriteria getScoreObjectiveCriteria();
+    ScoreObjectiveCriteria getScoreObjectiveCriteria();
 
     /**
      * Gets the display name for this ScoreObjective. This is the name that will
@@ -32,7 +32,7 @@ public interface ScoreObjective {
      *
      * @return The display name.
      */
-    public String getDisplayName();
+    String getDisplayName();
 
     /**
      * Sets and updates the display name to all clients.
@@ -40,7 +40,7 @@ public interface ScoreObjective {
      * @param name
      *         The name you wish to set the display name to.
      */
-    public void setDisplayName(String name);
+    void setDisplayName(String name);
 
     /**
      * Sets this {@link ScoreObjective}'s position for all players on the server.
@@ -48,7 +48,7 @@ public interface ScoreObjective {
      * @param type
      *         the position type.
      */
-    public void setScoreboardPosition(ScorePosition type);
+    void setScoreboardPosition(ScorePosition type);
 
     /**
      * Sets this {@link ScoreObjective}'s position for the given player.
@@ -58,10 +58,10 @@ public interface ScoreObjective {
      * @param player
      *         the player to set the scoreboard for.
      */
-    public void setScoreboardPosition(ScorePosition type, Player player);
+    void setScoreboardPosition(ScorePosition type, Player player);
 
     /**
-     * Sets this {@link ScoreObjective}'s position for all Players in the given 
+     * Sets this {@link ScoreObjective}'s position for all Players in the given
      * {@link World}.
      *
      * @param type
@@ -69,13 +69,13 @@ public interface ScoreObjective {
      * @param world
      *         the player to set the scoreboard for.
      */
-    public void setScoreboardPosition(ScorePosition type, World world);
-    
+    void setScoreboardPosition(ScorePosition type, World world);
+
     /**
-     * Gets the {@link Scoreboard} instance this ScoreObjective instance is 
+     * Gets the {@link Scoreboard} instance this ScoreObjective instance is
      * attached to.
-     * 
+     *
      * @return {@link Scoreboard}
      */
-    public Scoreboard getScoreboard();
+    Scoreboard getScoreboard();
 }

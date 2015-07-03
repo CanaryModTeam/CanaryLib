@@ -18,9 +18,12 @@ public final class SmeltHook extends CancelableHook {
     /**
      * Constructs a new SmeltHook
      *
-     * @param furnace the {@link Furnace} doing the smelting
-     * @param smelted the {@link Item} that was smelted
-     * @param result  the {@link Item} result
+     * @param furnace
+     *         the {@link Furnace} doing the smelting
+     * @param smelted
+     *         the {@link Item} that was smelted
+     * @param result
+     *         the {@link Item} result
      */
     public SmeltHook(Furnace furnace, Item smelted, Item result) {
         this.furnace = furnace;
@@ -59,5 +62,4 @@ public final class SmeltHook extends CancelableHook {
     public final String toString() {
         return String.format("%s[Furnace=%s, Smelted=%s, Result=%s]", getHookName(), furnace, smelted, result);
     }
-
 }

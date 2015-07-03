@@ -1,10 +1,10 @@
 package net.canarymod.api.inventory.helper;
 
-import static net.canarymod.api.DyeColor.rawColorFromRGB;
-
 import net.canarymod.api.DyeColor;
 import net.canarymod.api.inventory.Item;
 import net.canarymod.api.nbt.NBTTagType;
+
+import static net.canarymod.api.DyeColor.rawColorFromRGB;
 
 /**
  * Colored Item helper
