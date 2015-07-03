@@ -112,6 +112,11 @@
 
     <repositories>
         <repository>
+            <id>bintray-toddharrison-CanaryMod</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/toddharrison/CanaryMod</url>
+        </repository>
+        <repository>
             <id>vi-repo</id>
             <name>Visual Illusions Repository</name>
             <url>http://repo.visualillusionsent.net/repository/public/</url>
