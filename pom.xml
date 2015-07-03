@@ -25,7 +25,7 @@
         <build.number/>
         <!-- Dependency Versioning -->
         <metrics>R7</metrics>
-        <viutils>1.4.2</viutils>
+        <viutils>1.4.1</viutils>
         <jdom>2.0.5</jdom>
         <c3p0>0.9.5</c3p0>
         <log4j>2.0-beta9</log4j>
