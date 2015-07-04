@@ -134,3 +134,10 @@ Temporary Items
 *.un~
 Session.vim
 .netrwhist
+
+
+.gradle/
+archive/
+build/
+gradle.properties
+

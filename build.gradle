@@ -1,0 +1,96 @@
+// In gradle.properties, define:
+// bintray_user
+// bintray_api_key
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven-publish'
+apply plugin: 'idea'
+apply plugin: 'com.jfrog.bintray'
+
+group = 'net.canarymod'
+archivesBaseName = 'CanaryLib'
+version = '1.2.1'
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+jar {
+    manifest {
+        attributes 'Created-By': 'Gradle',
+                   'Implementation-Title': project.name,
+                   'Implementation-Version': version
+    }
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar, javadocJar
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+
+    maven {
+        url  "http://dl.bintray.com/toddharrison/CanaryMod"
+    }
+}
+
+dependencies {
+    compile 'net.visualillusionsent:viutils:1.4.3'
+    compile 'org.jdom:jdom2:2.0.5'
+    compile 'com.mchange:c3p0:0.9.5'
+    compile 'org.apache.logging.log4j:log4j-api:2.0-beta9'
+    compile 'com.google.guava:guava:15.0'
+    compile 'com.mojang:authlib:1.5.17'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'org.mcstats.standalone:metrics:R7'
+    
+    testCompile 'junit:junit:4.12'
+}
+
+bintray {
+    user = bintray_user
+    key = bintray_api_key
+    publications = ['mavenJava']
+    dryRun = false
+    publish = true
+    pkg {
+        repo = 'CanaryMod'
+        name = 'CanaryLib'
+        vcsUrl = 'https://github.com/toddharrison/CanaryLib.git'
+        licenses = ['BSD']
+        version {
+            name = project.version
+        }
+    }
+}
