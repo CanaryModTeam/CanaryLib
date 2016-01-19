@@ -12,7 +12,12 @@ public enum CriteriaType {
     DEATH_COUNT("deathCount"),
     PLAYER_KILL_COUNT("playerKillCount"),
     TOTAL_KILL_COUNT("totalKillCount"),
-    HEALTH("health");
+    HEALTH("health"),
+    XP("xp"),
+    LEVEL("level"),
+    FOOD("food"),
+    AIR("air"),
+    ARMOR("armor");
 
     private String protocol;
 
