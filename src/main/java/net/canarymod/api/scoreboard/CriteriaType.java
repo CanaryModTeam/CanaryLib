@@ -8,6 +8,7 @@ package net.canarymod.api.scoreboard;
 public enum CriteriaType {
 
     DUMMY("dummy"),
+    TRIGGER("trigger"),
     DEATH_COUNT("deathCount"),
     PLAYER_KILL_COUNT("playerKillCount"),
     TOTAL_KILL_COUNT("totalKillCount"),
