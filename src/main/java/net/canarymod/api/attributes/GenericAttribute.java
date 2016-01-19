@@ -8,21 +8,19 @@ import net.canarymod.Canary;
  */
 @Beta
 public enum GenericAttribute {
+
     MAXHEALTH("generic.maxHealth"),
-    //
     FOLLOWRANGE("generic.followRange"),
-    //
     MOVEMENTSPEED("generic.movementSpeed"),
-    //
     ATTACKDAMAGE("generic.attackDamage"),
-    //
     KNOCKBACKRESIST("generic.knockbackResistance"),
-    //
-    ;
+    ARMOR("generic.armor"),
+    ATTACKSPEED("generic.attackSpeed"),
+    LUCK("generic.luck");
 
     private final String nmsName;
 
-    private GenericAttribute(String nmsName) {
+    GenericAttribute(String nmsName) {
         this.nmsName = nmsName;
     }
 
@@ -33,5 +31,4 @@ public enum GenericAttribute {
     public String getNativeName() {
         return nmsName;
     }
-
 }
