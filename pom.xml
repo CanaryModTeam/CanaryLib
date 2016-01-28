@@ -96,12 +96,29 @@
         <system>Jenkins</system>
         <url>http://ci.visualillusionsent.net/job/CanaryLib/</url>
     </ciManagement>
-
+    
+    <distributionManagement>
+        <repository>
+            <id>vi-repo</id>
+            <name>Visual Illusions Repository</name>
+            <url>http://repo.visualillusionsent.net/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+            <id>vi-repo</id>
+            <name>Visual Illusions Repository</name>
+            <url>http://repo.visualillusionsent.net/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
     <repositories>
         <repository>
             <id>vi-repo</id>
             <name>Visual Illusions Repository</name>
-            <url>http://nexus.visualillusionsent.net/content/groups/public/</url>
+            <url>http://repo.visualillusionsent.net/repository/internal/</url>
+        </repository>
+        <repository>
+            <id>vi-snapshots</id>
+            <name>Visual Illusions Snapshots Repository</name>
+            <url>http://repo.visualillusionsent.net/repository/snapshots/</url>
         </repository>
         <repository>
             <id>mojang</id>
