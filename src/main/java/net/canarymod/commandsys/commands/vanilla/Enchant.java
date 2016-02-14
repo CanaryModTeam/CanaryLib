@@ -19,5 +19,6 @@ public final class Enchant extends VanillaCommandWrapper {
             caller.notice(Translator.nativeTranslate("commands.generic.permission"));
             return;
         }
+        passOn(caller, "enchant", parameters);
     }
 }

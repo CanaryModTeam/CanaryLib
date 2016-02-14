@@ -1,5 +1,6 @@
 package net.canarymod.commandsys;
 
+import com.google.common.collect.Maps;
 import net.canarymod.Canary;
 import net.canarymod.Translator;
 import net.canarymod.chat.MessageReceiver;
@@ -10,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +26,8 @@ import static net.canarymod.Canary.log;
  * @author Jason (darkdiplomat)
  */
 public class CommandManager {
-    HashMap<String, CanaryCommand> commands = new HashMap<String, CanaryCommand>();
+
+    private Map<String, CanaryCommand> commands = Maps.newHashMap();
 
     /**
      * Remove a command from the command list.
@@ -466,5 +467,14 @@ public class CommandManager {
             return cmd.tabComplete(msgrec, argsClone);
         }
         return null;
+    }
+
+    /**
+     * Gets the commands registered to this command manager.
+     *
+     * @return An immutable {@link Map} of all the registered commands.
+     */
+    public Map<String, CanaryCommand> getCommands() {
+        return Maps.newHashMap(this.commands);
     }
 }
