@@ -8,8 +8,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * Annotation to define a method that listens on a hook.
+ *
  * @author Chris (damagefilter)
- * @interface for defining that a method should receive hooks
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
