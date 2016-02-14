@@ -4,7 +4,7 @@ import net.canarymod.plugin.PluginListener;
 
 /**
  * This class invokes a method on a listener.
- * It is inline-implemented in HookExecutor.registerHook, for each hook seperately
+ * It is inline-implemented in HookExecutor.registerHook, for each hook separately
  *
  * @author Chris (damagefilter)
  */

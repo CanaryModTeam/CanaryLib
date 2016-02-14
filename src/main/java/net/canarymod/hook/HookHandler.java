@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 /**
  * @author Chris (damagefilter)
- * @interface for defining that a method should recieve hooks
+ * @interface for defining that a method should receive hooks
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
