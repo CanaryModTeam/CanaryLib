@@ -37,7 +37,7 @@ public class SystemInformation implements NativeCommand {
         caller.message(ChatFormat.GOLD + "OS Architecture: " + ChatFormat.WHITE + SystemUtils.OS_ARCHITECTURE);
         caller.message(ChatFormat.GOLD + "Java Vendor: " + ChatFormat.WHITE + SystemUtils.JAVA_VENDOR);
         caller.message(ChatFormat.GOLD + "Java Version: " + ChatFormat.WHITE + SystemUtils.JAVA_VERSION);
-        caller.message(ChatFormat.GOLD + "Avalible Processors: " + ChatFormat.WHITE + rtime.availableProcessors());
+        caller.message(ChatFormat.GOLD + "Available Processors: " + ChatFormat.WHITE + rtime.availableProcessors());
         caller.message(ChatFormat.GOLD + String.format("RAM: \u00A7F%.2fMb Free \u00A76| \u00A7F%.2fMb Allocated \u00A76| \u00A7F%.2fMb Max", freeMem, alloMem, maxMem));
         caller.message(ChatFormat.GOLD + "Server Start: " + ChatFormat.WHITE + DateUtils.longToDateTime(rBean.getStartTime()) + MessageFormat.format(" GMT{0,number,00}:{1,number,00}", gmtH, gmtM));
         caller.message(ChatFormat.GOLD + "Time Alive: " + ChatFormat.WHITE + DateUtils.getTimeUntil(uptime));
