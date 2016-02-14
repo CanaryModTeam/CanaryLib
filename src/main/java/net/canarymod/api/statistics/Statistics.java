@@ -38,12 +38,16 @@ public enum Statistics {
     JUNKFISHED("junkFished"),
     TREASUREFISHED("treasureFished"),
     TALKEDTOVILLAGER("talkedToVillager"),
-    TRADEDWITHVILLAGER("tradedWithVillager"),;
+    TRADEDWITHVILLAGER("tradedWithVillager"),
+    SLEEPINBED("sleepInBed"),
+    SNEEKTIME("sneakTime"),
+    PICKUP("pickup"),
+    AVIATEONECM("aviateOneCm");
 
     private final String nmsName;
     private final static HashMap<String, Statistics> statisticsHashMap = Maps.newHashMap();
 
-    private Statistics(String nmsName) {
+    Statistics(String nmsName) {
         this.nmsName = "stat.".concat(nmsName);
     }
 
