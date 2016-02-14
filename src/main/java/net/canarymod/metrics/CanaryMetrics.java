@@ -12,6 +12,8 @@ import java.io.IOException;
  * @author Jason Jones (darkdiplomat)
  */
 public final class CanaryMetrics extends Metrics {
+    private static final File CONFIG_FILE = new File("config/metrics.cfg");
+
     private final String fsv = String.format("%s %s (MC: %s)", Canary.getSpecificationTitle(), Canary.getSpecificationVersion(), Canary.getServer().getServerVersion());
 
     public CanaryMetrics(String pluginName, String pluginVersion) throws IOException {
@@ -30,6 +32,6 @@ public final class CanaryMetrics extends Metrics {
 
     @Override
     public File getConfigFile() {
-        return new File("config/metrics.cfg");
+        return CONFIG_FILE;
     }
 }

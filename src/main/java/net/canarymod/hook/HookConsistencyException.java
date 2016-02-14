@@ -2,7 +2,7 @@ package net.canarymod.hook;
 
 /**
  * Thrown when a hook can not be passed to a listener due to the method
- * signature being inccorect
+ * signature being incorrect
  *
  * @author Chris (damagefilter)
  */

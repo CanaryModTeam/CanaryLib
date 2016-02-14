@@ -28,15 +28,15 @@ public class CanaryModCommand implements NativeCommand {
         builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.GOLD).append("Lead Programmer: ").append(ChatFormat.WHITE).append("darkdiplomat").toString());
         builder.delete(0, builder.length());
-        temp.add(builder.append(ChatFormat.GOLD).append("Programmers: ").append(ChatFormat.WHITE).append("Larry1123, somners").toString());
+        temp.add(builder.append(ChatFormat.GOLD).append("Programmers: ").append(ChatFormat.WHITE).append("Larry1123, somners, jamierocks").toString());
         builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.GOLD).append("With Contributions by: ").append(ChatFormat.WHITE).append("Shadow386, 14mRh4X0r, gregthegeek, WWOL, joskuijpers, YLivay, EHudB, Swift, MossyBlog, Pwootage, and others").toString());
         builder.delete(0, builder.length());
-        temp.add(builder.append(ChatFormat.GOLD).append("WebSite: ").append(ChatFormat.WHITE).append("http://canarymod.net").toString());
+        temp.add(builder.append(ChatFormat.GOLD).append("Website: ").append(ChatFormat.WHITE).append("http://canarymod.net").toString());
         builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.GOLD).append("GitHub: ").append(ChatFormat.WHITE).append("http://git.io/tuPNQw").toString());
         builder.delete(0, builder.length());
-        temp.add(builder.append(ChatFormat.RED).append("  Copyright (c) 2012-2015 ").append(ChatFormat.GOLD).append("CanaryMod Team").toString());
+        temp.add(builder.append(ChatFormat.RED).append("  Copyright (c) 2012-2016 ").append(ChatFormat.GOLD).append("CanaryMod Team").toString());
         builder.delete(0, builder.length());
         temp.add(builder.append(ChatFormat.RED).append("  Under the management of ").append(ChatFormat.GOLD).append("PlayBlack and Visual Illusions Ent.").toString());
         builder.delete(0, builder.length());
