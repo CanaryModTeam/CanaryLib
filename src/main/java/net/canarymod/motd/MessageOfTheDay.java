@@ -157,12 +157,12 @@ public class MessageOfTheDay {
                 continue;
             }
             if (method.getReturnType() != String.class) {
-                log.warn("You have a MOTD Listner method with invalid return type! (" + method.getName() + ") (Expected: String Got: " + method.getReturnType().getName() + ")");
+                log.warn("You have a MOTD Listener method with invalid return type! (" + method.getName() + ") (Expected: String Got: " + method.getReturnType().getName() + ")");
                 continue;
             }
             Class<?>[] params = method.getParameterTypes();
             if (params.length != 1) {
-                log.warn("You have a MOTD Listner method with invalid number of arguments! (" + method.getName() + ") (Expected: 1 Got: " + params.length + ")");
+                log.warn("You have a MOTD Listener method with invalid number of arguments! (" + method.getName() + ") (Expected: 1 Got: " + params.length + ")");
                 continue;
             }
             if (!MessageReceiver.class.isAssignableFrom(params[0])) {
