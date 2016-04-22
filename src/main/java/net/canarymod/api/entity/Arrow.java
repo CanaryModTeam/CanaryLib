@@ -7,6 +7,19 @@ package net.canarymod.api.entity;
  */
 public interface Arrow extends Entity, Projectile {
 
+    enum ArrowType {
+        NORMAL,
+        SPECTRAL,
+        TIPPED
+    }
+
+    /**
+     * Gets the type of this Arrow. Currently either NORMAL, SPECTRAL or TIPPED
+     *
+     * @return the type
+     */
+    ArrowType getArrowType();
+
     /**
      * Returns true if this Arrow can be retrieved by a Player
      *

@@ -97,7 +97,7 @@ public enum EntityType {
     private final short id;
     private EntityType subtype;
 
-    private EntityType(int id, EntityType subtype) {
+    EntityType(int id, EntityType subtype) {
         this.id = (short)id;
         this.subtype = subtype;
     }
