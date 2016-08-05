@@ -121,16 +121,7 @@ public class Group {
         if (permissions.pathExists(permission)) {
             return permissions.queryPermission(permission);
         }
-        // if(permissions.queryPermission(permission)) {
-        // return true;
-        // }
-
-        for (Group g : parentsToList()) {
-            if (g.permissions.pathExists(permission)) {
-                return g.permissions.queryPermission(permission);
-            }
-        }
-        return false;
+        return parent != null && parent.hasPermission(permission); // Better recursion
     }
 
     /**
