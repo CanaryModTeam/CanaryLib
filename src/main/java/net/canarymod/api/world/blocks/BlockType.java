@@ -684,6 +684,22 @@ public final class BlockType {
     public static final BlockType JungleDoor = new BlockType(195, 0, "minecraft:jungle_door");
     public static final BlockType AcaciaDoor = new BlockType(196, 0, "minecraft:acacia_door");
     public static final BlockType DarkOakDoor = new BlockType(197, 0, "minecraft:dark_oak_door");
+    public static final BlockType EndRod = new BlockType(198, 0, "minecraft:end_rod");
+    public static final BlockType ChrousPlant = new BlockType(199, 0, "minecraft:chrous_plant");
+    public static final BlockType ChorusFlower = new BlockType(200, 0, "minecraft:chorus_flower");
+    public static final BlockType PurpurBlock = new BlockType(201, 0, "minecraft:purpur_block");
+    public static final BlockType PurpurPillar = new BlockType(202, 0, "minecraft:purpur_pillar");
+    public static final BlockType PurpurStairs = new BlockType(203, 0, "minecraft:purpur_stairs");
+    public static final BlockType PurpurDoubleSlab = new BlockType(204, 0, "minecraft:purpur_double_slab");
+    public static final BlockType PurpurSlab = new BlockType(205, 0, "minecraft:purpur_slab");
+    public static final BlockType EndStoneBricks = new BlockType(206, 0, "minecraft:end_bricks");
+    public static final BlockType BeetrootSeeds = new BlockType(207, 0, "minecraft:beetroot");
+    public static final BlockType GrassPath = new BlockType(208, 0, "minecraft:grass_path");
+    public static final BlockType EndGateway = new BlockType(209, 0, "minecraft:end_gateway");
+    public static final BlockType RepeatingCommandBlock = new BlockType(210, 0, "minecraft:repeating_command_block");
+    public static final BlockType ChainCommandBlock = new BlockType(211, 0, "minecraft:chain_command_block");
+    public static final BlockType FrostedIce = new BlockType(212, 0, "minecraft:frosted_ice");
+    public static final BlockType StructureBlock = new BlockType(255, 0, "minecraft:structure_block");
 
     private static HashMap<String, Map<Integer, BlockType>> blockTypes;
     private static HashMap<Integer, Map<Integer, BlockType>> blocksByIdAndData;
