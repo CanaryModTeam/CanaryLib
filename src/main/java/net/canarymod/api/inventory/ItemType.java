@@ -437,7 +437,12 @@ public final class ItemType {
     public static final ItemType IronDoor = new ItemType(330, true, "minecraft:iron_door");
     public static final ItemType RedStone = new ItemType(331, true, "minecraft:redstone");
     public static final ItemType SnowBall = new ItemType(332, "minecraft:snowball");
-    public static final ItemType Boat = new ItemType(333, "minecraft:boat");
+    public static final ItemType OakBoat = new ItemType(333, "minecraft:boat");
+    /**
+     * @deprecated Being replaced by {@link OakBoat}
+     */
+    @Deprecated
+    public static final ItemType Boat = OakBoat;
     public static final ItemType Leather = new ItemType(334, "minecraft:leather");
     public static final ItemType MilkBucket = new ItemType(335, "minecraft:milk_bucket");
     public static final ItemType ClayBrick = new ItemType(336, "minecraft:brick");
@@ -555,11 +560,29 @@ public final class ItemType {
     public static final ItemType RawMutton = new ItemType(423, "minecraft:mutton");
     public static final ItemType CookedMutton = new ItemType(424, "minecraft:cooked_mutton");
     public static final ItemType Banner = new ItemType(425, true, "minecraft:banner");
-    public static final ItemType SpruceDoor = new ItemType(426, true, "minecraft:spruce_door");
-    public static final ItemType BirchDoor = new ItemType(427, true, "minecraft:birch_door");
-    public static final ItemType JungleDoor = new ItemType(428, true, "minecraft:jungle_door");
-    public static final ItemType AcaciaDoor = new ItemType(429, true, "minecraft:acacia_door");
-    public static final ItemType DarkOakDoor = new ItemType(430, true, "minecraft:dark_oak_door");
+    public static final ItemType EndCrystal = new ItemType(426, true, "minecraft:end_crystal");
+    public static final ItemType SpruceDoor = new ItemType(427, true, "minecraft:spruce_door");
+    public static final ItemType BirchDoor = new ItemType(428, true, "minecraft:birch_door");
+    public static final ItemType JungleDoor = new ItemType(429, true, "minecraft:jungle_door");
+    public static final ItemType AcaciaDoor = new ItemType(430, true, "minecraft:acacia_door");
+    public static final ItemType DarkOakDoor = new ItemType(431, true, "minecraft:dark_oak_door");
+    public static final ItemType ChorusFruit = new ItemType(432, true, "minecraft:chorus_fruit");
+    public static final ItemType PoppedChorusFruit = new ItemType(433, true, "minecraft:chorus_fruit_popped");
+    public static final ItemType Beetroot = new ItemType(434, true, "minecraft:beetroot");
+    public static final ItemType BeetrootSeeds = new ItemType(435, true, "minecraft_beetroot_seeds");
+    public static final ItemType BeetrootSoup = new ItemType(436, true, "minecraft:beetroot_soup");
+    public static final ItemType DragonsBreath = new ItemType(437, true, "minecraft:dragon_breath");
+    public static final ItemType SplashPotion = new ItemType(438, true, "minecraft:splash_potion");
+    public static final ItemType SpectralArrow = new ItemType(439, true, "minecraft:spectral_arrow");
+    public static final ItemType TippedArrow = new ItemType(440, true, "minecraft:tipped_arrow");
+    public static final ItemType LingeringPotion = new ItemType(441, true, "minecraft:lingering_potion");
+    public static final ItemType Shield = new ItemType(442, true, "minecraft:shield");
+    public static final ItemType Elytra = new ItemType(443, true, "minecraft:elytra");
+    public static final ItemType SpruceBoat = new ItemType(444, true, "minecraft:spruce_boat");
+    public static final ItemType BirchBoat = new ItemType(445, true, "minecraft:birch_boat");
+    public static final ItemType JungleBoat = new ItemType(446, true, "minecraft:jungle_boat");
+    public static final ItemType AcaciaBoat = new ItemType(447, true, "minecraft:acacia_boat");
+    public static final ItemType DarkOakBoat = new ItemType(448, true, "minecraft:dark_oak_boat");
 
     /* Records */
     public static final ItemType GoldRecord = new ItemType(2256, "minecraft:record_13");

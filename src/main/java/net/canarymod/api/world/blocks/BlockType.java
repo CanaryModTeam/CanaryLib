@@ -693,7 +693,7 @@ public final class BlockType {
     public static final BlockType PurpurDoubleSlab = new BlockType(204, 0, "minecraft:purpur_double_slab");
     public static final BlockType PurpurSlab = new BlockType(205, 0, "minecraft:purpur_slab");
     public static final BlockType EndStoneBricks = new BlockType(206, 0, "minecraft:end_bricks");
-    public static final BlockType BeetrootSeeds = new BlockType(207, 0, "minecraft:beetroot");
+    public static final BlockType BeetrootSeeds = new BlockType(207, 0, "minecraft:beetroots");
     public static final BlockType GrassPath = new BlockType(208, 0, "minecraft:grass_path");
     public static final BlockType EndGateway = new BlockType(209, 0, "minecraft:end_gateway");
     public static final BlockType RepeatingCommandBlock = new BlockType(210, 0, "minecraft:repeating_command_block");
