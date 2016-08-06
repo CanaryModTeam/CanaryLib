@@ -39,6 +39,8 @@ public interface Enchantment {
         //
         DepthStrider(8),
         //
+        FrostWalker(9),
+        //
         Sharpness(16),
         //
         Smite(17),
@@ -71,6 +73,7 @@ public interface Enchantment {
         //
         Lure(62),
         //
+        Mending(70),
 
         ;
 
