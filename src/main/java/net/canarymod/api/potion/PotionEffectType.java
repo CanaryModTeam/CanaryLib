@@ -53,6 +53,15 @@ public enum PotionEffectType {
     //
     SATURATION(23),
     //
+    GLOWING(24),
+    //
+    LEVITATION(25),
+    //
+    LUCK(26),
+    //
+    BADLUCK(27),
+    //
+
     ;
 
     private final int id;
