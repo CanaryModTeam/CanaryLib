@@ -1,12 +1,12 @@
 package net.canarymod.config;
 
+import static net.canarymod.Canary.log;
+
 import net.visualillusionsent.utils.BooleanUtils;
 import net.visualillusionsent.utils.PropertiesFile;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
-
-import static net.canarymod.Canary.log;
 
 /**
  * Server Configuration Container
@@ -293,7 +293,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return true when enabled; false otherwise
      */
     public boolean isDeathMessageEnabled() {
-        return cfg.getBoolean("death-message", true);
+        return cfg.getBoolean("death-messages", true);
     }
 
     /**
