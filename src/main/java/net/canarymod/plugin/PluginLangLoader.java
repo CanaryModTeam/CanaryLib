@@ -1,5 +1,7 @@
 package net.canarymod.plugin;
 
+import static net.canarymod.Canary.log;
+
 import com.google.common.collect.Maps;
 import net.canarymod.Canary;
 import net.canarymod.CanaryClassLoader;
@@ -14,8 +16,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.Map;
 
-import static net.canarymod.Canary.log;
-
 /**
  * Plugin Language Library Loader
  *
@@ -25,7 +25,7 @@ public final class PluginLangLoader {
     private static boolean loaded;
 
     /**
-     * Scans pluginlangs folder, loads all valid Plugin Language Libraries and registers with {@link net.canarymod.plugin.lifecycle.PluginLifecycleFactory}
+     * Scans pluginlangs folder, loads all valid Plugin Language Libraries and registers with {@link PluginLifecycleFactory}
      */
     public static void load() {
         if (loaded) {

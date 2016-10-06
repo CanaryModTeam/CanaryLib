@@ -347,7 +347,7 @@ public interface Player extends Human, MessageReceiver, PlayerReference {
     GameProfile getGameProfile();
 
     /**
-     * Gets the {@link net.canarymod.api.chat.ChatComponent} the makes up the DisplayName
+     * Gets the {@link net.canarymod.api.chat.ChatComponent} that makes up the DisplayName
      *
      * @return display name {@link net.canarymod.api.chat.ChatComponent} or {@code null} if one isn't set
      */

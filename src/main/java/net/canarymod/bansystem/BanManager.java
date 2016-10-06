@@ -1,13 +1,13 @@
 package net.canarymod.bansystem;
 
+import static net.canarymod.Canary.log;
+
 import net.canarymod.ToolBox;
 import net.canarymod.api.PlayerReference;
 import net.canarymod.backbone.BackboneBans;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static net.canarymod.Canary.log;
 
 /**
  * Used to issue bans
@@ -27,7 +27,7 @@ public class BanManager {
      * Issue a permanent ban for this player with a given reason
      *
      * @param player
-     *         the {@link Player} being banned
+     *         the {@link PlayerReference} being banned
      * @param reason
      *         the reason for the ban
      */
