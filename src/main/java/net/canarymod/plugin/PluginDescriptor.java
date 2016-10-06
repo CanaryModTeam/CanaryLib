@@ -11,7 +11,7 @@ import java.util.zip.ZipFile;
 
 /**
  * Describes information about a plugin, including meta information and start/stop/load information.
- * It also contains a refrence to the loaded instance of the plugin, should there be one.
+ * It also contains a reference to the loaded instance of the plugin, should there be one.
  *
  * @author Pwootage
  */
