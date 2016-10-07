@@ -468,7 +468,7 @@ public class SQLiteDatabase extends Database {
                 concatColumns.append(column);
             }
 
-            log.debug(concatColumns);
+            log.debug(concatColumns.toString());
 
             String tableName = table.getName();
             String tempTable = "" + tableName + "_temp";

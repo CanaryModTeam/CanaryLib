@@ -6,9 +6,9 @@ import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
 import net.canarymod.hook.system.PluginDisableHook;
 import net.canarymod.hook.system.PluginEnableHook;
+import net.canarymod.logger.Logman;
 import net.canarymod.plugin.dependencies.DependencyGraph;
 import net.visualillusionsent.utils.PropertiesFile;
-import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -178,7 +178,7 @@ public final class DefaultPluginManager implements PluginManager {
      * {@inheritDoc}
      */
     @Override
-    public void disableAllPlugins(Logger log) {
+    public void disableAllPlugins(Logman log) {
         synchronized (lock) {
             for (String plugin : plugins.keySet()) {
                 try {

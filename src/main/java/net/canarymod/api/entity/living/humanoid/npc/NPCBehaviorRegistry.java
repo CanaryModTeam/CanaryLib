@@ -21,7 +21,7 @@ public final class NPCBehaviorRegistry {
     /**
      * Registers a new {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}
      *
-     * @param listner
+     * @param listener
      *         the {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener} to be added
      * @param npc
      *         the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} associated with the listener
@@ -167,7 +167,7 @@ public final class NPCBehaviorRegistry {
                         listener.execute(npcai);
                     }
                     catch (NPCAIExcutionException npcaieex) {
-                        log.error(npcaieex.getCause());
+                        log.error("", npcaieex.getCause());
                     }
                 }
             }
