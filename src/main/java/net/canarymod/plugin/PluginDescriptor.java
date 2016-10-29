@@ -75,6 +75,9 @@ public class PluginDescriptor {
                     if (zip.getEntry("plugin.yml") != null) {
                         throw new InvalidPluginException("Bukkit Plugins are not natively supported. Please remove '" + pluginFile.getName() + "' from your plugins directory.");
                     }
+                    if (zip.getEntry("mcmod.info") != null) {
+                        throw new InvalidPluginException("Forge Mods and Sponge Plugins are not natively supported. Please remove '" + pluginFile.getName() + "' from your plugins directory.");
+                    }
                     throw new InvalidPluginException("I don't know where to find a Canary.inf in " + path);
                 }
             }
