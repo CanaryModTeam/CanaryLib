@@ -182,6 +182,9 @@ public class ServerConfiguration implements ConfigurationContainer {
         cfg.setComments("bungeecord", "If you want to enable Bungeecord support. REQUIRES THAT ONLINE MODE IS DISABLED (false)");
         cfg.getBoolean("verify-user-session-ip", true);
         cfg.setComments("verify-user-session-ip", "Enable IP verification for connecting players");
+        cfg.setInt("world-auto-save-interval", 900);
+        cfg.setComments("world-auto-save-interval", "The number of ticks between each auto-save");
+
         cfg.save();
     }
 
@@ -698,5 +701,15 @@ public class ServerConfiguration implements ConfigurationContainer {
      */
     public boolean verifyUserSessionIP() {
         return cfg.getBoolean("verify-user-session-ip", true);
+    }
+
+    /**
+     * Gets the frequency (in ticks) of how often the server will automatically
+     * save its worlds (default 900)
+     *
+     * @return auto-save internal
+     */
+    public int getWorldAutoSaveInterval() {
+        return this.cfg.getInt("world-auto-save-interval", 900);
     }
 }
