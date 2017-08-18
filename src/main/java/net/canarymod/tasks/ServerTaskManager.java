@@ -19,12 +19,8 @@ import static net.canarymod.Canary.log;
  * @author Jason (darkdiplomat)
  */
 public final class ServerTaskManager {
-    private final static ServerTaskManager $;
+    private final static ServerTaskManager INST = new ServerTaskManager();
     private final ConcurrentHashMap<ServerTask, TaskOwner> tasks;
-
-    static {
-        $ = new ServerTaskManager();
-    }
 
     private ServerTaskManager() {
         tasks = new ConcurrentHashMap<ServerTask, TaskOwner>();
@@ -39,10 +35,8 @@ public final class ServerTaskManager {
      * @return {@code true} if successfully added; {@code false} if not
      */
     public static boolean addTask(ServerTask task) {
-        synchronized ($.tasks) {
-            $.tasks.put(task, task.getOwner());
-            return true;
-        }
+        INST.tasks.put(task, task.getOwner());
+        return true;
     }
 
     /**
@@ -55,9 +49,7 @@ public final class ServerTaskManager {
      * @return {@code true} if removed; {@code false} if not found or unable to be removed
      */
     public static boolean removeTask(ServerTask task) {
-        synchronized ($.tasks) {
-            return $.tasks.remove(task) != null;
-        }
+        return INST.tasks.remove(task) != null;
     }
 
     /**
@@ -67,12 +59,9 @@ public final class ServerTaskManager {
      *         the {@link TaskOwner} to remove tasks for
      */
     public static void removeTasks(TaskOwner owner) {
-        synchronized ($.tasks) {
-            Iterator<Entry<ServerTask, TaskOwner>> taskIter = $.tasks.entrySet().iterator();
-            while (taskIter.hasNext()) {
-                if (taskIter.next().getValue().equals(owner)) {
-                    taskIter.remove();
-                }
+        for (Iterator<TaskOwner> it = INST.tasks.values().iterator(); it.hasNext();) {
+            if (it.next().equals(owner)) {
+                it.remove();
             }
         }
     }
@@ -86,9 +75,7 @@ public final class ServerTaskManager {
      *         {@code true} if the given {@code task} is queued; {@code false} otherwise
      */
     public static boolean isQueued(ServerTask task) {
-        synchronized ($.tasks) {
-            return $.tasks.containsValue(task);
-        }
+        return INST.tasks.containsValue(task);
     }
 
     /**
@@ -101,45 +88,35 @@ public final class ServerTaskManager {
      *         will return an empty {@link ArrayList} if no {@link ServerTask}s are found
      */
     public static List<ServerTask> getServerTasksForTaskOwner(TaskOwner owner) {
-        synchronized ($.tasks) {
-            ArrayList<ServerTask> tasks = new ArrayList<ServerTask>();
-            for (Entry<ServerTask, TaskOwner> serverTaskTaskOwnerEntry : $.tasks.entrySet()) {
-                if (serverTaskTaskOwnerEntry.getValue().equals(owner)) {
-                    tasks.add(serverTaskTaskOwnerEntry.getKey());
-                }
+        ArrayList<ServerTask> tasks = new ArrayList<ServerTask>();
+        for (Entry<ServerTask, TaskOwner> serverTaskTaskOwnerEntry : INST.tasks.entrySet()) {
+            if (serverTaskTaskOwnerEntry.getValue().equals(owner)) {
+                tasks.add(serverTaskTaskOwnerEntry.getKey());
             }
-            return tasks;
         }
+        return tasks;
     }
 
     /**
      * Internal method called to run the tasks or decrease timers.
      */
     public static void runTasks() {
-        if ($.tasks.isEmpty()) {
-            // No tasks? no execution needed
-            return;
-        }
-        synchronized ($.tasks) {
-            Iterator<Entry<ServerTask, TaskOwner>> taskIter = $.tasks.entrySet().iterator();
-            while (taskIter.hasNext()) {
-                ServerTask task = taskIter.next().getKey();
-                task.decrementDelay();
-                if (task.shouldExecute()) {
-                    try {
-                        task.run();
-                    }
-                    catch (Throwable thrown) {
-                        log.error("An Exception occurred while executing ServerTask: " + task.getClass().getSimpleName(), thrown);
-                        taskIter.remove();
-                        continue;
-                    }
-                    if (!task.isContinuous()) {
-                        taskIter.remove();
-                    }
-                    else {
-                        task.reset();
-                    }
+        for (Iterator<ServerTask> it = INST.tasks.keySet().iterator(); it.hasNext();) {
+            ServerTask task = it.next();
+            task.decrementDelay();
+            if (task.shouldExecute()) {
+                try {
+                    task.run();
+                } catch (Exception thrown) {
+                    log.error("An Exception occurred while executing ServerTask: " + task.getClass().getSimpleName(), thrown);
+                    it.remove();
+                    continue;
+                }
+
+                if (!task.isContinuous()) {
+                    it.remove();
+                } else {
+                    task.reset();
                 }
             }
         }
