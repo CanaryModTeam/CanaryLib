@@ -107,8 +107,8 @@ public final class ServerTaskManager {
             if (task.shouldExecute()) {
                 try {
                     task.run();
-                } catch (Exception thrown) {
-                    log.error("An Exception occurred while executing ServerTask: " + task.getClass().getSimpleName(), thrown);
+                } catch (Throwable thrown) {
+                    log.error("An error occurred while executing ServerTask: " + task.getClass().getSimpleName(), thrown);
                     it.remove();
                     continue;
                 }
