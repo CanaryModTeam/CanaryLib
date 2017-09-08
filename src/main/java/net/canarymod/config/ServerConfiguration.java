@@ -1,12 +1,12 @@
 package net.canarymod.config;
 
+import static net.canarymod.Canary.log;
+
 import net.visualillusionsent.utils.BooleanUtils;
 import net.visualillusionsent.utils.PropertiesFile;
 import org.apache.logging.log4j.Level;
 
 import java.io.File;
-
-import static net.canarymod.Canary.log;
 
 /**
  * Server Configuration Container
@@ -180,8 +180,8 @@ public class ServerConfiguration implements ConfigurationContainer {
         cfg.setComments("world-cache-timeout", "The number of minutes a world should be empty before it will be unloaded (if use-world-cache is enabled)");
         cfg.getBoolean("bungeecord", false);
         cfg.setComments("bungeecord", "If you want to enable Bungeecord support. REQUIRES THAT ONLINE MODE IS DISABLED (false)");
-        cfg.getBoolean("verifyUserSessionIP", true);
-        cfg.setComments("verifyUserSessionIP", "Enables if the server will do IP verification on connecting users session");
+        cfg.getBoolean("verify-user-session-ip", true);
+        cfg.setComments("verify-user-session-ip", "Enable IP verification for connecting players");
         cfg.save();
     }
 
@@ -580,7 +580,7 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return {@code true} if strict checks are preformed; {@code false} if not
      */
     public boolean getStrictSignCharacterChecks() {
-        return cfg.getBoolean("strict-sign-characters");
+        return cfg.getBoolean("strict-sign-characters", true);
     }
 
     /**
