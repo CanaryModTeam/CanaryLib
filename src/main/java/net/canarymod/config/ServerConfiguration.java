@@ -697,6 +697,6 @@ public class ServerConfiguration implements ConfigurationContainer {
      * @return {@code true} if enabled; {@code false} if not
      */
     public boolean verifyUserSessionIP() {
-        return cfg.getBoolean("verifyUserSessionIP", true);
+        return cfg.getBoolean("verify-user-session-ip", true);
     }
 }
