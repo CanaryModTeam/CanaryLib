@@ -26,6 +26,6 @@ abstract class VanillaCommandWrapper implements NativeCommand {
     }
 
     boolean isNotSelfOrServer(MessageReceiver caller, String target) {
-        return caller.getReceiverType() != ReceiverType.PLAYER || caller.getName().equalsIgnoreCase(target);
+        return caller.getReceiverType() != ReceiverType.SERVER && !caller.getName().equalsIgnoreCase(target);
     }
 }
