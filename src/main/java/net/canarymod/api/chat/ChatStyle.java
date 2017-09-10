@@ -143,7 +143,7 @@ public interface ChatStyle extends Cloneable {
     /**
      * Sets the {@link net.canarymod.api.chat.HoverEvent} of this {@code ChatStyle}
      *
-     * @param clickEvent
+     * @param hoverEvent
      *         the {@link net.canarymod.api.chat.HoverEvent} to be set
      *
      * @return {@code this}

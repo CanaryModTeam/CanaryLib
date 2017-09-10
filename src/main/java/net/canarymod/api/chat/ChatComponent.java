@@ -89,5 +89,5 @@ public interface ChatComponent extends Cloneable {
      *
      * @return clone of {@code this}
      */
-    public ChatComponent clone();
+    ChatComponent clone();
 }
