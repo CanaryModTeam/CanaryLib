@@ -29,8 +29,8 @@
         <jdom>2.0.5</jdom>
         <c3p0>0.9.5</c3p0>
         <log4j>2.0-beta9</log4j>
-        <guava>15.0</guava>
-        <authlib>1.5.17</authlib>
+        <guava>17.0</guava>
+        <authlib>1.5.21</authlib>
         <jsonSimple>1.1.1</jsonSimple>
         <sqlite>3.8.7</sqlite>
         <mysql>5.1.34</mysql>
