@@ -1,5 +1,6 @@
 package net.canarymod.api;
 
+import net.canarymod.Canary;
 import net.canarymod.api.chat.ChatComponent;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.gui.GUIControl;
@@ -408,10 +409,12 @@ public interface Server extends MessageReceiver, CommandOwner, TaskOwner, MOTDOw
     long[] getTickTimeArray();
 
     /**
-     * Get the version of CanaryMod that is currently running
+     * Get the version of the server mod that is currently running
      *
-     * @return the internal CanaryMod version
+     * @return the internal implementation version
+     * @deprecated As of 1.2.1 - {@link Canary#getImplementationVersion()} should be used
      */
+    @Deprecated
     String getCanaryModVersion();
 
     /**

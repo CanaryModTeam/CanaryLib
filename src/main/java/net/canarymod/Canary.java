@@ -1,5 +1,6 @@
 package net.canarymod;
 
+import com.google.common.base.Objects;
 import net.canarymod.api.Server;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.factory.Factory;
@@ -79,7 +80,7 @@ public abstract class Canary implements TaskOwner {
 
     static {
         System.out.println("Please wait while the libraries initialize...");
-        log = Logman.getLogman("CanaryMod");
+        log = Logman.getLogman(getImplementationTitle());
 
         try {
             PluginLifecycleFactory.registerLifecycle("java", JavaPluginLifecycle.class);
@@ -419,47 +420,39 @@ public abstract class Canary implements TaskOwner {
     }
 
     /**
-     * Sets the Specification Version
-     *
-     * @return specification version
-     *
-     * @see Package#getSpecificationVersion()
-     */
-    public static String getSpecificationVersion() {
-        return Canary.class.getPackage().getSpecificationVersion();
-    }
-
-    /**
      * Gets the Specification Title
      *
      * @return specification title
-     *
-     * @see Package#getSpecificationTitle()
      */
     public static String getSpecificationTitle() {
-        return Canary.class.getPackage().getSpecificationTitle();
+        return Objects.firstNonNull(Canary.class.getPackage().getSpecificationTitle(), "CanaryLib");
     }
 
     /**
-     * Gets the Implementation Version
+     * Sets the Specification Version
      *
-     * @return implementation version
-     *
-     * @see Package#getImplementationVersion()
+     * @return specification version
      */
-    public static String getImplementationVersion() {
-        return Canary.class.getPackage().getImplementationVersion();
+    public static String getSpecificationVersion() {
+        return Objects.firstNonNull(Canary.class.getPackage().getSpecificationVersion(), "dev");
     }
 
     /**
      * Gets the Implementation Title
      *
      * @return implementation title
-     *
-     * @see Package#getImplementationTitle()
      */
     public static String getImplementationTitle() {
-        return Canary.class.getPackage().getImplementationTitle();
+        return Objects.firstNonNull(Canary.class.getPackage().getImplementationTitle(), "CanaryMod");
+    }
+
+    /**
+     * Gets the Implementation Version
+     *
+     * @return implementation version
+     */
+    public static String getImplementationVersion() {
+        return Objects.firstNonNull(Canary.class.getPackage().getImplementationVersion(), "dev");
     }
 
     public static long getBuildNumber() {
