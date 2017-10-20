@@ -3,11 +3,13 @@ package net.canarymod.hook.player;
 import net.canarymod.api.entity.EntityItem;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.hook.CancelableHook;
+import net.canarymod.util.NullPlayer;
 
 /**
  * Item Hook. Contains EntityItem and Player
  *
- * @author Chris (damagefilter)
+ * @author Chris Ksoll (damagefilter)
+ * @author Jason Jones (darkdiplomat)
  */
 public final class ItemDropHook extends CancelableHook {
 
@@ -15,7 +17,7 @@ public final class ItemDropHook extends CancelableHook {
     private Player player;
 
     public ItemDropHook(Player player, EntityItem item) {
-        this.player = player;
+        this.player = player == null ? new NullPlayer() : player;
         this.item = item;
     }
 
