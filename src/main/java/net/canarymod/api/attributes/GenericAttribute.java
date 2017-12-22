@@ -22,7 +22,7 @@ public enum GenericAttribute {
 
     private final String nmsName;
 
-    private GenericAttribute(String nmsName) {
+    GenericAttribute(String nmsName) {
         this.nmsName = nmsName;
     }
 
