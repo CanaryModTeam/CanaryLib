@@ -23,11 +23,11 @@ public enum GenericAttribute {
     }
 
     public Attribute getAttribute() {
-        return Canary.factory().getAttributeFactory().getGenericAttribute(nmsName);
+        return Canary.factory().getAttributeFactory().getGenericAttribute(this.nmsName);
     }
 
     public String getNativeName() {
-        return nmsName;
+        return this.nmsName;
     }
 
 }
