@@ -62,6 +62,16 @@ public class NullPlayerInventory implements PlayerInventory {
     }
 
     @Override
+    public Item getItemOnCursor() {
+        return null;
+    }
+
+    @Override
+    public void setItemOnCursor(Item item) {
+
+    }
+
+    @Override
     public void addItem(Item item) {
 
     }
@@ -339,5 +349,10 @@ public class NullPlayerInventory implements PlayerInventory {
     @Override
     public InventoryType getInventoryType() {
         return InventoryType.PLAYER;
+    }
+
+    @Override
+    public boolean canInsertItems(Item item) {
+        return false;
     }
 }

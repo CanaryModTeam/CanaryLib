@@ -1,10 +1,15 @@
 package net.canarymod.util;
 
+import com.mojang.authlib.GameProfile;
 import net.canarymod.Canary;
+import net.canarymod.api.BoundingBox;
+import net.canarymod.api.CommandBlockLogic;
 import net.canarymod.api.DamageType;
 import net.canarymod.api.GameMode;
 import net.canarymod.api.NetServerHandler;
-import net.canarymod.api.PlayerListEntry;
+import net.canarymod.api.PlayerListAction;
+import net.canarymod.api.PlayerListData;
+import net.canarymod.api.Server;
 import net.canarymod.api.attributes.AttributeMap;
 import net.canarymod.api.chat.ChatComponent;
 import net.canarymod.api.entity.Entity;
@@ -90,6 +95,21 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public Player asPlayer() {
+        return null;
+    }
+
+    @Override
+    public Server asServer() {
+        return null;
+    }
+
+    @Override
+    public CommandBlockLogic asCommandBlock() {
+        return null;
+    }
+
+    @Override
     public Inventory getEnderChestInventory() {
         return null;
     }
@@ -117,12 +137,13 @@ public class NullPlayer implements Player {
     }
 
     @Override
-    public PlayerListEntry getPlayerListEntry(boolean shown) {
+    public PlayerListData getPlayerListData(PlayerListAction action) {
         return null;
     }
 
     @Override
-    public void sendPlayerListEntry(PlayerListEntry plentry) {
+    public void sendPlayerListData(PlayerListData data) {
+
     }
 
     @Override
@@ -133,6 +154,26 @@ public class NullPlayer implements Player {
     @Override
     public boolean isDeeplySleeping() {
         return false;
+    }
+
+    @Override
+    public boolean isSleepingIgnored() {
+        return false;
+    }
+
+    @Override
+    public void setSleepingIgnored(boolean ignored) {
+
+    }
+
+    @Override
+    public boolean isUsingItem() {
+        return false;
+    }
+
+    @Override
+    public Item getItemInUse() {
+        return null;
     }
 
     @Override
@@ -164,6 +205,11 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public void openBook(Item writtenbook) {
+
+    }
+
+    @Override
     public void closeWindow() {
     }
 
@@ -186,7 +232,17 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public void hideFrom(Player player) {
+
+    }
+
+    @Override
     public void hidePlayerGlobal() {
+    }
+
+    @Override
+    public void hideFromAll() {
+
     }
 
     @Override
@@ -194,7 +250,17 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public void showTo(Player player) {
+
+    }
+
+    @Override
     public void showPlayerGlobal() {
+    }
+
+    @Override
+    public void showToAll() {
+
     }
 
     @Override
@@ -203,7 +269,47 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public boolean isHiddenFrom(Player player) {
+        return false;
+    }
+
+    @Override
+    public boolean isHiddenFromAll() {
+        return false;
+    }
+
+    @Override
     public void setCompassTarget(int x, int y, int z) {
+    }
+
+    @Override
+    public GameProfile getGameProfile() {
+        return null;
+    }
+
+    @Override
+    public ChatComponent getDisplayNameComponent() {
+        return null;
+    }
+
+    @Override
+    public void setDisplayNameComponent(ChatComponent component) {
+
+    }
+
+    @Override
+    public Inventory getSecondInventory() {
+        return null;
+    }
+
+    @Override
+    public void showTitle(ChatComponent title) {
+
+    }
+
+    @Override
+    public void showTitle(ChatComponent title, ChatComponent subtitle) {
+
     }
 
     @Override
@@ -334,6 +440,21 @@ public class NullPlayer implements Player {
 
     @Override
     public float getExhaustionLevel() {
+        return 0;
+    }
+
+    @Override
+    public void addSaturation(float saturation) {
+
+    }
+
+    @Override
+    public void setSaturation(float saturation) {
+
+    }
+
+    @Override
+    public float getSaturationLevel() {
         return 0;
     }
 
@@ -479,6 +600,46 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public boolean showingDisplayName() {
+        return false;
+    }
+
+    @Override
+    public void setShowDisplayName(boolean show) {
+
+    }
+
+    @Override
+    public boolean isEating() {
+        return false;
+    }
+
+    @Override
+    public List<Entity> getNearbyEntities(double radius) {
+        return null;
+    }
+
+    @Override
+    public List<Entity> getNearbyEntities(Vector3D vector) {
+        return null;
+    }
+
+    @Override
+    public List<Entity> getNearbyEntities(double radius, EntityType... filter) {
+        return null;
+    }
+
+    @Override
+    public List<Entity> getNearbyEntities(Vector3D vector, EntityType... filter) {
+        return null;
+    }
+
+    @Override
+    public BoundingBox getBoundingBox() {
+        return null;
+    }
+
+    @Override
     public void destroyItemHeld() {
     }
 
@@ -516,6 +677,11 @@ public class NullPlayer implements Player {
 
     @Override
     public boolean isBlocking() {
+        return false;
+    }
+
+    @Override
+    public boolean isShooting() {
         return false;
     }
 
@@ -704,6 +870,26 @@ public class NullPlayer implements Player {
     @Override
     public Entity getTargetLookingAt(int searchRadius) {
         return null;
+    }
+
+    @Override
+    public boolean lootDrop() {
+        return false;
+    }
+
+    @Override
+    public void setLootDrop(boolean lootDrop) {
+
+    }
+
+    @Override
+    public boolean xpDrop() {
+        return false;
+    }
+
+    @Override
+    public void setXPDrop(boolean xpDrop) {
+
     }
 
     @Override
@@ -967,7 +1153,42 @@ public class NullPlayer implements Player {
     }
 
     @Override
+    public void notice(CharSequence message) {
+
+    }
+
+    @Override
+    public void notice(CharSequence... messages) {
+
+    }
+
+    @Override
+    public void notice(Iterable<? extends CharSequence> messages) {
+
+    }
+
+    @Override
     public void message(String message) {
+
+    }
+
+    @Override
+    public void message(CharSequence message) {
+
+    }
+
+    @Override
+    public void message(CharSequence... messages) {
+
+    }
+
+    @Override
+    public void message(Iterable<? extends CharSequence> messages) {
+
+    }
+
+    @Override
+    public void message(ChatComponent... chatComponents) {
 
     }
 
@@ -1088,6 +1309,11 @@ public class NullPlayer implements Player {
 
     @Override
     public boolean isInLava() {
+        return false;
+    }
+
+    @Override
+    public boolean hasDisplayName() {
         return false;
     }
 }
