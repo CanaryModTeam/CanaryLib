@@ -52,30 +52,30 @@ public interface Factory {
     PacketFactory getPacketFactory();
 
     /**
-     * Gets the {@link net.canarymod.api.factory.ChatComponentFactory} instance
+     * Gets the {@link ChatComponentFactory} instance
      *
-     * @return {@link net.canarymod.api.factory.ChatComponentFactory}
+     * @return {@link ChatComponentFactory}
      */
     ChatComponentFactory getChatComponentFactory();
 
     /**
-     * Gets the {@link net.canarymod.api.factory.AttributeFactory} instance
+     * Gets the {@link AttributeFactory} instance
      *
-     * @return {@link net.canarymod.api.factory.AttributeFactory}
+     * @return {@link AttributeFactory}
      */
     AttributeFactory getAttributeFactory();
 
     /**
-     * Gets the {@link net.canarymod.api.factory.StatisticsFactory} instance
+     * Gets the {@link StatisticsFactory} instance
      *
-     * @return {@link net.canarymod.api.factory.StatisticsFactory}
+     * @return {@link StatisticsFactory}
      */
     StatisticsFactory getStatisticsFactory();
 
     /**
-     * Gets the {@link net.canarymod.api.factory.AIFactory} instance
+     * Gets the {@link AIFactory} instance
      *
-     * @return {@link net.canarymod.api.factory.AIFactory}
+     * @return {@link AIFactory}
      */
     AIFactory getAIFactory();
 }

@@ -172,24 +172,24 @@ public interface AIFactory {
     AIEatGrass newAIEatGrass(EntityLiving entity);
 
     /**
-     * Returns A new {@link AIEntityNearest} Instance.
+     * Returns A new {@link AIFindEntityNearest} Instance.
      *
      * @param entityLiving
      *         THe Entity that owns this ai.
      * @param entityClass
      *         The class type this entity should target.
      *
-     * @return A new {@link AIEntityNearest} Instance.
+     * @return A new {@link AIFindEntityNearest} Instance.
      */
     AIFindEntityNearest newAIFindEntityNearest(EntityLiving entityLiving, Class<? extends Entity> entityClass);
 
     /**
-     * Returns A new {@link AIEntityNearestPlayer} Instance.
+     * Returns A new {@link AIFindEntityNearestPlayer} Instance.
      *
      * @param entityLiving
      *         THe Entity that owns this ai.
      *
-     * @return A new {@link AIEntityNearestPlayer} Instance.
+     * @return A new {@link AIFindEntityNearestPlayer} Instance.
      */
     AIFindEntityNearestPlayer newAIFindEntityNearestPlayer(EntityLiving entityLiving);
 
@@ -247,7 +247,7 @@ public interface AIFactory {
      * Returns A new {@link AIHarvestFarmland} Instance.
      *
      * @param villager
-     *         The {@link VIllager} this AI belongs to
+     *         The {@link Villager} this AI belongs to
      * @param speed
      *         speed the villager will walk at.
      *

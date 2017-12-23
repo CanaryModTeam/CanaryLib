@@ -11,12 +11,12 @@ import net.canarymod.api.statistics.Stat;
 public interface StatisticsFactory {
 
     /**
-     * Gets the instance for a given {@link net.canarymod.api.statistics.Stat} name
+     * Gets the instance for a given {@link Stat} name
      *
      * @param nmsName
      *         the name of the stat
      *
-     * @return {@link net.canarymod.api.statistics.Stat} instance
+     * @return {@link Stat} instance
      */
     Stat getStat(String nmsName);
 

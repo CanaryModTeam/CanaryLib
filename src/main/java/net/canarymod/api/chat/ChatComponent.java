@@ -10,19 +10,19 @@ import java.util.List;
 public interface ChatComponent extends Cloneable {
 
     /**
-     * Sets the {@link net.canarymod.api.chat.ChatStyle} of this {@code ChatComponent}
+     * Sets the {@link ChatStyle} of this {@code ChatComponent}
      *
      * @param style
-     *         the {@link net.canarymod.api.chat.ChatStyle} to be set
+     *         the {@link ChatStyle} to be set
      *
-     * @return {@code this} with the {@linke ChatStyle} applied
+     * @return {@code this} with the {@link ChatStyle} applied
      */
     ChatComponent setChatStyle(ChatStyle style);
 
     /**
-     * Gets the {@link net.canarymod.api.chat.ChatStyle} of this {@code ChatComponent}
+     * Gets the {@link ChatStyle} of this {@code ChatComponent}
      *
-     * @return {@link net.canarymod.api.chat.ChatStyle}
+     * @return {@link ChatStyle}
      */
     ChatStyle getChatStyle();
 
@@ -42,7 +42,7 @@ public interface ChatComponent extends Cloneable {
      * @param text
      *         the text to append
      *
-     * @return {@code this} with text appened
+     * @return {@code this} with text appended
      */
     ChatComponent appendText(String text);
 

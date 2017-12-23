@@ -8,9 +8,9 @@ package net.canarymod.api.chat;
 public interface ChatStyle extends Cloneable {
 
     /**
-     * Gets the {@link net.canarymod.api.chat.ChatFormatting} for this {@code ChatStyle}
+     * Gets the {@link ChatFormatting} for this {@code ChatStyle}
      *
-     * @return {@link net.canarymod.api.chat.ChatFormatting}
+     * @return {@link ChatFormatting}
      */
     ChatFormatting getColor();
 
@@ -57,24 +57,24 @@ public interface ChatStyle extends Cloneable {
     boolean isEmpty();
 
     /**
-     * Gets the assigned {@link net.canarymod.api.chat.ClickEvent}
+     * Gets the assigned {@link ClickEvent}
      *
-     * @return {@link net.canarymod.api.chat.ClickEvent}
+     * @return {@link ClickEvent}
      */
     ClickEvent getChatClickEvent();
 
     /**
-     * Gets the assigned {@link net.canarymod.api.chat.HoverEvent}
+     * Gets the assigned {@link HoverEvent}
      *
-     * @return {@link net.canarymod.api.chat.HoverEvent}
+     * @return {@link HoverEvent}
      */
     HoverEvent getChatHoverEvent();
 
     /**
-     * Sets the {@link net.canarymod.api.chat.ChatFormatting} of this {@code ChatStyle}
+     * Sets the {@link ChatFormatting} of this {@code ChatStyle}
      *
      * @param color
-     *         the {@link net.canarymod.api.chat.ChatFormatting} color
+     *         the {@link ChatFormatting} color
      *
      * @return {@code this}
      */
@@ -131,20 +131,20 @@ public interface ChatStyle extends Cloneable {
     ChatStyle setObfuscated(boolean obfuscated);
 
     /**
-     * Sets the {@link net.canarymod.api.chat.ClickEvent} of this {@code ChatStyle}
+     * Sets the {@link ClickEvent} of this {@code ChatStyle}
      *
      * @param clickEvent
-     *         the {@link net.canarymod.api.chat.ClickEvent} to be set
+     *         the {@link ClickEvent} to be set
      *
      * @return {@code this}
      */
     ChatStyle setChatClickEvent(ClickEvent clickEvent);
 
     /**
-     * Sets the {@link net.canarymod.api.chat.HoverEvent} of this {@code ChatStyle}
+     * Sets the {@link HoverEvent} of this {@code ChatStyle}
      *
      * @param hoverEvent
-     *         the {@link net.canarymod.api.chat.HoverEvent} to be set
+     *         the {@link HoverEvent} to be set
      *
      * @return {@code this}
      */

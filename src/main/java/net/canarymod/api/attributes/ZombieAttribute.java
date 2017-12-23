@@ -9,7 +9,8 @@ import net.canarymod.Canary;
 @Beta
 public enum ZombieAttribute {
 
-    SPAWNREINFORCEMENTS("zombie.spawnReinforcements");
+    SPAWNREINFORCEMENTS("zombie.spawnReinforcements"),
+    ;
 
     private final String nmsName;
 

@@ -8,16 +8,16 @@ package net.canarymod.api.chat;
 public interface HoverEvent {
 
     /**
-     * Gets the {@link net.canarymod.api.chat.HoverEventAction} of this {@code HoverEvent}
+     * Gets the {@link HoverEventAction} of this {@code HoverEvent}
      *
      * @return the {@link HoverEventAction}
      */
     HoverEventAction getAction();
 
     /**
-     * Gets the {@link net.canarymod.api.chat.ChatComponent} value
+     * Gets the {@link ChatComponent} value
      *
-     * @return {@link net.canarymod.api.chat.ChatComponent}
+     * @return {@link ChatComponent}
      */
     ChatComponent getValue();
 }
