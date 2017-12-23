@@ -20,8 +20,19 @@ public interface AttributeModifier {
      */
     UUID getId();
 
+    /**
+     * Gets the name of the modifier.
+     *
+     * @return The name
+     */
     String getName();
 
+    /**
+     * Gets the operation of which the modifier performs, to the {@link Attribute}.
+     *
+     * @return The operation
+     * @see Operations for a list of potential operations
+     */
     int getOperation();
 
     /**

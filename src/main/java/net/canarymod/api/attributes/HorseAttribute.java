@@ -9,7 +9,8 @@ import net.canarymod.Canary;
 @Beta
 public enum HorseAttribute {
 
-    JUMPSTRENGTH("horse.jumpStrength");
+    JUMPSTRENGTH("horse.jumpStrength"),
+    ;
 
     private final String nmsName;
 
