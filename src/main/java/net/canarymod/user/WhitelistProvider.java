@@ -1,30 +1,16 @@
 package net.canarymod.user;
 
-import net.canarymod.ToolBox;
-import net.canarymod.backbone.BackboneWhitelist;
-
-import java.util.List;
-
 /**
  * Access to the backbone for whitelist
  *
  * @author Chris (damagefilter)
  */
-public class WhitelistProvider {
-    private BackboneWhitelist backboneWhitelist;
-    private List<String> whitelist;
-
-    public WhitelistProvider() {
-        backboneWhitelist = new BackboneWhitelist();
-        whitelist = backboneWhitelist.loadWhitelist();
-    }
+public interface WhitelistProvider {
 
     /**
      * Reload the whitelist from database
      */
-    public void reload() {
-        whitelist = backboneWhitelist.loadWhitelist();
-    }
+    void reload();
 
     /**
      * Check if a given player is whitelisted.
@@ -34,13 +20,7 @@ public class WhitelistProvider {
      *
      * @return
      */
-    public boolean isWhitelisted(String subject) {
-        String uuid = subject;
-        if (!ToolBox.isUUID(uuid)) {
-            uuid = ToolBox.usernameToUUID(uuid);
-        }
-        return whitelist.contains(uuid);
-    }
+    boolean isWhitelisted(String subject);
 
     /**
      * Adds a new whitelist entry
@@ -48,16 +28,7 @@ public class WhitelistProvider {
      * @param subject
      *         player name or uuid
      */
-    public void addPlayer(String subject) {
-        String uuid = subject;
-        if (!ToolBox.isUUID(uuid)) {
-            uuid = ToolBox.usernameToUUID(uuid);
-        }
-        if (!whitelist.contains(uuid)) {
-            whitelist.add(uuid);
-            backboneWhitelist.addWhitelistEntry(uuid);
-        }
-    }
+    void addPlayer(String subject);
 
     /**
      * Removes the given player from the whitelist
@@ -65,27 +36,14 @@ public class WhitelistProvider {
      * @param subject
      *         player name or uuid
      */
-    public void removePlayer(String subject) {
-        String uuid = subject;
-        if (!ToolBox.isUUID(uuid)) {
-            uuid = ToolBox.usernameToUUID(uuid);
-        }
-        if (whitelist.contains(uuid)) {
-            whitelist.remove(uuid);
-            backboneWhitelist.removeWhitelistEntry(uuid);
-        }
-    }
+    void removePlayer(String subject);
 
     /**
      * gets the current size of the whitelist
      *
      * @return
      */
-    public int getSize() {
-        return whitelist.size();
-    }
+    int getSize();
 
-    public String[] getWhitelisted() {
-        return whitelist.toArray(new String[getSize()]);
-    }
+    String[] getWhitelisted();
 }
