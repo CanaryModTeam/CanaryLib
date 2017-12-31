@@ -14,7 +14,6 @@ import net.canarymod.database.Database;
 import net.canarymod.help.HelpManager;
 import net.canarymod.hook.HookExecutor;
 import net.canarymod.kit.KitProvider;
-import net.canarymod.logger.Logman;
 import net.canarymod.metrics.CanaryMetrics;
 import net.canarymod.motd.MessageOfTheDay;
 import net.canarymod.permissionsystem.PermissionManager;
@@ -31,6 +30,8 @@ import net.canarymod.user.WhitelistProvider;
 import net.canarymod.util.JsonNBTUtility;
 import net.canarymod.warp.WarpProvider;
 import net.visualillusionsent.utils.JarUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,7 +48,7 @@ import java.util.jar.Manifest;
  * @author Jason (darkdiplomat)
  */
 public abstract class Canary implements TaskOwner {
-    public final static Logman log;
+    public final static Logger log;
     private static boolean latePluginsLoaded, earlyPluginsLoaded;
     private static String jarPath;
     private static CanaryMetrics metrics;
@@ -80,7 +81,7 @@ public abstract class Canary implements TaskOwner {
 
     static {
         System.out.println("Please wait while the libraries initialize...");
-        log = Logman.getLogman(getImplementationTitle());
+        log = LoggerFactory.getLogger(getImplementationTitle());
 
         try {
             PluginLifecycleFactory.registerLifecycle("java", JavaPluginLifecycle.class);

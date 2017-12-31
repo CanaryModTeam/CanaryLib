@@ -1,13 +1,12 @@
 package net.canarymod.commandsys.commands.system;
 
+import static net.canarymod.Translator.sendTranslatedNotice;
+
 import net.canarymod.Canary;
 import net.canarymod.chat.MessageReceiver;
 import net.canarymod.commandsys.NativeCommand;
 import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
-import net.canarymod.logger.Logman;
-
-import static net.canarymod.Translator.sendTranslatedNotice;
 
 /**
  * Command to enable, disable or reload plugins
@@ -49,13 +48,9 @@ public class PluginCommand implements NativeCommand {
                 sendTranslatedNotice(caller, "plugin reloaded fail", plugin);
             }
         }
-        catch (PluginLoadFailedException e) {
+        catch (PluginLoadFailedException | InvalidPluginException e) {
             sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
-        }
-        catch (InvalidPluginException e) {
-            sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
+            Canary.log.error("Failed to load plugin", e);
         }
     }
 
@@ -70,7 +65,7 @@ public class PluginCommand implements NativeCommand {
         }
         catch (PluginLoadFailedException e) {
             sendTranslatedNotice(caller, "plugin enabled fail", plugin);
-            Logman.getLogman("pluginCommand").error("Failed to load plugin", e);
+            Canary.log.error("Failed to load plugin", e);
         }
     }
 

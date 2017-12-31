@@ -33,9 +33,11 @@ repositories {
 
 dependencies {
     // Provided by Minecraft
-    compile 'org.apache.logging.log4j:log4j-api:2.0-beta9'
     compile 'com.google.guava:guava:21.0'
-    compile 'com.mojang:authlib:1.5.21'
+    compile 'com.mojang:authlib:1.5.25'
+
+    // Logging
+    compile 'org.slf4j:slf4j-api:1.7.25'
 
     // Other
     compile 'net.visualillusionsent:viutils:1.4.2'
@@ -62,8 +64,8 @@ javadoc {
     options.encoding = 'UTF-8'
     options.charSet = 'UTF-8'
     options.links(
-            'https://logging.apache.org/log4j/2.x/log4j-api/apidocs/',
             'https://google.github.io/guava/releases/21.0/api/docs/',
+            'http://www.slf4j.org/apidocs/',
             'http://www.jdom.org/docs/apidocs/',
             'http://www.mchange.com/projects/c3p0/apidocs/',
             'https://docs.oracle.com/javase/8/docs/api/'
