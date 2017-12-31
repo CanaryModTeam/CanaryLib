@@ -62,6 +62,11 @@ public class NullPlayerInventory implements PlayerInventory {
     }
 
     @Override
+    public Item getItemInOffhand() {
+        return null;
+    }
+
+    @Override
     public Item getItemOnCursor() {
         return null;
     }

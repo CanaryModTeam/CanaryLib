@@ -1,6 +1,6 @@
 package net.canarymod;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import net.canarymod.api.Server;
 import net.canarymod.api.entity.living.humanoid.Player;
 import net.canarymod.api.factory.Factory;
@@ -425,7 +425,7 @@ public abstract class Canary implements TaskOwner {
      * @return specification title
      */
     public static String getSpecificationTitle() {
-        return Objects.firstNonNull(Canary.class.getPackage().getSpecificationTitle(), "CanaryLib");
+        return MoreObjects.firstNonNull(Canary.class.getPackage().getSpecificationTitle(), "CanaryLib");
     }
 
     /**
@@ -434,7 +434,7 @@ public abstract class Canary implements TaskOwner {
      * @return specification version
      */
     public static String getSpecificationVersion() {
-        return Objects.firstNonNull(Canary.class.getPackage().getSpecificationVersion(), "dev");
+        return MoreObjects.firstNonNull(Canary.class.getPackage().getSpecificationVersion(), "dev");
     }
 
     /**
@@ -443,7 +443,7 @@ public abstract class Canary implements TaskOwner {
      * @return implementation title
      */
     public static String getImplementationTitle() {
-        return Objects.firstNonNull(Canary.class.getPackage().getImplementationTitle(), "CanaryMod");
+        return MoreObjects.firstNonNull(Canary.class.getPackage().getImplementationTitle(), "CanaryMod");
     }
 
     /**
@@ -452,7 +452,7 @@ public abstract class Canary implements TaskOwner {
      * @return implementation version
      */
     public static String getImplementationVersion() {
-        return Objects.firstNonNull(Canary.class.getPackage().getImplementationVersion(), "dev");
+        return MoreObjects.firstNonNull(Canary.class.getPackage().getImplementationVersion(), "dev");
     }
 
     public static long getBuildNumber() {

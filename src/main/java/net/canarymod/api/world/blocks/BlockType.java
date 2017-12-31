@@ -700,9 +700,9 @@ public final class BlockType {
     public static final BlockType ChainCommandBlock = new BlockType(211, 0, "minecraft:chain_command_block");
     public static final BlockType FrostedIce = new BlockType(212, 0, "minecraft:frosted_ice");
     public static final BlockType Magma = new BlockType(213, 0, "minecraft:magma");
-    public static final BlockType NetherWart = new BlockType(214, 0, "minecraft:nether_wart_block");
+    public static final BlockType NetherWartBlock = new BlockType(214, 0, "minecraft:nether_wart_block");
     public static final BlockType RedNetherBrick = new BlockType(215, 0, "minecraft:red_nether_brick");
-    public static final BlockType Bone = new BlockType(216, 0, "minecraft:bone_block");
+    public static final BlockType BoneBlock = new BlockType(216, 0, "minecraft:bone_block");
     public static final BlockType StructureVoid = new BlockType(217, 0, "minecraft:structure_void");
 
     public static final BlockType StructureBlock = new BlockType(255, 0, "minecraft:structure_block");
