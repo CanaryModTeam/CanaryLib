@@ -1,5 +1,7 @@
 package net.canarymod.plugin;
 
+import static net.canarymod.Canary.log;
+
 import net.canarymod.Canary;
 import net.canarymod.config.Configuration;
 import net.canarymod.exceptions.InvalidPluginException;
@@ -8,7 +10,7 @@ import net.canarymod.hook.system.PluginDisableHook;
 import net.canarymod.hook.system.PluginEnableHook;
 import net.canarymod.plugin.dependencies.DependencyGraph;
 import net.visualillusionsent.utils.PropertiesFile;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -19,8 +21,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import static net.canarymod.Canary.log;
 
 /**
  * {@inheritDoc}

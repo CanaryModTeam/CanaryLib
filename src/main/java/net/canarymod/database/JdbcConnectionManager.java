@@ -1,16 +1,16 @@
 package net.canarymod.database;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+import static net.canarymod.Canary.log;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import net.canarymod.config.Configuration;
 import net.canarymod.config.DatabaseConfiguration;
 import net.canarymod.database.exceptions.DatabaseAccessException;
 
-import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import static net.canarymod.Canary.log;
 
 /**
  * Represents a connection (pool) manager for all sorts of JDBC connections.
@@ -21,10 +21,11 @@ import static net.canarymod.Canary.log;
  *
  * @author Chris Ksoll (damagefilter)
  * @author Jason Jones (darkdiplomat)
+ * @author Jamie Mansfield (jamierocks)
  */
 public class JdbcConnectionManager {
 
-    private ComboPooledDataSource cpds; // The data source pool ;)
+    private HikariDataSource dataSource; // The data source pool ;)
     private Connection nonManaged; // For those that bypass the manager/unable to use the manager
     private SQLType type;
 
@@ -40,41 +41,43 @@ public class JdbcConnectionManager {
      */
     private JdbcConnectionManager(SQLType type) throws SQLException {
         DatabaseConfiguration cfg = Configuration.getDbConfig();
-        cpds = new ComboPooledDataSource();
         this.type = type;
         if (type.usesJDBCManager()) {
-            try {
-                cpds.setDriverClass(type.getClassPath());
-                cpds.setJdbcUrl(cfg.getDatabaseUrl(type.getIdentifier()));
-                cpds.setUser(cfg.getDatabaseUser());
-                cpds.setPassword(cfg.getDatabasePassword());
+            final HikariConfig config = new HikariConfig();
 
-                // For settings explanations see
-                // http://javatech.org/2007/11/c3p0-connectionpool-configuration-rules-of-thumb/
-                // https://community.jboss.org/wiki/HowToConfigureTheC3P0ConnectionPool?_sscc=t
+            // Configure HikariConfig
+            {
+                config.setDriverClassName(type.getClassPath());
+                config.setJdbcUrl(cfg.getDatabaseUrl(type.getIdentifier()));
+                config.setUsername(cfg.getDatabaseUser());
+                config.setPassword(cfg.getDatabasePassword());
 
-                //connection pooling
-                cpds.setAcquireIncrement(cfg.getAcquireIncrement());
-                cpds.setMaxIdleTime(cfg.getMaxConnectionIdleTime());
-                cpds.setMaxIdleTimeExcessConnections(cfg.getMaxExcessConnectionsIdleTime());
-                cpds.setMaxPoolSize(cfg.getMaxPoolSize());
-                cpds.setMinPoolSize(cfg.getMinPoolSize());
-                cpds.setNumHelperThreads(cfg.getNumHelperThreads());
-                cpds.setUnreturnedConnectionTimeout(cfg.getReturnConnectionTimeout());
-                cpds.setIdleConnectionTestPeriod(cfg.getConnectionTestFrequency());
+                // getAcquireIncrement
+                config.setIdleTimeout(cfg.getMaxConnectionIdleTime());
+                // getMaxExcessConnectionsIdleTime
+                config.setMaximumPoolSize(cfg.getMaxPoolSize());
+                // getMinPoolSize
+                // getNumHelperThreads
+                // getReturnConnectionTimeout
+                // getConnectionTestFrequency
 
-                //Statement pooling
-                cpds.setMaxStatements(cfg.getMaxCachedStatements());
-                cpds.setMaxStatementsPerConnection(cfg.getMaxCachedStatementsPerConnection());
-                cpds.setStatementCacheNumDeferredCloseThreads(cfg.getNumStatementCloseThreads());
+                // getMaxCachedStatements
+                // getMaxCachedStatementsPerConnection
+                // getNumStatementCloseThreads
             }
-            catch (PropertyVetoException e) {
-                log.error("Failed to configure the connection pool!", e);
+
+            // Create the HikariDataSource
+            this.dataSource = new HikariDataSource(config);
+
+            // Test connection
+            {
+                try (final Connection c = this.dataSource.getConnection()) {
+                    // noop
+                }
+                catch (final SQLException ex) {
+                    throw new RuntimeException("Failed to test the connection!", ex);
+                }
             }
-            //Test connection...
-            //If this fails it throws an SQLException so we're notified
-            Connection c = cpds.getConnection();
-            c.close();
         }
         else {
             nonManaged = DriverManager.getConnection(cfg.getDatabaseUrl(type.getIdentifier()), cfg.getDatabaseUser(), cfg.getDatabasePassword());
@@ -132,13 +135,9 @@ public class JdbcConnectionManager {
                 cman.nonManaged = DriverManager.getConnection(cfg.getDatabaseUrl(cman.type.getIdentifier()), cfg.getDatabaseUser(), cfg.getDatabasePassword());
                 return cman.nonManaged;
             }
-            return cman.cpds.getConnection();
+            return cman.dataSource.getConnection();
         }
-        catch (SQLException e) {
-            log.error("Couldn't get a Connection from pool!", e);
-            return null;
-        }
-        catch (DatabaseAccessException e) {
+        catch (SQLException | DatabaseAccessException e) {
             log.error("Couldn't get a Connection from pool!", e);
             return null;
         }
@@ -153,7 +152,7 @@ public class JdbcConnectionManager {
             // already shut down or never instantiated (perhaps because we're running on a non-jdbc database)
             return;
         }
-        instance.cpds.close();
+        instance.dataSource.close();
         if (instance.nonManaged != null) {
             try {
                 instance.nonManaged.close();

@@ -1,5 +1,7 @@
 package net.canarymod.database.sqlite;
 
+import static net.canarymod.Canary.log;
+
 import net.canarymod.Canary;
 import net.canarymod.database.Column;
 import net.canarymod.database.Column.DataType;
@@ -27,8 +29,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
-import static net.canarymod.Canary.log;
 
 /**
  * SQLite Database
@@ -90,11 +90,8 @@ public class SQLiteDatabase extends Database {
                 throw new DatabaseWriteException("Error inserting SQLite: no rows updated!");
             }
         }
-        catch (SQLException ex) {
+        catch (SQLException | DatabaseTableInconsistencyException ex) {
             log.error(ex.getMessage(), ex);
-        }
-        catch (DatabaseTableInconsistencyException dtie) {
-            log.error(dtie.getMessage(), dtie);
         }
         finally {
             close(null, ps, null);
@@ -468,7 +465,7 @@ public class SQLiteDatabase extends Database {
                 concatColumns.append(column);
             }
 
-            log.debug(concatColumns);
+            log.debug(concatColumns.toString());
 
             String tableName = table.getName();
             String tempTable = "" + tableName + "_temp";
