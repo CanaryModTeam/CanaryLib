@@ -56,7 +56,7 @@ public class OperatorsProvider {
             }
         }
         catch (FileNotFoundException e) {
-            log.info("Could not find config/ops.cfg. Creating one for you...");
+            log.warn("Could not find the operators configuration at config/ops.cfg, creating default.");
             File f = new File("config/ops.cfg");
             try {
                 if (f.createNewFile()) {

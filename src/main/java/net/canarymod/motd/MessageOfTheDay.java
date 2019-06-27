@@ -2,8 +2,10 @@ package net.canarymod.motd;
 
 import net.canarymod.chat.MessageReceiver;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,45 +37,44 @@ public class MessageOfTheDay {
     }
 
     public MessageOfTheDay() {
-        try {
-            loadMOTD();
-        }
-        catch (Exception ex) {
-            log.error("Failed to read/write Message of the Day from/to the motd.txt file.", ex);
-        }
+        readMotdCfg();
     }
 
-    private void loadMOTD() throws IOException {
-        File motd_file = new File("config/motd.txt");
-        if (!motd_file.exists()) {
-            if (!motd_file.createNewFile()) {
-                return;
-            }
-            PrintWriter writer = new PrintWriter(new FileWriter(motd_file));
-            writer.println("# (Login) Message of the Day");
-            writer.println("# See forums thread http://canarymod.net/forum/canarymod-board/discussions/motd-variables-3447");
-            writer.println("# for the list of default variables");
-            writer.println("# or the plugins threads that add-on to the Message Of The Day");
-            writer.println("# Lines may be prefixed with {permissions:<[node] or ![node] or [node]&[node]&![node]>}");
-            writer.println("# Examples: {permissions:canary.super.administor} {permissions:canary.world.build&!canary.super.administrator}");
-            writer.println("# # # # #");
-            writer.flush();
-            writer.close();
-        }
-        else {
-            FileInputStream fis = new FileInputStream(motd_file);
-            Scanner scanner = new Scanner(fis, "UTF-8");
-
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-
+    private void readMotdCfg() {
+        final File file = new File("config/motd.txt");
+        try {
+            final BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line;
+            while ((line = reader.readLine()) != null) {
                 if (line.startsWith("#")) {
-                    continue;
+                    if (line.startsWith("#")) {
+                        continue;
+                    }
+                    motdLines.add(line);
                 }
-                motdLines.add(line);
             }
-            scanner.close();
-            fis.close();
+        }
+        catch (final FileNotFoundException e) {
+            log.info("Could not find the MOTD configuration at config/motd.txt, creating default.");
+            try {
+                if (file.createNewFile()) {
+                    final PrintWriter writer = new PrintWriter(new FileWriter(file));
+                    writer.println("# (Login) Message of the Day");
+                    writer.println("# See forums thread http://canarymod.net/forum/canarymod-board/discussions/motd-variables-3447");
+                    writer.println("# for the list of default variables");
+                    writer.println("# or the plugins threads that add-on to the Message Of The Day");
+                    writer.println("# Lines may be prefixed with {permissions:<[node] or ![node] or [node]&[node]&![node]>}");
+                    writer.println("# Examples: {permissions:canary.super.administor} {permissions:canary.world.build&!canary.super.administrator}");
+                    writer.println("# # # # #");
+                    writer.close();
+                }
+            }
+            catch (final IOException e1) {
+                log.error("Failed to write config/motd.txt! (Probably no write-access!)", e);
+            }
+        }
+        catch (final IOException e) {
+            log.error("Failed to read from config/motd.txt!", e);
         }
     }
 
@@ -207,11 +207,6 @@ public class MessageOfTheDay {
 
     public void reload() {
         motdLines.clear();
-        try {
-            loadMOTD();
-        }
-        catch (Exception ex) {
-            log.error("Failed to read/write Message of the Day from/to the motd.txt file.", ex);
-        }
+        readMotdCfg();
     }
 }
