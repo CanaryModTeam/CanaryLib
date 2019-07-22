@@ -20,6 +20,7 @@ public enum TreeType {
     JUNGLEBUSH,
     MEGAJUNGLE,
     ACACIA,
+    CHORUSPLANT,
 
     /* I know, these technically aren't trees, but the Bukkit API has them and people will complain if these are here... */
     REDMUSHROOM,

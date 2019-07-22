@@ -5,7 +5,6 @@ package net.canarymod.chat;
  *
  * @author Jason (darkdiplomat)
  */
-
 public enum ChatFormat {
 
     /**

@@ -1,0 +1,81 @@
+apply plugin: 'java'
+
+group = 'net.canarymod'
+version = '2.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        name 'vi-repo'
+        url 'http://repo.visualillusionsent.net/repository/internal/'
+    }
+    maven {
+        name 'vi-snapshots'
+        url 'http://repo.visualillusionsent.net/repository/snapshots/'
+    }
+    maven {
+        name 'mojang'
+        url 'https://libraries.minecraft.net/'
+    }
+    maven {
+        name 'mcstats'
+        url 'http://repo.mcstats.org/content/repositories/releases/'
+    }
+    maven {
+        name 'mcstats.snapshots'
+        url 'http://repo.mcstats.org/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    // Provided by Minecraft
+    compile 'com.google.guava:guava:21.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.mojang:authlib:1.5.25'
+
+    // Logging
+    compile 'org.slf4j:slf4j-api:1.7.25'
+
+    // Other
+    compile 'net.visualillusionsent:viutils:1.4.2'
+    compile 'org.jdom:jdom2:2.0.5'
+    compile 'com.zaxxer:HikariCP:2.7.4'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+    compile 'org.mcstats.standalone:metrics:R7'
+
+    // Runtime
+    compile 'org.xerial:sqlite-jdbc:3.8.7'
+    compile 'mysql:mysql-connector-java:5.1.34'
+
+    testCompile 'junit:junit:4.12'
+}
+
+// Source compiler configuration
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ['-Xlint:all', '-Xlint:-path', '-parameters']
+    options.deprecation = true
+    options.encoding = 'UTF-8'
+}
+
+javadoc {
+    options.encoding = 'UTF-8'
+    options.charSet = 'UTF-8'
+    options.links(
+            'https://google.github.io/guava/releases/21.0/api/docs/',
+            'http://www.slf4j.org/apidocs/',
+            'http://www.jdom.org/docs/apidocs/',
+            'http://www.mchange.com/projects/c3p0/apidocs/',
+            'https://docs.oracle.com/javase/8/docs/api/'
+    )
+
+    // Disable the crazy super-strict doclint tool in Java 8
+    options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+}

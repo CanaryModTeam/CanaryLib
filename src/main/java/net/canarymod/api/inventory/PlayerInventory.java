@@ -82,6 +82,13 @@ public interface PlayerInventory extends Inventory {
     Item getItemInHand();
 
     /**
+     * Gets the current {@link Item} in offhand
+     *
+     * @return the {@link Item} in offhand
+     */
+    Item getItemInOffhand();
+
+    /**
      * Gets the current {@link Item} on the cursor
      *
      * @return the {@link Item} in hand

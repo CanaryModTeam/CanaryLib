@@ -2,7 +2,6 @@ package net.canarymod.database.xml;
 
 import com.google.common.collect.Maps;
 import com.google.common.io.Files;
-import com.mchange.v1.lang.BooleanUtils;
 import net.canarymod.Canary;
 import net.canarymod.database.Column;
 import net.canarymod.database.Column.DataType;
@@ -1025,7 +1024,7 @@ public class XmlDatabase extends Database {
                     return defValTempl.getClass().getField(field).getDouble(defValTempl);
                 }
             case BOOLEAN:
-                return BooleanUtils.parseBoolean(value);
+                return Boolean.parseBoolean(value);
             case STRING:
             default:
                 return value;

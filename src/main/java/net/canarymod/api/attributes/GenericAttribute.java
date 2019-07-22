@@ -14,6 +14,9 @@ public enum GenericAttribute {
     MOVEMENTSPEED("generic.movementSpeed"),
     ATTACKDAMAGE("generic.attackDamage"),
     KNOCKBACKRESIST("generic.knockbackResistance"),
+    ARMOR("generic.armor"),
+    ATTACKSPEED("generic.attackSpeed"),
+    LUCK("generic.luck"),
     ;
 
     private final String nmsName;
@@ -29,5 +32,4 @@ public enum GenericAttribute {
     public String getNativeName() {
         return this.nmsName;
     }
-
 }

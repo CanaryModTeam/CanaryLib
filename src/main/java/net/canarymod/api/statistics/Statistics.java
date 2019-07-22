@@ -38,12 +38,34 @@ public enum Statistics {
     JUNKFISHED("junkFished"),
     TREASUREFISHED("treasureFished"),
     TALKEDTOVILLAGER("talkedToVillager"),
-    TRADEDWITHVILLAGER("tradedWithVillager"),;
+    TRADEDWITHVILLAGER("tradedWithVillager"),
+    CAKESLICESEATEN("cakeSlicesEaten"),
+    CAULDRONFILLED("cauldronFilled"),
+    CAULDRONUSED("cauldronUsed"),
+    ARMORCLEANED("armorCleaned"),
+    BANNERCLEANED("bannerCleaned"),
+    BREWINGSTANDINTERACTION("brewingstandInteraction"),
+    BEACONINTERACTION("beaconInteraction"),
+    DROPPERINSPECTED("dropperInspected"),
+    HOPPERINSPECTED("hopperInspected"),
+    DISPENSERINSPECTED("dispenserInspected"),
+    NOTEBLOCKPLAYED("noteblockPlayed"),
+    NOTEBLOCKTUNED("noteblockTuned"),
+    FLOWERPOTTED("flowerPotted"),
+    TRAPPEDCHESTTRIGGERED("trappedChestTriggered"),
+    ENDERCHESTOPENED("enderchestOpened"),
+    ITEMENCHANTED("itemEnchanted"),
+    RECORDPLAYED("recordPlayed"),
+    FURNACEINTERACTION("furnaceInteraction"),
+    CRAFTINGTABLEINTERACTION("craftingTableInteraction"),
+    CHESTOPENED("chestOpened"),
+    SLEEPINBED("sleepInBed"),
+    ;
 
     private final String nmsName;
     private final static HashMap<String, Statistics> statisticsHashMap = Maps.newHashMap();
 
-    private Statistics(String nmsName) {
+    Statistics(String nmsName) {
         this.nmsName = "stat.".concat(nmsName);
     }
 

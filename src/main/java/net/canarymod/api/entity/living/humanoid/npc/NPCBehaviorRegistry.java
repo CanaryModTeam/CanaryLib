@@ -1,5 +1,7 @@
 package net.canarymod.api.entity.living.humanoid.npc;
 
+import static net.canarymod.Canary.log;
+
 import com.google.common.collect.ArrayListMultimap;
 import net.canarymod.ToolBox;
 import net.canarymod.api.entity.living.humanoid.NonPlayableCharacter;
@@ -10,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static net.canarymod.Canary.log;
-
 /**
  * @author Jason (darkdiplomat)
  */
@@ -21,7 +21,7 @@ public final class NPCBehaviorRegistry {
     /**
      * Registers a new {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener}
      *
-     * @param listner
+     * @param listener
      *         the {@link net.canarymod.api.entity.living.humanoid.npc.NPCBehaviorListener} to be added
      * @param npc
      *         the {@link net.canarymod.api.entity.living.humanoid.NonPlayableCharacter} associated with the listener
@@ -167,7 +167,7 @@ public final class NPCBehaviorRegistry {
                         listener.execute(npcai);
                     }
                     catch (NPCAIExcutionException npcaieex) {
-                        log.error(npcaieex.getCause());
+                        log.error("Failed to execute NPC AI", npcaieex);
                     }
                 }
             }

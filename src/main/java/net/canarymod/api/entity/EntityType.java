@@ -68,9 +68,11 @@ public enum EntityType {
     PIG(90, GENERIC_ANIMAL),
     PIGZOMBIE(57, GENERIC_MOB),
     PLAYER(48, GENERIC_LIVING),
+    POLARBEAR(102, GENERIC_ANIMAL),
     POTION(16, GENERIC_THROWABLE),
     PRIEST(120, GENERIC_LIVING),
     SHEEP(91, GENERIC_ANIMAL),
+    SHULKER(68, GENERIC_MOB),
     SILVERFISH(60, GENERIC_MOB),
     SKELETON(51, GENERIC_MOB),
     SKELETONHORSE(100, GENERIC_ANIMAL),
@@ -97,7 +99,7 @@ public enum EntityType {
     private final short id;
     private EntityType subtype;
 
-    private EntityType(int id, EntityType subtype) {
+    EntityType(int id, EntityType subtype) {
         this.id = (short)id;
         this.subtype = subtype;
     }

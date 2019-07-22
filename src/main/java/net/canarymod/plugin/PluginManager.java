@@ -2,7 +2,7 @@ package net.canarymod.plugin;
 
 import net.canarymod.exceptions.InvalidPluginException;
 import net.canarymod.exceptions.PluginLoadFailedException;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
 
 import java.util.Collection;
 
