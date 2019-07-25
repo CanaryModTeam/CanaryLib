@@ -35,6 +35,7 @@ public final class DefaultPluginManager implements PluginManager {
     private final Map<String, PluginDescriptor> plugins; // This is keyed to set Plugin name
     private final DependencyGraph dependencies;
     private final PropertiesFile pluginPriorities;
+    private String pluginPath;
 
     public DefaultPluginManager() {
         plugins = new LinkedHashMap<String, PluginDescriptor>();
@@ -310,7 +311,7 @@ public final class DefaultPluginManager implements PluginManager {
      */
     @Override
     public void scanForPlugins() {
-        File pluginDir = new File("plugins/");
+        File pluginDir = new File(pluginPath);
         if (!pluginDir.exists()) {
             log.warn("Failed to scan for plugins. 'plugins/' is not a directory. Creating...");
             pluginDir.mkdir();
@@ -337,6 +338,22 @@ public final class DefaultPluginManager implements PluginManager {
         synchronized (lock) {
             log.info("Found " + loadedDescriptors + " plugins; total: " + plugins.size());
         }
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setPluginPath(String path) {
+        this.pluginPath = path;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getPluginPath() {
+        return pluginPath;
     }
 
     private boolean loadPluginDescriptorAndInsertInGraph(File pluginFile) throws InvalidPluginException {
